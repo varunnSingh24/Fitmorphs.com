@@ -55,7 +55,7 @@ html {
   background-color: var(--dark);
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
-  cursor: none;
+  cursor: none !important;
 }
 
 body {
@@ -106,7 +106,7 @@ p {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-a { text-decoration: none; color: inherit; transition: color 0.3s ease; cursor: none; }
+a { text-decoration: none; color: inherit; transition: color 0.3s ease; cursor: none !important; }
 
 ul { list-style: none; }
 
@@ -219,7 +219,7 @@ ul { list-style: none; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  cursor: none; text-align: center;
+  cursor: none !important; text-align: center;
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
   font-weight: 700;
@@ -353,7 +353,7 @@ ul { list-style: none; }
 
 .hamburger {
   display: none; flex-direction: column; gap: 6px;
-  background: none; border: none; cursor: none; padding: 4px; z-index: 1002;
+  background: none; border: none; cursor: none !important; padding: 4px; z-index: 1002;
 }
 
 .hamburger span {

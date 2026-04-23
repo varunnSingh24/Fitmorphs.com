@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   // 0-B. HOMEPAGE INTRO SEQUENCE (first visit per session)
   // =========================================================
-  const fmIntro    = document.getElementById('fm-intro');
+  const fmIntro = document.getElementById('fm-intro');
   const fmWordmark = document.getElementById('fmWordmark');
-  const fmRule     = document.getElementById('fmRule');
+  const fmRule = document.getElementById('fmRule');
 
   if (fmIntro && fmWordmark && fmRule) {
     const alreadySeen = sessionStorage.getItem('fm_intro_seen');
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4. HAMBURGER MENU
   // =========================================================
   const hamburger = document.querySelector('.hamburger');
-  const navLinks  = document.querySelector('.nav-links');
+  const navLinks = document.querySelector('.nav-links');
 
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
@@ -152,11 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   // 5. SCROLL: NAVBAR + PROGRESS BAR
   // =========================================================
-  const navbar      = document.querySelector('.navbar');
+  const navbar = document.querySelector('.navbar');
   const progressBar = document.querySelector('.scroll-progress-bar');
 
   const handleScroll = () => {
-    const scrollTop    = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     if (navbar) navbar.classList.toggle('scrolled', scrollTop > 50);
     if (progressBar && scrollHeight > 0) progressBar.style.width = (scrollTop / scrollHeight * 100) + '%';
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   // 6. CUSTOM CURSOR
   // =========================================================
-  const cursor  = document.querySelector('.custom-cursor');
+  const cursor = document.querySelector('.custom-cursor');
   const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
   if (cursor && !isTouch) {
@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let mouseParallaxX = 0, mouseParallaxY = 0;
   if (!isTouch) {
     document.addEventListener('mousemove', e => {
-      mouseParallaxX = (e.clientX / window.innerWidth  - 0.5) * 2;  // -1 to 1
+      mouseParallaxX = (e.clientX / window.innerWidth - 0.5) * 2;  // -1 to 1
       mouseParallaxY = (e.clientY / window.innerHeight - 0.5) * 2;
     }, { passive: true });
   }
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resize() {
       const parent = canvas.offsetParent || canvas.parentElement;
-      canvas.width  = parent ? parent.offsetWidth  : window.innerWidth;
+      canvas.width = parent ? parent.offsetWidth : window.innerWidth;
       canvas.height = parent ? parent.offsetHeight : window.innerHeight;
       createParticles();
     }
@@ -246,12 +246,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function makeParticle() {
       return {
-        x:          Math.random() * canvas.width,
-        y:          Math.random() * canvas.height,
-        r:          Math.random() * 2.2 + 0.8,               // slightly smaller: 0.8–3px
-        speed:      Math.random() * 0.85 + 0.2,              // 0.2–1.05 px/frame
-        opacity:    Math.random() * 0.37 + 0.08,             // 0.08–0.45
-        swayAmp:    Math.random() * 20 + 15,                 // 15–35 px
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2.2 + 0.8,               // slightly smaller: 0.8–3px
+        speed: Math.random() * 0.85 + 0.2,              // 0.2–1.05 px/frame
+        opacity: Math.random() * 0.37 + 0.08,             // 0.08–0.45
+        swayAmp: Math.random() * 20 + 15,                 // 15–35 px
         swayPeriod: Math.random() * 5000 + 3000,             // 3–8 s
         swayOffset: Math.random() * Math.PI * 2,
         parallaxFactor: Math.random() * 18 + 6,              // 6–24 px max mouse offset
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
       particles.forEach(p => {
         const sway = Math.sin(ts / p.swayPeriod + p.swayOffset) * p.swayAmp;
         const px = p.x + sway + px_offset * p.parallaxFactor;
-        const py = p.y       + py_offset * p.parallaxFactor * 0.4;
+        const py = p.y + py_offset * p.parallaxFactor * 0.4;
 
         // Glow halo
         ctx.beginPath();
@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
       particles.forEach(p => {
         const sway = Math.sin(ts / p.swayPeriod + p.swayOffset) * p.swayAmp;
         const px = p.x + sway + px_offset * p.parallaxFactor;
-        const py = p.y       + py_offset * p.parallaxFactor * 0.4;
+        const py = p.y + py_offset * p.parallaxFactor * 0.4;
         ctx.beginPath(); ctx.arc(px, py, p.r * 3, 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(226, 184, 58, 0.03)'; ctx.fill();
         ctx.beginPath(); ctx.arc(px, py, p.r, 0, Math.PI * 2);
@@ -391,17 +391,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const counterObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        const el     = entry.target;
+        const el = entry.target;
         const target = parseFloat(el.getAttribute('data-target'));
         const isDecimal = String(target).includes('.');
-        const duration  = 2000;
+        const duration = 2000;
         const startTime = performance.now();
 
         const animate = now => {
-          const elapsed  = now - startTime;
+          const elapsed = now - startTime;
           const progress = Math.min(elapsed / duration, 1);
-          const eased    = 1 - Math.pow(1 - progress, 3);
-          const current  = target * eased;
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = target * eased;
           el.textContent = isDecimal ? current.toFixed(1) : Math.ceil(current).toLocaleString('en-IN');
           if (progress < 1) {
             requestAnimationFrame(animate);
@@ -451,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   // 12. GALLERY FILTER
   // =========================================================
-  const filterBtns   = document.querySelectorAll('.filter-btn');
+  const filterBtns = document.querySelectorAll('.filter-btn');
   const galleryItems = document.querySelectorAll('.gallery-item');
 
   if (filterBtns.length && galleryItems.length) {
@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const filter = btn.getAttribute('data-filter');
         galleryItems.forEach(item => {
-          const cats  = item.getAttribute('data-category') || '';
+          const cats = item.getAttribute('data-category') || '';
           const match = filter === 'all' || cats.split(' ').includes(filter);
           if (match) {
             item.style.opacity = '0';
@@ -494,11 +494,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const startVal = 9.4, endVal = 5.7;
     const hba1cObserver = new IntersectionObserver((entries, observer) => {
       if (!entries[0].isIntersecting) return;
-      const duration  = 2500;
+      const duration = 2500;
       const startTime = performance.now();
       const animate = now => {
         const elapsed = Math.min(now - startTime, duration);
-        const eased   = 1 - Math.pow(1 - elapsed / duration, 3);
+        const eased = 1 - Math.pow(1 - elapsed / duration, 3);
         hba1cEl.textContent = (startVal - (startVal - endVal) * eased).toFixed(1);
         if (elapsed < duration) requestAnimationFrame(animate);
         else hba1cEl.textContent = endVal.toFixed(1);
@@ -514,11 +514,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 14. MAGNETIC CTA BUTTONS
   // =========================================================
   if (!isTouch) {
-    document.querySelectorAll('.btn-primary, .btn-shimmer').forEach(btn => {
+    document.querySelectorAll('.btn-primary, .btn-shimmer, .blog-cat-btn').forEach(btn => {
       btn.addEventListener('mousemove', e => {
         const rect = btn.getBoundingClientRect();
-        const x = (e.clientX - rect.left - rect.width  / 2) * 0.12;
-        const y = (e.clientY - rect.top  - rect.height / 2) * 0.12;
+        const x = (e.clientX - rect.left - rect.width / 2) * 0.12;
+        const y = (e.clientY - rect.top - rect.height / 2) * 0.12;
         btn.style.transform = `translate(${Math.max(-5, Math.min(5, x))}px, ${Math.max(-5, Math.min(5, y))}px)`;
       });
       btn.addEventListener('mouseleave', () => {
@@ -534,12 +534,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // 15. 3D TILT ON CARDS
   // =========================================================
   if (!isTouch) {
-    document.querySelectorAll('.card, .team-card, .result-card, .scroll-card, .dark-cat-card, .story-card, .expert-card').forEach(card => {
+    document.querySelectorAll('.card, .team-card, .result-card, .scroll-card, .dark-cat-card, .story-card, .expert-card, .blog-card').forEach(card => {
       card.style.perspective = '1000px';
       card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width  - 0.5;
-        const y = (e.clientY - rect.top)  / rect.height - 0.5;
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
         card.style.transform = `translateY(-6px) rotateX(${(y * -4).toFixed(2)}deg) rotateY(${(x * 4).toFixed(2)}deg)`;
         // Holographic light reflection
         const px = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
@@ -569,9 +569,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.hero-word').forEach((word, i) => {
       setTimeout(() => {
-        word.style.opacity  = '1';
+        word.style.opacity = '1';
         word.style.transform = 'translateY(0)';
-        word.style.filter   = 'blur(0)';
+        word.style.filter = 'blur(0)';
       }, 200 + i * 80);
     });
   }
@@ -580,7 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   // 17. HERO PARALLAX
   // =========================================================
-  const heroEl      = document.querySelector('.hero-global');
+  const heroEl = document.querySelector('.hero-global');
   const heroParallax = document.querySelector('.hero-parallax');
 
   if (heroEl && heroParallax) {
@@ -615,18 +615,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // 20. SOCIAL PROOF TICKER
   // =========================================================
   const spToast = document.getElementById('spToast');
-  const spText  = document.getElementById('spText');
+  const spText = document.getElementById('spText');
 
   if (spToast && spText) {
     const spMessages = [
-      { name: 'Rahul', city: 'Mumbai',    msg: 'just started his transformation journey' },
-      { name: 'Priya', city: 'Pune',      msg: 'reduced her HbA1c by 3.2 points' },
-      { name: 'Suresh', city: 'Delhi',    msg: 'reversed Type 2 Diabetes in 87 days' },
+      { name: 'Rahul', city: 'Mumbai', msg: 'just started his transformation journey' },
+      { name: 'Priya', city: 'Pune', msg: 'reduced her HbA1c by 3.2 points' },
+      { name: 'Suresh', city: 'Delhi', msg: 'reversed Type 2 Diabetes in 87 days' },
       { name: 'Meera', city: 'Hyderabad', msg: 'lost 18kg and is off all medications' },
-      { name: 'Arun', city: 'Bangalore',  msg: 'completed his 90-day program today' },
-      { name: 'Neha', city: 'Chennai',    msg: 'reversed her PCOD symptoms naturally' },
-      { name: 'Vikram', city: 'Ahmedabad',msg: 'dropped his fasting glucose to 92 mg/dL' },
-      { name: 'Sunita', city: 'Kolkata',  msg: 'is now insulin-free after 3 months' },
+      { name: 'Arun', city: 'Bangalore', msg: 'completed his 90-day program today' },
+      { name: 'Neha', city: 'Chennai', msg: 'reversed her PCOD symptoms naturally' },
+      { name: 'Vikram', city: 'Ahmedabad', msg: 'dropped his fasting glucose to 92 mg/dL' },
+      { name: 'Sunita', city: 'Kolkata', msg: 'is now insulin-free after 3 months' },
     ];
 
     let spIdx = 0;
@@ -828,12 +828,12 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
 
       const startY = window.scrollY;
-      const endY   = target.getBoundingClientRect().top + startY - 90;
-      const diff   = endY - startY;
+      const endY = target.getBoundingClientRect().top + startY - 90;
+      const diff = endY - startY;
       const duration = 700;
       const startTime = performance.now();
 
-      const easeInOutCubic = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+      const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
       const step = now => {
         const progress = Math.min((now - startTime) / duration, 1);
