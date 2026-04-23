@@ -1,0 +1,52 @@
+::1 - - [23/Apr/2026 15:00:00] "GET / HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:00:01] "GET /logo_stickey.png HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:00:01] "GET /script.js HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:00:05] code 404, message File not found
+::1 - - [23/Apr/2026 15:00:05] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+::1 - - [23/Apr/2026 15:00:05] code 404, message File not found
+::1 - - [23/Apr/2026 15:00:05] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+::1 - - [23/Apr/2026 15:00:05] code 404, message File not found
+::1 - - [23/Apr/2026 15:00:05] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [23/Apr/2026 15:00:05] "GET /logo_stickey.png HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:00:05] code 404, message File not found
+::1 - - [23/Apr/2026 15:00:05] "GET /AMAfter.jpg HTTP/1.1" 404 -
+::1 - - [23/Apr/2026 15:00:08] "GET / HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:00:08] "GET /logo_stickey.png HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:00:12] code 404, message File not found
+::1 - - [23/Apr/2026 15:00:12] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+::1 - - [23/Apr/2026 15:00:12] code 404, message File not found
+::1 - - [23/Apr/2026 15:00:12] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+::1 - - [23/Apr/2026 15:00:12] code 404, message File not found
+::1 - - [23/Apr/2026 15:00:12] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [23/Apr/2026 15:00:12] code 404, message File not found
+::1 - - [23/Apr/2026 15:00:12] "GET /AMAfter.jpg HTTP/1.1" 404 -
+::1 - - [23/Apr/2026 15:00:12] "GET /logo_stickey.png HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:09:39] "GET / HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:09:39] "GET /styles.css HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:09:39] "GET /script.js HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:09:39] "GET /logo_stickey.png HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:09:40] code 404, message File not found
+::1 - - [23/Apr/2026 15:09:40] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [23/Apr/2026 15:09:48] "GET /blog.html HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:10:07] "GET /can-type-2-diabetes-be-reversed.html HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:12:13] "GET / HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:12:13] "GET /styles.css HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:12:13] "GET /logo_stickey.png HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:12:13] "GET /script.js HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:14:01] "GET /blog.html HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:14:01] "GET /styles.css HTTP/1.1" 304 -
+::1 - - [23/Apr/2026 15:14:01] "GET /script.js HTTP/1.1" 304 -
+::1 - - [23/Apr/2026 15:14:01] code 404, message File not found
+::1 - - [23/Apr/2026 15:14:01] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [23/Apr/2026 15:14:43] "GET /can-type-2-diabetes-be-reversed.html HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:21:55] "GET /can-type-2-diabetes-be-reversed.html HTTP/1.1" 304 -
+::1 - - [23/Apr/2026 15:22:08] "GET /blog.html HTTP/1.1" 304 -
+::1 - - [23/Apr/2026 15:23:58] "GET /index.html HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:24:02] "GET /results.html HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:24:17] "GET /blog.html HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:30:08] "GET /diabetes-reversal-program-india.html HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:30:15] "GET /blog.html HTTP/1.1" 304 -
+::1 - - [23/Apr/2026 15:36:19] "GET /transformation.html HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:40:02] "GET /blog.html HTTP/1.1" 200 -
+::1 - - [23/Apr/2026 15:41:02] "GET /transformation.html HTTP/1.1" 304 -
+::1 - - [23/Apr/2026 15:43:45] "GET /blog.html HTTP/1.1" 304 -

@@ -609,68 +609,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        .blog-card {
-            background-color: var(--dark-surface);
-            border-radius: 4px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: border-color 0.3s ease;
-            text-decoration: none;
-        }
-        .blog-card:hover {
-            border-color: var(--gold-mid);
-        }
-        .blog-img-wrap {
-            height: 200px;
-            overflow: hidden;
-            background-color: var(--charcoal);
-        }
-        .blog-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            opacity: 0.8;
-        }
-        .blog-card:hover .blog-img-wrap img {
-            transform: scale(1.05);
-            opacity: 1;
-        }
-        .blog-content {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        .blog-title {
-            font-size: 1.5rem;
-            color: var(--cream);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-        .blog-card:hover .blog-title {
-            color: var(--gold-bright);
-        }
-        .blog-excerpt {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--cream);
-            opacity: 0.7;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-        .blog-link {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--gold-mid);
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            display: flex; align-items: center; gap: 0.5rem;
-        }
+
     </style>
 </head>
 
@@ -721,6 +660,7 @@
                 <a href="transformation.html" style="font-family:'DM Sans', sans-serif;">Transformation</a>
                 <a href="results.html" style="font-family:'DM Sans', sans-serif;">Results</a>
                 <a href="about.html" style="font-family:'DM Sans', sans-serif;">About</a>
+                <a href="blog.html" style="font-family:'DM Sans', sans-serif;">Blog</a>
                 <a href="apply.html" class="btn btn-nav" style="font-family:'DM Sans', sans-serif;">Apply Now</a>
             </div>
         </div>
@@ -1169,34 +1109,37 @@
             </div>
             
             <div class="blog-grid stagger-children">
-                <a href="cookbook.html" class="blog-card">
+                <a href="blog.html" class="vogue-hover-card blog-card">
                     <div class="blog-img-wrap">
                         <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&q=80&w=800" alt="Managing Diabetes Naturally" loading="lazy">
                     </div>
                     <div class="blog-content">
-                        <h3 class="playfair blog-title">Managing Diabetes Naturally: Effective Tips</h3>
-                        <p class="blog-excerpt">Living with diabetes requires careful management and a proactive approach to maintaining healthy blood sugar levels without extreme deprivation.</p>
-                        <div class="blog-link">Read Article <span style="font-size:1.2rem;">&rarr;</span></div>
+                        <span class="category">Diabetes Reversal</span>
+                        <h3 class="blog-title">Managing Diabetes Naturally: Effective Tips</h3>
+                        <p class="blog-desc">Clinically proven strategies to maintain healthy blood sugar levels and reduce HbA1c without extreme dietary restrictions.</p>
+                        <span class="blog-cta">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                     </div>
                 </a>
-                <a href="cookbook.html" class="blog-card">
+                <a href="best-diet-plan-for-diabetes-reversal.html" class="vogue-hover-card blog-card">
                     <div class="blog-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800" alt="Diet for PCOD" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800" alt="Diet for Diabetes Reversal" loading="lazy">
                     </div>
                     <div class="blog-content">
-                        <h3 class="playfair blog-title">Best Diet for PCOD and PCOS</h3>
-                        <p class="blog-excerpt">Polycystic Ovary Syndrome (PCOS) is a hormonal disorder that affects many. Discover natural, science-backed nutritional protocols to manage symptoms.</p>
-                        <div class="blog-link">Read Article <span style="font-size:1.2rem;">&rarr;</span></div>
+                        <span class="category">Diet Plans</span>
+                        <h3 class="blog-title">The Best Diet Plan for Diabetes Reversal</h3>
+                        <p class="blog-desc">A precision nutrition protocol targeting insulin resistance using low-glycemic, anti-inflammatory whole foods.</p>
+                        <span class="blog-cta">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                     </div>
                 </a>
-                <a href="cookbook.html" class="blog-card">
+                <a href="how-to-reduce-hba1c-naturally.html" class="vogue-hover-card blog-card">
                     <div class="blog-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800" alt="Trim Your Waistline" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" alt="Reduce HbA1c Naturally" loading="lazy">
                     </div>
                     <div class="blog-content">
-                        <h3 class="playfair blog-title">Trim Your Waistline: Expert Belly Fat Strategies</h3>
-                        <p class="blog-excerpt">Maintaining a healthy weight often feels daunting. Learn clinical, physician-approved strategies to target stubborn visceral fat effectively.</p>
-                        <div class="blog-link">Read Article <span style="font-size:1.2rem;">&rarr;</span></div>
+                        <span class="category">HbA1c Management</span>
+                        <h3 class="blog-title">How to Reduce HbA1c Naturally in 90 Days</h3>
+                        <p class="blog-desc">Natural, clinically proven strategies to lower your HbA1c and reverse metabolic damage without full pharmaceutical dependence.</p>
+                        <span class="blog-cta">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                     </div>
                 </a>
             </div>
