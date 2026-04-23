@@ -52,16 +52,6 @@
         .blog-cat-btn:hover, .blog-cat-btn.active { background: var(--gold-mid); color: var(--dark); border-color: var(--gold-mid); }
         
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1200px; margin: 0 auto 6rem; padding: 0 2rem; }
-        .blog-card { background-color: var(--dark-surface); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.3s ease, transform 0.3s ease; text-decoration: none; position: relative; }
-        .blog-card:hover { border-color: var(--gold-mid); transform: translateY(-5px); }
-        .blog-img-wrap { height: 220px; overflow: hidden; background-color: var(--charcoal); position: relative; }
-        .blog-category-pill { position: absolute; top: 1rem; left: 1rem; background: var(--gold-mid); color: var(--dark); font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 50px; font-weight: 700; text-transform: uppercase; z-index: 2; }
-        .blog-content { padding: 2rem; display: flex; flex-direction: column; flex-grow: 1; }
-        .blog-title { font-size: 1.5rem; color: var(--cream); margin-bottom: 1rem; line-height: 1.3; font-family: 'Playfair Display', serif; }
-        .blog-card:hover .blog-title { color: var(--gold-bright); }
-        .blog-excerpt { font-family: 'DM Sans', sans-serif; color: var(--cream); opacity: 0.7; font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1; }
-        .blog-cta { display: block; text-align: center; padding: 1rem; background: transparent; border: 1px solid var(--gold-mid); color: var(--gold-mid); font-family: 'DM Sans', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 4px; transition: all 0.3s ease; }
-        .blog-card:hover .blog-cta { background: var(--gold-mid); color: var(--dark); }
     </style>
 </head>
 <body>
@@ -104,11 +94,138 @@
         </div>
     </div>
 
-    <div class="blog-grid" id="blog-grid">
+        <div class="blog-grid" id="blog-grid">
         <!-- Card 1 -->
-        <a href="how-to-reduce-hba1c-naturally.html" class="blog-card" data-category="hba1c">
+        <a href="how-to-reduce-hba1c-naturally.html" class="vogue-hover-card blog-card" data-category="hba1c">
             <div class="blog-img-wrap">
-                <div class="blog-category-pill">HbA1c Management</div>
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" alt="How to Reduce HbA1c Naturally in 90 Days" loading="lazy">
+            </div>
+            <div class="blog-content">
+                <span class="category">HbA1c Management</span>
+                <h2 class="blog-title">How to Reduce HbA1c Naturally in 90 Days</h2>
+                <p class="blog-desc">Discover clinically proven, natural strategies to lower your HbA1c without relying entirely on medication.</p>
+                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="can-type-2-diabetes-be-reversed.html" class="vogue-hover-card blog-card" data-category="diabetes">
+            <div class="blog-img-wrap">
+                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800" alt="Can Type 2 Diabetes Actually Be Reversed?" loading="lazy">
+            </div>
+            <div class="blog-content">
+                <span class="category">Diabetes Reversal</span>
+                <h2 class="blog-title">Can Type 2 Diabetes Actually Be Reversed?</h2>
+                <p class="blog-desc">Understanding the science behind metabolic reversal, beta-cell recovery, and shedding insulin resistance permanently.</p>
+                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="best-diet-plan-for-diabetes-reversal.html" class="vogue-hover-card blog-card" data-category="diet">
+            <div class="blog-img-wrap">
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800" alt="The Best Diet Plan for Diabetes Reversal" loading="lazy">
+            </div>
+            <div class="blog-content">
+                <span class="category">Diet Plans</span>
+                <h2 class="blog-title">The Best Diet Plan for Diabetes Reversal</h2>
+                <p class="blog-desc">A precision nutrition protocol targeting insulin resistance using low-glycemic, anti-inflammatory whole foods.</p>
+                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="how-to-control-blood-sugar-without-medicine.html" class="vogue-hover-card blog-card" data-category="hba1c">
+            <div class="blog-img-wrap">
+                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=800" alt="How to Control Blood Sugar Without Medicine" loading="lazy">
+            </div>
+            <div class="blog-content">
+                <span class="category">HbA1c Management</span>
+                <h2 class="blog-title">How to Control Blood Sugar Without Medicine</h2>
+                <p class="blog-desc">Sustainable, doctor-backed lifestyle strategies to maintain stable blood glucose without pharmaceutical dependence.</p>
+                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="foods-to-avoid-in-diabetes.html" class="vogue-hover-card blog-card" data-category="diet">
+            <div class="blog-img-wrap">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800" alt="Foods to Avoid If You Have Diabetes" loading="lazy">
+            </div>
+            <div class="blog-content">
+                <span class="category">Diet Plans</span>
+                <h2 class="blog-title">Foods to Avoid If You Have Diabetes</h2>
+                <p class="blog-desc">The hidden glycemic saboteurs in your kitchen — and the precise swaps that protect your metabolic health.</p>
+                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <!-- Card 6 -->
+        <a href="best-breakfast-for-diabetics.html" class="vogue-hover-card blog-card" data-category="diet">
+            <div class="blog-img-wrap">
+                <img src="https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?auto=format&fit=crop&q=80&w=800" alt="The Best Breakfast for Diabetics" loading="lazy">
+            </div>
+            <div class="blog-content">
+                <span class="category">Diet Plans</span>
+                <h2 class="blog-title">The Best Breakfast for Diabetics</h2>
+                <p class="blog-desc">Morning nutrition strategies that stabilize blood glucose for the entire day, backed by metabolic science.</p>
+                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <!-- Card 7 -->
+        <a href="can-prediabetes-be-reversed.html" class="vogue-hover-card blog-card" data-category="diabetes">
+            <div class="blog-img-wrap">
+                <img src="https://images.unsplash.com/photo-1559181567-c3190ca9d2b1?auto=format&fit=crop&q=80&w=800" alt="Can Prediabetes Be Reversed Before It Progresses?" loading="lazy">
+            </div>
+            <div class="blog-content">
+                <span class="category">Diabetes Reversal</span>
+                <h2 class="blog-title">Can Prediabetes Be Reversed Before It Progresses?</h2>
+                <p class="blog-desc">The window of opportunity before full diabetes onset — and the exact steps to reverse prediabetes completely.</p>
+                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <!-- Card 8 -->
+        <a href="natural-treatment-for-insulin-resistance.html" class="vogue-hover-card blog-card" data-category="lifestyle">
+            <div class="blog-img-wrap">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" alt="Natural Treatment for Insulin Resistance" loading="lazy">
+            </div>
+            <div class="blog-content">
+                <span class="category">Lifestyle</span>
+                <h2 class="blog-title">Natural Treatment for Insulin Resistance</h2>
+                <p class="blog-desc">Root-cause approaches to overcome insulin resistance using exercise timing, sleep protocols, and targeted macros.</p>
+                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <!-- Card 9 -->
+        <a href="diabetes-reversal-program-india.html" class="vogue-hover-card blog-card" data-category="lifestyle">
+            <div class="blog-img-wrap">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5adee9f50?auto=format&fit=crop&q=80&w=800" alt="Best Diabetes Reversal Program in India 2025" loading="lazy">
+            </div>
+            <div class="blog-content">
+                <span class="category">Program India</span>
+                <h2 class="blog-title">Best Diabetes Reversal Program in India 2025</h2>
+                <p class="blog-desc">A comprehensive look at how structured, doctor-supervised metabolic programs outperform all medication approaches.</p>
+                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <!-- Card 10 -->
+        <a href="how-to-lower-blood-sugar-naturally.html" class="vogue-hover-card blog-card" data-category="hba1c">
+            <div class="blog-img-wrap">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800" alt="How to Lower Blood Sugar Naturally & Fast" loading="lazy">
+            </div>
+            <div class="blog-content">
+                <span class="category">HbA1c Management</span>
+                <h2 class="blog-title">How to Lower Blood Sugar Naturally & Fast</h2>
+                <p class="blog-desc">Evidence-based nutritional and lifestyle interventions that produce measurable drops in blood glucose within weeks.</p>
+                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+    </div>
             </div>
             <div class="blog-content">
                 <h2 class="blog-title">How to Reduce HbA1c Naturally in 90 Days</h2>
@@ -118,7 +235,7 @@
         </a>
 
         <!-- Card 2 -->
-        <a href="can-type-2-diabetes-be-reversed.html" class="blog-card" data-category="diabetes">
+        <a href="can-type-2-diabetes-be-reversed.html" class="vogue-hover-card blog-card" data-category="diabetes">
             <div class="blog-img-wrap">
                 <div class="blog-category-pill">Diabetes Reversal</div>
             </div>
@@ -130,7 +247,7 @@
         </a>
 
         <!-- Card 3 -->
-        <a href="best-diet-plan-for-diabetes-reversal.html" class="blog-card" data-category="diet">
+        <a href="best-diet-plan-for-diabetes-reversal.html" class="vogue-hover-card blog-card" data-category="diet">
             <div class="blog-img-wrap">
                 <div class="blog-category-pill">Diet Plans</div>
             </div>
@@ -142,7 +259,7 @@
         </a>
 
         <!-- Card 4 -->
-        <a href="how-to-control-blood-sugar-without-medicine.html" class="blog-card" data-category="hba1c">
+        <a href="how-to-control-blood-sugar-without-medicine.html" class="vogue-hover-card blog-card" data-category="hba1c">
             <div class="blog-img-wrap">
                 <div class="blog-category-pill">HbA1c Management</div>
             </div>
@@ -154,7 +271,7 @@
         </a>
 
         <!-- Card 5 -->
-        <a href="foods-to-avoid-in-diabetes.html" class="blog-card" data-category="diet">
+        <a href="foods-to-avoid-in-diabetes.html" class="vogue-hover-card blog-card" data-category="diet">
             <div class="blog-img-wrap">
                 <div class="blog-category-pill">Diet Plans</div>
             </div>
@@ -166,7 +283,7 @@
         </a>
 
         <!-- Card 6 -->
-        <a href="best-breakfast-for-diabetics.html" class="blog-card" data-category="diet">
+        <a href="best-breakfast-for-diabetics.html" class="vogue-hover-card blog-card" data-category="diet">
             <div class="blog-img-wrap">
                 <div class="blog-category-pill">Diet Plans</div>
             </div>
@@ -178,7 +295,7 @@
         </a>
 
         <!-- Card 7 -->
-        <a href="can-prediabetes-be-reversed.html" class="blog-card" data-category="diabetes">
+        <a href="can-prediabetes-be-reversed.html" class="vogue-hover-card blog-card" data-category="diabetes">
             <div class="blog-img-wrap">
                 <div class="blog-category-pill">Diabetes Reversal</div>
             </div>
@@ -190,7 +307,7 @@
         </a>
 
         <!-- Card 8 -->
-        <a href="natural-treatment-for-insulin-resistance.html" class="blog-card" data-category="lifestyle">
+        <a href="natural-treatment-for-insulin-resistance.html" class="vogue-hover-card blog-card" data-category="lifestyle">
             <div class="blog-img-wrap">
                 <div class="blog-category-pill">Lifestyle Management</div>
             </div>
@@ -202,7 +319,7 @@
         </a>
 
         <!-- Card 9 -->
-        <a href="diabetes-reversal-program-india.html" class="blog-card" data-category="lifestyle">
+        <a href="diabetes-reversal-program-india.html" class="vogue-hover-card blog-card" data-category="lifestyle">
             <div class="blog-img-wrap">
                 <div class="blog-category-pill">Lifestyle Management</div>
             </div>
@@ -214,7 +331,7 @@
         </a>
 
         <!-- Card 10 -->
-        <a href="how-to-lower-blood-sugar-naturally.html" class="blog-card" data-category="hba1c">
+        <a href="how-to-lower-blood-sugar-naturally.html" class="vogue-hover-card blog-card" data-category="hba1c">
             <div class="blog-img-wrap">
                 <div class="blog-category-pill">HbA1c Management</div>
             </div>

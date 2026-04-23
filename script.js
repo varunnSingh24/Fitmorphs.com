@@ -844,4 +844,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // =========================================================
+  // 24. TRANSFORMATION SLIDER
+  // =========================================================
+  document.addEventListener('click', (e) => {
+    const nextBtn = e.target.closest('.next');
+    const prevBtn = e.target.closest('.prev');
+    if (nextBtn || prevBtn) {
+      const slider = (nextBtn || prevBtn).closest('.slider-main')?.querySelector('.t-slider');
+      if (slider) {
+        const items = slider.querySelectorAll('.t-item');
+        if (nextBtn) slider.appendChild(items[0]);
+        if (prevBtn) slider.prepend(items[items.length - 1]);
+      }
+    }
+  });
+
 });
