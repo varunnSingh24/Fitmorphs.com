@@ -310,7 +310,212 @@
         </div>
     </section>
 
-    <!-- CASE STUDIES -->
+    <!-- CASE STUDIES - TRANSFORMATION SLIDER -->
+    <section style="background-color:#0f0f0c; padding:0; position:relative; overflow:hidden;">
+
+        <div style="text-align:center; padding:5rem 0 3rem;">
+            <div style="font-family:'DM Sans',sans-serif; font-size:0.85rem; letter-spacing:3px; font-weight:700; text-transform:uppercase; color:#d4a017; margin-bottom:1rem;">Case Studies</div>
+            <h2 style="font-family:'Playfair Display',serif; font-size:clamp(2.5rem,5vw,4rem); color:#f5efe3;">Visual Evidence</h2>
+        </div>
+
+        <!-- Scoped styles ONLY for this slider — isolated from Tailwind -->
+        <style>
+            #fm-slider { position:relative; width:100%; height:75vh; min-height:500px; overflow:hidden; }
+            #fm-slider .slider { list-style:none; padding:0; margin:0; width:100%; height:100%; position:relative; }
+            #fm-slider .item {
+                width:200px; height:300px; list-style-type:none;
+                position:absolute; top:50%; transform:translateY(-50%); z-index:1;
+                background-position:center; background-size:cover;
+                border-radius:20px;
+                box-shadow:0 20px 30px rgba(255,255,255,0.15) inset;
+                transition:transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+            }
+            #fm-slider .item:nth-child(1),
+            #fm-slider .item:nth-child(2) {
+                left:0; top:0; width:100%; height:100%;
+                transform:none; border-radius:0; box-shadow:none; opacity:1;
+            }
+            #fm-slider .item:nth-child(1) { z-index:0; }
+            #fm-slider .item:nth-child(2) { z-index:2; }
+            #fm-slider .item:nth-child(3) { left:50%; z-index:3; }
+            #fm-slider .item:nth-child(4) { left:calc(50% + 220px); z-index:3; }
+            #fm-slider .item:nth-child(5) { left:calc(50% + 440px); z-index:3; }
+            #fm-slider .item:nth-child(6) { left:calc(50% + 660px); opacity:0; z-index:3; }
+
+            /* Dark gradient on left side of active slide */
+            #fm-slider .item:nth-child(2)::before {
+                content:'';
+                position:absolute; inset:0;
+                background:linear-gradient(90deg, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.6) 40%, transparent 75%);
+                z-index:1; pointer-events:none;
+            }
+
+            /* Content — hidden by default for ALL items */
+            #fm-slider .content {
+                width:min(38vw,460px);
+                position:absolute; top:50%; left:4rem;
+                transform:translateY(calc(-50% + 60px));
+                color:#f5efe3;
+                opacity:0;
+                display:none;
+                z-index:10;
+                pointer-events:none;
+            }
+            #fm-slider .content .title {
+                font-family:'Playfair Display',serif;
+                font-size:clamp(2.2rem,4vw,3.5rem);
+                text-transform:uppercase; line-height:1.1;
+                background:linear-gradient(135deg,#f0c040,#b8860b);
+                -webkit-background-clip:text; color:transparent;
+                margin-bottom:1rem;
+            }
+            #fm-slider .content .description {
+                font-family:'DM Sans',sans-serif;
+                line-height:1.7; margin:0 0 2rem;
+                font-size:1rem; color:rgba(245,239,227,0.85);
+            }
+            #fm-slider .content button {
+                font-family:'DM Sans',sans-serif;
+                background:rgba(212,160,23,0.15);
+                color:#d4a017; border:1px solid #d4a017;
+                border-radius:4px; padding:0.85rem 2rem;
+                cursor:pointer; font-size:0.85rem;
+                font-weight:700; text-transform:uppercase; letter-spacing:1.5px;
+                transition:background 0.3s, color 0.3s;
+            }
+            #fm-slider .content button:hover { background:#d4a017; color:#0f0f0c; }
+
+            /* ONLY the 2nd item shows its content, animated */
+            #fm-slider .item:nth-child(2) .content {
+                display:block;
+                animation:fmShow 0.75s ease-in-out 0.25s forwards;
+            }
+            @keyframes fmShow {
+                0%   { opacity:0; transform:translateY(calc(-50% + 60px)); filter:blur(4px); }
+                100% { opacity:1; transform:translateY(-50%); filter:blur(0); }
+            }
+
+            /* Nav buttons */
+            #fm-slider .nav {
+                position:absolute; bottom:2.5rem; right:2.5rem;
+                z-index:20; display:flex; gap:1rem;
+            }
+            #fm-slider .nav .btn {
+                background:rgba(26,22,16,0.75); color:#d4a017;
+                border:1px solid rgba(212,160,23,0.5);
+                width:52px; height:52px; border-radius:50%;
+                display:flex; align-items:center; justify-content:center;
+                cursor:pointer; backdrop-filter:blur(6px);
+                transition:background 0.3s, transform 0.3s, border-color 0.3s;
+            }
+            #fm-slider .nav .btn:hover { background:#d4a017; color:#0f0f0c; transform:scale(1.1); border-color:#d4a017; }
+
+            /* Responsive */
+            @media (max-width:900px) {
+                #fm-slider .item { width:160px; height:260px; }
+                #fm-slider .item:nth-child(3) { left:50%; }
+                #fm-slider .item:nth-child(4) { left:calc(50% + 175px); }
+                #fm-slider .item:nth-child(5) { left:calc(50% + 350px); }
+                #fm-slider .item:nth-child(6) { left:calc(50% + 525px); opacity:0; }
+                #fm-slider .content { left:2rem; width:calc(100% - 4rem); }
+            }
+            @media (max-width:600px) {
+                #fm-slider { height:80vh; }
+                #fm-slider .item { width:130px; height:220px; }
+                #fm-slider .item:nth-child(3) { left:50%; }
+                #fm-slider .item:nth-child(4) { left:calc(50% + 140px); }
+                #fm-slider .item:nth-child(5) { left:calc(50% + 280px); }
+                #fm-slider .item:nth-child(6) { left:calc(50% + 420px); opacity:0; }
+                #fm-slider .content { left:1.5rem; width:calc(100% - 3rem); }
+                #fm-slider .content .title { font-size:1.8rem; }
+                #fm-slider .nav { right:1rem; bottom:1.5rem; }
+            }
+        </style>
+
+        <div id="fm-slider">
+            <ul class="slider">
+                <li class="item" style="background-image:url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1200')">
+                    <div class="content">
+                        <h2 class="title">Hormonal Reset</h2>
+                        <p class="description">Reversed PCOD symptoms, eliminated bloating, and lost stubborn hormonal fat through our exact clinical macro protocol.</p>
+                        <button onclick="window.location='apply.html'">Book Free Consultation</button>
+                    </div>
+                </li>
+                <li class="item" style="background-image:url('https://images.unsplash.com/photo-1571019614242-c5c5adee9f50?auto=format&fit=crop&q=80&w=1200')">
+                    <div class="content">
+                        <h2 class="title">-22kg Fat Loss</h2>
+                        <p class="description">A drastic reduction in total body fat percentage while simultaneously adding visible lean muscle to the upper body frame.</p>
+                        <button onclick="window.location='apply.html'">Book Free Consultation</button>
+                    </div>
+                </li>
+                <li class="item" style="background-image:url('https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=80&w=800')">
+                    <div class="content">
+                        <h2 class="title">V-Taper Built</h2>
+                        <p class="description">Targeted lat and shoulder development alongside strict fat reduction without starvation — engineered through precision macros.</p>
+                        <button onclick="window.location='apply.html'">Book Free Consultation</button>
+                    </div>
+                </li>
+                <li class="item" style="background-image:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800')">
+                    <div class="content">
+                        <h2 class="title">HbA1c to 5.4</h2>
+                        <p class="description">Tapered off medications and recovered total insulin sensitivity using our 12-week doctor-supervised roadmap.</p>
+                        <button onclick="window.location='apply.html'">Book Free Consultation</button>
+                    </div>
+                </li>
+                <li class="item" style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800')">
+                    <div class="content">
+                        <h2 class="title">Peak Endurance</h2>
+                        <p class="description">Restored cardiovascular performance and transformed body composition — allowing for limitless, pain-free energy.</p>
+                        <button onclick="window.location='apply.html'">Book Free Consultation</button>
+                    </div>
+                </li>
+                <li class="item" style="background-image:url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800')">
+                    <div class="content">
+                        <h2 class="title">Core Rebuild</h2>
+                        <p class="description">Eliminated visceral fat around the abdomen, unveiling hard-earned core definition through targeted nutrient timing.</p>
+                        <button onclick="window.location='apply.html'">Book Free Consultation</button>
+                    </div>
+                </li>
+            </ul>
+
+            <nav class="nav">
+                <button class="btn prev" aria-label="Previous">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <button class="btn next" aria-label="Next">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Slider JS — scoped to #fm-slider only -->
+        <script>
+            (function() {
+                const sliderEl = document.querySelector('#fm-slider .slider');
+                if (!sliderEl) return;
+
+                function activate(e) {
+                    const btn = e.target.closest('.btn');
+                    if (!btn) return;
+                    const items = sliderEl.querySelectorAll('.item');
+                    if (btn.classList.contains('next')) sliderEl.appendChild(items[0]);
+                    if (btn.classList.contains('prev')) sliderEl.prepend(items[items.length - 1]);
+
+                    // Re-trigger animation on newly active (2nd) item's content
+                    const active = sliderEl.querySelectorAll('.item')[1];
+                    if (active) {
+                        const c = active.querySelector('.content');
+                        if (c) { c.style.animation='none'; c.offsetHeight; c.style.animation=''; }
+                    }
+                }
+                document.getElementById('fm-slider').addEventListener('click', activate, false);
+            })();
+        </script>
+
+        <div style="text-align:center; padding:4rem 0 6rem;">
+            <a href="results.html" class="btn btn-outline" style="border-color:var(--gold-mid); color:var(--gold-deep); padding:1.2rem 3rem;">Explore More Transformations</a>
+        </div>
+    </section>
     <section class="section" style="background-color:var(--off-white); padding:8rem 0;">
         <div class="container fade-in-section">
             <div style="text-align:center; margin-bottom:5rem;">
