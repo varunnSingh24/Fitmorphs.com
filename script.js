@@ -851,11 +851,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = e.target.closest('.next');
     const prevBtn = e.target.closest('.prev');
     if (nextBtn || prevBtn) {
-      const slider = (nextBtn || prevBtn).closest('.slider-main')?.querySelector('.t-slider');
+      const sliderEl = (nextBtn || prevBtn).closest('.slider-main');
+      const slider = sliderEl?.querySelector('.t-slider');
       if (slider) {
         const items = slider.querySelectorAll('.t-item');
         if (nextBtn) slider.appendChild(items[0]);
         if (prevBtn) slider.prepend(items[items.length - 1]);
+        
+        // Re-trigger animation on the new active slide (always 2nd child)
+        const newActive = slider.querySelectorAll('.t-item')[1];
+        if (newActive) {
+          const content = newActive.querySelector('.t-content');
+          if (content) {
+            content.style.animation = 'none';
+            content.offsetHeight; // reflow
+            content.style.animation = '';
+          }
+        }
       }
     }
   });
