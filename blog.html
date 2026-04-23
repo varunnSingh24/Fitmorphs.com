@@ -52,7 +52,44 @@
         .blog-cat-btn:hover, .blog-cat-btn.active { background: var(--gold-mid); color: var(--dark); border-color: var(--gold-mid); }
         
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1200px; margin: 0 auto 6rem; padding: 0 2rem; }
+
+        /* =========================================================
+           GOLDEN STAR BG FOR BLOG HERO 
+           ========================================================= */
+        #stars-container { position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; opacity: 0.8; }
+        .star-layer { background: transparent; position: absolute; top: 0; left: 0; }
+        .star-layer:after { content: " "; position: absolute; top: 2000px; left: 0; background: transparent; }
+        #stars1 { width: 1.5px; height: 1.5px; animation: animStar 60s linear infinite; }
+        #stars1:after { width: 1.5px; height: 1.5px; }
+        #stars2 { border-radius: 50%; width: 2.5px; height: 2.5px; animation: animStar 120s linear infinite; }
+        #stars2:after { border-radius: 50%; width: 2.5px; height: 2.5px; }
+        #stars3 { border-radius: 50%; width: 3.5px; height: 3.5px; animation: animStar 180s linear infinite; }
+        #stars3:after { border-radius: 50%; width: 3.5px; height: 3.5px; }
+        
+        @keyframes animStar {
+            from { transform: translateY(0px); }
+            to   { transform: translateY(-2000px); }
+        }
     </style>
+    
+    <script>
+        // Generate stars dynamically to avoid massive CSS bloat
+        document.addEventListener("DOMContentLoaded", () => {
+            const getGold = () => `rgba(212,160,23,${(Math.random() * 0.7 + 0.3).toFixed(2)})`;
+            const generateStars = (n) => {
+                let val = `${Math.floor(Math.random()*2500)}px ${Math.floor(Math.random()*2500)}px ${getGold()}`;
+                for(let i=1; i<n; i++) val += `, ${Math.floor(Math.random()*2500)}px ${Math.floor(Math.random()*2500)}px ${getGold()}`;
+                return val;
+            };
+            const style = document.createElement('style');
+            style.innerHTML = `
+                #stars1, #stars1:after { box-shadow: ${generateStars(700)}; }
+                #stars2, #stars2:after { box-shadow: ${generateStars(200)}; }
+                #stars3, #stars3:after { box-shadow: ${generateStars(100)}; }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </head>
 <body>
     <div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
@@ -82,10 +119,16 @@
     </nav>
 
     <div class="blog-hero fade-in-section">
-        <h1 class="text-gold-gradient" style="font-size: clamp(3rem, 6vw, 4.5rem); line-height:1.1; margin-bottom: 1rem;">FitMorphs Journal</h1>
-        <p style="font-size: 1.2rem; color: var(--cream); opacity: 0.8; max-width: 600px; margin: 0 auto;">Science-backed education and expert clinical insights on reversing metabolic disease naturally.</p>
+        <div id="stars-container" aria-hidden="true">
+            <div id="stars1" class="star-layer"></div>
+            <div id="stars2" class="star-layer"></div>
+            <div id="stars3" class="star-layer"></div>
+        </div>
         
-        <div class="blog-category-nav">
+        <h1 class="text-gold-gradient" style="font-size: clamp(3rem, 6vw, 4.5rem); line-height:1.1; margin-bottom: 1rem; position:relative; z-index:1;">FitMorphs Journal</h1>
+        <p style="font-size: 1.2rem; color: var(--cream); opacity: 0.8; max-width: 600px; margin: 0 auto; position:relative; z-index:1;">Science-backed education and expert clinical insights on reversing metabolic disease naturally.</p>
+        
+        <div class="blog-category-nav" style="position:relative; z-index:1;">
             <button class="blog-cat-btn active" data-filter="all">All Articles</button>
             <button class="blog-cat-btn" data-filter="diabetes">Diabetes Reversal</button>
             <button class="blog-cat-btn" data-filter="hba1c">HbA1c Management</button>
