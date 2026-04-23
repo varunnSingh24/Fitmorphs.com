@@ -473,6 +473,16 @@
             max-width: 1200px;
             margin-inline: auto;
         }
+
+        /* =====================================================
+           MAGIC GLOW EFFECT (VOGUE CATEGORY CARDS)
+           ===================================================== */
+        @property --fm-rotate {
+            syntax: "<angle>";
+            initial-value: 132deg;
+            inherits: false;
+        }
+
         .cat-card-vogue {
             min-height: 320px;
             background: radial-gradient(circle at center, rgba(212,160,23,0.06) 0%, transparent 70%), var(--dark-card);
@@ -485,10 +495,42 @@
             color: var(--cream);
             text-decoration: none;
             display: block;
+            position: relative;
+            z-index: 1;
         }
+
+        .cat-card-vogue::before,
+        .cat-card-vogue::after {
+            content: ""; position: absolute; z-index: -1;
+            background-image: linear-gradient(var(--fm-rotate), var(--gold-mid), var(--gold-deep) 43%, transparent);
+            animation: fm-spin 2.5s linear infinite;
+            opacity: 0; transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .cat-card-vogue::before {
+            inset: -2px;
+            border-radius: 10px; /* matches block radius 8px + 2px inset */
+        }
+        
+        .cat-card-vogue::after {
+            inset: 0;
+            transform: scale(0.9);
+            filter: blur(25px);
+        }
+
         .cat-card-vogue:hover {
             transform: translateY(-8px);
-            border-color: rgba(212,160,23,0.4);
+            border-color: transparent; /* hide static border to let glow shine */
+        }
+        .cat-card-vogue:hover::before,
+        .cat-card-vogue:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes fm-spin {
+            0% { --fm-rotate: 0deg; }
+            100% { --fm-rotate: 360deg; }
         }
         .cat-icon-wrapper-large {
             width: 90px; height: 90px;
