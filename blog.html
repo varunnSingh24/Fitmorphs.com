@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitMorphs Journal — Doctor-Supervised Metabolic Health Blog</title>
+    <meta name="description" content="Read expert articles on diabetes reversal, HbA1c management, diet plans, and lifestyle changes from FitMorphs, India's premier doctor-supervised metabolic program.">
+    <link rel="canonical" href="https://www.fitmorphs.com/blog.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" as="style">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/@mantine/core@7.17.4/styles.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { deep: '#b8860b', mid: '#d4a017', bright: '#f0c040', light: '#f0d060', pale: '#faf0d0' },
+                        dark: { DEFAULT: '#0f0f0c', deep: '#0c0a06', card: '#1a1610', surface: '#221e16' },
+                        charcoal: '#1a1a18', cream: '#f5efe3', 'off-white': '#fafaf7', ivory: '#fdfbf6',
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['DM Sans', 'sans-serif'],
+                        accent: ['Instrument Serif', 'serif']
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--dark); color: var(--cream); }
+        h1, h2, h3, h4, .playfair { font-family: 'Playfair Display', serif; }
+        .text-gold-gradient {
+            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--gold-mid);
+        }
+
+        .blog-hero { text-align: center; padding: 12rem 2rem 5rem; position: relative; background-color: var(--dark-deep); }
+        
+        .blog-category-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0 4rem; }
+        .blog-cat-btn { background: var(--charcoal); border: 1px solid rgba(212,160,23,0.3); color: var(--cream); padding: 0.6rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; font-weight: 500; }
+        .blog-cat-btn:hover, .blog-cat-btn.active { background: var(--gold-mid); color: var(--dark); border-color: var(--gold-mid); }
+        
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1200px; margin: 0 auto 6rem; padding: 0 2rem; }
+        .blog-card { background-color: var(--dark-surface); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.3s ease, transform 0.3s ease; text-decoration: none; position: relative; }
+        .blog-card:hover { border-color: var(--gold-mid); transform: translateY(-5px); }
+        .blog-img-wrap { height: 220px; overflow: hidden; background-color: var(--charcoal); position: relative; }
+        .blog-category-pill { position: absolute; top: 1rem; left: 1rem; background: var(--gold-mid); color: var(--dark); font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 50px; font-weight: 700; text-transform: uppercase; z-index: 2; }
+        .blog-content { padding: 2rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .blog-title { font-size: 1.5rem; color: var(--cream); margin-bottom: 1rem; line-height: 1.3; font-family: 'Playfair Display', serif; }
+        .blog-card:hover .blog-title { color: var(--gold-bright); }
+        .blog-excerpt { font-family: 'DM Sans', sans-serif; color: var(--cream); opacity: 0.7; font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1; }
+        .blog-cta { display: block; text-align: center; padding: 1rem; background: transparent; border: 1px solid var(--gold-mid); color: var(--gold-mid); font-family: 'DM Sans', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 4px; transition: all 0.3s ease; }
+        .blog-card:hover .blog-cta { background: var(--gold-mid); color: var(--dark); }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
+
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="index.html" class="nav-brand" aria-label="FitMorphs Home">
+                <img src="logo_stickey.png" alt="FitMorphs Logo" class="footer-logo" width="70" height="70">
+            </a>
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" style="font-family:'DM Sans', sans-serif;">Home</a>
+                <a href="diabetes.html" style="font-family:'DM Sans', sans-serif;">Diabetes Reversal</a>
+                <a href="transformation.html" style="font-family:'DM Sans', sans-serif;">Transformation</a>
+                <a href="results.html" style="font-family:'DM Sans', sans-serif;">Results</a>
+                <a href="about.html" style="font-family:'DM Sans', sans-serif;">About</a>
+                <a href="blog.html" class="active" style="font-family:'DM Sans', sans-serif;">Blog</a>
+                <a href="apply.html" class="btn btn-nav" style="font-family:'DM Sans', sans-serif;">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="blog-hero">
+        <h1 class="text-gold-gradient" style="font-size: clamp(3rem, 6vw, 4.5rem); line-height:1.1; margin-bottom: 1rem;">FitMorphs Journal</h1>
+        <p style="font-size: 1.2rem; color: var(--cream); opacity: 0.8; max-width: 600px; margin: 0 auto;">Science-backed education and expert clinical insights on reversing metabolic disease naturally.</p>
+        
+        <div class="blog-category-nav">
+            <button class="blog-cat-btn active" data-filter="all">All Articles</button>
+            <button class="blog-cat-btn" data-filter="diabetes">Diabetes Reversal</button>
+            <button class="blog-cat-btn" data-filter="hba1c">HbA1c Management</button>
+            <button class="blog-cat-btn" data-filter="diet">Diet Plans</button>
+            <button class="blog-cat-btn" data-filter="lifestyle">Lifestyle Management</button>
+        </div>
+    </div>
+
+    <div class="blog-grid" id="blog-grid">
+        <!-- Card 1 -->
+        <a href="how-to-reduce-hba1c-naturally.html" class="blog-card" data-category="hba1c">
+            <div class="blog-img-wrap">
+                <div class="blog-category-pill">HbA1c Management</div>
+            </div>
+            <div class="blog-content">
+                <h2 class="blog-title">How to Reduce HbA1c Naturally in 90 Days</h2>
+                <p class="blog-excerpt">Discover clinically proven, natural strategies to lower your HbA1c without relying entirely on medication.</p>
+                <div class="blog-cta">Book Free Consultation</div>
+            </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="can-type-2-diabetes-be-reversed.html" class="blog-card" data-category="diabetes">
+            <div class="blog-img-wrap">
+                <div class="blog-category-pill">Diabetes Reversal</div>
+            </div>
+            <div class="blog-content">
+                <h2 class="blog-title">Can Type 2 Diabetes Actually Be Reversed?</h2>
+                <p class="blog-excerpt">Understanding the science behind metabolic reversal, beta-cell recovery, and shedding insulin resistance permanently.</p>
+                <div class="blog-cta">Book Free Consultation</div>
+            </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="best-diet-plan-for-diabetes-reversal.html" class="blog-card" data-category="diet">
+            <div class="blog-img-wrap">
+                <div class="blog-category-pill">Diet Plans</div>
+            </div>
+            <div class="blog-content">
+                <h2 class="blog-title">The Best Diet Plan for Fast Diabetes Reversal</h2>
+                <p class="blog-excerpt">Which diet actually works for reversing type 2 diabetes? We break down the clinical evidence behind macro balancing.</p>
+                <div class="blog-cta">Book Free Consultation</div>
+            </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="how-to-control-blood-sugar-without-medicine.html" class="blog-card" data-category="hba1c">
+            <div class="blog-img-wrap">
+                <div class="blog-category-pill">HbA1c Management</div>
+            </div>
+            <div class="blog-content">
+                <h2 class="blog-title">How to Control Blood Sugar Without Medicine</h2>
+                <p class="blog-excerpt">Learn the daily habits, meal timing techniques, and sleep optimizations that naturally stabilize blood glucose.</p>
+                <div class="blog-cta">Book Free Consultation</div>
+            </div>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="foods-to-avoid-in-diabetes.html" class="blog-card" data-category="diet">
+            <div class="blog-img-wrap">
+                <div class="blog-category-pill">Diet Plans</div>
+            </div>
+            <div class="blog-content">
+                <h2 class="blog-title">The Top 5 Foods to Immediately Avoid For Diabetes</h2>
+                <p class="blog-excerpt">Some "healthy" foods are secretly spiking your insulin. Here is what you must eliminate to begin your reversal journey.</p>
+                <div class="blog-cta">Book Free Consultation</div>
+            </div>
+        </a>
+
+        <!-- Card 6 -->
+        <a href="best-breakfast-for-diabetics.html" class="blog-card" data-category="diet">
+            <div class="blog-img-wrap">
+                <div class="blog-category-pill">Diet Plans</div>
+            </div>
+            <div class="blog-content">
+                <h2 class="blog-title">The Science of the Best Breakfast for Diabetics</h2>
+                <p class="blog-excerpt">Start your day without a blood sugar spike. Explore doctor-recommended breakfast protocols for sustained energy.</p>
+                <div class="blog-cta">Book Free Consultation</div>
+            </div>
+        </a>
+
+        <!-- Card 7 -->
+        <a href="can-prediabetes-be-reversed.html" class="blog-card" data-category="diabetes">
+            <div class="blog-img-wrap">
+                <div class="blog-category-pill">Diabetes Reversal</div>
+            </div>
+            <div class="blog-content">
+                <h2 class="blog-title">Can Prediabetes Be Reversed Completely?</h2>
+                <p class="blog-excerpt">Prediabetes is your body's final warning signal. Here is the blueprint to revert fully to normal metabolic function.</p>
+                <div class="blog-cta">Book Free Consultation</div>
+            </div>
+        </a>
+
+        <!-- Card 8 -->
+        <a href="natural-treatment-for-insulin-resistance.html" class="blog-card" data-category="lifestyle">
+            <div class="blog-img-wrap">
+                <div class="blog-category-pill">Lifestyle Management</div>
+            </div>
+            <div class="blog-content">
+                <h2 class="blog-title">Natural Treatments for Severe Insulin Resistance</h2>
+                <p class="blog-excerpt">Actionable steps to resensitize your cells to insulin, promoting fat loss and reversing metabolic syndrome naturally.</p>
+                <div class="blog-cta">Book Free Consultation</div>
+            </div>
+        </a>
+
+        <!-- Card 9 -->
+        <a href="diabetes-reversal-program-india.html" class="blog-card" data-category="lifestyle">
+            <div class="blog-img-wrap">
+                <div class="blog-category-pill">Lifestyle Management</div>
+            </div>
+            <div class="blog-content">
+                <h2 class="blog-title">Choosing a Diabetes Reversal Program in India</h2>
+                <p class="blog-excerpt">What to look for in a clinical reversal program and how FitMorphs has transformed over 10,000 lives nationwide.</p>
+                <div class="blog-cta">Book Free Consultation</div>
+            </div>
+        </a>
+
+        <!-- Card 10 -->
+        <a href="how-to-lower-blood-sugar-naturally.html" class="blog-card" data-category="hba1c">
+            <div class="blog-img-wrap">
+                <div class="blog-category-pill">HbA1c Management</div>
+            </div>
+            <div class="blog-content">
+                <h2 class="blog-title">Emergency Steps: How to Lower Blood Sugar Naturally</h2>
+                <p class="blog-excerpt">When your blood sugar spikes, use these immediate, natural techniques to safely bring your levels back down.</p>
+                <div class="blog-cta">Book Free Consultation</div>
+            </div>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple filter logic for blog categories
+        document.querySelectorAll('.blog-cat-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.blog-cat-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                document.querySelectorAll('.blog-card').forEach(card => {
+                    if(filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
