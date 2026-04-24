@@ -656,6 +656,11 @@
 </head>
 
 <body>
+    <div id="stars-container" aria-hidden="true">
+        <div id="stars1" class="star-layer"></div>
+        <div id="stars2" class="star-layer"></div>
+        <div id="stars3" class="star-layer"></div>
+    </div>
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress-container" aria-hidden="true">
         <div class="scroll-progress-bar"></div>
@@ -710,7 +715,6 @@
 
     <!-- SECTION 1: HERO -->
     <section class="hero-vogue">
-        <canvas class="gold-particles" aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none;"></canvas>
         <div class="hero-bg-wrapper">
             <img class="hero-bg-img" src="https://images.unsplash.com/photo-1571019614242-c5c5adee9f50?auto=format&fit=crop&q=80&w=1600" alt="Premium lifestyle health">
             <div class="hero-gradient-overlay"></div>
@@ -758,7 +762,6 @@
 
     <!-- SECTION 2: IMPACT NUMBER -->
     <section class="impact-section">
-        <canvas class="gold-particles" aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none;"></canvas>
         <div class="impact-grid fade-in-section">
             <div>
                 <h2 class="impact-main-stat shimmer-text" data-target="10000" data-suffix="+">10,000+</h2>
@@ -793,11 +796,13 @@
         <div class="philosophy-grid fade-in-section">
             <div>
                 <div class="gold-rule-thin"></div>
-                <span class="section-label" style="font-family:'DM Sans', sans-serif;">Our Philosophy</span>
+                <span class="eyebrow-deluxe single-rule">Our Founding Principle</span>
+                <span class="editorial-kicker">A Manifesto in Metabolic Precision</span>
                 <h2 class="playfair philosophy-h2">Doctor Supervised.<br>Data Driven.</h2>
-                <p style="color:var(--text-body); font-size:1.1rem; margin-bottom:1.5rem;">To embark on a profound journey of self-transformation, we must delve into the precise artistry of shaping both body and mind. The realm of Fitness Science extends far beyond mere calculations of muscle and fat ratios.</p>
-                <p style="color:var(--text-body); font-size:1.1rem; margin-bottom:2.5rem;">Likewise, the Science of Nutrition transcends simplistic equations. Every body is unique. Our clinical team creates personalised protocols that fit seamlessly into your life.</p>
-                <a href="about.html" class="btn btn-primary" style="background:var(--gold-deep); color:var(--dark);">Read Our Story</a>
+                <p class="lead-para">To embark on a profound journey of self-transformation, we must delve into the precise artistry of shaping both body and mind. The realm of Fitness Science extends far beyond mere calculations of muscle and fat ratios.</p>
+                <blockquote class="pull-quote">Every body is a unique equation. No template survives first contact with your physiology.<cite>— The Fitmorphs Doctrine</cite></blockquote>
+                <p class="serif-rich">Likewise, the Science of Nutrition transcends simplistic equations. Our clinical team authors personalised protocols — calibrated to your labs, your rhythm, your life — that fit seamlessly into the everyday.</p>
+                <a href="about.html" class="btn btn-primary" style="background:var(--gold-deep); color:var(--dark); margin-top:0.75rem;">Read Our Story</a>
             </div>
             <div>
                 <img class="philosophy-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="Doctor consultation session" loading="lazy">
@@ -858,9 +863,12 @@
     <section class="section" style="background-color: var(--off-white); position:relative; overflow:hidden;">
         <div class="container fade-in-section">
             <div style="text-align:center; margin-bottom:5rem;">
-                <span class="section-label">The Process</span>
-                <h2 class="playfair" style="font-size:clamp(2.2rem,4vw,3.5rem); color:var(--text-primary); margin-bottom:1rem;">How It Works</h2>
-                <p style="color:var(--text-muted); font-size:1.05rem; max-width:520px; margin:0 auto;">Three steps to the most significant health transformation of your life.</p>
+                <span class="eyebrow-deluxe">The Process</span>
+                <div style="margin-top:1rem;"></div>
+                <span class="editorial-kicker">Three chapters. Ninety days. One reversal.</span>
+                <h2 class="playfair" style="font-size:clamp(2.2rem,4vw,3.5rem); color:var(--text-primary); margin-bottom:1rem;">The Transformation Arc</h2>
+                <p class="editorial-subtitle centered" style="text-align:center;">From first application to final read-out — a choreography of clinical care, data, and daily support.</p>
+                <div class="section-ornament"><span class="diamond"></span></div>
             </div>
 
             <div class="stagger-children" style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; max-width:1100px; margin:0 auto; position:relative;">
@@ -869,23 +877,29 @@
 
                 <!-- Step 1 -->
                 <div style="text-align:center; padding:2.5rem 2rem; background:var(--white); border:1px solid rgba(201,162,39,0.15); border-radius:14px; position:relative;">
-                    <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">1</div>
-                    <h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">Apply &amp; Get Assessed</h3>
-                    <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.7; max-width:none;">Complete your clinical application. Our medical team reviews your metabolic profile and calls you within 2 hours.</p>
+                    <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">1</div>
+                    <div class="chapter-mark">Chapter I</div>
+                    <h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">The Diagnostic</h3>
+                    <p class="serif-rich" style="margin:0; font-size:1.02rem;">Complete your clinical application. Our medical team reviews your metabolic profile and calls within two hours — no sales, just science.</p>
+                    <span class="timeline-pill">Day 1 · Assessment</span>
                 </div>
 
                 <!-- Step 2 -->
                 <div style="text-align:center; padding:2.5rem 2rem; background:var(--white); border:1px solid rgba(201,162,39,0.15); border-radius:14px; position:relative;">
-                    <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">2</div>
-                    <h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">Receive Your Protocol</h3>
-                    <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.7; max-width:none;">Your dedicated doctor designs a personalised nutrition and lifestyle protocol calibrated to your exact lab values and body type.</p>
+                    <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">2</div>
+                    <div class="chapter-mark">Chapter II</div>
+                    <h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">The Prescription</h3>
+                    <p class="serif-rich" style="margin:0; font-size:1.02rem;">Your dedicated doctor authors a personalised nutrition and lifestyle protocol — calibrated to your exact lab values, body type, and daily rhythm.</p>
+                    <span class="timeline-pill">Day 3 · Protocol</span>
                 </div>
 
                 <!-- Step 3 -->
                 <div style="text-align:center; padding:2.5rem 2rem; background:var(--white); border:1px solid rgba(201,162,39,0.15); border-radius:14px; position:relative;">
-                    <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">3</div>
-                    <h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">Transform With Support</h3>
-                    <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.7; max-width:none;">Weekly check-ins, lab tracking, and real-time coaching keep you on track. Most clients see measurable change within 30 days.</p>
+                    <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">3</div>
+                    <div class="chapter-mark">Chapter III</div>
+                    <h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">The Evolution</h3>
+                    <p class="serif-rich" style="margin:0; font-size:1.02rem;">Weekly check-ins, lab tracking, and real-time coaching keep momentum alive. Most clients see measurable change within thirty days.</p>
+                    <span class="timeline-pill">Day 30+ · Transformation</span>
                 </div>
             </div>
 
@@ -927,15 +941,18 @@
     <section class="section" style="background-color:var(--ivory); position:relative;">
         <div class="container fade-in-section" style="max-width:780px;">
             <div style="text-align:center; margin-bottom:3.5rem;">
-                <span class="section-label">Common Questions</span>
-                <h2 class="playfair" style="font-size:clamp(2rem,4vw,3rem); color:var(--text-primary);">Before You Apply</h2>
+                <span class="eyebrow-deluxe">Common Questions</span>
+                <div style="margin-top:0.8rem;"></div>
+                <span class="editorial-kicker">Honest answers before your first call.</span>
+                <h2 class="playfair" style="font-size:clamp(2rem,4vw,3rem); color:var(--text-primary);">The Questions Worth Asking</h2>
+                <div class="section-ornament"><span class="diamond"></span></div>
             </div>
 
             <div style="display:flex; flex-direction:column; gap:0.75rem;">
                 <!-- FAQ 1 -->
                 <div class="faq-item" style="border:1px solid rgba(201,162,39,0.18); border-radius:10px; overflow:hidden; background:var(--white);">
                     <button class="faq-question" aria-expanded="false" style="width:100%; text-align:left; padding:1.4rem 1.75rem; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--text-primary);">
-                        Is this approach medically safe?
+                        <span style="display:flex; align-items:center;"><span class="faq-number">Nº 01</span>Is this approach medically safe?</span>
                         <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; transition:transform 0.3s ease; color:var(--gold-mid);"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
@@ -946,7 +963,7 @@
                 <!-- FAQ 2 -->
                 <div class="faq-item" style="border:1px solid rgba(201,162,39,0.18); border-radius:10px; overflow:hidden; background:var(--white);">
                     <button class="faq-question" aria-expanded="false" style="width:100%; text-align:left; padding:1.4rem 1.75rem; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--text-primary);">
-                        How long until I see real results?
+                        <span style="display:flex; align-items:center;"><span class="faq-number">Nº 02</span>How long until I see real results?</span>
                         <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; transition:transform 0.3s ease; color:var(--gold-mid);"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
@@ -957,7 +974,7 @@
                 <!-- FAQ 3 -->
                 <div class="faq-item" style="border:1px solid rgba(201,162,39,0.18); border-radius:10px; overflow:hidden; background:var(--white);">
                     <button class="faq-question" aria-expanded="false" style="width:100%; text-align:left; padding:1.4rem 1.75rem; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--text-primary);">
-                        What if the program doesn't work for me?
+                        <span style="display:flex; align-items:center;"><span class="faq-number">Nº 03</span>What if the program doesn't work for me?</span>
                         <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; transition:transform 0.3s ease; color:var(--gold-mid);"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
@@ -1029,7 +1046,6 @@
 
     <!-- SECTION 5: TESTIMONIALS -->
     <section class="testimonials-vogue">
-        <canvas class="gold-particles" aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none;"></canvas>
         <div class="quote-mark-bg playfair">&ldquo;</div>
         
         <div class="featured-test fade-in-section gradient-border-card" style="border-radius:14px; padding:3rem; background:rgba(18,16,10,0.6); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);">
@@ -1068,32 +1084,40 @@
     <!-- SECTION 6: SPECIALISED INTERVENTIONS -->
     <section class="section" style="background-color: var(--dark-surface);">
         <div class="container fade-in-section">
-            <span class="section-label" style="text-align:center; display:block; font-family:'DM Sans', sans-serif;">The Fitmorphs Pathways</span>
-            <h2 class="playfair" style="text-align:center; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 0.75rem; color: var(--cream);">Specialised Interventions</h2>
-            <p style="text-align:center; max-width:580px; margin: 0 auto; color: var(--cream); opacity: 0.7; font-size: 1.05rem; font-family:'DM Sans', sans-serif;">Clinically supervised protocols designed for your specific metabolic requirements.</p>
+            <div style="text-align:center;">
+                <span class="eyebrow-deluxe on-dark">The Fitmorphs Pathways</span>
+                <div style="margin-top:1rem;"></div>
+                <span class="editorial-kicker on-dark">Six doctrines. One destination: metabolic freedom.</span>
+                <h2 class="playfair" style="text-align:center; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 0.6rem; color: var(--cream);">Specialised Interventions</h2>
+                <p class="editorial-subtitle on-dark centered" style="text-align:center; max-width:620px;">Clinically supervised protocols — each a distinct answer to a different metabolic question. Choose your pathway.</p>
+                <div class="section-ornament"><span class="diamond"></span></div>
+            </div>
 
             <div class="categories-grid stagger-children">
                 <a href="diabetes.html" class="cat-card-vogue glass-card">
+                    <span class="pathway-numeral">I</span>
                     <div class="cat-icon-wrapper-large" aria-hidden="true">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                         </svg>
                     </div>
                     <h3 class="playfair">Diabetes Reversal</h3>
-                    <p>Reverse Type 2 Diabetes in 90 days naturally through metabolic repair.</p>
+                    <p class="cat-editorial">Reverse Type 2 Diabetes in 90 days — a clinical repair of metabolism, not a managed disease.</p>
                 </a>
 
                 <a href="transformation.html" class="cat-card-vogue glass-card">
+                    <span class="pathway-numeral">II</span>
                     <div class="cat-icon-wrapper-large" aria-hidden="true">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                         </svg>
                     </div>
                     <h3 class="playfair">Fat Loss &amp; Recomp</h3>
-                    <p>Science-backed fat loss without starving. Build lean tissue.</p>
+                    <p class="cat-editorial">Precision fat loss without starvation — shed adipose, sculpt lean tissue, keep the results.</p>
                 </a>
 
                 <a href="results.html" class="cat-card-vogue glass-card">
+                    <span class="pathway-numeral">III</span>
                     <div class="cat-icon-wrapper-large" aria-hidden="true">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="m10 15 5-3-5-3v6Z" />
@@ -1101,10 +1125,11 @@
                         </svg>
                     </div>
                     <h3 class="playfair">Strength &amp; Vitality</h3>
-                    <p>Enhance overall endurance, improve sleep quality, and restore daily energy.</p>
+                    <p class="cat-editorial">Rebuild endurance, deepen sleep, restore the daily energy your younger self took for granted.</p>
                 </a>
 
                 <a href="#" class="cat-card-vogue glass-card">
+                    <span class="pathway-numeral">IV</span>
                     <div class="cat-icon-wrapper-large" aria-hidden="true">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <circle cx="12" cy="12" r="10" />
@@ -1113,20 +1138,22 @@
                         </svg>
                     </div>
                     <h3 class="playfair">PCOD/PCOS</h3>
-                    <p>Regulate hormones, improve fertility, and reduce symptoms through nutrition.</p>
+                    <p class="cat-editorial">Regulate cycles, restore fertility, calm the hormonal storm — through food and rhythm, not pills.</p>
                 </a>
-                
+
                 <a href="#" class="cat-card-vogue glass-card">
+                    <span class="pathway-numeral">V</span>
                     <div class="cat-icon-wrapper-large" aria-hidden="true">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                         </svg>
                     </div>
                     <h3 class="playfair">Liver Health</h3>
-                    <p>Reverse Fatty Liver and optimize hepatic function with clinical dietary plans.</p>
+                    <p class="cat-editorial">Reverse fatty liver and reignite hepatic function — a clinical cleanse, written in evidence.</p>
                 </a>
-                
+
                 <a href="#" class="cat-card-vogue glass-card">
+                    <span class="pathway-numeral">VI</span>
                     <div class="cat-icon-wrapper-large" aria-hidden="true">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
@@ -1134,7 +1161,7 @@
                         </svg>
                     </div>
                     <h3 class="playfair">Weight Gain</h3>
-                    <p>Build healthy muscle mass and achieve your ideal physique systematically.</p>
+                    <p class="cat-editorial">Build lean muscle systematically — structured hypertrophy for those who struggle to grow.</p>
                 </a>
             </div>
         </div>
@@ -1190,7 +1217,6 @@
 
     <!-- SECTION 7: FINAL CTA -->
     <section class="final-cta-vogue">
-        <canvas class="gold-particles" aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none;"></canvas>
         <div class="final-cta-content fade-in-section">
             <span class="hero-label-eyebrow" style="color:rgba(201,162,39,0.55); margin-bottom:1.5rem;">Limited availability · Q2 2026</span>
             <h2 class="final-cta-h2 text-gold-gradient">Start Your<br>Transformation.</h2>

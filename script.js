@@ -873,3 +873,50 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+// =========================================================
+// GOLD DROPLETS — generate box-shadow stars on every page
+// Each star uses a 2-stop box-shadow: solid core + soft glow,
+// giving a crisp, luxurious gold particle that rises upward.
+// =========================================================
+(function () {
+  // Use the actual viewport width so stars are spread edge-to-edge
+  // no matter how wide the screen is. Height stays at 2000px to
+  // match the CSS ::after offset / translate loop.
+  var W = Math.max(window.innerWidth, 1400);
+  var H = 2000;
+
+  var goldCore = function () {
+    // Subtle core — opacity 0.22–0.5
+    var a = (Math.random() * 0.28 + 0.22).toFixed(2);
+    return 'rgba(240,192,64,' + a + ')';
+  };
+  var goldGlow = function () {
+    // Whisper halo — opacity 0.05–0.15
+    var a = (Math.random() * 0.10 + 0.05).toFixed(2);
+    return 'rgba(212,160,23,' + a + ')';
+  };
+
+  // Build one particle = core shadow + soft glow at same position
+  var buildOne = function (glow) {
+    var x = Math.floor(Math.random() * W);
+    var y = Math.floor(Math.random() * H);
+    var core = x + 'px ' + y + 'px 0 0 ' + goldCore();
+    var halo = x + 'px ' + y + 'px ' + glow + 'px 0 ' + goldGlow();
+    return core + ',' + halo;
+  };
+
+  var generateStars = function (n, glow) {
+    var parts = [];
+    for (var i = 0; i < n; i++) parts.push(buildOne(glow));
+    return parts.join(',');
+  };
+
+  var s = document.createElement('style');
+  // Reduced counts for smooth scroll / mouse performance
+  s.textContent =
+    '#stars1,#stars1::after{box-shadow:' + generateStars(85, 2) + '}' +
+    '#stars2,#stars2::after{box-shadow:' + generateStars(30, 3) + '}' +
+    '#stars3,#stars3::after{box-shadow:' + generateStars(14, 4) + '}';
+  document.head.appendChild(s);
+})();

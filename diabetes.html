@@ -231,30 +231,59 @@
             color: rgba(245, 239, 227, 0.7);
         }
 
-        /* LAB REPORTS */
-        .report-compare {
-            display: flex;
-            flex-direction: column;
-            background: var(--off-white);
-            padding: 2.5rem;
-            border-radius: 4px;
-            border: 1px solid rgba(212, 160, 23, 0.15);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-        }
+        /* 3D REPORT CAROUSEL */
+        .reports-scene, .reports-a3d { display: grid }
 
-        .report-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .report-img {
+        .reports-scene {
+            overflow: hidden;
+            perspective: 35em;
+            mask: linear-gradient(90deg, #0000, red 18% 82%, #0000);
+            -webkit-mask: linear-gradient(90deg, #0000, red 18% 82%, #0000);
+            height: 34em;
             width: 100%;
-            aspect-ratio: 3/4;
+        }
+
+        .reports-a3d {
+            place-self: center;
+            transform-style: preserve-3d;
+            animation: reports-ry 36s linear infinite;
+        }
+
+        @keyframes reports-ry { to { rotate: y 1turn } }
+
+        .reports-card {
+            --w: 16em;
+            --ba: calc(1turn / var(--n));
+            grid-area: 1 / 1;
+            width: var(--w);
+            aspect-ratio: 7 / 10;
             object-fit: cover;
-            border-radius: 2px;
-            border: 1px solid rgba(212, 160, 23, 0.2);
+            border-radius: 1.25em;
+            backface-visibility: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            border: 2px solid rgba(212, 160, 23, 0.35);
+            transform:
+                rotatey(calc(var(--i) * var(--ba)))
+                translatez(calc(-1 * (0.5 * var(--w) + 0.5em) / tan(0.5 * var(--ba))));
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reports-a3d { animation-duration: 144s }
+        }
+
+        @media (max-width: 768px) {
+            .reports-scene {
+                height: 24em;
+                perspective: 28em;
+                mask: linear-gradient(90deg, #0000, red 10% 90%, #0000);
+                -webkit-mask: linear-gradient(90deg, #0000, red 10% 90%, #0000);
+            }
+            .reports-card { --w: 11em; border-radius: 1em; }
+            .reports-a3d { animation-duration: 44s; }
+        }
+        @media (max-width: 480px) {
+            .reports-scene { height: 20em; perspective: 24em; }
+            .reports-card { --w: 9em; }
         }
 
         .vogue-tag {
@@ -422,6 +451,11 @@
 </head>
 
 <body>
+    <div id="stars-container" aria-hidden="true">
+        <div id="stars1" class="star-layer"></div>
+        <div id="stars2" class="star-layer"></div>
+        <div id="stars3" class="star-layer"></div>
+    </div>
     <div class="scroll-progress-container" aria-hidden="true">
         <div class="scroll-progress-bar"></div>
     </div>
@@ -458,8 +492,6 @@
 
     <!-- HERO -->
     <header class="hero-vogue" aria-label="Diabetes Reversal Hero">
-        <canvas class="gold-particles" aria-hidden="true"
-            style="position:absolute; inset:0; z-index:0; pointer-events:none;"></canvas>
         <div class="hero-bg-wrapper">
             <img class="hero-bg-img"
                 src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&q=80&w=1600"
@@ -532,8 +564,6 @@
 
     <!-- THE 6-PILLAR PROTOCOL -->
     <section class="section" style="background-color:var(--dark); position:relative; overflow:hidden; padding:8rem 0;">
-        <canvas class="gold-particles" aria-hidden="true"
-            style="position:absolute; inset:0; z-index:0; pointer-events:none;"></canvas>
         <div class="container fade-in-section" style="position:relative; z-index:2;">
             <div style="text-align:center; margin-bottom:5rem;">
                 <div class="hero-label" style="justify-content:center; display:flex;">The FitMorphs Method</div>
@@ -581,88 +611,27 @@
                 <h2 class="playfair" style="font-size:clamp(2.5rem,5vw,4rem); color:var(--dark);">The Proof is in the
                     Reports</h2>
             </div>
-            <div class="grid-3 stagger-children">
-
-                <div class="report-compare">
-                    <h3 class="playfair"
-                        style="font-size:2rem; text-align:center; color:var(--dark); margin-bottom:0.5rem;">HbA1c Drop:
-                        <span style="color:var(--gold-deep);">3.8</span></h3>
-                    <div class="report-grid">
-                        <div style="text-align:center;">
-                            <span class="vogue-tag dark">Before</span>
-                            <img src="https://images.unsplash.com/photo-1582719478250-c8940f5bd196?auto=format&fit=crop&q=80&w=400"
-                                alt="HbA1c report before treatment" class="report-img" loading="lazy">
-                            <p
-                                style="margin-top:1rem; font-family:'DM Sans',sans-serif; font-weight:700; color:var(--charcoal);">
-                                HbA1c 9.4</p>
-                        </div>
-                        <div style="text-align:center;">
-                            <span class="vogue-tag gold">After 90 Days</span>
-                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=400"
-                                alt="HbA1c report after 90 days" class="report-img" loading="lazy">
-                            <p
-                                style="margin-top:1rem; font-family:'DM Sans',sans-serif; font-weight:700; color:var(--gold-deep);">
-                                HbA1c 5.6</p>
-                        </div>
-                    </div>
+            <div class="reports-scene">
+                <div class="reports-a3d" style="--n: 12">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1582719478250-c8940f5bd196?w=280&auto=format&fit=crop&q=80" style="--i: 0" alt="Lab report – HbA1c 9.4 → 5.6">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=280&auto=format&fit=crop&q=80" style="--i: 1" alt="Lab result after 90 days">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=280&auto=format&fit=crop&q=80" style="--i: 2" alt="Blood test tubes">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=280&auto=format&fit=crop&q=80" style="--i: 3" alt="Doctor review">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1519494140681-8b17d773f309?w=280&auto=format&fit=crop&q=80" style="--i: 4" alt="Medical report">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=280&auto=format&fit=crop&q=80" style="--i: 5" alt="Lab test results">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=280&auto=format&fit=crop&q=80" style="--i: 6" alt="Blood glucose monitoring">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=280&auto=format&fit=crop&q=80" style="--i: 7" alt="Blood sugar test">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=280&auto=format&fit=crop&q=80" style="--i: 8" alt="Medical consultation">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=280&auto=format&fit=crop&q=80" style="--i: 9" alt="Doctor with patient">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1590013330451-3946e83e0392?w=280&auto=format&fit=crop&q=80" style="--i: 10" alt="Lab equipment">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1542850802-ff3c4b4425a4?w=280&auto=format&fit=crop&q=80" style="--i: 11" alt="Glucose meter reading">
                 </div>
-
-                <div class="report-compare">
-                    <h3 class="playfair"
-                        style="font-size:2rem; text-align:center; color:var(--dark); margin-bottom:0.5rem;">HbA1c Drop:
-                        <span style="color:var(--gold-deep);">5.3</span></h3>
-                    <div class="report-grid">
-                        <div style="text-align:center;">
-                            <span class="vogue-tag dark">Before</span>
-                            <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=400"
-                                alt="HbA1c report before" class="report-img" loading="lazy">
-                            <p
-                                style="margin-top:1rem; font-family:'DM Sans',sans-serif; font-weight:700; color:var(--charcoal);">
-                                HbA1c 11.2</p>
-                        </div>
-                        <div style="text-align:center;">
-                            <span class="vogue-tag gold">After 110 Days</span>
-                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400"
-                                alt="HbA1c report after" class="report-img" loading="lazy">
-                            <p
-                                style="margin-top:1rem; font-family:'DM Sans',sans-serif; font-weight:700; color:var(--gold-deep);">
-                                HbA1c 5.9</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="report-compare">
-                    <h3 class="playfair"
-                        style="font-size:2rem; text-align:center; color:var(--dark); margin-bottom:0.5rem;">HbA1c Drop:
-                        <span style="color:var(--gold-deep);">3.4</span></h3>
-                    <div class="report-grid">
-                        <div style="text-align:center;">
-                            <span class="vogue-tag dark">Before</span>
-                            <img src="https://images.unsplash.com/photo-1519494140681-8b17d773f309?auto=format&fit=crop&q=80&w=400"
-                                alt="HbA1c report before" class="report-img" loading="lazy">
-                            <p
-                                style="margin-top:1rem; font-family:'DM Sans',sans-serif; font-weight:700; color:var(--charcoal);">
-                                HbA1c 8.8</p>
-                        </div>
-                        <div style="text-align:center;">
-                            <span class="vogue-tag gold">After 75 Days</span>
-                            <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=400"
-                                alt="HbA1c report after" class="report-img" loading="lazy">
-                            <p
-                                style="margin-top:1rem; font-family:'DM Sans',sans-serif; font-weight:700; color:var(--gold-deep);">
-                                HbA1c 5.4</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
     <!-- TESTIMONIALS (VOGUE) -->
     <section class="testimonials-vogue">
-        <canvas class="gold-particles" aria-hidden="true"
-            style="position:absolute; inset:0; z-index:0; pointer-events:none;"></canvas>
         <div class="quote-mark-bg playfair">&ldquo;</div>
 
         <div class="featured-test fade-in-section">
@@ -675,8 +644,6 @@
     </section>
 
     <section class="testimonials-vogue" style="min-height:initial; padding-top:0;">
-        <canvas class="gold-particles" aria-hidden="true"
-            style="position:absolute; inset:0; z-index:0; pointer-events:none;"></canvas>
         <div class="featured-test fade-in-section" style="margin-top:4rem;">
             <p class="playfair test-quote" style="font-size:clamp(1.5rem,3vw,2.2rem);">"The constant fatigue is gone. I
                 couldn't believe it when my 3-month reports came back. The structured approach and doctor supervision
@@ -743,8 +710,6 @@
 
     <!-- FINAL CTA -->
     <section class="final-cta-vogue">
-        <canvas class="gold-particles" aria-hidden="true"
-            style="position:absolute; inset:0; z-index:0; pointer-events:none;"></canvas>
         <div class="final-cta-content fade-in-section">
             <h2 class="final-cta-h2 text-gold-gradient">Take the First Step Toward Reversal</h2>
             <a href="apply.html" class="btn btn-shimmer"
