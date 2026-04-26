@@ -32,43 +32,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // =========================================================
   // 0-B. HOMEPAGE INTRO SEQUENCE (first visit per session)
+  // IronStride-style preloader — CSS-driven stutter fill +
+  // mix-blend wordmark + radial mask wipe-out.
   // =========================================================
   const fmIntro = document.getElementById('fm-intro');
-  const fmWordmark = document.getElementById('fmWordmark');
-  const fmRule = document.getElementById('fmRule');
 
-  if (fmIntro && fmWordmark && fmRule) {
+  if (fmIntro) {
     const alreadySeen = sessionStorage.getItem('fm_intro_seen');
 
     if (alreadySeen) {
-      // Skip intro — remove immediately
       fmIntro.style.display = 'none';
     } else {
       sessionStorage.setItem('fm_intro_seen', '1');
-      // Prevent body scroll during intro
       document.body.style.overflow = 'hidden';
 
-      // Timeline:
-      // 0ms    — wordmark fades + scales in
-      // 300ms  — rule expands
-      // 900ms  — rule collapses, wordmark fades out
-      // 1200ms — intro fades out, page revealed
+      // Total choreography ≈ 4.7s — build (3.0s) + hold (0.6s) + iris wipe (0.85s + buffer)
+      const INTRO_MS = 3600;
       setTimeout(() => {
-        fmWordmark.classList.add('reveal');
-        setTimeout(() => {
-          fmRule.classList.add('expand');
-          setTimeout(() => {
-            fmRule.classList.remove('expand');
-            fmWordmark.style.opacity = '0';
-            fmWordmark.style.transform = 'scale(1.04)';
-            setTimeout(() => {
-              fmIntro.classList.add('fade-out');
-              document.body.style.overflow = '';
-              setTimeout(() => { fmIntro.style.display = 'none'; }, 520);
-            }, 300);
-          }, 700);
-        }, 300);
-      }, 200);
+        fmIntro.classList.add('fade-out');
+        document.body.style.overflow = '';
+        setTimeout(() => { fmIntro.style.display = 'none'; }, 900);
+      }, INTRO_MS);
     }
   }
 

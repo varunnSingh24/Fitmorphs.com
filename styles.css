@@ -603,65 +603,242 @@ footer {
 }
 
 /* =========================================================
-   HOMEPAGE LOAD SEQUENCE — branded intro (first visit only)
+   HOMEPAGE LOAD SEQUENCE — "Couture Reveal"
+   Cinematic black stage. Hairlines draw outward from the
+   centerline. Each letter drops into place under a gold
+   gradient with a soft 3D rotation. A gold sweep glides
+   across the wordmark. Eyebrow + tagline fade in. Finally
+   an iris (radial mask) opens to reveal the page beneath.
    ========================================================= */
 #fm-intro {
   position: fixed;
   inset: 0;
   z-index: 9998;
-  background: var(--dark-deep);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at center, #15110a 0%, #0a0805 60%, #050402 100%);
+}
+
+/* Vignette + film-grain overlays for depth */
+.fm-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 0%, transparent 45%, rgba(0,0,0,0.55) 100%);
+  z-index: 1;
   pointer-events: none;
 }
 
-.fm-intro-logo {
+.fm-grain {
+  position: absolute;
+  inset: -50%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 0.92  0 0 0 0 0.7  0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px;
+  opacity: 0.10;
+  z-index: 1;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  animation: fm-grain-drift 1.4s steps(4) infinite;
+}
+
+@keyframes fm-grain-drift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-2%, 1%); }
+  50%  { transform: translate(1%, -2%); }
+  75%  { transform: translate(-1%, 2%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Stage — wordmark + rules + eyebrow + tagline */
+.fm-intro-stage {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  z-index: 2;
+  gap: 1.15rem;
+  padding: 1rem;
 }
 
-.fm-intro-wordmark {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+/* Eyebrow — tracked caps */
+.fm-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #c9a227;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fm-eyebrow-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.95s forwards;
+}
+
+@keyframes fm-eyebrow-in {
+  0%   { opacity: 0; transform: translateY(6px); letter-spacing: 0.6em; }
+  100% { opacity: 0.88; transform: translateY(0); letter-spacing: 0.4em; }
+}
+
+/* Hairline rule — draws out from center */
+.fm-hairline {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201,162,39,0.5) 15%, #e2b83a 50%, rgba(201,162,39,0.5) 85%, transparent 100%);
+  box-shadow: 0 0 12px rgba(226, 184, 58, 0.35);
+  animation: fm-hairline-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+}
+
+.fm-hairline-lower {
+  animation-delay: 2.15s;
+  animation-duration: 0.7s;
+}
+
+@keyframes fm-hairline-in {
+  0%   { width: 0;     opacity: 0; }
+  30%  { opacity: 1; }
+  100% { width: 280px; opacity: 1; }
+}
+
+/* Wordmark container */
+.fm-wordmark {
+  margin: 0;
+  padding: 0;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
   color: transparent;
-  background: linear-gradient(90deg, var(--gold-deep) 0%, var(--gold-bright) 50%, var(--gold-deep) 100%);
-  background-size: 200% auto;
+  perspective: 800px;
+}
+
+/* Each letter — drops from above with stagger, gold gradient fill */
+.fm-letter {
+  display: inline-block;
+  background: linear-gradient(180deg, #faf0d0 0%, #f0d060 35%, #e2b83a 65%, #a17c2f 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 0;
-  transform: scale(0.92);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(-65%) rotateX(60deg);
+  transform-origin: top center;
+  filter: blur(6px);
+  will-change: transform, opacity, filter;
+  text-shadow: 0 1px 0 rgba(226,184,58,0.25);
+  animation: fm-letter-drop 0.95s cubic-bezier(0.18, 1.05, 0.36, 1) forwards;
+  animation-delay: calc(0.65s + var(--i) * 0.075s);
 }
 
-.fm-intro-wordmark.reveal {
-  opacity: 1;
-  transform: scale(1);
-  animation: intro-shimmer 1.2s ease forwards;
+@keyframes fm-letter-drop {
+  0%   { opacity: 0; transform: translateY(-65%) rotateX(60deg) skewX(2deg); filter: blur(6px); }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0) skewX(0);          filter: blur(0); }
 }
 
-@keyframes intro-shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.fm-intro-rule {
-  width: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold-mid), transparent);
-  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
-}
-
-.fm-intro-rule.expand { width: 160px; }
-
-#fm-intro.fade-out {
+/* Gold sweep — diagonal shine across the wordmark */
+.fm-sweep {
+  position: absolute;
+  top: -10%;
+  bottom: -10%;
+  left: -40%;
+  width: 30%;
+  background: linear-gradient(115deg,
+    transparent 0%,
+    rgba(255, 240, 200, 0) 30%,
+    rgba(255, 240, 200, 0.55) 50%,
+    rgba(255, 240, 200, 0) 70%,
+    transparent 100%);
+  filter: blur(10px);
+  mix-blend-mode: screen;
+  pointer-events: none;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transform: translateX(0);
+  animation: fm-sweep-glide 1.4s cubic-bezier(0.4, 0, 0.2, 1) 1.7s forwards;
+}
+
+@keyframes fm-sweep-glide {
+  0%   { opacity: 0;    transform: translateX(0); }
+  20%  { opacity: 0.95; }
+  80%  { opacity: 0.95; }
+  100% { opacity: 0;    transform: translateX(700%); }
+}
+
+/* ® superscript */
+.fm-reg-small {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-size: 0.18em;
+  font-weight: 500;
+  color: #c9a227;
+  vertical-align: super;
+  margin-left: 0.2em;
+  margin-bottom: 2em;
+  opacity: 0;
+  animation: fm-reg-in 0.6s ease 1.65s forwards;
+}
+
+@keyframes fm-reg-in {
+  0%   { opacity: 0; transform: translateY(-4px); }
+  100% { opacity: 0.8; transform: translateY(0); }
+}
+
+/* Tagline — italic serif */
+.fm-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  color: #ebe1cb;
+  opacity: 0;
+  transform: translateY(6px);
+  letter-spacing: 0.02em;
+  animation: fm-tagline-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 2.35s forwards;
+}
+
+@keyframes fm-tagline-in {
+  0%   { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 0.92; transform: translateY(0); }
+}
+
+/* Final wipe — radial mask opens from center, revealing page beneath */
+#fm-intro.fade-out {
+  -webkit-mask: radial-gradient(circle at center, transparent 130%, #000 130%);
+  mask: radial-gradient(circle at center, transparent 130%, #000 130%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  opacity: 1;
+  animation: fm-intro-wipe 0.85s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+@keyframes fm-intro-wipe {
+  0%   { -webkit-mask: radial-gradient(circle at center, transparent 0%,   #000 0.5%); mask: radial-gradient(circle at center, transparent 0%,   #000 0.5%); opacity: 1; }
+  85%  { opacity: 1; }
+  100% { -webkit-mask: radial-gradient(circle at center, transparent 130%, #000 130%); mask: radial-gradient(circle at center, transparent 130%, #000 130%); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-letter   { animation-duration: 0.25s; animation-delay: 0s; transform: none; filter: none; opacity: 1; }
+  .fm-hairline { animation-duration: 0.25s; animation-delay: 0s; }
+  .fm-hairline-lower { animation-delay: 0.1s; }
+  .fm-eyebrow, .fm-tagline, .fm-reg-small { animation-duration: 0.25s; animation-delay: 0.15s; }
+  .fm-sweep { display: none; }
+  .fm-grain { animation: none; }
+}
+
+@media (max-width: 480px) {
+  @keyframes fm-hairline-in {
+    0%   { width: 0;     opacity: 0; }
+    30%  { opacity: 1; }
+    100% { width: 200px; opacity: 1; }
+  }
 }
 
 /* =========================================================
