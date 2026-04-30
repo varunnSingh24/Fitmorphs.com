@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = 'hidden';
 
       // Total choreography ≈ 4.7s — build (3.0s) + hold (0.6s) + iris wipe (0.85s + buffer)
-      const INTRO_MS = 3600;
+      const INTRO_MS = 4100;
       setTimeout(() => {
         fmIntro.classList.add('fade-out');
         document.body.style.overflow = '';
@@ -518,7 +518,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 15. 3D TILT ON CARDS
   // =========================================================
   if (!isTouch) {
-    document.querySelectorAll('.card, .team-card, .result-card, .scroll-card, .dark-cat-card, .story-card, .expert-card, .blog-card').forEach(card => {
+    // NOTE: .blog-card intentionally excluded — it already owns a rich CSS :hover
+    // reveal (image lift, gradient slide, content slide-up). Stacking 3D tilt on
+    // top causes perspective-rotation to redraw the hit area each mousemove,
+    // which oscillates mouseenter/mouseleave near edges and breaks hover/click.
+    document.querySelectorAll('.card, .team-card, .result-card, .scroll-card, .dark-cat-card, .story-card, .expert-card').forEach(card => {
       card.style.perspective = '1000px';
       card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
@@ -871,13 +875,13 @@ document.addEventListener('DOMContentLoaded', () => {
   var H = 2000;
 
   var goldCore = function () {
-    // Subtle core — opacity 0.22–0.5
-    var a = (Math.random() * 0.28 + 0.22).toFixed(2);
+    // Subtle core — opacity 0.264–0.60 (20% brighter than before)
+    var a = (Math.random() * 0.336 + 0.264).toFixed(2);
     return 'rgba(240,192,64,' + a + ')';
   };
   var goldGlow = function () {
-    // Whisper halo — opacity 0.05–0.15
-    var a = (Math.random() * 0.10 + 0.05).toFixed(2);
+    // Whisper halo — opacity 0.06–0.18 (20% brighter)
+    var a = (Math.random() * 0.12 + 0.06).toFixed(2);
     return 'rgba(212,160,23,' + a + ')';
   };
 
@@ -899,8 +903,8 @@ document.addEventListener('DOMContentLoaded', () => {
   var s = document.createElement('style');
   // Reduced counts for smooth scroll / mouse performance
   s.textContent =
-    '#stars1,#stars1::after{box-shadow:' + generateStars(85, 2) + '}' +
-    '#stars2,#stars2::after{box-shadow:' + generateStars(30, 3) + '}' +
-    '#stars3,#stars3::after{box-shadow:' + generateStars(14, 4) + '}';
+    '#stars1,#stars1::after{box-shadow:' + generateStars(111, 2) + '}' +
+    '#stars2,#stars2::after{box-shadow:' + generateStars(39, 3) + '}' +
+    '#stars3,#stars3::after{box-shadow:' + generateStars(18, 4) + '}';
   document.head.appendChild(s);
 })();
