@@ -837,14 +837,16 @@ footer {
   100% { width: 0;     opacity: 0; }
 }
 
-/* 3. Final iris — slower, eased. Page reveals from center outward. */
+/* 3. Final iris — slower, eased. Page reveals from center outward.
+   IMPORTANT: no static mask on the rule itself — that would hide the intro
+   immediately when .fade-out is added. Instead, the keyframe defines the
+   start (closed iris, intro fully covering page) and end (open iris, page
+   revealed) states, and `fill-mode: both` ensures the closed-iris state is
+   held during the 0.45s lead-in delay (while the stage content dissolves). */
 #fm-intro.fade-out {
-  -webkit-mask: radial-gradient(circle at center, transparent 130%, #000 130%);
-  mask: radial-gradient(circle at center, transparent 130%, #000 130%);
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
-  opacity: 1;
-  animation: fm-intro-wipe 1.45s cubic-bezier(0.83, 0, 0.17, 1) 0.45s forwards;
+  animation: fm-intro-wipe 1.45s cubic-bezier(0.83, 0, 0.17, 1) 0.45s both;
 }
 
 @keyframes fm-intro-wipe {
