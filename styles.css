@@ -703,16 +703,19 @@ footer {
   100% { width: 280px; opacity: 1; }
 }
 
-/* Wordmark container */
+/* Wordmark container — Fraunces variable serif: distinctive, premium, architectural.
+   Slight optical-size + soft-axis tuning gives the glyphs a subtle warmth without
+   slipping into "fashion italic" territory. */
 .fm-wordmark {
   margin: 0;
   padding: 0;
-  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
-  font-style: italic;
+  font-family: 'Fraunces', 'Playfair Display', serif;
+  font-style: normal;
   font-weight: 600;
-  font-size: clamp(3rem, 10vw, 7rem);
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
+  font-size: clamp(3rem, 10.5vw, 7.6rem);
   line-height: 1;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.025em;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -810,19 +813,43 @@ footer {
   100% { opacity: 0.92; transform: translateY(0); }
 }
 
-/* Final wipe — radial mask opens from center, revealing page beneath */
+/* ---- EXIT CHOREOGRAPHY ----
+   The wordmark/tagline first dissolve into the depth (scale-up + soft blur +
+   fade), the hairlines retract back to center, then a slower iris opens
+   to reveal the page beneath. Reads as a cinematic dissolve — not a snap. */
+
+/* 1. Content recedes — wordmark, tagline, eyebrow gracefully dissolve. */
+#fm-intro.fade-out .fm-intro-stage {
+  animation: fm-stage-exit 1.05s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+@keyframes fm-stage-exit {
+  0%   { opacity: 1;   transform: scale(1) translateY(0);     filter: blur(0); }
+  55%  { opacity: 0.85; }
+  100% { opacity: 0;   transform: scale(1.07) translateY(-10px); filter: blur(9px); }
+}
+
+/* 2. Hairlines retract back into the centerline as the content dissolves. */
+#fm-intro.fade-out .fm-hairline {
+  animation: fm-hairline-out 0.8s cubic-bezier(0.65, 0, 0.35, 1) 0.05s forwards;
+}
+@keyframes fm-hairline-out {
+  0%   { width: 280px; opacity: 1; }
+  100% { width: 0;     opacity: 0; }
+}
+
+/* 3. Final iris — slower, eased. Page reveals from center outward. */
 #fm-intro.fade-out {
   -webkit-mask: radial-gradient(circle at center, transparent 130%, #000 130%);
   mask: radial-gradient(circle at center, transparent 130%, #000 130%);
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   opacity: 1;
-  animation: fm-intro-wipe 1.05s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+  animation: fm-intro-wipe 1.45s cubic-bezier(0.83, 0, 0.17, 1) 0.45s forwards;
 }
 
 @keyframes fm-intro-wipe {
   0%   { -webkit-mask: radial-gradient(circle at center, transparent 0%,   #000 0.5%); mask: radial-gradient(circle at center, transparent 0%,   #000 0.5%); opacity: 1; }
-  85%  { opacity: 1; }
+  88%  { opacity: 1; }
   100% { -webkit-mask: radial-gradient(circle at center, transparent 130%, #000 130%); mask: radial-gradient(circle at center, transparent 130%, #000 130%); opacity: 0; }
 }
 

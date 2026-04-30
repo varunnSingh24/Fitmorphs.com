@@ -46,12 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
       sessionStorage.setItem('fm_intro_seen', '1');
       document.body.style.overflow = 'hidden';
 
-      // Total choreography ≈ 4.7s — build (3.0s) + hold (0.6s) + iris wipe (0.85s + buffer)
+      // Total choreography ≈ 6.0s — build (3.0s) + hold (1.0s) + cinematic exit (2.0s):
+      //   stage dissolve (1.05s) + iris wipe (1.45s @ 0.45s delay) → display:none
       const INTRO_MS = 4100;
       setTimeout(() => {
         fmIntro.classList.add('fade-out');
         document.body.style.overflow = '';
-        setTimeout(() => { fmIntro.style.display = 'none'; }, 900);
+        setTimeout(() => { fmIntro.style.display = 'none'; }, 2000);
       }, INTRO_MS);
     }
   }
