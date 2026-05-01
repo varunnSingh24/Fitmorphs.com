@@ -120,6 +120,11 @@
     </style>
 </head>
 <body>
+    <div id="stars-container" aria-hidden="true">
+        <div id="stars1" class="star-layer"></div>
+        <div id="stars2" class="star-layer"></div>
+        <div id="stars3" class="star-layer"></div>
+    </div>
     <div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
     <div class="custom-cursor" aria-hidden="true"></div>
     <div id="page-wipe" aria-hidden="true"></div>
@@ -152,7 +157,6 @@
     <div class="apply-layout">
         <!-- Left: Info & Trust -->
         <div class="apply-info fade-in-section">
-            <canvas class="gold-particles" aria-hidden="true" style="position:absolute;inset:0;z-index:0;"></canvas>
             <div style="position:relative;z-index:1;">
                 <h1 class="text-gold-gradient" style="font-size:clamp(2.2rem,5vw,3.5rem); margin-bottom:1rem; line-height:1.1;">This Is Where Your<br>Story Turns Around.</h1>
                 <p style="font-size:1.1rem; color:var(--text-on-dark-muted); max-width:400px; line-height:1.8;">Apply for your free clinical assessment. Not everyone is accepted — but for the right candidate, we'll design a personalised protocol to reverse your condition in 90 days.</p>

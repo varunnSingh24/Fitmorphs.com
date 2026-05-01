@@ -32,43 +32,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // =========================================================
   // 0-B. HOMEPAGE INTRO SEQUENCE (first visit per session)
+  // IronStride-style preloader — CSS-driven stutter fill +
+  // mix-blend wordmark + radial mask wipe-out.
   // =========================================================
   const fmIntro = document.getElementById('fm-intro');
-  const fmWordmark = document.getElementById('fmWordmark');
-  const fmRule = document.getElementById('fmRule');
 
-  if (fmIntro && fmWordmark && fmRule) {
+  if (fmIntro) {
     const alreadySeen = sessionStorage.getItem('fm_intro_seen');
 
     if (alreadySeen) {
-      // Skip intro — remove immediately
       fmIntro.style.display = 'none';
     } else {
       sessionStorage.setItem('fm_intro_seen', '1');
-      // Prevent body scroll during intro
       document.body.style.overflow = 'hidden';
 
-      // Timeline:
-      // 0ms    — wordmark fades + scales in
-      // 300ms  — rule expands
-      // 900ms  — rule collapses, wordmark fades out
-      // 1200ms — intro fades out, page revealed
+      // Total choreography ≈ 6.0s — build (3.0s) + hold (1.0s) + cinematic exit (2.0s):
+      //   stage dissolve (1.05s) + iris wipe (1.45s @ 0.45s delay) → display:none
+      const INTRO_MS = 4100;
       setTimeout(() => {
-        fmWordmark.classList.add('reveal');
-        setTimeout(() => {
-          fmRule.classList.add('expand');
-          setTimeout(() => {
-            fmRule.classList.remove('expand');
-            fmWordmark.style.opacity = '0';
-            fmWordmark.style.transform = 'scale(1.04)';
-            setTimeout(() => {
-              fmIntro.classList.add('fade-out');
-              document.body.style.overflow = '';
-              setTimeout(() => { fmIntro.style.display = 'none'; }, 520);
-            }, 300);
-          }, 700);
-        }, 300);
-      }, 200);
+        fmIntro.classList.add('fade-out');
+        document.body.style.overflow = '';
+        setTimeout(() => { fmIntro.style.display = 'none'; }, 2000);
+      }, INTRO_MS);
     }
   }
 
@@ -534,7 +519,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 15. 3D TILT ON CARDS
   // =========================================================
   if (!isTouch) {
-    document.querySelectorAll('.card, .team-card, .result-card, .scroll-card, .dark-cat-card, .story-card, .expert-card, .blog-card').forEach(card => {
+    // NOTE: .blog-card intentionally excluded — it already owns a rich CSS :hover
+    // reveal (image lift, gradient slide, content slide-up). Stacking 3D tilt on
+    // top causes perspective-rotation to redraw the hit area each mousemove,
+    // which oscillates mouseenter/mouseleave near edges and breaks hover/click.
+    document.querySelectorAll('.card, .team-card, .result-card, .scroll-card, .dark-cat-card, .story-card, .expert-card').forEach(card => {
       card.style.perspective = '1000px';
       card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
@@ -851,13 +840,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = e.target.closest('.next');
     const prevBtn = e.target.closest('.prev');
     if (nextBtn || prevBtn) {
-      const slider = (nextBtn || prevBtn).closest('.slider-main')?.querySelector('.t-slider');
+      const sliderEl = (nextBtn || prevBtn).closest('.slider-main');
+      const slider = sliderEl?.querySelector('.t-slider');
       if (slider) {
         const items = slider.querySelectorAll('.t-item');
         if (nextBtn) slider.appendChild(items[0]);
         if (prevBtn) slider.prepend(items[items.length - 1]);
+        
+        // Re-trigger animation on the new active slide (always 2nd child)
+        const newActive = slider.querySelectorAll('.t-item')[1];
+        if (newActive) {
+          const content = newActive.querySelector('.t-content');
+          if (content) {
+            content.style.animation = 'none';
+            content.offsetHeight; // reflow
+            content.style.animation = '';
+          }
+        }
       }
     }
   });
 
 });
+
+// =========================================================
+// GOLD DROPLETS — generate box-shadow stars on every page
+// Each star uses a 2-stop box-shadow: solid core + soft glow,
+// giving a crisp, luxurious gold particle that rises upward.
+// =========================================================
+(function () {
+  // Use the actual viewport width so stars are spread edge-to-edge
+  // no matter how wide the screen is. Height stays at 2000px to
+  // match the CSS ::after offset / translate loop.
+  var W = Math.max(window.innerWidth, 1400);
+  var H = 2000;
+
+  var goldCore = function () {
+    // Subtle core — opacity 0.264–0.60 (20% brighter than before)
+    var a = (Math.random() * 0.336 + 0.264).toFixed(2);
+    return 'rgba(240,192,64,' + a + ')';
+  };
+  var goldGlow = function () {
+    // Whisper halo — opacity 0.06–0.18 (20% brighter)
+    var a = (Math.random() * 0.12 + 0.06).toFixed(2);
+    return 'rgba(212,160,23,' + a + ')';
+  };
+
+  // Build one particle = core shadow + soft glow at same position
+  var buildOne = function (glow) {
+    var x = Math.floor(Math.random() * W);
+    var y = Math.floor(Math.random() * H);
+    var core = x + 'px ' + y + 'px 0 0 ' + goldCore();
+    var halo = x + 'px ' + y + 'px ' + glow + 'px 0 ' + goldGlow();
+    return core + ',' + halo;
+  };
+
+  var generateStars = function (n, glow) {
+    var parts = [];
+    for (var i = 0; i < n; i++) parts.push(buildOne(glow));
+    return parts.join(',');
+  };
+
+  var s = document.createElement('style');
+  // Reduced counts for smooth scroll / mouse performance
+  s.textContent =
+    '#stars1,#stars1::after{box-shadow:' + generateStars(111, 2) + '}' +
+    '#stars2,#stars2::after{box-shadow:' + generateStars(39, 3) + '}' +
+    '#stars3,#stars3::after{box-shadow:' + generateStars(18, 4) + '}';
+  document.head.appendChild(s);
+})();

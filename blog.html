@@ -55,11 +55,14 @@
     </style>
 </head>
 <body>
+    <div id="stars-container" aria-hidden="true">
+        <div id="stars1" class="star-layer"></div>
+        <div id="stars2" class="star-layer"></div>
+        <div id="stars3" class="star-layer"></div>
+    </div>
     <div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
     <div class="custom-cursor" aria-hidden="true"></div>
     <div id="page-wipe" aria-hidden="true"></div>
-
-    <div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
 
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
@@ -82,10 +85,11 @@
     </nav>
 
     <div class="blog-hero fade-in-section">
-        <h1 class="text-gold-gradient" style="font-size: clamp(3rem, 6vw, 4.5rem); line-height:1.1; margin-bottom: 1rem;">FitMorphs Journal</h1>
-        <p style="font-size: 1.2rem; color: var(--cream); opacity: 0.8; max-width: 600px; margin: 0 auto;">Science-backed education and expert clinical insights on reversing metabolic disease naturally.</p>
         
-        <div class="blog-category-nav">
+        <h1 class="text-gold-gradient" style="font-size: clamp(3rem, 6vw, 4.5rem); line-height:1.1; margin-bottom: 1rem; position:relative; z-index:1;">FitMorphs Journal</h1>
+        <p style="font-size: 1.2rem; color: var(--cream); opacity: 0.8; max-width: 600px; margin: 0 auto; position:relative; z-index:1;">Science-backed education and expert clinical insights on reversing metabolic disease naturally.</p>
+        
+        <div class="blog-category-nav" style="position:relative; z-index:1;">
             <button class="blog-cat-btn active" data-filter="all">All Articles</button>
             <button class="blog-cat-btn" data-filter="diabetes">Diabetes Reversal</button>
             <button class="blog-cat-btn" data-filter="hba1c">HbA1c Management</button>
@@ -225,122 +229,6 @@
             </div>
         </a>
 
-    </div>
-            </div>
-            <div class="blog-content">
-                <h2 class="blog-title">How to Reduce HbA1c Naturally in 90 Days</h2>
-                <p class="blog-excerpt">Discover clinically proven, natural strategies to lower your HbA1c without relying entirely on medication.</p>
-                <div class="blog-cta">Book Free Consultation</div>
-            </div>
-        </a>
-
-        <!-- Card 2 -->
-        <a href="can-type-2-diabetes-be-reversed.html" class="vogue-hover-card blog-card" data-category="diabetes">
-            <div class="blog-img-wrap">
-                <div class="blog-category-pill">Diabetes Reversal</div>
-            </div>
-            <div class="blog-content">
-                <h2 class="blog-title">Can Type 2 Diabetes Actually Be Reversed?</h2>
-                <p class="blog-excerpt">Understanding the science behind metabolic reversal, beta-cell recovery, and shedding insulin resistance permanently.</p>
-                <div class="blog-cta">Book Free Consultation</div>
-            </div>
-        </a>
-
-        <!-- Card 3 -->
-        <a href="best-diet-plan-for-diabetes-reversal.html" class="vogue-hover-card blog-card" data-category="diet">
-            <div class="blog-img-wrap">
-                <div class="blog-category-pill">Diet Plans</div>
-            </div>
-            <div class="blog-content">
-                <h2 class="blog-title">The Best Diet Plan for Fast Diabetes Reversal</h2>
-                <p class="blog-excerpt">Which diet actually works for reversing type 2 diabetes? We break down the clinical evidence behind macro balancing.</p>
-                <div class="blog-cta">Book Free Consultation</div>
-            </div>
-        </a>
-
-        <!-- Card 4 -->
-        <a href="how-to-control-blood-sugar-without-medicine.html" class="vogue-hover-card blog-card" data-category="hba1c">
-            <div class="blog-img-wrap">
-                <div class="blog-category-pill">HbA1c Management</div>
-            </div>
-            <div class="blog-content">
-                <h2 class="blog-title">How to Control Blood Sugar Without Medicine</h2>
-                <p class="blog-excerpt">Learn the daily habits, meal timing techniques, and sleep optimizations that naturally stabilize blood glucose.</p>
-                <div class="blog-cta">Book Free Consultation</div>
-            </div>
-        </a>
-
-        <!-- Card 5 -->
-        <a href="foods-to-avoid-in-diabetes.html" class="vogue-hover-card blog-card" data-category="diet">
-            <div class="blog-img-wrap">
-                <div class="blog-category-pill">Diet Plans</div>
-            </div>
-            <div class="blog-content">
-                <h2 class="blog-title">The Top 5 Foods to Immediately Avoid For Diabetes</h2>
-                <p class="blog-excerpt">Some "healthy" foods are secretly spiking your insulin. Here is what you must eliminate to begin your reversal journey.</p>
-                <div class="blog-cta">Book Free Consultation</div>
-            </div>
-        </a>
-
-        <!-- Card 6 -->
-        <a href="best-breakfast-for-diabetics.html" class="vogue-hover-card blog-card" data-category="diet">
-            <div class="blog-img-wrap">
-                <div class="blog-category-pill">Diet Plans</div>
-            </div>
-            <div class="blog-content">
-                <h2 class="blog-title">The Science of the Best Breakfast for Diabetics</h2>
-                <p class="blog-excerpt">Start your day without a blood sugar spike. Explore doctor-recommended breakfast protocols for sustained energy.</p>
-                <div class="blog-cta">Book Free Consultation</div>
-            </div>
-        </a>
-
-        <!-- Card 7 -->
-        <a href="can-prediabetes-be-reversed.html" class="vogue-hover-card blog-card" data-category="diabetes">
-            <div class="blog-img-wrap">
-                <div class="blog-category-pill">Diabetes Reversal</div>
-            </div>
-            <div class="blog-content">
-                <h2 class="blog-title">Can Prediabetes Be Reversed Completely?</h2>
-                <p class="blog-excerpt">Prediabetes is your body's final warning signal. Here is the blueprint to revert fully to normal metabolic function.</p>
-                <div class="blog-cta">Book Free Consultation</div>
-            </div>
-        </a>
-
-        <!-- Card 8 -->
-        <a href="natural-treatment-for-insulin-resistance.html" class="vogue-hover-card blog-card" data-category="lifestyle">
-            <div class="blog-img-wrap">
-                <div class="blog-category-pill">Lifestyle Management</div>
-            </div>
-            <div class="blog-content">
-                <h2 class="blog-title">Natural Treatments for Severe Insulin Resistance</h2>
-                <p class="blog-excerpt">Actionable steps to resensitize your cells to insulin, promoting fat loss and reversing metabolic syndrome naturally.</p>
-                <div class="blog-cta">Book Free Consultation</div>
-            </div>
-        </a>
-
-        <!-- Card 9 -->
-        <a href="diabetes-reversal-program-india.html" class="vogue-hover-card blog-card" data-category="lifestyle">
-            <div class="blog-img-wrap">
-                <div class="blog-category-pill">Lifestyle Management</div>
-            </div>
-            <div class="blog-content">
-                <h2 class="blog-title">Choosing a Diabetes Reversal Program in India</h2>
-                <p class="blog-excerpt">What to look for in a clinical reversal program and how FitMorphs has transformed over 10,000 lives nationwide.</p>
-                <div class="blog-cta">Book Free Consultation</div>
-            </div>
-        </a>
-
-        <!-- Card 10 -->
-        <a href="how-to-lower-blood-sugar-naturally.html" class="vogue-hover-card blog-card" data-category="hba1c">
-            <div class="blog-img-wrap">
-                <div class="blog-category-pill">HbA1c Management</div>
-            </div>
-            <div class="blog-content">
-                <h2 class="blog-title">Emergency Steps: How to Lower Blood Sugar Naturally</h2>
-                <p class="blog-excerpt">When your blood sugar spikes, use these immediate, natural techniques to safely bring your levels back down.</p>
-                <div class="blog-cta">Book Free Consultation</div>
-            </div>
-        </a>
     </div>
 
 
