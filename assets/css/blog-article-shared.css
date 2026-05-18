@@ -1,0 +1,419 @@
+/* ============================================================
+   FITMORPHS — EDITORIAL BLOG ARTICLE SYSTEM
+   Shared visual layer for the 10 SEO long-form articles.
+   New classes are prefixed `.fm-art-` so they never collide
+   with site-wide tokens in styles.css.
+   ============================================================ */
+
+/* ---------- Base / Inheritance ---------- */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--dark);
+  color: var(--cream);
+}
+h1, h2, h3, h4, .playfair { font-family: 'Playfair Display', serif; }
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: var(--gold-mid);
+}
+
+/* ---------- Reading Progress Bar (fm-art-progress) ---------- */
+.fm-art-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(212, 160, 23, 0.08);
+  z-index: 9999;
+  pointer-events: none;
+}
+.fm-art-progress__fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold-mid));
+  box-shadow: 0 0 12px rgba(212, 160, 23, 0.45);
+  transition: width 0.06s linear;
+}
+
+/* ---------- Editorial Article Header (fm-art-hero) ---------- */
+.fm-art-hero {
+  padding: 11rem 2rem 3.5rem;
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
+  position: relative;
+}
+.fm-art-hero .eyebrow-deluxe { display: inline-flex; color: var(--gold-bright); margin-bottom: 1.25rem; }
+.fm-art-hero .editorial-kicker {
+  display: block;
+  color: var(--cream);
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  line-height: 1.1;
+  margin: 0.5rem auto 1.25rem;
+  max-width: 18ch;
+}
+.fm-art-hero .editorial-kicker em {
+  font-family: 'Instrument Serif', 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--gold-bright);
+  font-weight: 400;
+}
+.fm-art-hero .section-ornament { margin: 1.5rem auto 2rem; }
+.fm-art-hero .fm-art-dek {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  color: rgba(245, 239, 227, 0.78);
+  max-width: 60ch;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+/* ---------- Author Byline (fm-art-byline) ---------- */
+.fm-art-byline {
+  max-width: 760px;
+  margin: 2.5rem auto 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(212, 160, 23, 0.18);
+  border-bottom: 1px solid rgba(212, 160, 23, 0.18);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: baseline;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(245, 239, 227, 0.62);
+}
+.fm-art-byline strong {
+  color: var(--gold-bright);
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+.fm-art-byline .fm-art-byline-divider {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: var(--gold-deep);
+  border-radius: 50%;
+  transform: translateY(-2px);
+  opacity: 0.7;
+}
+
+/* ---------- 2-Column Layout (fm-art-layout) ---------- */
+.fm-art-layout {
+  max-width: 1200px;
+  margin: 4rem auto 6rem;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 4rem;
+  align-items: start;
+}
+.fm-art-body {
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: rgba(245, 239, 227, 0.9);
+  max-width: 720px;
+}
+.fm-art-body > p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 4rem;
+  float: left;
+  line-height: 0.92;
+  margin: 0.35rem 0.65rem 0 0;
+  color: var(--gold-bright);
+}
+.fm-art-body h2 {
+  color: var(--gold-bright);
+  font-size: clamp(1.7rem, 2.8vw, 2.2rem);
+  margin: 3.5rem 0 1.25rem;
+  scroll-margin-top: 110px;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+}
+.fm-art-body h3 {
+  color: var(--cream);
+  font-size: 1.4rem;
+  margin: 2.25rem 0 0.9rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+.fm-art-body p { margin-bottom: 1.4rem; }
+.fm-art-body ul, .fm-art-body ol { margin: 0 0 1.6rem 0; padding-left: 1.5rem; }
+.fm-art-body li { margin-bottom: 0.55rem; }
+.fm-art-body a { color: var(--gold-mid); text-decoration: underline; text-underline-offset: 4px; transition: color 0.2s ease; }
+.fm-art-body a:hover { color: var(--gold-bright); }
+.fm-art-body strong { color: var(--gold-bright); font-weight: 600; }
+
+/* Inline pull-quote inside body */
+.fm-art-body .pull-quote {
+  margin: 2.5rem 0;
+  font-size: 1.4rem;
+  line-height: 1.45;
+  color: var(--cream);
+}
+
+/* ---------- Clinical Note Callout (fm-art-clinical) ---------- */
+.fm-art-clinical {
+  position: relative;
+  margin: 3rem 0;
+  padding: 2rem 2rem 1.75rem;
+  background: linear-gradient(135deg, rgba(212, 160, 23, 0.06), rgba(0, 0, 0, 0.2));
+  border: 1px solid rgba(212, 160, 23, 0.28);
+  border-radius: 10px;
+}
+.fm-art-clinical::before {
+  content: 'Clinical Note';
+  position: absolute;
+  top: -0.7rem;
+  left: 1.5rem;
+  padding: 0.15rem 0.85rem;
+  background: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  font-weight: 700;
+}
+.fm-art-clinical-author {
+  display: block;
+  margin-top: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245, 239, 227, 0.5);
+}
+.fm-art-clinical-author strong { color: var(--gold-mid); font-weight: 700; }
+
+/* ---------- Key Takeaways Card (fm-art-takeaways) ---------- */
+.fm-art-takeaways {
+  margin: 3.5rem 0 2rem;
+  padding: 2.25rem 2rem;
+  border: 1px solid rgba(212, 160, 23, 0.32);
+  border-radius: 12px;
+  background:
+    radial-gradient(900px circle at 0% 0%, rgba(212, 160, 23, 0.08), transparent 60%),
+    var(--charcoal, #1a1a1a);
+}
+.fm-art-takeaways-eyebrow {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.fm-art-takeaways h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--cream);
+  margin: 0 0 1.25rem;
+}
+.fm-art-takeaways ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.fm-art-takeaways li {
+  position: relative;
+  padding: 0.55rem 0 0.55rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(245, 239, 227, 0.88);
+}
+.fm-art-takeaways li:last-child { border-bottom: none; }
+.fm-art-takeaways li::before {
+  content: '◆';
+  position: absolute;
+  left: 0.4rem;
+  top: 0.55rem;
+  color: var(--gold-deep);
+  font-size: 0.7rem;
+}
+
+/* ---------- Mid-article CTA Banner (fm-art-cta) ---------- */
+.fm-art-cta {
+  margin: 4rem 0 2.5rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(212, 160, 23, 0.14), rgba(20, 16, 8, 0.6));
+  border: 1px solid rgba(212, 160, 23, 0.35);
+  border-radius: 14px;
+}
+.fm-art-cta h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  color: var(--cream);
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+}
+.fm-art-cta h3 em {
+  font-family: 'Instrument Serif', serif;
+  color: var(--gold-bright);
+  font-style: italic;
+}
+.fm-art-cta p {
+  font-family: 'DM Sans', sans-serif;
+  color: rgba(245, 239, 227, 0.7);
+  font-size: 0.98rem;
+  margin: 0 0 1.5rem;
+  max-width: 540px;
+  margin-inline: auto;
+}
+.fm-art-cta .btn { display: inline-block; padding: 1rem 2.4rem; font-size: 1rem; text-decoration: none; }
+
+/* ---------- FAQ block (preserved/reskinned) ---------- */
+.faq-section { margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(212, 160, 23, 0.2); }
+.faq-section > h2 { color: var(--gold-bright); }
+details {
+  margin-bottom: 1rem;
+  background: var(--charcoal, #1a1a1a);
+  border-radius: 8px;
+  border: 1px solid rgba(212, 160, 23, 0.12);
+  transition: border-color 0.25s ease;
+}
+details[open] { border-color: rgba(212, 160, 23, 0.35); }
+summary {
+  padding: 1.35rem 1.5rem;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--gold-mid);
+  font-family: 'DM Sans', sans-serif;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.98rem;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-size: 1.5rem; color: var(--gold-bright); }
+details[open] summary::after { content: '−'; }
+.faq-answer { padding: 0 1.5rem 1.5rem; color: rgba(245, 239, 227, 0.8); line-height: 1.7; }
+
+/* ---------- Sticky TOC Right Rail (fm-art-toc) ---------- */
+.fm-art-toc {
+  position: sticky;
+  top: 110px;
+  font-family: 'DM Sans', sans-serif;
+  align-self: start;
+  border-left: 1px solid rgba(212, 160, 23, 0.18);
+  padding-left: 1.5rem;
+}
+.fm-art-toc-eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.fm-art-toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: toc;
+}
+.fm-art-toc li {
+  counter-increment: toc;
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 2rem;
+}
+.fm-art-toc li::before {
+  content: counter(toc, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: var(--gold-deep);
+  font-weight: 700;
+  opacity: 0.7;
+}
+.fm-art-toc a {
+  color: rgba(245, 239, 227, 0.55);
+  font-size: 0.85rem;
+  text-decoration: none;
+  line-height: 1.4;
+  display: block;
+  transition: color 0.25s ease;
+}
+.fm-art-toc a:hover { color: var(--cream); }
+.fm-art-toc a.is-active {
+  color: var(--gold-bright);
+  font-weight: 700;
+}
+.fm-art-toc a.is-active::after {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 0.45rem;
+  width: 12px;
+  height: 1px;
+  background: var(--gold-bright);
+}
+
+/* ---------- Related Articles Section (fm-art-related) ---------- */
+.fm-art-related {
+  max-width: 1200px;
+  margin: 2rem auto 5rem;
+  padding: 0 2rem;
+}
+.fm-art-related-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.fm-art-related-head .eyebrow-deluxe { display: inline-flex; }
+.fm-art-related-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--cream);
+  margin: 0.4rem 0 0;
+}
+.fm-art-related-head h2 em {
+  font-family: 'Instrument Serif', serif;
+  color: var(--gold-bright);
+  font-style: italic;
+}
+.fm-art-related .blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 980px) {
+  .fm-art-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .fm-art-toc { display: none; }
+  .fm-art-hero { padding: 9rem 1.5rem 2.5rem; }
+  .fm-art-byline { font-size: 0.7rem; letter-spacing: 1px; padding: 1.25rem 0; }
+  .fm-art-body { font-size: 1rem; }
+  .fm-art-body > p:first-of-type::first-letter { font-size: 3rem; }
+  .fm-art-related .blog-grid { grid-template-columns: 1fr; }
+  .fm-art-cta { padding: 2rem 1.5rem; }
+  .fm-art-clinical { padding: 1.75rem 1.25rem; }
+  .fm-art-takeaways { padding: 1.75rem 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+}

@@ -1,0 +1,29 @@
+body { font-family: 'DM Sans', sans-serif; background-color: var(--dark); color: var(--cream); }
+        h1, h2, h3, h4, .playfair { font-family: 'Playfair Display', serif; }
+        .text-gold-gradient { background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: var(--gold-mid); }
+
+        .blog-header { padding: 12rem 2rem 5rem; text-align: center; max-width: 900px; margin: 0 auto; }
+        .blog-content-wrapper { max-width: 800px; margin: 0 auto 6rem; padding: 0 2rem; font-size: 1.1rem; line-height: 1.8; color: var(--cream); opacity: 0.9; }
+        
+        .blog-content-wrapper h2 { color: var(--gold-bright); font-size: 2.2rem; margin: 3rem 0 1.2rem; }
+        .blog-content-wrapper h3 { color: var(--cream); font-size: 1.5rem; margin: 2rem 0 1rem; font-family: 'DM Sans', sans-serif; }
+        .blog-content-wrapper p { margin-bottom: 1.5rem; }
+        .blog-content-wrapper ul { margin-bottom: 1.5rem; padding-left: 1.5rem; list-style-type: disc; }
+        .blog-content-wrapper li { margin-bottom: 0.5rem; }
+        .blog-content-wrapper a { color: var(--gold-mid); text-decoration: underline; text-underline-offset: 4px; }
+        .blog-content-wrapper a:hover { color: var(--gold-bright); }
+
+        /* FAQ Styling */
+        .faq-section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(212,160,23,0.2); }
+        details { margin-bottom: 1rem; background: var(--charcoal); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        summary { padding: 1.5rem; cursor: pointer; font-weight: 700; color: var(--gold-mid); font-family: 'DM Sans', sans-serif; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.5rem; }
+        details[open] summary::after { content: '−'; }
+        .faq-answer { padding: 0 1.5rem 1.5rem; color: var(--cream); opacity: 0.8; }
+
+        /* CTA Section */
+        .blog-cta-section { background: linear-gradient(135deg, var(--dark-card) 0%, var(--charcoal) 100%); border: 1px solid rgba(212,160,23,0.3); border-radius: 12px; padding: 4rem 2rem; text-align: center; margin-top: 5rem; }
+        .blog-cta-section h2 { font-size: 2.5rem; color: var(--white); margin-bottom: 1rem; }
+        .blog-cta-section p { font-size: 1.1rem; color: var(--cream); opacity: 0.8; margin-bottom: 2.5rem; max-width: 600px; margin-inline: auto; }
+        .blog-cta-section .btn { display: inline-block; padding: 1rem 2.5rem; font-size: 1.1rem; }

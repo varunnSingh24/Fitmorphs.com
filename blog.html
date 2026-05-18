@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitMorphs Journal — Doctor-Supervised Metabolic Health Blog</title>
     <meta name="description" content="Read expert articles on diabetes reversal, HbA1c management, diet plans, and lifestyle changes from FitMorphs, India's premier doctor-supervised metabolic program.">
+    <meta property="og:title" content="FitMorphs Journal — Doctor-Supervised Metabolic Health Blog">
+    <meta property="og:description" content="Read expert articles on diabetes reversal, HbA1c management, diet plans, and lifestyle changes from FitMorphs, India's premier doctor-supervised metabolic program.">
+    <meta property="og:image" content="logo_stickey.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.fitmorphs.com/blog.html">
     <link rel="canonical" href="https://www.fitmorphs.com/blog.html">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,47 +17,12 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" as="style">
 
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/@mantine/core@7.17.4/styles.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: { deep: '#b8860b', mid: '#d4a017', bright: '#f0c040', light: '#f0d060', pale: '#faf0d0' },
-                        dark: { DEFAULT: '#0f0f0c', deep: '#0c0a06', card: '#1a1610', surface: '#221e16' },
-                        charcoal: '#1a1a18', cream: '#f5efe3', 'off-white': '#fafaf7', ivory: '#fdfbf6',
-                    },
-                    fontFamily: {
-                        display: ['Playfair Display', 'serif'],
-                        body: ['DM Sans', 'sans-serif'],
-                        accent: ['Instrument Serif', 'serif']
-                    },
-                },
-            },
-        }
-    </script>
+    <script src="tailwind-config.js"></script>
     
-    <style>
-        body { font-family: 'DM Sans', sans-serif; background-color: var(--dark); color: var(--cream); }
-        h1, h2, h3, h4, .playfair { font-family: 'Playfair Display', serif; }
-        .text-gold-gradient {
-            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: var(--gold-mid);
-        }
-
-        .blog-hero { text-align: center; padding: 12rem 2rem 5rem; position: relative; background-color: var(--dark-deep); }
-        
-        .blog-category-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0 4rem; }
-        .blog-cat-btn { background: var(--charcoal); border: 1px solid rgba(212,160,23,0.3); color: var(--cream); padding: 0.6rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; font-weight: 500; }
-        .blog-cat-btn:hover, .blog-cat-btn.active { background: var(--gold-mid); color: var(--dark); border-color: var(--gold-mid); }
-        
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1200px; margin: 0 auto 6rem; padding: 0 2rem; }
-    </style>
+    
+    <link rel="stylesheet" href="assets/css/blog-inline.css">
 </head>
 <body>
     <div id="stars-container" aria-hidden="true">
@@ -262,7 +232,7 @@
                 </div>
             </div>
             <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
-                <p>&copy; 2025 FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="javascript:void(0)" style="text-decoration: underline;">Disclaimer</a></p>
+                <p>&copy; 2026 FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a></p>
             </div>
         </div>
     </footer>

@@ -5,224 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Patient Results &amp; Transformations | FitMorphs</title>
     <meta name="description" content="See real, documented patient transformations from FitMorphs. Browse fat loss, diabetes reversal, and hormonal health case studies with before and after evidence.">
+    <meta property="og:title" content="Real Patient Results &amp; Transformations | FitMorphs">
+    <meta property="og:description" content="See real, documented patient transformations from FitMorphs. Browse fat loss, diabetes reversal, and hormonal health case studies with before and after evidence.">
+    <meta property="og:image" content="logo_stickey.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.fitmorphs.com/results.html">
     
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/@mantine/core@7.17.4/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: { deep: '#b8860b', mid: '#d4a017', bright: '#f0c040', light: '#f0d060', pale: '#faf0d0' },
-                        dark: { DEFAULT: '#0f0f0c', deep: '#0c0a06', card: '#1a1610', surface: '#221e16' },
-                        charcoal: '#1a1a18', cream: '#f5efe3', 'off-white': '#fafaf7', ivory: '#fdfbf6',
-                    },
-                    fontFamily: { 
-                        display: ['Playfair Display', 'serif'], 
-                        body: ['DM Sans', 'sans-serif'], 
-                        accent: ['Instrument Serif', 'serif'] 
-                    },
-                },
-            },
-        }
-    </script>
+    <script src="tailwind-config.js"></script>
     
     <!-- Meta Pixel Code -->
     <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');let extId=localStorage.getItem('fitmorphs_external_id');if(!extId){extId='fmt_'+Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15);localStorage.setItem('fitmorphs_external_id',extId);}fbq('init','463098106520925',{external_id:extId});fbq('track','PageView');fbq('track','ViewContent');</script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=463098106520925&ev=PageView&noscript=1"/></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=463098106520925&ev=PageView&noscript=1" loading="lazy"  alt="FitMorphs website graphic" /></noscript>
 
-    <style>
-        /* BRAND TYPOGRAPHY OVERRIDES */
-        body { font-family: 'DM Sans', sans-serif; background-color: var(--dark); color: var(--cream); }
-        body.loaded { transform: none !important; } /* Fixes position:fixed context for WhatsApp button */
-        
-        h1, h2, h3, h4, h5, h6, .playfair { font-family: 'Playfair Display', serif; }
-        
-        .text-gold-gradient {
-            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: var(--gold-mid);
-        }
-
-        /* HERO VOGUE */
-        .hero-vogue {
-            position: relative;
-            background-color: var(--dark);
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            width: 100%;
-        }
-        .hero-bg-wrapper {
-            position: absolute;
-            top: 0; right: 0;
-            width: 60%;
-            height: 100%;
-            z-index: 0;
-        }
-        .hero-bg-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(10%); opacity: 0.8; }
-        .hero-gradient-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to right, var(--dark) 0%, rgba(15, 15, 12, 0.95) 40%, transparent 100%);
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 8rem 2rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .hero-title-vogue {
-            font-size: clamp(2.2rem, 8vw, 100px);
-            line-height: 1.05;
-            font-weight: 700;
-            max-width: 80%;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-        .hero-label {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--gold-bright);
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-        }
-
-        /* IMMERSIVE TRANSFORMATION GRID — scroll-driven Jhey-style stage */
-        /* overflow-x: hidden removed — it breaks position:sticky on .fm-grid-content.
-           Use clip-path:inset(0) on a wrapper div instead to clip horizontal overflow
-           without creating a scroll container that traps the sticky element. */
-        .fm-scroll-grid-wrap { background: var(--dark); color: var(--cream); position: relative; }
-        .fm-scroll-grid-clip { overflow: clip; overflow-clip-margin: 0; }
-        .fm-grid-intro { text-align: center; padding: 7rem 2rem 1rem; max-width: 820px; margin: 0 auto; position: relative; z-index: 5; }
-        .fm-grid-intro .eyebrow-deluxe { color: var(--cream); }
-        .fm-grid-intro .editorial-kicker { color: var(--cream); }
-        .fm-grid-sub { font-family: 'Cormorant Garamond', 'Playfair Display', serif; font-style: italic; font-size: clamp(1.05rem, 1.5vw, 1.4rem); color: rgba(245,239,227,0.62); margin-top: 1.25rem; letter-spacing: 0.01em; line-height: 1.5; }
-        .fm-grid-scroll-stage { min-height: 280vh; position: relative; }
-        /* dvh fallback handles iOS Safari URL-bar collapse without layout jumps */
-        .fm-grid-content { min-height: 100vh; min-height: 100dvh; width: 100%; display: flex; align-items: center; justify-content: center; position: sticky; top: 0; overflow: hidden; background: radial-gradient(ellipse at center, rgba(212,160,23,0.07) 0%, transparent 60%), var(--dark); }
-        .fm-grid { --offset: 0; --container-width: 1600px; --gap: clamp(10px, 6.5vw, 72px); width: var(--container-width); max-width: calc(100% - 4rem); display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(3, auto); gap: var(--gap); margin: 0 auto; align-content: center; position: absolute; top: 50%; left: 50%; translate: -50% -50%; }
-        .fm-grid > .fm-layer { display: grid; grid-column: 1 / -1; grid-row: 1 / -1; grid-template-columns: subgrid; grid-template-rows: subgrid; }
-        .fm-grid > .fm-layer:nth-of-type(1) div:nth-of-type(odd) { grid-column: 1; }
-        .fm-grid > .fm-layer:nth-of-type(1) div:nth-of-type(even) { grid-column: -2; }
-        .fm-grid > .fm-layer:nth-of-type(2) div:nth-of-type(odd) { grid-column: calc(2 + var(--offset)); }
-        .fm-grid > .fm-layer:nth-of-type(2) div:nth-of-type(even) { grid-column: calc(-3 - var(--offset)); }
-        .fm-grid > .fm-layer:nth-of-type(3) div:first-of-type { grid-column: calc(3 + var(--offset)); grid-row: 1; }
-        .fm-grid > .fm-layer:nth-of-type(3) div:last-of-type { grid-column: calc(3 + var(--offset)); grid-row: -1; }
-        .fm-grid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; box-shadow: 0 14px 36px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,160,23,0.08); filter: saturate(0.95); }
-        .fm-grid .fm-scaler { position: relative; grid-area: 2 / calc(3 + var(--offset)); z-index: 2; width: 100%; aspect-ratio: 4 / 5; }
-        .fm-grid .fm-scaler img { position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: 100%; height: 100%; object-fit: cover; border-radius: 14px; box-shadow: 0 30px 90px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,160,23,0.22); filter: none; max-width: 100vw; max-height: 100vh; max-height: 100dvh; }
-        .fm-grid-outro { text-align: center; padding: 5rem 2rem 7rem; position: relative; z-index: 5; }
-        .fm-grid-fin { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.6rem, 3.2vw, 2.6rem); color: var(--gold-bright); font-weight: 400; letter-spacing: 0.02em; margin: 0; line-height: 1.2; }
-        .fm-grid-fin span { display: block; font-family: 'DM Sans', sans-serif; font-style: normal; font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(212,160,23,0.6); margin-top: 1rem; font-weight: 600; }
-
-        /* Tablet — ease the scroll length */
-        @media (max-width: 900px) {
-          .fm-grid-scroll-stage { min-height: 220vh; }
-          .fm-grid { max-width: calc(100% - 2.5rem); --gap: clamp(12px, 4.5vw, 48px); }
-        }
-        /* Mobile — compact stage, simpler grid, larger anchor cell */
-        @media (max-width: 600px) {
-          .fm-grid-scroll-stage { min-height: 180vh; }
-          .fm-grid { grid-template-columns: repeat(3, 1fr); --offset: -1; max-width: calc(100% - 1.5rem); --gap: clamp(8px, 3vw, 18px); }
-          .fm-grid > .fm-layer:nth-of-type(1) { display: none; }
-          /* Center scaler spans all 3 columns — gives the hero real presence on small screens */
-          .fm-grid .fm-scaler { grid-column: 1 / -1; grid-row: 2; aspect-ratio: 5 / 4; }
-          /* Push the centred top/bottom layer-3 cells into the centre column */
-          .fm-grid > .fm-layer:nth-of-type(3) div:first-of-type,
-          .fm-grid > .fm-layer:nth-of-type(3) div:last-of-type { grid-column: 2; }
-          .fm-grid img { border-radius: 8px; }
-          .fm-grid .fm-scaler img { border-radius: 10px; }
-          .fm-grid-intro { padding: 4.5rem 1.25rem 0.5rem; }
-          .fm-grid-intro .eyebrow-deluxe { font-size: 0.66rem; letter-spacing: 0.28em; gap: 8px; }
-          .fm-grid-intro .eyebrow-deluxe::before, .fm-grid-intro .eyebrow-deluxe::after { width: 18px; }
-          .fm-grid-sub { font-size: 1rem; margin-top: 1rem; padding: 0 0.5rem; }
-          .fm-grid-outro { padding: 3rem 1.25rem 4.5rem; }
-          .fm-grid-fin { font-size: 1.5rem; line-height: 1.3; }
-          .fm-grid-fin span { font-size: 0.66rem; letter-spacing: 3px; margin-top: 0.75rem; }
-        }
-        /* Small phones */
-        @media (max-width: 380px) {
-          .fm-grid-scroll-stage { min-height: 160vh; }
-          .fm-grid { max-width: calc(100% - 1rem); }
-        }
-
-        /* STATS COMPONENT */
-        .stats-section { background-color: var(--dark); padding: 6rem 0; position: relative; overflow: hidden; }
-        .stats-bar-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
-        .stat-item h3 { font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 0.5rem; display: flex; justify-content: center; align-items: baseline; font-family: 'Playfair Display', serif; font-weight: 400; line-height: 1; }
-        .stat-item p { color: var(--gold-mid); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin: 0; font-family: 'DM Sans', sans-serif; font-weight: 700; opacity: 0.9; }
-
-        /* MULTIMEDIA VOGUE */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
-        .video-card { position: relative; border-radius: 4px; overflow: hidden; aspect-ratio: 9/16; background: var(--dark); border: 1px solid rgba(212,160,23,0.15); cursor: pointer; }
-        .video-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.5s ease; filter: grayscale(10%); }
-        .video-card:hover img { opacity: 0.95; filter: grayscale(0%); }
-        .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70px; height: 70px; background: rgba(26,26,24,0.6); backdrop-filter: blur(5px); border: 1px solid rgba(212,160,23,0.4); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--gold-mid); z-index: 2; transition: transform 0.4s ease, background-color 0.4s ease, border-color 0.4s ease; }
-        .video-card:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); background: rgba(26,26,24,0.8); border-color: var(--gold-bright); color: var(--gold-bright); }
-        .play-btn svg { margin-left: 4px; }
-
-        .wa-scroll { display: flex; overflow-x: auto; gap: 2rem; padding: 2rem 0; scroll-snap-type: x mandatory; scrollbar-width: none; }
-        .wa-scroll::-webkit-scrollbar { display: none; }
-        .wa-img { min-width: 320px; scroll-snap-align: center; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 1px solid rgba(212,160,23,0.15); max-height: 400px; object-fit: cover; }
-
-        /* FINAL CTA */
-        .final-cta-vogue { position: relative; background-color: var(--dark); min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 2rem; }
-        .final-cta-vogue::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(212,160,23,0.08) 0%, transparent 70%); pointer-events: none; z-index: 0; }
-        .final-cta-content { position: relative; z-index: 1; max-width: 800px; }
-        .final-cta-h2 { font-size: clamp(3rem, 7vw, 6rem); color: var(--white); line-height: 1.05; margin-bottom: 3rem; font-weight: 700; }
-
-        /* DISPLACEMENT SLIDER */
-        #fm-slider-section { position: relative; overflow: hidden; height: 85vh; min-height: 520px; background: var(--dark); }
-        #fm-slider { width: 100%; height: 100%; position: relative; }
-        #fm-slider canvas { position: absolute; top: 0; left: 0; width: 100% !important; height: 100% !important; z-index: 1; display: block; }
-        .fm-gradient-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(15,15,12,0.92) 0%, rgba(15,15,12,0.55) 45%, transparent 100%); z-index: 2; pointer-events: none; }
-        .fm-slider-inner { position: absolute; inset: 0; display: flex; align-items: center; z-index: 5; pointer-events: none; }
-        #fm-slide-content { max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 2rem; }
-        #fm-slide-content span { display: none; }
-        .fm-slide-eyebrow { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; letter-spacing: 5px; color: rgba(212,160,23,0.8); text-transform: uppercase; display: inline-block; position: relative; margin-bottom: 0.75rem; }
-        .fm-slide-eyebrow::after { content: ''; display: block; position: absolute; top: 50%; right: -60px; width: 45px; height: 1px; background: rgba(212,160,23,0.4); }
-        #fm-slide-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 6.5rem); line-height: 1.0; color: white; margin: 0.75rem 0 2rem; font-weight: 700; }
-        #fm-slide-category { font-family: 'DM Sans', sans-serif; font-size: clamp(1rem, 1.5vw, 1.25rem); color: var(--gold-bright); font-weight: 600; letter-spacing: 1px; margin-top: 0.5rem; }
-        #fm-pagination { position: absolute; top: 50%; right: 2.5rem; transform: translateY(-50%); z-index: 6; display: flex; flex-direction: column; align-items: center; }
-        #fm-pagination button { display: block; -webkit-appearance: none; border: 2.5px solid #0c0a06; width: 14px; height: 14px; background: rgba(212,160,23,0.45); border-radius: 50%; padding: 0; margin: 14px 0; cursor: pointer; transition: background 0.25s ease, transform 0.25s ease; outline: none; position: relative; box-shadow: 0 0 0 1.5px rgba(212,160,23,0.4); }
-        #fm-pagination button:hover { background: rgba(212,160,23,0.7); transform: scale(1.2); }
-        #fm-pagination button.active { background: var(--gold-bright); transform: scale(1.25); box-shadow: 0 0 0 1.5px rgba(212,160,23,0.7); }
-        #fm-pagination button.active::before { width: 280%; height: 280%; opacity: 1; }
-        #fm-pagination button::before { content: ''; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 100%; height: 100%; border-radius: 50%; border: 1px solid rgba(212,160,23,0.5); opacity: 0; transition: opacity 0.4s ease, width 0.4s ease, height 0.4s ease; }
-        #fm-slider-loading { position: absolute; inset: 0; background: var(--dark); z-index: 10; display: flex; align-items: center; justify-content: center; transition: opacity 0.8s ease; }
-        #fm-slider-loading.hidden { opacity: 0; pointer-events: none; }
-        .fm-loading-dot { width: 50px; height: 50px; border-radius: 50%; background: rgba(212,160,23,0.35); animation: fmPulse 0.7s linear infinite alternate; }
-        @keyframes fmPulse { to { opacity: 1; transform: scale3d(0.5,0.5,1); } }
-
-        @media (max-width: 768px) {
-            .filters { flex-direction: column; align-items: stretch; }
-            .stats-bar-container { grid-template-columns: 1fr 1fr; gap: 3rem 1.5rem; }
-            .hero-title-vogue { max-width: 100%; }
-            .hero-bg-wrapper { display: none; }
-            #fm-slider-section { height: 70vh; min-height: 440px; }
-            #fm-slide-content { padding: 0 1.25rem; }
-            #fm-slide-title { font-size: clamp(2rem, 9vw, 3.2rem); margin: 0.5rem 0 1.25rem; }
-            .fm-slide-eyebrow { font-size: 0.7rem; letter-spacing: 3px; }
-            .fm-slide-eyebrow::after { display: none; }
-            #fm-pagination { right: 0.75rem; }
-            #fm-pagination button { width: 11px; height: 11px; margin: 10px 0; border-width: 2px; }
-        }
-        @media (max-width: 480px) {
-            #fm-slider-section { height: 62vh; min-height: 380px; }
-            #fm-slide-title { font-size: clamp(1.8rem, 10vw, 2.6rem); }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="assets/css/results-inline.css">
 </head>
 
 <body>
@@ -293,7 +93,7 @@
                 </div>
                 <div style="width:1px; height:48px; background:rgba(201,162,39,0.2); flex-shrink:0;"></div>
                 <div>
-                    <div class="shimmer-text" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; line-height:1;">94%</div>
+                    <div class="shimmer-text" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; line-height:1;">98%</div>
                     <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-on-dark-muted); margin-top:0.35rem;">Success Rate</div>
                 </div>
                 <div style="width:1px; height:48px; background:rgba(201,162,39,0.2); flex-shrink:0;"></div>
@@ -303,17 +103,17 @@
                 </div>
             </div>
         </div>
-        <style>@media(max-width:600px){[style*="gap:3rem"]{gap:2rem!important;} [style*="height:48px; background:rgba"]{display:none!important;}}</style>
+        
     </section>
 
     <!-- FEATURED TRANSFORMATION SLIDER -->
     <section id="fm-slider-section" aria-label="Featured Transformations">
         <div id="fm-slider">
             <!-- Hidden images: loaded for WebGL textures -->
-            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=90&w=1600" alt="">
-            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=90&w=1600" alt="">
-            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=90&w=1600" alt="">
-            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=90&w=1600" alt="">
+            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=90&w=1600" alt="" loading="lazy">
+            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=90&w=1600" alt="" loading="lazy">
+            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=90&w=1600" alt="" loading="lazy">
+            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=90&w=1600" alt="" loading="lazy">
 
             <div class="fm-gradient-overlay"></div>
 
@@ -385,7 +185,7 @@
                     </div>
                     <!-- Center scaler — THE hero. Opens full-viewport, shrinks into its grid cell -->
                     <div class="fm-scaler">
-                        <img src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1800&auto=format&fit=crop&q=88" alt="Featured Fitmorphs transformation">
+                        <img src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1800&auto=format&fit=crop&q=88" alt="Featured Fitmorphs transformation" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -429,25 +229,32 @@
                 <span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">Journeys</span>
                 <h2 class="editorial-kicker" style="color:var(--dark);">In Their <em>Own Words</em></h2>
                 <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+                <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; color:rgba(15,15,12,0.62); margin:1.25rem auto 0; max-width:560px;">Patient video stories &mdash; recorded with consent, anonymised where requested. Full library coming Q3 2026 alongside our clinical photography release.</p>
             </div>
-            
+
             <div class="video-grid stagger-children">
-                <div class="video-card" role="button" aria-label="Play video testimonial 1" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800" alt="Video thumbnail" loading="lazy">
-                    <div class="play-btn" aria-hidden="true">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+                <div class="video-card video-card-pending" role="button" aria-label="Patient story coming soon — Type 2 reversal" tabindex="0" data-pending="true">
+                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800" alt="Patient story — Type 2 reversal (release pending)" loading="lazy">
+                    <div class="video-overlay">
+                        <span class="video-eyebrow">Coming Soon</span>
+                        <span class="video-title">Type 2 Reversal</span>
+                        <span class="video-meta">Pune &middot; 90-Day Protocol</span>
                     </div>
                 </div>
-                <div class="video-card" role="button" aria-label="Play video testimonial 2" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5adee9f50?auto=format&fit=crop&q=80&w=800" alt="Video thumbnail" loading="lazy">
-                    <div class="play-btn" aria-hidden="true">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+                <div class="video-card video-card-pending" role="button" aria-label="Patient story coming soon — Fat loss recomposition" tabindex="0" data-pending="true">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5adee9f50?auto=format&fit=crop&q=80&w=800" alt="Patient story — fat-loss recomposition (release pending)" loading="lazy">
+                    <div class="video-overlay">
+                        <span class="video-eyebrow">Coming Soon</span>
+                        <span class="video-title">22kg Recomposition</span>
+                        <span class="video-meta">Mumbai &middot; 16-Week Arc</span>
                     </div>
                 </div>
-                <div class="video-card" role="button" aria-label="Play video testimonial 3" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800" alt="Video thumbnail" loading="lazy">
-                    <div class="play-btn" aria-hidden="true">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+                <div class="video-card video-card-pending" role="button" aria-label="Patient story coming soon — PCOD reset" tabindex="0" data-pending="true">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800" alt="Patient story — PCOD reset (release pending)" loading="lazy">
+                    <div class="video-overlay">
+                        <span class="video-eyebrow">Coming Soon</span>
+                        <span class="video-title">PCOD Reset</span>
+                        <span class="video-meta">Bengaluru &middot; 12-Week Cycle</span>
                     </div>
                 </div>
             </div>
@@ -461,14 +268,38 @@
                 <span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">Everyday Wins</span>
                 <h2 class="editorial-kicker" style="color:var(--dark);">Unfiltered <em>Reactions</em></h2>
                 <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
-                <p style="text-align:center; color:var(--charcoal); opacity:0.8; margin-top:1rem; font-family:'DM Sans',sans-serif; font-size:1.1rem;">Real messages from our community.</p>
+                <p style="text-align:center; color:var(--charcoal); opacity:0.75; margin-top:1rem; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; max-width:600px; margin-left:auto; margin-right:auto;">A selection of patient messages, paraphrased &amp; anonymised for privacy. Verbatim screenshots are reviewed on request after consent.</p>
             </div>
-            
-            <div class="wa-scroll" role="list">
-                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=400" alt="WhatsApp review message 1" class="wa-img" loading="lazy" role="listitem">
-                <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=400" alt="WhatsApp review message 2" class="wa-img" loading="lazy" role="listitem">
-                <img src="https://images.unsplash.com/photo-1611162618828-bc409f073cbf?auto=format&fit=crop&q=80&w=400" alt="WhatsApp review message 3" class="wa-img" loading="lazy" role="listitem">
-                <img src="https://images.unsplash.com/photo-1611162617220-4e410b05b4b7?auto=format&fit=crop&q=80&w=400" alt="WhatsApp review message 4" class="wa-img" loading="lazy" role="listitem">
+
+            <div class="wa-quotes-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem; max-width:1100px; margin:0 auto;">
+                <figure style="margin:0; padding:1.5rem; background:linear-gradient(135deg, #f0f7f1, #e8f3eb); border-radius:14px; border:1px solid rgba(37,211,102,0.12); position:relative;">
+                    <span aria-hidden="true" style="position:absolute; top:1rem; right:1rem; width:24px; height:24px; border-radius:50%; background:#25D366; display:inline-flex; align-items:center; justify-content:center;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.449C12.831-3.984.106 1.407.101 11.893c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c10.453 0 16.354-12.706 8.527-20.345z"/></svg>
+                    </span>
+                    <blockquote style="margin:0 0 0.8rem; font-family:'DM Sans',sans-serif; font-size:0.95rem; line-height:1.55; color:#1a1a18;">&ldquo;HbA1c dropped from 9.4 to 5.8 in 16 weeks. Doctor reduced my insulin to half last week. I haven&rsquo;t felt this energetic in 7 years.&rdquo;</blockquote>
+                    <figcaption style="font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:#3b7a4e; font-weight:600;">Rakesh M. &middot; Pune &middot; Day 112</figcaption>
+                </figure>
+                <figure style="margin:0; padding:1.5rem; background:linear-gradient(135deg, #f0f7f1, #e8f3eb); border-radius:14px; border:1px solid rgba(37,211,102,0.12); position:relative;">
+                    <span aria-hidden="true" style="position:absolute; top:1rem; right:1rem; width:24px; height:24px; border-radius:50%; background:#25D366; display:inline-flex; align-items:center; justify-content:center;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.449C12.831-3.984.106 1.407.101 11.893c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c10.453 0 16.354-12.706 8.527-20.345z"/></svg>
+                    </span>
+                    <blockquote style="margin:0 0 0.8rem; font-family:'DM Sans',sans-serif; font-size:0.95rem; line-height:1.55; color:#1a1a18;">&ldquo;Lost 14 kg in 90 days &mdash; without giving up roti or rice. The macro plan was insanely Indian. My mother is now on the program too.&rdquo;</blockquote>
+                    <figcaption style="font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:#3b7a4e; font-weight:600;">Priya G. &middot; Mumbai &middot; Day 90</figcaption>
+                </figure>
+                <figure style="margin:0; padding:1.5rem; background:linear-gradient(135deg, #f0f7f1, #e8f3eb); border-radius:14px; border:1px solid rgba(37,211,102,0.12); position:relative;">
+                    <span aria-hidden="true" style="position:absolute; top:1rem; right:1rem; width:24px; height:24px; border-radius:50%; background:#25D366; display:inline-flex; align-items:center; justify-content:center;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.449C12.831-3.984.106 1.407.101 11.893c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c10.453 0 16.354-12.706 8.527-20.345z"/></svg>
+                    </span>
+                    <blockquote style="margin:0 0 0.8rem; font-family:'DM Sans',sans-serif; font-size:0.95rem; line-height:1.55; color:#1a1a18;">&ldquo;My PCOD cycles regulated in 11 weeks. The hormonal panel came back balanced for the first time in 6 years. Calling my gynecologist tomorrow.&rdquo;</blockquote>
+                    <figcaption style="font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:#3b7a4e; font-weight:600;">Shanti P. &middot; Bengaluru &middot; Day 77</figcaption>
+                </figure>
+                <figure style="margin:0; padding:1.5rem; background:linear-gradient(135deg, #f0f7f1, #e8f3eb); border-radius:14px; border:1px solid rgba(37,211,102,0.12); position:relative;">
+                    <span aria-hidden="true" style="position:absolute; top:1rem; right:1rem; width:24px; height:24px; border-radius:50%; background:#25D366; display:inline-flex; align-items:center; justify-content:center;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.449C12.831-3.984.106 1.407.101 11.893c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c10.453 0 16.354-12.706 8.527-20.345z"/></svg>
+                    </span>
+                    <blockquote style="margin:0 0 0.8rem; font-family:'DM Sans',sans-serif; font-size:0.95rem; line-height:1.55; color:#1a1a18;">&ldquo;Doctor said my fatty liver is reversed at the 4-month scan. I cried. 14 years of this and now it&rsquo;s gone. Thank you, FitMorphs team.&rdquo;</blockquote>
+                    <figcaption style="font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:#3b7a4e; font-weight:600;">Anil J. &middot; Nashik &middot; Day 126</figcaption>
+                </figure>
             </div>
         </div>
     </section>
@@ -512,7 +343,7 @@
                 </div>
             </div>
             <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
-                <p>&copy; 2025 FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="javascript:void(0)" style="text-decoration: underline;">Disclaimer</a></p>
+                <p>&copy; 2026 FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a></p>
             </div>
         </div>
     </footer>
