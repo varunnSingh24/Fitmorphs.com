@@ -56,14 +56,30 @@
         <h1 class="text-gold-gradient" style="font-size: clamp(3rem, 6vw, 4.5rem); line-height:1.1; margin-bottom: 1rem; position:relative; z-index:1;">FitMorphs Journal</h1>
         <p style="font-size: 1.2rem; color: var(--cream); opacity: 0.8; max-width: 600px; margin: 0 auto; position:relative; z-index:1;">Science-backed education and expert clinical insights on reversing metabolic disease naturally.</p>
         
-        <div class="blog-category-nav" style="position:relative; z-index:1;">
+        <div class="blog-category-nav blog-pill-row" id="fmBlogPillRow" style="position:relative; z-index:1;">
             <button class="blog-cat-btn active" data-filter="all">All Articles</button>
             <button class="blog-cat-btn" data-filter="diabetes">Diabetes Reversal</button>
             <button class="blog-cat-btn" data-filter="hba1c">HbA1c Management</button>
             <button class="blog-cat-btn" data-filter="diet">Diet Plans</button>
             <button class="blog-cat-btn" data-filter="lifestyle">Lifestyle Management</button>
+            <span class="pill-underline" id="fmBlogPillUnderline" aria-hidden="true"></span>
         </div>
     </div>
+
+    <!-- EDITOR'S PICK -->
+    <section class="container fade-in-section" style="max-width:1200px; padding: 4rem 1.5rem 0;">
+        <a href="how-to-reduce-hba1c-naturally.html" class="editors-pick" style="text-decoration:none; color:inherit;">
+            <div class="editors-pick-img">
+                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=1200" alt="How to Reduce HbA1c Naturally in 90 Days">
+            </div>
+            <div class="editors-pick-content">
+                <span class="eyebrow-deluxe on-dark" style="display:inline-flex;">Editor's Pick &middot; HbA1c Management</span>
+                <h2>How to Reduce HbA1c Naturally in <em>90 Days</em></h2>
+                <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(245,239,227,0.78); font-size:1.1rem; line-height:1.55; margin: 0 0 1.25rem;">Our patients average a 2.8-point HbA1c reduction in 90 days. The protocol is unglamorous. The supervision is rigorous. The outcomes are repeatable.</p>
+                <span class="blog-cta" style="display:inline-flex; align-items:center; gap:0.4rem; font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-bright); font-weight:600;">Read the Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+    </section>
 
         <div class="blog-grid" id="blog-grid">
         <!-- Card 1 -->
@@ -270,5 +286,33 @@
     </script>
 
     <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
+
+    <script>
+    // ── Blog category-pill animated underline ──
+    (function () {
+        const row = document.getElementById('fmBlogPillRow');
+        const bar = document.getElementById('fmBlogPillUnderline');
+        if (!row || !bar) return;
+        function position(target) {
+            if (!target) return;
+            const r1 = target.getBoundingClientRect();
+            const r0 = row.getBoundingClientRect();
+            bar.style.left  = (r1.left - r0.left) + 'px';
+            bar.style.width = r1.width + 'px';
+        }
+        const active = row.querySelector('.blog-cat-btn.active');
+        requestAnimationFrame(() => position(active));
+        row.querySelectorAll('.blog-cat-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                row.querySelectorAll('.blog-cat-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                position(btn);
+            });
+            btn.addEventListener('mouseenter', () => position(btn));
+            btn.addEventListener('mouseleave', () => position(row.querySelector('.blog-cat-btn.active')));
+        });
+        window.addEventListener('resize', () => position(row.querySelector('.blog-cat-btn.active')));
+    })();
+    </script>
 </body>
 </html>

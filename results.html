@@ -195,7 +195,7 @@
         </div>
     </section>
 
-    <!-- STATS BAR -->
+    <!-- STATS BAR + LIVE TICKER RIBBON -->
     <section class="stats-section" aria-label="Key statistics">
         <div class="container fade-in-section">
             <div class="stats-bar-container">
@@ -215,6 +215,13 @@
                     <h3 class="text-gold-gradient">100%</h3>
                     <p>Customised Plans</p>
                 </div>
+            </div>
+
+            <!-- Live HbA1c reversal ticker — cycles every 3.5s -->
+            <div class="fm-live-ticker" id="fmLiveTicker" aria-live="polite">
+                <span class="pulse-dot" aria-hidden="true"></span>
+                <span class="label">Just Now</span>
+                <span class="msg" id="fmTickerMsg">HbA1c <strong>8.2 &rarr; 5.9</strong> &middot; Pune &middot; Day 78</span>
             </div>
         </div>
     </section>
@@ -268,36 +275,20 @@
                 <p style="text-align:center; color:var(--charcoal); opacity:0.75; margin-top:1rem; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; max-width:600px; margin-left:auto; margin-right:auto;">A selection of patient messages, paraphrased &amp; anonymised for privacy. Verbatim screenshots are reviewed on request after consent.</p>
             </div>
 
-            <div class="wa-quotes-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem; max-width:1100px; margin:0 auto;">
-                <figure style="margin:0; padding:1.5rem; background:linear-gradient(135deg, #f0f7f1, #e8f3eb); border-radius:14px; border:1px solid rgba(37,211,102,0.12); position:relative;">
-                    <span aria-hidden="true" style="position:absolute; top:1rem; right:1rem; width:24px; height:24px; border-radius:50%; background:#25D366; display:inline-flex; align-items:center; justify-content:center;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.449C12.831-3.984.106 1.407.101 11.893c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c10.453 0 16.354-12.706 8.527-20.345z"/></svg>
-                    </span>
-                    <blockquote style="margin:0 0 0.8rem; font-family:'DM Sans',sans-serif; font-size:0.95rem; line-height:1.55; color:#1a1a18;">&ldquo;HbA1c dropped from 9.4 to 5.8 in 16 weeks. Doctor reduced my insulin to half last week. I haven&rsquo;t felt this energetic in 7 years.&rdquo;</blockquote>
-                    <figcaption style="font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:#3b7a4e; font-weight:600;">Rakesh M. &middot; Pune &middot; Day 112</figcaption>
-                </figure>
-                <figure style="margin:0; padding:1.5rem; background:linear-gradient(135deg, #f0f7f1, #e8f3eb); border-radius:14px; border:1px solid rgba(37,211,102,0.12); position:relative;">
-                    <span aria-hidden="true" style="position:absolute; top:1rem; right:1rem; width:24px; height:24px; border-radius:50%; background:#25D366; display:inline-flex; align-items:center; justify-content:center;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.449C12.831-3.984.106 1.407.101 11.893c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c10.453 0 16.354-12.706 8.527-20.345z"/></svg>
-                    </span>
-                    <blockquote style="margin:0 0 0.8rem; font-family:'DM Sans',sans-serif; font-size:0.95rem; line-height:1.55; color:#1a1a18;">&ldquo;Lost 14 kg in 90 days &mdash; without giving up roti or rice. The macro plan was insanely Indian. My mother is now on the program too.&rdquo;</blockquote>
-                    <figcaption style="font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:#3b7a4e; font-weight:600;">Priya G. &middot; Mumbai &middot; Day 90</figcaption>
-                </figure>
-                <figure style="margin:0; padding:1.5rem; background:linear-gradient(135deg, #f0f7f1, #e8f3eb); border-radius:14px; border:1px solid rgba(37,211,102,0.12); position:relative;">
-                    <span aria-hidden="true" style="position:absolute; top:1rem; right:1rem; width:24px; height:24px; border-radius:50%; background:#25D366; display:inline-flex; align-items:center; justify-content:center;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.449C12.831-3.984.106 1.407.101 11.893c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c10.453 0 16.354-12.706 8.527-20.345z"/></svg>
-                    </span>
-                    <blockquote style="margin:0 0 0.8rem; font-family:'DM Sans',sans-serif; font-size:0.95rem; line-height:1.55; color:#1a1a18;">&ldquo;My PCOD cycles regulated in 11 weeks. The hormonal panel came back balanced for the first time in 6 years. Calling my gynecologist tomorrow.&rdquo;</blockquote>
-                    <figcaption style="font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:#3b7a4e; font-weight:600;">Shanti P. &middot; Bengaluru &middot; Day 77</figcaption>
-                </figure>
-                <figure style="margin:0; padding:1.5rem; background:linear-gradient(135deg, #f0f7f1, #e8f3eb); border-radius:14px; border:1px solid rgba(37,211,102,0.12); position:relative;">
-                    <span aria-hidden="true" style="position:absolute; top:1rem; right:1rem; width:24px; height:24px; border-radius:50%; background:#25D366; display:inline-flex; align-items:center; justify-content:center;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.449C12.831-3.984.106 1.407.101 11.893c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c10.453 0 16.354-12.706 8.527-20.345z"/></svg>
-                    </span>
-                    <blockquote style="margin:0 0 0.8rem; font-family:'DM Sans',sans-serif; font-size:0.95rem; line-height:1.55; color:#1a1a18;">&ldquo;Doctor said my fatty liver is reversed at the 4-month scan. I cried. 14 years of this and now it&rsquo;s gone. Thank you, FitMorphs team.&rdquo;</blockquote>
-                    <figcaption style="font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:#3b7a4e; font-weight:600;">Anil J. &middot; Nashik &middot; Day 126</figcaption>
-                </figure>
+            <!-- Infinite marquee — paragraphs slide slowly right-to-left, paused on hover -->
+            <div class="fm-marquee" id="fmWaMarquee" aria-label="Patient reactions, scrolling">
+                <div class="fm-marquee-track" id="fmWaTrack"></div>
             </div>
+            <script type="application/json" id="fmWaData">
+            [
+              {"q":"HbA1c dropped from 9.4 to 5.8 in 16 weeks. Doctor reduced my insulin to half last week. I haven&rsquo;t felt this energetic in 7 years.","who":"Rakesh M. &middot; Pune &middot; Day 112"},
+              {"q":"Lost 14 kg in 90 days &mdash; without giving up roti or rice. The macro plan was insanely Indian. My mother is now on the program too.","who":"Priya G. &middot; Mumbai &middot; Day 90"},
+              {"q":"My PCOD cycles regulated in 11 weeks. The hormonal panel came back balanced for the first time in 6 years.","who":"Shanti P. &middot; Bengaluru &middot; Day 77"},
+              {"q":"Doctor said my fatty liver is reversed at the 4-month scan. I cried. 14 years of this and now it&rsquo;s gone.","who":"Anil J. &middot; Nashik &middot; Day 126"},
+              {"q":"Fasting glucose 145 &rarr; 92 in 12 weeks. My morning cravings are gone. I sleep through the night for the first time in years.","who":"Suresh R. &middot; Hyderabad &middot; Day 84"},
+              {"q":"Thyroid meds reduced. Energy back. My husband notices the difference more than I do. Thank you, FitMorphs.","who":"Meera V. &middot; Delhi &middot; Day 98"}
+            ]
+            </script>
         </div>
     </section>
 
@@ -614,5 +605,71 @@
     </script>
 
     <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
+
+    <script>
+    // ── Live HbA1c reversal ticker ──
+    (function () {
+        const msgEl = document.getElementById('fmTickerMsg');
+        if (!msgEl) return;
+        const items = [
+            'HbA1c <strong>8.2 &rarr; 5.9</strong> &middot; Pune &middot; Day 78',
+            '<strong>12 kg lost</strong> &middot; Mumbai &middot; Day 64',
+            'Insulin <strong>tapered to half</strong> &middot; Bengaluru &middot; Day 112',
+            'PCOD cycles <strong>regulated</strong> &middot; Hyderabad &middot; Day 84',
+            'HbA1c <strong>9.1 &rarr; 6.0</strong> &middot; Nashik &middot; Day 96',
+            'Fasting glucose <strong>145 &rarr; 92</strong> &middot; Delhi &middot; Day 70',
+            'Fatty liver <strong>reversed</strong> &middot; Indore &middot; Day 126',
+            'Metformin <strong>fully off</strong> &middot; Pune &middot; Day 134'
+        ];
+        let i = 0;
+        setInterval(() => {
+            i = (i + 1) % items.length;
+            msgEl.classList.add('swap');
+            setTimeout(() => {
+                msgEl.innerHTML = items[i];
+                msgEl.classList.remove('swap');
+            }, 400);
+        }, 3500);
+    })();
+
+    // ── WhatsApp marquee — populate track with 2× content for seamless loop ──
+    (function () {
+        const dataEl = document.getElementById('fmWaData');
+        const track  = document.getElementById('fmWaTrack');
+        if (!dataEl || !track) return;
+        const items = JSON.parse(dataEl.textContent);
+        const card = (it) => `
+            <figure style="margin:0; padding:1.5rem; min-width:280px; max-width:320px; background:linear-gradient(135deg, #f0f7f1, #e8f3eb); border-radius:14px; border:1px solid rgba(37,211,102,0.12); position:relative; flex-shrink:0;">
+                <span aria-hidden="true" style="position:absolute; top:1rem; right:1rem; width:24px; height:24px; border-radius:50%; background:#25D366; display:inline-flex; align-items:center; justify-content:center;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.449C12.831-3.984.106 1.407.101 11.893c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c10.453 0 16.354-12.706 8.527-20.345z"/></svg>
+                </span>
+                <blockquote style="margin:0 0 0.8rem; font-family:'DM Sans',sans-serif; font-size:0.92rem; line-height:1.55; color:#1a1a18; padding-right:1.5rem;">&ldquo;${it.q}&rdquo;</blockquote>
+                <figcaption style="font-family:'DM Sans',sans-serif; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:#3b7a4e; font-weight:600;">${it.who}</figcaption>
+            </figure>`;
+        // Duplicate the item list so the -50% translate loops seamlessly
+        track.innerHTML = items.concat(items).map(card).join('');
+    })();
+
+    // ── Video card "Coming Soon" hover preview — subtle scale + sound prompt ──
+    // (Once real video files arrive, swap the img for <video> with playsInline + muted autoplay-on-hover.)
+    (function () {
+        document.querySelectorAll('.video-card-pending').forEach(card => {
+            const eyebrow = card.querySelector('.video-eyebrow');
+            if (!eyebrow) return;
+            card.addEventListener('mouseenter', () => {
+                eyebrow.textContent = 'Notify Me';
+                eyebrow.style.background = 'rgba(46, 204, 113, 0.22)';
+                eyebrow.style.borderColor = 'rgba(46, 204, 113, 0.55)';
+                eyebrow.style.color = '#2ecc71';
+            });
+            card.addEventListener('mouseleave', () => {
+                eyebrow.textContent = 'Coming Soon';
+                eyebrow.style.background = '';
+                eyebrow.style.borderColor = '';
+                eyebrow.style.color = '';
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

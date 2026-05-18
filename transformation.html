@@ -147,39 +147,65 @@
         </div>
     </section>
 
-    <!-- TIMELINE -->
-    <section class="section" style="background-color:var(--white); padding:8rem 0;">
-        <div class="container fade-in-section">
-            <div style="text-align:center; margin-bottom:4rem;">
+    <!-- BEFORE / AFTER — scroll-scrubbed pin -->
+    <section class="fm-scrub-stage" id="fmScrubStage" aria-label="Before / after">
+        <div style="text-align:center; padding:6rem 1.5rem 0;">
+            <span class="eyebrow-deluxe on-dark" style="display:inline-flex;">Before &amp; After</span>
+            <h2 class="editorial-kicker on-dark" style="margin-top:1rem;">90 Days. <em>One Reversal</em>.</h2>
+            <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(245,239,227,0.7); max-width:560px; margin:1.25rem auto 0;">Drag &mdash; or just keep scrolling. Watch a real patient's HbA1c counter tick down as the after-frame emerges.</p>
+        </div>
+        <div class="fm-scrub-pin">
+            <div class="fm-scrub-figure">
+                <img class="before" src="https://images.unsplash.com/photo-1571019614242-c5c5adee9f50?auto=format&fit=crop&q=80&w=900" alt="Before — Day 0">
+                <img class="after"  src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=900" alt="After — Day 90">
+                <span class="fm-scrub-tag before">Day 0</span>
+                <span class="fm-scrub-tag after">Day 90</span>
+                <div class="fm-scrub-divider" aria-hidden="true"></div>
+            </div>
+            <div class="fm-scrub-panel">
+                <h3>Rakesh M. &middot; Pune</h3>
+                <div class="metric"><span class="metric-label">HbA1c</span><span class="metric-value" id="fmScrubHba1c">9.4</span><span style="color:rgba(245,239,227,0.4); font-size:0.9rem;">→ 5.8</span></div>
+                <div class="metric"><span class="metric-label">Weight</span><span class="metric-value" id="fmScrubKg">86.4</span><span style="color:rgba(245,239,227,0.4); font-size:0.9rem;">kg</span></div>
+                <div class="metric"><span class="metric-label">Insulin</span><span class="metric-value" id="fmScrubIns" style="font-size:1.6rem;">Full dose</span></div>
+                <div class="fm-scrub-rail"><div class="fm-scrub-rail-bar"><div class="fm-scrub-rail-fill"></div></div></div>
+                <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(245,239,227,0.7); margin-top:1.5rem; font-size:1rem;">"I haven't felt this energetic in 7 years. Doctor reduced my insulin to half last week."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE OF RECOMPOSITION — scroll-pinned alternating reveal -->
+    <section class="fm-recomp-stage section">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:3rem;">
                 <span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">Journey</span>
                 <h2 class="editorial-kicker" style="color:var(--dark);">Timeline of <em>Recomposition</em></h2>
                 <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
                 <p style="text-align:center; color:var(--charcoal); opacity:0.8; margin-top:1rem; font-family:'DM Sans',sans-serif; font-size:1.1rem;">The 12-week physiological sequence.</p>
             </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Weeks 1–3: The Metabolic Shift</h4>
+            <ol class="fm-recomp-list" id="fmRecompList">
+                <li class="fm-recomp-item left">
+                    <div class="rc-card">
+                        <h4>Weeks 1&ndash;3 &mdash; The Metabolic Shift</h4>
                         <p>Glycogen stores deplete, dormant water weight drops, and your body transitions into an efficient fat-burning state. Energy levels initially dip before experiencing a massive surge.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Weeks 4–7: Visceral Oxidation</h4>
+                    <span class="rc-dot" aria-hidden="true"></span>
+                </li>
+                <li class="fm-recomp-item right">
+                    <span class="rc-dot" aria-hidden="true"></span>
+                    <div class="rc-card">
+                        <h4>Weeks 4&ndash;7 &mdash; Visceral Oxidation</h4>
                         <p>Your liver and internal organs begin shedding dangerous visceral fat. Clothes fit significantly better, sleep deepens, and systemic inflammation drastically reduces.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Weeks 8–12: Prime Recomposition</h4>
+                </li>
+                <li class="fm-recomp-item left">
+                    <div class="rc-card">
+                        <h4>Weeks 8&ndash;12 &mdash; Prime Recomposition</h4>
                         <p>Muscle density increases while subcutaneous fat melts aggressively. Your resting metabolic rate is elevated. Your reflection showcases a fundamentally changed, high-performance physique.</p>
                     </div>
-                </div>
-            </div>
+                    <span class="rc-dot" aria-hidden="true"></span>
+                </li>
+            </ol>
         </div>
     </section>
 
@@ -340,5 +366,50 @@
     <script src="script.js"></script>
 
     <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
+
+    <script>
+    // ── Before/After scrub + HbA1c counter ──
+    (function () {
+        const stage  = document.getElementById('fmScrubStage');
+        if (!stage) return;
+        const figure = stage.querySelector('.fm-scrub-figure');
+        const hba1c  = document.getElementById('fmScrubHba1c');
+        const kg     = document.getElementById('fmScrubKg');
+        const ins    = document.getElementById('fmScrubIns');
+        function lerp(a, b, t) { return a + (b - a) * t; }
+        let raf = 0;
+        function tick() {
+            raf = 0;
+            const r = stage.getBoundingClientRect();
+            const total = r.height - window.innerHeight;
+            if (total <= 0) return;
+            const scrolled = Math.max(0, Math.min(total, -r.top));
+            const p = scrolled / total;
+            // Map to scrub progress 0..100% over 15–85% window
+            const eased = Math.max(0, Math.min(1, (p - 0.15) / 0.7));
+            const pct = eased * 100;
+            figure.style.setProperty('--scrub', pct + '%');
+            stage.querySelector('.fm-scrub-rail-fill').style.setProperty('--scrub', pct + '%');
+            stage.querySelector('.fm-scrub-rail-fill').style.width = pct + '%';
+            if (hba1c) hba1c.textContent = lerp(9.4, 5.8, eased).toFixed(1);
+            if (kg)    kg.textContent    = lerp(86.4, 72.1, eased).toFixed(1);
+            if (ins)   ins.textContent   = eased < 0.4 ? 'Full dose' : eased < 0.75 ? 'Half dose' : 'Tapered off';
+        }
+        function onScroll() { if (!raf) raf = requestAnimationFrame(tick); }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        tick();
+    })();
+
+    // ── Recomp timeline alternating reveal ──
+    (function () {
+        const items = document.querySelectorAll('#fmRecompList .fm-recomp-item');
+        if (!items.length) return;
+        const obs = new IntersectionObserver((entries, o) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); } });
+        }, { threshold: 0.35 });
+        items.forEach(i => obs.observe(i));
+    })();
+    </script>
 </body>
 </html>

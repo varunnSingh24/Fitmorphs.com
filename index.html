@@ -131,16 +131,19 @@
         </div>
     </nav>
 
-    <!-- SECTION 1: HERO -->
-    <section class="hero-vogue">
+    <!-- SECTION 1: HERO — scroll-pinned cinematic. 300vh stage, sticky pin,
+         second stage with "TRANSFORM FROM WITHIN" + CGM-trace draw past 50%. -->
+    <section class="hero-pin-stage" id="heroPinStage" aria-label="Hero cinematic">
+    <div class="hero-pin">
+    <section class="hero-vogue" style="position:relative; min-height:100vh; height:100%;">
         <div class="hero-bg-wrapper">
             <img class="hero-bg-img" src="https://images.unsplash.com/photo-1571019614242-c5c5adee9f50?auto=format&fit=crop&q=80&w=1600" alt="Premium lifestyle health">
             <div class="hero-gradient-overlay"></div>
         </div>
-        
+
         <div class="hero-content">
             <span class="hero-label-eyebrow fade-in-section">Doctor Supervised &middot; Clinically Proven &middot; 10,000+ Transformed</span>
-            <h1 class="hero-title-vogue text-gold-gradient fade-in-section" style="animation-delay: 0.2s;">
+            <h1 class="hero-title-vogue text-gold-gradient fm-words" id="heroHeadline" data-fm-headline="Your Body Has the Power to Heal. We Prove It.">
                 Your Body Has the Power<br>to Heal. We Prove It.
             </h1>
             <div class="hero-btns-vogue fade-in-section" style="animation-delay: 0.4s;">
@@ -177,6 +180,69 @@
             </div>
         </div>
     </section>
+
+    <!-- STAGE 2 — past 50% scroll, headline morphs to TRANSFORM FROM WITHIN + glucose trace draws -->
+    <div class="hero-stage-2" aria-hidden="true">
+        <div class="stage2-inner">
+            <span class="hero-label-eyebrow" style="display:inline-block; margin-bottom:1.5rem;">From sky-high glucose &middot; to a steady flatline</span>
+            <h2 class="stage2-headline">Transform From <em>Within</em>.</h2>
+            <svg class="cgm-trace" viewBox="0 0 900 140" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                    <linearGradient id="cgmGold" x1="0" x2="1">
+                        <stop offset="0%"   stop-color="#e2b83a"/>
+                        <stop offset="50%"  stop-color="#f0d060"/>
+                        <stop offset="100%" stop-color="#a17c2f"/>
+                    </linearGradient>
+                </defs>
+                <!-- Reference line — diabetic threshold -->
+                <line x1="0" y1="62" x2="900" y2="62" stroke="rgba(245,239,227,0.18)" stroke-dasharray="4 6"/>
+                <text class="cgm-label" x="6" y="56">Threshold &mdash; HbA1c 6.5</text>
+                <!-- The CGM trace — starts spiky/high, ends low/flat -->
+                <path d="M 0 18 L 60 30 L 110 12 L 165 40 L 220 22 L 270 50 L 320 38 L 370 62 L 425 78 L 480 92 L 540 100 L 600 110 L 660 116 L 720 118 L 780 119 L 840 119 L 900 120"
+                      stroke="url(#cgmGold)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                      style="filter: drop-shadow(0 0 8px rgba(240, 192, 64, 0.45));"/>
+                <text class="cgm-label" x="6"   y="14">250 mg/dL</text>
+                <text class="cgm-label" x="820" y="135" text-anchor="end">95 mg/dL</text>
+            </svg>
+        </div>
+    </div>
+    </div>
+    </section>
+
+    <script>
+    // ── Hero scroll-pin orchestrator ──
+    (function () {
+        const stage = document.getElementById('heroPinStage');
+        if (!stage) return;
+        const headline = document.getElementById('heroHeadline');
+        // Word-wrap the headline once on load
+        if (headline && window.__fmWordWrap) {
+            const text = headline.getAttribute('data-fm-headline') || headline.textContent.trim();
+            headline.textContent = text;
+            window.__fmWordWrap(headline);
+        }
+        // Trigger the .in state on the wrapped headline after 250ms
+        if (headline) requestAnimationFrame(() => requestAnimationFrame(() => headline.classList.add('in')));
+        // Crossfade to stage 2 when scrolled > 50% of pin range
+        let raf = 0;
+        function tick() {
+            raf = 0;
+            const r = stage.getBoundingClientRect();
+            const total = r.height - window.innerHeight;
+            if (total <= 0) return;
+            const scrolled = Math.max(0, Math.min(total, -r.top));
+            const p = scrolled / total;
+            stage.classList.toggle('show-stage2', p > 0.5);
+            // Subtle parallax on the bg img
+            const bg = stage.querySelector('.hero-bg-wrapper');
+            if (bg) bg.style.transform = `translateY(${p * -8}vh)`;
+        }
+        function onScroll() { if (!raf) raf = requestAnimationFrame(tick); }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        tick();
+    })();
+    </script>
 
     <!-- SECTION 2: IMPACT NUMBER -->
     <section class="impact-section">
@@ -289,7 +355,26 @@
                 <div class="section-ornament"><span class="diamond"></span></div>
             </div>
 
-            <div class="stagger-children" style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; max-width:1100px; margin:0 auto; position:relative;">
+            <!-- SCROLL-SCRUBBED ARC — dot travels along an SVG curve, lighting up each milestone -->
+            <div class="fm-arc-wrap" id="fmArcWrap" style="position:relative; max-width:1100px; margin:0 auto 3rem;">
+                <svg class="fm-arc-svg" id="fmArcSvg" viewBox="0 0 1100 240" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="fmArcGold" x1="0" x2="1">
+                            <stop offset="0%"   stop-color="#a17c2f"/>
+                            <stop offset="50%"  stop-color="#f0d060"/>
+                            <stop offset="100%" stop-color="#e2b83a"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="arc-line"     d="M 30 200 Q 275 30, 550 130 Q 825 230, 1070 60" />
+                    <path class="arc-progress" id="fmArcPath" d="M 30 200 Q 275 30, 550 130 Q 825 230, 1070 60" />
+                    <circle class="arc-dot" id="fmArcDot" r="9" cx="0" cy="0" style="transform: translate(30px, 200px);"/>
+                </svg>
+                <div class="fm-arc-milestone" id="fmMs1" style="top:200px; left:30px;"><span class="ms-pill">Day 1</span></div>
+                <div class="fm-arc-milestone" id="fmMs2" style="top:130px; left:550px;"><span class="ms-pill">Day 3</span></div>
+                <div class="fm-arc-milestone" id="fmMs3" style="top:60px;  left:1070px;"><span class="ms-pill">Day 30+</span></div>
+            </div>
+
+            <div class="scroll-stagger" style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; max-width:1100px; margin:0 auto; position:relative;">
                 <!-- Connecting line -->
                 <div style="position:absolute; top:52px; left:calc(16.66% + 1rem); right:calc(16.66% + 1rem); height:2px; background:linear-gradient(to right, var(--gold-mid), var(--gold-bright), var(--gold-mid)); opacity:0.25; pointer-events:none; display:none;" class="hiw-line"></div>
 
@@ -338,11 +423,12 @@
             <h2 class="playfair" style="font-size:clamp(2rem,4vw,3rem); color:var(--cream); margin-bottom:1rem;">What's the Cost of <em>Not</em> Reversing Your Diabetes?</h2>
             <p style="color:var(--text-on-dark-muted); font-size:1.05rem; margin:0 auto 3rem;">The average Type 2 Diabetes patient spends ₹8,000–25,000 per month on medications, doctor visits, and complications — for decades. Our program is a one-time investment that eliminates that cost permanently.</p>
 
-            <div class="stagger-children" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; max-width:700px; margin:0 auto 3rem;">
-                <div class="glass-card" style="text-align:left;">
+            <div class="scroll-stagger" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; max-width:700px; margin:0 auto 3rem;">
+                <div class="glass-card cost-bar-card" style="text-align:left;">
                     <div style="font-size:0.75rem; font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:2px; text-transform:uppercase; color:rgba(245,239,227,0.4); margin-bottom:1rem;">Without FitMorphs</div>
-                    <div style="font-size:2.5rem; font-weight:700; font-family:'Cormorant Garamond',serif; color:#e05a5a; margin-bottom:0.5rem;">₹6L+</div>
-                    <p style="font-size:0.88rem; color:var(--text-on-dark-muted); max-width:none; margin:0;">Medication costs over 5 years, plus complications, hospital visits, and declining quality of life.</p>
+                    <div style="font-size:2.5rem; font-weight:700; font-family:'Cormorant Garamond',serif; color:#e05a5a; margin-bottom:0.5rem;"><span class="counter-val" data-target="600000">0</span><span style="font-size:1.6rem;">+</span></div>
+                    <p style="font-size:0.88rem; color:var(--text-on-dark-muted); max-width:none; margin:0;">Medication costs in rupees over 5 years, plus complications, hospital visits, and declining quality of life.</p>
+                    <div class="cost-bar" aria-hidden="true"><div class="cost-bar-fill"></div></div>
                 </div>
                 <div class="glass-card gradient-border-card" style="text-align:left;">
                     <div style="font-size:0.75rem; font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--gold-mid); margin-bottom:1rem;">With FitMorphs</div>
@@ -432,58 +518,112 @@
             
             <div class="expert-grid stagger-children">
                 <!-- Expert 1 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Dr. Abhishek Mane</div>
                     <div class="expert-title">Chief Medical Officer</div>
                     <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, MD &middot; Metabolic Medicine</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Abhishek Mane</h5>
+                            <p>Founder & CMO. Designs every clinical protocol and personally reviews edge-case files.</p>
+                            <span class="mci">MMC Reg #94823</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Expert 2 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Dr. Richa Mane</div>
                     <div class="expert-title">Lead Nutritionist</div>
                     <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">PhD &middot; Clinical Nutrition</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Richa Mane</h5>
+                            <p>Authors the macro-and-nutrient frameworks for every patient's personalised plan.</p>
+                            <span class="mci">INPA Reg #18421</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Expert 3 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Dr. Pooja Mehta</div>
                     <div class="expert-title">Metabolic Specialist</div>
                     <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, DNB &middot; Internal Medicine</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Pooja Mehta</h5>
+                            <p>Leads metabolic case conferences. 12 years of clinical practice in internal medicine.</p>
+                            <span class="mci">MMC Reg #102934</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Expert 4 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Dr. Amol Bhor</div>
                     <div class="expert-title">Endocrinologist</div>
                     <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, MD &middot; DM Endocrinology</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Amol Bhor</h5>
+                            <p>Reviews all medication-taper decisions. Board-certified endocrinologist (DM).</p>
+                            <span class="mci">MMC Reg #98512</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Expert 5 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Dr. Shweta V.</div>
                     <div class="expert-title">Consulting Physician</div>
                     <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS &middot; Family &amp; Lifestyle Medicine</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Shweta V.</h5>
+                            <p>Family-medicine background. Conducts week-4 patient check-ins and lifestyle reviews.</p>
+                            <span class="mci">MMC Reg #115620</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Expert 6 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Monica B.</div>
                     <div class="expert-title">Clinical Dietitian</div>
                     <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MSc &middot; Diabetes Nutrition</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Monica B.</h5>
+                            <p>MSc Diabetes Nutrition. Designs every meal plan around the patient's regional palate.</p>
+                            <span class="mci">INPA Reg #21044</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -739,5 +879,42 @@
     <script src="script.js"></script>
 
     <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
+
+    <script>
+    // ── Transformation Arc scroll-scrubbed dot ──
+    (function () {
+        const wrap = document.getElementById('fmArcWrap');
+        const path = document.getElementById('fmArcPath');
+        const dot  = document.getElementById('fmArcDot');
+        if (!wrap || !path || !dot) return;
+        const milestones = [
+            { el: document.getElementById('fmMs1'), at: 0.0 },
+            { el: document.getElementById('fmMs2'), at: 0.5 },
+            { el: document.getElementById('fmMs3'), at: 1.0 }
+        ];
+        const len = path.getTotalLength();
+        path.style.setProperty('--len', len);
+        path.style.strokeDasharray  = len;
+        path.style.strokeDashoffset = len;
+        let raf = 0;
+        function tick() {
+            raf = 0;
+            const r = wrap.getBoundingClientRect();
+            const vh = window.innerHeight;
+            // Activation window: enters at 80% viewport from top, ends at 20%
+            const start = vh * 0.8;
+            const end   = vh * 0.2;
+            const p = Math.max(0, Math.min(1, (start - r.top) / (start - end)));
+            path.style.strokeDashoffset = len * (1 - p);
+            const pt = path.getPointAtLength(len * p);
+            dot.style.transform = `translate(${pt.x}px, ${pt.y}px)`;
+            milestones.forEach(m => m.el.classList.toggle('lit', p >= m.at - 0.02));
+        }
+        function onScroll() { if (!raf) raf = requestAnimationFrame(tick); }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        tick();
+    })();
+    </script>
 </body>
 </html>

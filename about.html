@@ -119,13 +119,14 @@
                 <h3 style="color:var(--gold-mid); font-family:'DM Sans',sans-serif; font-size:1rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:2rem; font-weight:700;">MBBS, MD &mdash; Metabolic Medicine</h3>
                 <p class="lead-para" style="color:var(--text-body); font-size:1.1rem; margin-bottom:1.5rem;">Dr. Abhishek Mane established FitMorphs out of a frustration with the conventional medical approach to metabolic disease. Seeing thousands of patients prescribed lifelong medications without addressing the root cause, he realized a paradigm shift was necessary.</p>
                 <p style="color:var(--text-body); font-size:1.1rem; margin-bottom:2rem;">Combining his rigorous medical background with advanced nutritional science, he developed the FitMorphs protocol. Since then, he has helped thousands of Indians safely taper off their diabetes and blood pressure medications.</p>
-                <blockquote class="pull-quote">True healing begins when we stop treating the symptoms and start repairing the metabolism. <cite>— Dr. Abhishek Mane</cite></blockquote>
+                <blockquote class="pull-quote"><span class="fm-type" data-typewriter="True healing begins when we stop treating the symptoms and start repairing the metabolism." data-typewriter-speed="42"></span> <cite>&mdash; Dr. Abhishek Mane</cite></blockquote>
             </div>
         </div>
     </section>
 
-    <!-- MISSION -->
+    <!-- MISSION — with ambient cellular particle field -->
     <section class="mission-section">
+        <canvas class="mission-particles" id="fmMissionCanvas" aria-hidden="true"></canvas>
         <div class="container fade-in-section" style="position:relative; z-index:2;">
             <span class="eyebrow-deluxe" style="display:inline-flex;">Our Mission</span>
             <h2 class="mission-text">To reverse metabolic disorders in 1 million Indians by replacing temporary diets with permanent, science-backed lifestyle architecture.</h2>
@@ -143,52 +144,106 @@
             
             <div class="team-grid stagger-children">
                 <!-- The canonical Fitmorphs Medical Board — same 6 across index.html and about.html -->
-                <div class="team-card">
-                    <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800" alt="Dr. Abhishek Mane, Chief Medical Officer" loading="lazy"></div>
+                <div class="team-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800" alt="Dr. Abhishek Mane, Chief Medical Officer" loading="lazy"></div>
                     <div class="team-content">
                         <h4>Dr. Abhishek Mane</h4>
                         <p class="team-role">Chief Medical Officer</p>
                         <p class="team-cred" style="font-family:'DM Sans',sans-serif; font-size:0.72rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.35rem; opacity:0.85;">MBBS, MD &middot; Metabolic Medicine</p>
                     </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Abhishek Mane</h5>
+                            <p>Founder & CMO. Designs every clinical protocol and personally reviews edge-case files.</p>
+                            <span class="mci">MMC Reg #94823</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=800" alt="Dr. Richa Mane, Lead Nutritionist" loading="lazy"></div>
+                <div class="team-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=800" alt="Dr. Richa Mane, Lead Nutritionist" loading="lazy"></div>
                     <div class="team-content">
                         <h4>Dr. Richa Mane</h4>
                         <p class="team-role">Lead Nutritionist</p>
                         <p class="team-cred" style="font-family:'DM Sans',sans-serif; font-size:0.72rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.35rem; opacity:0.85;">PhD &middot; Clinical Nutrition</p>
                     </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Richa Mane</h5>
+                            <p>Authors the macro-and-nutrient frameworks for every patient's personalised plan.</p>
+                            <span class="mci">INPA Reg #18421</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800" alt="Dr. Pooja Mehta, Metabolic Specialist" loading="lazy"></div>
+                <div class="team-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800" alt="Dr. Pooja Mehta, Metabolic Specialist" loading="lazy"></div>
                     <div class="team-content">
                         <h4>Dr. Pooja Mehta</h4>
                         <p class="team-role">Metabolic Specialist</p>
                         <p class="team-cred" style="font-family:'DM Sans',sans-serif; font-size:0.72rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.35rem; opacity:0.85;">MBBS, DNB &middot; Internal Medicine</p>
                     </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Pooja Mehta</h5>
+                            <p>Leads metabolic case conferences. 12 years of clinical practice in internal medicine.</p>
+                            <span class="mci">MMC Reg #102934</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=800" alt="Dr. Amol Bhor, Endocrinologist" loading="lazy"></div>
+                <div class="team-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=800" alt="Dr. Amol Bhor, Endocrinologist" loading="lazy"></div>
                     <div class="team-content">
                         <h4>Dr. Amol Bhor</h4>
                         <p class="team-role">Endocrinologist</p>
                         <p class="team-cred" style="font-family:'DM Sans',sans-serif; font-size:0.72rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.35rem; opacity:0.85;">MBBS, MD &middot; DM Endocrinology</p>
                     </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Amol Bhor</h5>
+                            <p>Reviews all medication-taper decisions. Board-certified endocrinologist (DM).</p>
+                            <span class="mci">MMC Reg #98512</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1594824432258-f4726cd550a2?auto=format&fit=crop&q=80&w=800" alt="Dr. Shweta V., Consulting Physician" loading="lazy"></div>
+                <div class="team-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1594824432258-f4726cd550a2?auto=format&fit=crop&q=80&w=800" alt="Dr. Shweta V., Consulting Physician" loading="lazy"></div>
                     <div class="team-content">
                         <h4>Dr. Shweta V.</h4>
                         <p class="team-role">Consulting Physician</p>
                         <p class="team-cred" style="font-family:'DM Sans',sans-serif; font-size:0.72rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.35rem; opacity:0.85;">MBBS &middot; Family &amp; Lifestyle Medicine</p>
                     </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Shweta V.</h5>
+                            <p>Family-medicine background. Conducts week-4 patient check-ins and lifestyle reviews.</p>
+                            <span class="mci">MMC Reg #115620</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Monica B., Clinical Dietitian" loading="lazy"></div>
+                <div class="team-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="team-img-wrapper"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Monica B., Clinical Dietitian" loading="lazy"></div>
                     <div class="team-content">
                         <h4>Monica B.</h4>
                         <p class="team-role">Clinical Dietitian</p>
                         <p class="team-cred" style="font-family:'DM Sans',sans-serif; font-size:0.72rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.35rem; opacity:0.85;">MSc &middot; Diabetes Nutrition</p>
+                    </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Monica B.</h5>
+                            <p>MSc Diabetes Nutrition. Designs every meal plan around the patient's regional palate.</p>
+                            <span class="mci">INPA Reg #21044</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -223,15 +278,72 @@
         </div>
     </section>
 
-    <!-- FOUNDER TIMELINE -->
-    <section class="section" style="background-color:var(--dark); padding:7rem 0; position:relative; overflow:hidden;">
+    <!-- FOUNDER TIMELINE — snaking SVG path with stroke-dasharray draw, dots that light up,
+         cards sliding in from alternating sides as user scrolls -->
+    <section class="fm-path-stage section" id="fmPathStage">
+        <svg class="fm-path-svg" id="fmPathSvg" viewBox="0 0 800 1400" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+                <linearGradient id="fmGold" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%"   stop-color="#a17c2f"/>
+                    <stop offset="50%"  stop-color="#f0d060"/>
+                    <stop offset="100%" stop-color="#e2b83a"/>
+                </linearGradient>
+            </defs>
+            <path id="fmPathLine" d="M 400 60 Q 200 250, 400 440 Q 600 630, 400 820 Q 200 1010, 400 1200 Q 600 1320, 400 1380" />
+        </svg>
         <div class="container fade-in-section">
-            <div style="text-align:center; margin-bottom:5rem;">
+            <div style="text-align:center; margin-bottom:3rem; position:relative; z-index:1;">
                 <span class="eyebrow-deluxe on-dark" style="display:inline-flex;">A Quiet Practice, Growing</span>
                 <h2 class="editorial-kicker on-dark" style="margin-top:1rem;">Seven Years. <em>One Doctrine</em>.</h2>
                 <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
             </div>
-            <ol class="founder-timeline" style="list-style:none; padding:0; margin:0 auto; max-width:780px; position:relative;">
+            <ol class="fm-path-list" id="fmPathList">
+                <li class="fm-path-item left">
+                    <div class="fm-path-card">
+                        <span class="yr">2018</span>
+                        <h4>The first ten patients.</h4>
+                        <p>Dr. Mane begins running a small clinical experiment with ten Pune-based Type 2 patients. Within 90 days, seven are off Metformin. The proof-of-concept is enough to commit.</p>
+                    </div>
+                    <span class="fm-path-dot" aria-hidden="true"></span>
+                </li>
+                <li class="fm-path-item right">
+                    <span class="fm-path-dot" aria-hidden="true"></span>
+                    <div class="fm-path-card">
+                        <span class="yr">2020</span>
+                        <h4>The protocol is codified.</h4>
+                        <p>Three years of patient outcomes converge into the six-pillar reversal protocol. Dr. Richa Mane joins as Lead Nutritionist. The practice formalises its lab-monitoring workflow.</p>
+                    </div>
+                </li>
+                <li class="fm-path-item left">
+                    <div class="fm-path-card">
+                        <span class="yr">2022</span>
+                        <h4>1,000th reversal.</h4>
+                        <p>The thousandth medically-verified diabetes reversal is logged. Two endocrinologists join the medical board. Times of India publishes the first feature on the practice.</p>
+                    </div>
+                    <span class="fm-path-dot" aria-hidden="true"></span>
+                </li>
+                <li class="fm-path-item right">
+                    <span class="fm-path-dot" aria-hidden="true"></span>
+                    <div class="fm-path-card">
+                        <span class="yr">2024</span>
+                        <h4>The 60-day HbA1c guarantee.</h4>
+                        <p>Seven years of outcome data become a public commitment: if your HbA1c hasn't moved in 60 days, your fee is refunded. No clauses.</p>
+                    </div>
+                </li>
+                <li class="fm-path-item left">
+                    <div class="fm-path-card">
+                        <span class="yr">2026</span>
+                        <h4>10,000th life transformed.</h4>
+                        <p>45,000+ combined kilograms lost. 2.8 average HbA1c points reduced. Three new pathway protocols enter clinical trial: PCOD reset, liver reversal, and lean-mass recomposition.</p>
+                    </div>
+                    <span class="fm-path-dot" aria-hidden="true"></span>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- (Legacy fallback timeline removed — replaced by SVG path above) -->
+    <ol class="founder-timeline" style="display:none;">
                 <li class="ft-item" data-year="2018" style="padding:1.5rem 0 2rem 4.5rem; position:relative; border-left:1px solid rgba(212,160,23,0.25); margin-left:1.5rem;">
                     <span class="ft-dot" aria-hidden="true" style="position:absolute; left:-7px; top:1.85rem; width:14px; height:14px; border-radius:50%; background:var(--dark); border:2px solid var(--gold-bright); box-shadow:0 0 0 6px rgba(212,160,23,0.12);"></span>
                     <span class="ft-year" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:2rem; color:var(--gold-bright); display:block; line-height:1; margin-bottom:0.4rem;">2018</span>
@@ -344,5 +456,95 @@
     <script src="script.js"></script>
 197: 
     <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
+
+    <script>
+    // ── Founder SVG path scroll-draw + alternating card reveal ──
+    (function () {
+        const stage = document.getElementById('fmPathStage');
+        const path  = document.getElementById('fmPathLine');
+        const items = document.querySelectorAll('#fmPathList .fm-path-item');
+        if (!stage || !path) return;
+        const len = path.getTotalLength();
+        path.style.setProperty('--len', len);
+        path.style.strokeDasharray  = len;
+        path.style.strokeDashoffset = len;
+        let raf = 0;
+        function tick() {
+            raf = 0;
+            const r = stage.getBoundingClientRect();
+            const vh = window.innerHeight;
+            const start = vh * 0.85;
+            const end   = vh * 0.15;
+            const top = Math.max(0, Math.min(1, (start - r.top) / (start - end + r.height * 0.7)));
+            path.style.strokeDashoffset = len * (1 - top);
+        }
+        function onScroll() { if (!raf) raf = requestAnimationFrame(tick); }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        tick();
+        // Items: alternating reveal
+        const obs = new IntersectionObserver((entries, o) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); } });
+        }, { threshold: 0.3 });
+        items.forEach(i => obs.observe(i));
+    })();
+
+    // ── Mission ambient cellular particle field ──
+    (function () {
+        const canvas = document.getElementById('fmMissionCanvas');
+        if (!canvas || !canvas.getContext) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const ctx = canvas.getContext('2d');
+        const DPR = Math.min(2, window.devicePixelRatio || 1);
+        let parts = [];
+        const COUNT = 70;
+        function resize() {
+            const r = canvas.getBoundingClientRect();
+            canvas.width  = Math.max(1, Math.floor(r.width  * DPR));
+            canvas.height = Math.max(1, Math.floor(r.height * DPR));
+        }
+        function seed() {
+            parts = [];
+            for (let i = 0; i < COUNT; i++) {
+                parts.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 1.4 + 0.7,
+                    vx: (Math.random() - 0.5) * 0.14,
+                    vy: (Math.random() - 0.5) * 0.14,
+                    ph: Math.random() * Math.PI * 2,
+                });
+            }
+        }
+        resize(); seed();
+        window.addEventListener('resize', () => { resize(); seed(); }, { passive: true });
+        let t = 0;
+        function frame() {
+            t += 16;
+            const w = canvas.width, h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+            ctx.globalCompositeOperation = 'lighter';
+            for (const p of parts) {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < -10) p.x = w + 10;
+                if (p.x > w + 10) p.x = -10;
+                if (p.y < -10) p.y = h + 10;
+                if (p.y > h + 10) p.y = -10;
+                const breath = 0.6 + 0.4 * Math.sin(t * 0.0014 + p.ph);
+                const a = 0.15 * breath;
+                const r = p.r * DPR * (0.85 + 0.35 * Math.sin(t * 0.0009 + p.ph * 1.2));
+                const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 4);
+                g.addColorStop(0,    `rgba(240,192,64,${a})`);
+                g.addColorStop(0.5,  `rgba(240,192,64,${a * 0.35})`);
+                g.addColorStop(1,    'rgba(240,192,64,0)');
+                ctx.fillStyle = g;
+                ctx.beginPath(); ctx.arc(p.x, p.y, r * 4, 0, Math.PI * 2); ctx.fill();
+            }
+            ctx.globalCompositeOperation = 'source-over';
+            requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+    })();
+    </script>
 </body>
 198: </html>

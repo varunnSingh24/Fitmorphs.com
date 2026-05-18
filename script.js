@@ -978,3 +978,152 @@ document.addEventListener('DOMContentLoaded', () => {
     '#stars3,#stars3::after{box-shadow:' + generateStars(18, 4) + '}';
   document.head.appendChild(s);
 })();
+
+/* =========================================================
+   TIER 3 EXPANSION — Motion foundations
+   ========================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse = window.matchMedia('(pointer: coarse)').matches;
+
+  /* ── Scroll-progress: data-progress tooltip + temporary "active" on scroll ── */
+  (function () {
+    const bar = document.querySelector('.scroll-progress-bar');
+    const wrap = document.querySelector('.scroll-progress-container');
+    if (!bar || !wrap) return;
+    let hideTimer = 0;
+    const update = () => {
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const p = docH > 0 ? Math.round((window.scrollY / docH) * 100) : 0;
+      bar.style.width = p + '%';
+      bar.setAttribute('data-progress', p + '% read');
+      wrap.classList.add('active');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => wrap.classList.remove('active'), 900);
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  })();
+
+  /* ── Custom cursor state morphing ── */
+  if (!coarse) {
+    const cursor = document.querySelector('.custom-cursor');
+    if (cursor) {
+      const linkSel = 'a, button, [role="button"], .btn, summary, label, input[type="submit"]';
+      const imgSel  = '.hero-bg-img, .profile-img, .philosophy-img, .reports-card, .fm-grid img';
+      const cardSel = '.glass-card, .blog-card, .vogue-hover-card, .pillar-card, .cat-card-vogue, .expert-card, .team-card, .recipe-card';
+      document.addEventListener('mouseover', e => {
+        cursor.classList.remove('cursor-link', 'cursor-image', 'cursor-card');
+        const t = e.target;
+        if (t.closest(linkSel))      cursor.classList.add('cursor-link');
+        else if (t.closest(imgSel))  cursor.classList.add('cursor-image');
+        else if (t.closest(cardSel)) cursor.classList.add('cursor-card');
+      });
+    }
+  }
+
+  /* ── Directional page-wipe — already-installed click handler will set the direction ── */
+  (function () {
+    const wipe = document.getElementById('page-wipe');
+    if (!wipe) return;
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http') || a.target === '_blank') return;
+      const r = a.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      const cy = r.top + r.height / 2;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      // Direction = whichever edge the link is closest to.
+      const distances = { left: cx, right: vw - cx, top: cy, bottom: vh - cy };
+      const dir = Object.keys(distances).reduce((a, b) => distances[a] < distances[b] ? a : b);
+      wipe.classList.remove('wipe-from-left', 'wipe-from-right', 'wipe-from-top', 'wipe-from-bottom');
+      wipe.classList.add('wipe-from-' + dir);
+    }, true);
+  })();
+
+  /* ── Scroll-staggered reveal — apply IntersectionObserver to .scroll-stagger
+       containers AND set --i on children once. ── */
+  (function () {
+    const groups = document.querySelectorAll('.scroll-stagger');
+    if (!groups.length) return;
+    groups.forEach(g => {
+      [...g.children].forEach((c, i) => c.style.setProperty('--i', i));
+    });
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in-view'); o.unobserve(e.target); }
+      });
+    }, { threshold: 0.25 });
+    groups.forEach(g => obs.observe(g));
+  })();
+
+  /* ── Generic "add .in-view on intersect" for .fm-art-takeaways, .cost-bar-card ── */
+  (function () {
+    const inObs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in-view'); o.unobserve(e.target); }
+      });
+    }, { threshold: 0.35 });
+    document.querySelectorAll('.fm-art-takeaways, .cost-bar-card').forEach(el => inObs.observe(el));
+    // Pre-set per-item --i on takeaways
+    document.querySelectorAll('.fm-art-takeaways ul').forEach(ul => {
+      [...ul.children].forEach((li, i) => li.style.setProperty('--i', i));
+    });
+  })();
+
+  /* ── Sticky author chip (blog template) ── */
+  (function () {
+    const byline = document.querySelector('.fm-art-byline');
+    const hero = document.querySelector('.fm-art-hero');
+    if (!byline || !hero) return;
+    const chip = document.createElement('div');
+    chip.className = 'fm-byline-chip';
+    chip.innerHTML = '<span class="fm-byline-chip-dot">A</span><span><span class="who">Dr. Abhishek Mane</span> &middot; reviewed</span>';
+    document.body.appendChild(chip);
+    const heroObs = new IntersectionObserver(entries => {
+      entries.forEach(e => chip.classList.toggle('visible', !e.isIntersecting));
+    }, { threshold: 0.05 });
+    heroObs.observe(hero);
+  })();
+
+  /* ── Typewriter (data-typewriter attr) ── */
+  (function () {
+    const targets = document.querySelectorAll('[data-typewriter]');
+    if (!targets.length || reduced) {
+      targets.forEach(t => t.classList.add('done'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const full = el.getAttribute('data-typewriter');
+        const speed = parseInt(el.getAttribute('data-typewriter-speed'), 10) || 38;
+        el.textContent = '';
+        let i = 0;
+        const tick = () => {
+          el.textContent = full.slice(0, ++i);
+          if (i < full.length) setTimeout(tick, speed);
+          else el.classList.add('done');
+        };
+        setTimeout(tick, 300);
+        o.unobserve(el);
+      });
+    }, { threshold: 0.55 });
+    targets.forEach(t => obs.observe(t));
+  })();
+
+  /* ── Word-by-word reveal helper ── */
+  window.__fmWordWrap = function (el) {
+    if (!el || el.dataset.fmWords === '1') return;
+    const txt = el.textContent.trim();
+    const words = txt.split(/\s+/);
+    el.classList.add('fm-words');
+    el.dataset.fmWords = '1';
+    el.innerHTML = words.map((w, i) => `<span class="w" style="--w:${i}">${w}</span>`).join(' ');
+  };
+});
