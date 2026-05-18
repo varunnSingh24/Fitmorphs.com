@@ -368,9 +368,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // =========================================================
-  // 10. ANIMATED COUNTERS
+  // 10. ANIMATED COUNTERS — runs on .counter-val plus the
+  // .impact-main-stat / .impact-small-stat elements on index.html
+  // (which carry data-target + optional data-suffix). Eases on
+  // a 1-cubic-easeOut curve over 2s on scroll-into-view.
   // =========================================================
-  const counters = document.querySelectorAll('.counter-val[data-target]');
+  const counters = document.querySelectorAll(
+    '.counter-val[data-target], .impact-main-stat[data-target], .impact-small-stat[data-target]'
+  );
 
   if (counters.length) {
     const counterObserver = new IntersectionObserver((entries, observer) => {
@@ -378,29 +383,93 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!entry.isIntersecting) return;
         const el = entry.target;
         const target = parseFloat(el.getAttribute('data-target'));
+        if (!isFinite(target)) { observer.unobserve(el); return; }
         const isDecimal = String(target).includes('.');
+        const suffix = el.getAttribute('data-suffix') || '';
         const duration = 2000;
         const startTime = performance.now();
+
+        const fmt = v => (isDecimal ? v.toFixed(1) : Math.ceil(v).toLocaleString('en-IN'));
 
         const animate = now => {
           const elapsed = now - startTime;
           const progress = Math.min(elapsed / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
           const current = target * eased;
-          el.textContent = isDecimal ? current.toFixed(1) : Math.ceil(current).toLocaleString('en-IN');
+          el.textContent = fmt(current) + suffix;
           if (progress < 1) {
             requestAnimationFrame(animate);
           } else {
-            el.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString('en-IN');
+            el.textContent = fmt(target) + suffix;
           }
         };
 
+        // Start at 0 (avoid jump if the source already has the final value rendered)
+        el.textContent = fmt(0) + suffix;
         requestAnimationFrame(animate);
         observer.unobserve(el);
       });
-    }, { threshold: 0.6 });
+    }, { threshold: 0.45 });
 
     counters.forEach(c => counterObserver.observe(c));
+  }
+
+
+  // =========================================================
+  // 10-B. SECTION-ORNAMENT SCROLL-IN REVEAL
+  // Hairlines on the .section-ornament draw outward from the
+  // diamond when the ornament enters the viewport. Toggled
+  // by an IntersectionObserver adding `.in-view`.
+  // =========================================================
+  const ornaments = document.querySelectorAll('.section-ornament');
+  if (ornaments.length && 'IntersectionObserver' in window) {
+    const ornObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4, rootMargin: '0px 0px -8% 0px' });
+    ornaments.forEach(o => ornObserver.observe(o));
+  }
+
+
+  // =========================================================
+  // 10-C. MAGNETIC CTA BUTTONS
+  // Any element with .btn-magnetic, or auto-applied to
+  // .btn-shimmer / .btn-hero-cta / .apply-float-btn that opts in,
+  // attracts the cursor on hover with a subtle parallax pull.
+  // Strength can be tuned via data-magnetic="N" (default 7px).
+  // =========================================================
+  const magnets = document.querySelectorAll(
+    '.btn-magnetic, .btn-hero-cta, .btn-shimmer:not(.no-magnet)'
+  );
+  if (magnets.length && !window.matchMedia('(pointer: coarse)').matches) {
+    magnets.forEach(btn => {
+      const strength = parseFloat(btn.getAttribute('data-magnetic')) || 7;
+      btn.style.transition = (btn.style.transition || '') + ', transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)';
+      let raf = 0;
+      const onMove = e => {
+        const r = btn.getBoundingClientRect();
+        const x = e.clientX - (r.left + r.width / 2);
+        const y = e.clientY - (r.top + r.height / 2);
+        // Only attract when within an extended hit area (1.4× button bounds)
+        const reach = Math.max(r.width, r.height) * 0.7;
+        const dist = Math.hypot(x, y);
+        const pull = Math.max(0, 1 - dist / reach);
+        const tx = (x / reach) * strength * pull;
+        const ty = (y / reach) * strength * pull;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => { btn.style.transform = `translate(${tx}px, ${ty}px)`; });
+      };
+      const onLeave = () => {
+        if (raf) cancelAnimationFrame(raf);
+        btn.style.transform = '';
+      };
+      btn.addEventListener('mousemove', onMove);
+      btn.addEventListener('mouseleave', onLeave);
+    });
   }
 
 
@@ -909,3 +978,152 @@ document.addEventListener('DOMContentLoaded', () => {
     '#stars3,#stars3::after{box-shadow:' + generateStars(18, 4) + '}';
   document.head.appendChild(s);
 })();
+
+/* =========================================================
+   TIER 3 EXPANSION — Motion foundations
+   ========================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse = window.matchMedia('(pointer: coarse)').matches;
+
+  /* ── Scroll-progress: data-progress tooltip + temporary "active" on scroll ── */
+  (function () {
+    const bar = document.querySelector('.scroll-progress-bar');
+    const wrap = document.querySelector('.scroll-progress-container');
+    if (!bar || !wrap) return;
+    let hideTimer = 0;
+    const update = () => {
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const p = docH > 0 ? Math.round((window.scrollY / docH) * 100) : 0;
+      bar.style.width = p + '%';
+      bar.setAttribute('data-progress', p + '% read');
+      wrap.classList.add('active');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => wrap.classList.remove('active'), 900);
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  })();
+
+  /* ── Custom cursor state morphing ── */
+  if (!coarse) {
+    const cursor = document.querySelector('.custom-cursor');
+    if (cursor) {
+      const linkSel = 'a, button, [role="button"], .btn, summary, label, input[type="submit"]';
+      const imgSel  = '.hero-bg-img, .profile-img, .philosophy-img, .reports-card, .fm-grid img';
+      const cardSel = '.glass-card, .blog-card, .vogue-hover-card, .pillar-card, .cat-card-vogue, .expert-card, .team-card, .recipe-card';
+      document.addEventListener('mouseover', e => {
+        cursor.classList.remove('cursor-link', 'cursor-image', 'cursor-card');
+        const t = e.target;
+        if (t.closest(linkSel))      cursor.classList.add('cursor-link');
+        else if (t.closest(imgSel))  cursor.classList.add('cursor-image');
+        else if (t.closest(cardSel)) cursor.classList.add('cursor-card');
+      });
+    }
+  }
+
+  /* ── Directional page-wipe — already-installed click handler will set the direction ── */
+  (function () {
+    const wipe = document.getElementById('page-wipe');
+    if (!wipe) return;
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http') || a.target === '_blank') return;
+      const r = a.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      const cy = r.top + r.height / 2;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      // Direction = whichever edge the link is closest to.
+      const distances = { left: cx, right: vw - cx, top: cy, bottom: vh - cy };
+      const dir = Object.keys(distances).reduce((a, b) => distances[a] < distances[b] ? a : b);
+      wipe.classList.remove('wipe-from-left', 'wipe-from-right', 'wipe-from-top', 'wipe-from-bottom');
+      wipe.classList.add('wipe-from-' + dir);
+    }, true);
+  })();
+
+  /* ── Scroll-staggered reveal — apply IntersectionObserver to .scroll-stagger
+       containers AND set --i on children once. ── */
+  (function () {
+    const groups = document.querySelectorAll('.scroll-stagger');
+    if (!groups.length) return;
+    groups.forEach(g => {
+      [...g.children].forEach((c, i) => c.style.setProperty('--i', i));
+    });
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in-view'); o.unobserve(e.target); }
+      });
+    }, { threshold: 0.25 });
+    groups.forEach(g => obs.observe(g));
+  })();
+
+  /* ── Generic "add .in-view on intersect" for .fm-art-takeaways, .cost-bar-card ── */
+  (function () {
+    const inObs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in-view'); o.unobserve(e.target); }
+      });
+    }, { threshold: 0.35 });
+    document.querySelectorAll('.fm-art-takeaways, .cost-bar-card').forEach(el => inObs.observe(el));
+    // Pre-set per-item --i on takeaways
+    document.querySelectorAll('.fm-art-takeaways ul').forEach(ul => {
+      [...ul.children].forEach((li, i) => li.style.setProperty('--i', i));
+    });
+  })();
+
+  /* ── Sticky author chip (blog template) ── */
+  (function () {
+    const byline = document.querySelector('.fm-art-byline');
+    const hero = document.querySelector('.fm-art-hero');
+    if (!byline || !hero) return;
+    const chip = document.createElement('div');
+    chip.className = 'fm-byline-chip';
+    chip.innerHTML = '<span class="fm-byline-chip-dot">A</span><span><span class="who">Dr. Abhishek Mane</span> &middot; reviewed</span>';
+    document.body.appendChild(chip);
+    const heroObs = new IntersectionObserver(entries => {
+      entries.forEach(e => chip.classList.toggle('visible', !e.isIntersecting));
+    }, { threshold: 0.05 });
+    heroObs.observe(hero);
+  })();
+
+  /* ── Typewriter (data-typewriter attr) ── */
+  (function () {
+    const targets = document.querySelectorAll('[data-typewriter]');
+    if (!targets.length || reduced) {
+      targets.forEach(t => t.classList.add('done'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const full = el.getAttribute('data-typewriter');
+        const speed = parseInt(el.getAttribute('data-typewriter-speed'), 10) || 38;
+        el.textContent = '';
+        let i = 0;
+        const tick = () => {
+          el.textContent = full.slice(0, ++i);
+          if (i < full.length) setTimeout(tick, speed);
+          else el.classList.add('done');
+        };
+        setTimeout(tick, 300);
+        o.unobserve(el);
+      });
+    }, { threshold: 0.55 });
+    targets.forEach(t => obs.observe(t));
+  })();
+
+  /* ── Word-by-word reveal helper ── */
+  window.__fmWordWrap = function (el) {
+    if (!el || el.dataset.fmWords === '1') return;
+    const txt = el.textContent.trim();
+    const words = txt.split(/\s+/);
+    el.classList.add('fm-words');
+    el.dataset.fmWords = '1';
+    el.innerHTML = words.map((w, i) => `<span class="w" style="--w:${i}">${w}</span>`).join(' ');
+  };
+});

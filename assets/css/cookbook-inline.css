@@ -1,0 +1,197 @@
+/* Specific Cookbook Styles */
+        .cookbook-hero {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            background-color: var(--dark-deep);
+            background-image: url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=1600");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .cookbook-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(13,11,8,0.85) 0%, rgba(13,11,8,0.95) 100%);
+            z-index: 1;
+        }
+        .cookbook-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .filters-container {
+            position: sticky;
+            top: 70px;
+            background: rgba(18, 16, 10, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212,160,23,0.15);
+            z-index: 99;
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--gold-mid);
+            color: var(--cream);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--gold-mid);
+            color: var(--dark-deep);
+            font-weight: 600;
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        /* Recipe Card specific design */
+        .recipe-card {
+            background: var(--dark-card);
+            border: 1px solid rgba(212,160,23,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+            position: relative;
+        }
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212,160,23,0.5);
+        }
+        .recipe-img-container {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        .recipe-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .recipe-card:hover img {
+            transform: scale(1.05);
+        }
+        .recipe-category-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(13,11,8,0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--gold-deep);
+            color: var(--gold-bright);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .recipe-details {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .recipe-title {
+            color: var(--gold-bright);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .recipe-macros {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+        }
+        .macro-item {
+            text-align: center;
+        }
+        .macro-val {
+            display: block;
+            color: var(--cream);
+            font-weight: 700;
+        }
+        .macro-label {
+            color: rgba(245,239,227,0.5);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(245,239,227,0.7);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px dashed rgba(212,160,23,0.2);
+            padding-bottom: 1rem;
+        }
+        
+        .recipe-accordion {
+            margin-top: auto;
+        }
+        .recipe-acc-btn {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--gold-mid);
+            font-family: 'DM Sans', sans-serif;
+            text-align: left;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        .recipe-acc-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+        .recipe-acc-content.open {
+            margin-top: 1rem;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--cream);
+            grid-column: 1 / -1;
+        }

@@ -1,0 +1,17 @@
+body { font-family: 'DM Sans', sans-serif; background-color: var(--dark); color: var(--cream); }
+        h1, h2, h3, h4, .playfair { font-family: 'Playfair Display', serif; }
+        .text-gold-gradient {
+            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--gold-mid);
+        }
+
+        .blog-hero { text-align: center; padding: 12rem 2rem 5rem; position: relative; background-color: var(--dark-deep); }
+        
+        .blog-category-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0 4rem; }
+        .blog-cat-btn { background: var(--charcoal); border: 1px solid rgba(212,160,23,0.3); color: var(--cream); padding: 0.6rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; font-weight: 500; }
+        .blog-cat-btn:hover, .blog-cat-btn.active { background: var(--gold-mid); color: var(--dark); border-color: var(--gold-mid); }
+        
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1200px; margin: 0 auto 6rem; padding: 0 2rem; }

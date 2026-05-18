@@ -7,6 +7,11 @@
     <title>Diabetes Reversal in 90 Days | FitMorphs</title>
     <meta name="description"
         content="Clinically proven protocol to reverse Type 2 Diabetes in 90 days. Doctor-supervised nutrition and lifestyle intervention designed for the Indian body.">
+    <meta property="og:title" content="Diabetes Reversal in 90 Days | FitMorphs">
+    <meta property="og:description" content="Clinically proven protocol to reverse Type 2 Diabetes in 90 days. Doctor-supervised nutrition and lifestyle intervention designed for the Indian body.">
+    <meta property="og:image" content="logo_stickey.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.fitmorphs.com/diabetes.html">
 
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap"
@@ -14,440 +19,14 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/@mantine/core@7.17.4/styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: { deep: '#b8860b', mid: '#d4a017', bright: '#f0c040', light: '#f0d060', pale: '#faf0d0' },
-                        dark: { DEFAULT: '#0f0f0c', deep: '#0c0a06', card: '#1a1610', surface: '#221e16' },
-                        charcoal: '#1a1a18', cream: '#f5efe3', 'off-white': '#fafaf7', ivory: '#fdfbf6',
-                    },
-                    fontFamily: {
-                        display: ['Playfair Display', 'serif'],
-                        body: ['DM Sans', 'sans-serif'],
-                        accent: ['Instrument Serif', 'serif']
-                    },
-                },
-            },
-        }
-    </script>
 
     <!-- Meta Pixel Code -->
     <script>!function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js'); let extId = localStorage.getItem('fitmorphs_external_id'); if (!extId) { extId = 'fmt_' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15); localStorage.setItem('fitmorphs_external_id', extId); } fbq('init', '463098106520925', { external_id: extId }); fbq('track', 'PageView'); fbq('track', 'ViewContent');</script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=463098106520925&ev=PageView&noscript=1" /></noscript>
+            src="https://www.facebook.com/tr?id=463098106520925&ev=PageView&noscript=1"  loading="lazy"  alt="FitMorphs website graphic" /></noscript>
 
-    <style>
-        /* BRAND TYPOGRAPHY OVERRIDES */
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: var(--dark);
-            color: var(--cream);
-        }
-
-        body.loaded {
-            transform: none !important;
-        }
-
-        /* Fixes position:fixed context for WhatsApp button */
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        .playfair {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .text-gold-gradient {
-            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: var(--gold-mid);
-        }
-
-        /* HERO VOGUE */
-        .hero-vogue {
-            position: relative;
-            background-color: var(--dark);
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .hero-bg-wrapper {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 55%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .hero-bg-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(20%);
-        }
-
-        .hero-gradient-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to right, var(--dark) 0%, rgba(15, 15, 12, 0.95) 45%, transparent 100%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 8rem 2rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .hero-title-vogue {
-            font-size: clamp(2.2rem, 7vw, 90px);
-            line-height: 1.05;
-            font-weight: 700;
-            max-width: 75%;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .hero-label {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--gold-bright);
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-        }
-
-        .hba1c-display {
-            background: rgba(212, 160, 23, 0.05);
-            border: 1px solid rgba(212, 160, 23, 0.2);
-            display: inline-flex;
-            align-items: center;
-            padding: 1rem 3rem;
-            border-radius: 4px;
-            margin: 2.5rem 0;
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero-bg-wrapper {
-                display: none;
-            }
-
-            .hero-title-vogue {
-                max-width: 100%;
-            }
-        }
-
-        /* CARD GRIDS & SECTIONS */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .science-card {
-            background: var(--off-white);
-            border: 1px solid rgba(212, 160, 23, 0.1);
-            padding: 3rem 2.5rem;
-            border-radius: 4px;
-            border-top: 3px solid var(--gold-mid);
-            transition: transform 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-        }
-
-        .science-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
-        }
-
-        .science-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .science-card p {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--charcoal);
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-
-        .pillar-card {
-            background: transparent;
-            padding: 2rem;
-            border-left: 1px solid rgba(212, 160, 23, 0.3);
-            transition: border-color 0.3s ease;
-            position: relative;
-        }
-
-        .pillar-card::before {
-            content: '';
-            position: absolute;
-            left: -2px;
-            top: 0;
-            width: 3px;
-            height: 0;
-            background-color: var(--gold-bright);
-            transition: height 0.4s ease;
-        }
-
-        .pillar-card:hover::before {
-            height: 100%;
-        }
-
-        .pillar-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: var(--cream);
-            margin-bottom: 0.8rem;
-        }
-
-        .pillar-card p {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            color: rgba(245, 239, 227, 0.7);
-        }
-
-        /* 3D REPORT CAROUSEL */
-        .reports-scene, .reports-a3d { display: grid }
-
-        .reports-scene {
-            overflow: hidden;
-            perspective: 35em;
-            mask: linear-gradient(90deg, #0000, red 18% 82%, #0000);
-            -webkit-mask: linear-gradient(90deg, #0000, red 18% 82%, #0000);
-            height: 34em;
-            width: 100%;
-        }
-
-        .reports-a3d {
-            place-self: center;
-            transform-style: preserve-3d;
-            animation: reports-ry 36s linear infinite;
-        }
-
-        @keyframes reports-ry { to { rotate: y 1turn } }
-
-        .reports-card {
-            --w: 16em;
-            --ba: calc(1turn / var(--n));
-            grid-area: 1 / 1;
-            width: var(--w);
-            aspect-ratio: 7 / 10;
-            object-fit: cover;
-            border-radius: 1.25em;
-            backface-visibility: hidden;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-            border: 2px solid rgba(212, 160, 23, 0.35);
-            transform:
-                rotatey(calc(var(--i) * var(--ba)))
-                translatez(calc(-1 * (0.5 * var(--w) + 0.5em) / tan(0.5 * var(--ba))));
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .reports-a3d { animation-duration: 144s }
-        }
-
-        @media (max-width: 768px) {
-            .reports-scene {
-                height: 24em;
-                perspective: 28em;
-                mask: linear-gradient(90deg, #0000, red 10% 90%, #0000);
-                -webkit-mask: linear-gradient(90deg, #0000, red 10% 90%, #0000);
-            }
-            .reports-card { --w: 11em; border-radius: 1em; }
-            .reports-a3d { animation-duration: 44s; }
-        }
-        @media (max-width: 480px) {
-            .reports-scene { height: 20em; perspective: 24em; }
-            .reports-card { --w: 9em; }
-        }
-
-        .vogue-tag {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 0.4rem 1rem;
-            border: 1px solid;
-            border-radius: 50px;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .vogue-tag.dark {
-            color: var(--charcoal);
-            border-color: rgba(26, 26, 24, 0.3);
-        }
-
-        .vogue-tag.gold {
-            color: var(--gold-deep);
-            border-color: var(--gold-mid);
-            background: rgba(212, 160, 23, 0.05);
-        }
-
-        /* TESTIMONIALS VOGUE (REUSED) */
-        .testimonials-vogue {
-            position: relative;
-            background-color: var(--dark);
-            padding: 8rem 2rem;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 70vh;
-        }
-
-        .quote-mark-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 60vh;
-            line-height: 1;
-            color: rgba(212, 160, 23, 0.03);
-            z-index: 0;
-            user-select: none;
-            pointer-events: none;
-        }
-
-        .featured-test {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            text-align: center;
-        }
-
-        .test-quote {
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            line-height: 1.4;
-            color: var(--cream);
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .test-author {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.1rem;
-            color: var(--gold-mid);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .test-stat {
-            font-family: 'DM Sans', sans-serif;
-            color: rgba(245, 239, 227, 0.6);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* FAQ */
-        .faq-item {
-            border-bottom: 1px solid rgba(26, 26, 24, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--dark);
-            padding: 2rem 1rem;
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            color: var(--charcoal);
-            opacity: 0.8;
-            font-family: 'DM Sans', sans-serif;
-            padding: 0 1rem;
-            line-height: 1.6;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 400px;
-            padding: 0 1rem 2rem;
-        }
-
-        .faq-icon {
-            color: var(--gold-mid);
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        /* FINAL CTA */
-        .final-cta-vogue {
-            position: relative;
-            background-color: var(--dark);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            padding: 2rem;
-        }
-
-        .final-cta-vogue::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at center, rgba(212, 160, 23, 0.08) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .final-cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-
-        .final-cta-h2 {
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            color: var(--white);
-            line-height: 1.05;
-            margin-bottom: 3rem;
-            font-weight: 700;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="assets/css/diabetes-inline.css">
 </head>
 
 <body>
@@ -521,16 +100,7 @@
     </header>
 
     <noscript>
-        <style>
-            .fade-in-section {
-                opacity: 1 !important;
-                transform: none !important
-            }
-
-            body {
-                opacity: 1 !important
-            }
-        </style>
+        
     </noscript>
 
     <!-- THE SCIENCE -->
@@ -541,7 +111,7 @@
                 <h2 class="editorial-kicker" style="color:var(--dark);">The Science of <em>Reversal</em></h2>
                 <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
             </div>
-            <div class="grid-3 stagger-children">
+            <div class="grid-3 scroll-stagger">
                 <div class="science-card">
                     <h3>Insulin Resistance</h3>
                     <p>Type 2 Diabetes isn't just about high blood sugar; it's about your cells literally rejecting
@@ -561,48 +131,117 @@
         </div>
     </section>
 
-    <!-- THE 6-PILLAR PROTOCOL -->
-    <section class="section" style="background-color:var(--dark); position:relative; overflow:hidden; padding:8rem 0;">
-        <div class="container fade-in-section" style="position:relative; z-index:2;">
-            <div style="text-align:center; margin-bottom:5rem;">
-                <span class="eyebrow-deluxe" style="display:inline-flex;">The FitMorphs Method</span>
-                <h2 class="editorial-kicker" style="color:var(--cream);">The Six-Pillar <em>Protocol</em></h2>
+    <!-- ====================================================
+         THE SIX-PILLAR PROTOCOL — Scroll-pinned cinematic.
+         The section is 600vh tall. Inside, a sticky 100dvh
+         stage shows a giant Roman numeral that morphs I→II→
+         III→IV→V→VI as the user scrolls, with the pillar's
+         name + description fading in alongside it.
+         ==================================================== */ -->
+    <section class="six-pillar-stage" id="sixPillarStage" aria-label="The Six-Pillar Protocol">
+        <div class="sp-intro container">
+            <span class="eyebrow-deluxe" style="display:inline-flex;">The FitMorphs Method</span>
+            <h2 class="editorial-kicker" style="color:var(--cream);">The Six-Pillar <em>Protocol</em></h2>
+            <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            <p class="sp-intro-dek">Six doctrines. One ecosystem. Scroll &mdash; nothing is left to chance.</p>
+        </div>
+
+        <!-- The pinned cinema -->
+        <div class="sp-pin">
+            <!-- Ambient particle field (canvas) -->
+            <canvas id="spParticles" class="sp-particles" aria-hidden="true"></canvas>
+
+            <!-- Center stage: giant morphing numeral -->
+            <div class="sp-numeral-shell" aria-hidden="true">
+                <span class="sp-numeral sp-numeral-now" id="spNumeralNow">I</span>
+                <span class="sp-numeral sp-numeral-next" id="spNumeralNext">II</span>
+            </div>
+
+            <!-- Pillar text overlay (right of numeral on desktop, below on mobile) -->
+            <div class="sp-card" id="spCard">
+                <span class="sp-progress" id="spProgress">01 &middot; 06</span>
+                <h3 class="sp-title" id="spTitle">Precision Nutrition</h3>
+                <p class="sp-desc" id="spDesc">Scientifically calibrated macros tailored for your Indian palate &mdash; never starvation, always satiety, always blood-sugar stable.</p>
+                <span class="sp-tag" id="spTag">Nutrition</span>
+            </div>
+
+            <!-- Progress rail on right edge -->
+            <ol class="sp-rail" aria-hidden="true">
+                <li class="sp-rail-dot active" data-i="0"></li>
+                <li class="sp-rail-dot" data-i="1"></li>
+                <li class="sp-rail-dot" data-i="2"></li>
+                <li class="sp-rail-dot" data-i="3"></li>
+                <li class="sp-rail-dot" data-i="4"></li>
+                <li class="sp-rail-dot" data-i="5"></li>
+            </ol>
+
+            <!-- Scroll hint -->
+            <div class="sp-hint" id="spHint" aria-hidden="true">
+                <span>Scroll</span>
+                <svg width="14" height="20" viewBox="0 0 14 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="0.5" y="0.5" width="13" height="19" rx="6.5"/><line class="sp-hint-bar" x1="7" y1="5" x2="7" y2="9"/></svg>
+            </div>
+        </div>
+
+        <!-- Data sidecar — read by JS to drive the morph -->
+        <script id="sp-data" type="application/json">
+        [
+          { "numeral":"I",   "tag":"Nutrition",  "title":"Precision Nutrition",   "desc":"Scientifically calibrated macros tailored for your Indian palate &mdash; never starvation, always satiety, always blood-sugar stable." },
+          { "numeral":"II",  "tag":"Cellular",   "title":"Metabolic Reset",       "desc":"Targeted physiological interventions that repair insulin sensitivity at the cellular level. The pancreas is given room to heal." },
+          { "numeral":"III", "tag":"Behaviour",  "title":"Behavioural Coaching",  "desc":"Habit architecture and psychological tooling that converts a 90-day protocol into a permanent operating system." },
+          { "numeral":"IV",  "tag":"Telemetry",  "title":"Real-Time Tracking",    "desc":"Continuous monitoring of glucose, sleep, and metabolic markers. Your data writes the next week's prescription." },
+          { "numeral":"V",   "tag":"Community",  "title":"Peer Community",        "desc":"A private network of patients walking the same road. Unmatched accountability, lived expertise, on-demand support." },
+          { "numeral":"VI",  "tag":"Supervision","title":"Doctor Supervision",    "desc":"Every protocol decision medically reviewed. Medications safely tapered as your lab values respond. Nothing is left to chance." }
+        ]
+        </script>
+    </section>
+
+    <!-- WHAT YOU'LL FEEL — sticky-dot vertical timeline -->
+    <section class="fm-feel-stage section">
+        <div class="container fade-in-section">
+            <div style="text-align:center; margin-bottom:3rem;">
+                <span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">The Experience</span>
+                <h2 class="editorial-kicker" style="color:var(--dark);">What You'll <em>Feel</em>.</h2>
                 <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
-                <p style="color:rgba(245,239,227,0.65); max-width:620px; margin:1rem auto 0; font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.15rem;">
-                    Our comprehensive ecosystem leaves nothing to chance.</p>
+                <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(15,15,12,0.62); margin:1.25rem auto 0; max-width:560px;">A patient timeline drawn from 10,000+ supervised journeys. Your mileage will vary &mdash; but the arc is real.</p>
             </div>
-            <div class="grid-3 stagger-children" style="gap:2rem;">
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">I</span>
-                    <h4>Precision Nutrition</h4>
-                    <p>Scientifically calibrated macros tailored for your Indian palate without starving.</p>
-                </div>
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">II</span>
-                    <h4>Metabolic Reset</h4>
-                    <p>Targeted physiological interventions to reverse insulin resistance at a cellular level.</p>
-                </div>
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">III</span>
-                    <h4>Behavioural Coaching</h4>
-                    <p>Psychological tools and habit architecture to ensure lasting adherence.</p>
-                </div>
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">IV</span>
-                    <h4>Real-Time Tracking</h4>
-                    <p>Continuous monitoring of glucose markers and metabolic indicators.</p>
-                </div>
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">V</span>
-                    <h4>Peer Community</h4>
-                    <p>Network of individuals on the same journey, providing unmatched motivation.</p>
-                </div>
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">VI</span>
-                    <h4>Doctor Supervision</h4>
-                    <p>Every step medically monitored to safely taper off medications.</p>
-                </div>
-            </div>
+            <ol class="fm-feel-list">
+                <li class="fm-feel-dot" aria-hidden="true"></li>
+                <li class="fm-feel-item">
+                    <h4>Week 1&ndash;2</h4>
+                    <div>
+                        <strong style="font-family:'Playfair Display',serif; color:var(--dark);">The metabolic shift.</strong>
+                        <p>Glycogen stores deplete. Water weight drops 1&ndash;3 kg. Energy dips for ~48 hours, then climbs steadily as your body relearns to burn fat.</p>
+                    </div>
+                </li>
+                <li class="fm-feel-item">
+                    <h4>Week 3&ndash;5</h4>
+                    <div>
+                        <strong style="font-family:'Playfair Display',serif; color:var(--dark);">Cravings dissolve.</strong>
+                        <p>Fasting glucose stabilises in the morning. Afternoon sugar urges go quiet. Sleep deepens. Clothes start fitting differently around the waist.</p>
+                    </div>
+                </li>
+                <li class="fm-feel-item">
+                    <h4>Week 6&ndash;8</h4>
+                    <div>
+                        <strong style="font-family:'Playfair Display',serif; color:var(--dark);">First HbA1c re-test.</strong>
+                        <p>Most patients see a 0.6&ndash;1.4 point HbA1c drop. Visceral fat measurably reduces. Inflammation markers fall. Medication review begins if values warrant.</p>
+                    </div>
+                </li>
+                <li class="fm-feel-item">
+                    <h4>Week 9&ndash;12</h4>
+                    <div>
+                        <strong style="font-family:'Playfair Display',serif; color:var(--dark);">The reversal window.</strong>
+                        <p>For most Type 2 patients, this is when HbA1c lands below 6.0 and the first medications are safely tapered under clinical supervision.</p>
+                    </div>
+                </li>
+                <li class="fm-feel-item">
+                    <h4>Week 12+</h4>
+                    <div>
+                        <strong style="font-family:'Playfair Display',serif; color:var(--dark);">The new baseline.</strong>
+                        <p>The protocol becomes your operating system. Quarterly check-ins confirm sustained reversal. You stop thinking about food &mdash; and start thinking about everything else.</p>
+                    </div>
+                </li>
+            </ol>
         </div>
     </section>
 
@@ -610,24 +249,25 @@
     <section class="section" style="background-color:var(--off-white); padding:8rem 0;">
         <div class="container fade-in-section">
             <div style="text-align:center; margin-bottom:5rem;">
-                <span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">Documented Evidence</span>
+                <span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">Clinical Tracking</span>
                 <h2 class="editorial-kicker" style="color:var(--dark);">The Proof Lives in the <em>Reports</em></h2>
                 <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+                <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; color:rgba(15,15,12,0.62); margin:1.25rem auto 0; max-width:580px;">Every protocol is anchored in real lab values &mdash; HbA1c, fasting glucose, lipid panels, liver markers. Patient lab reports are redacted and reviewed in your private clinical dashboard; the imagery below is illustrative of our review process.</p>
             </div>
             <div class="reports-scene">
                 <div class="reports-a3d" style="--n: 12">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1582719478250-c8940f5bd196?w=280&auto=format&fit=crop&q=80" style="--i: 0" alt="Lab report – HbA1c 9.4 → 5.6">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=280&auto=format&fit=crop&q=80" style="--i: 1" alt="Lab result after 90 days">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=280&auto=format&fit=crop&q=80" style="--i: 2" alt="Blood test tubes">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=280&auto=format&fit=crop&q=80" style="--i: 3" alt="Doctor review">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1519494140681-8b17d773f309?w=280&auto=format&fit=crop&q=80" style="--i: 4" alt="Medical report">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=280&auto=format&fit=crop&q=80" style="--i: 5" alt="Lab test results">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=280&auto=format&fit=crop&q=80" style="--i: 6" alt="Blood glucose monitoring">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=280&auto=format&fit=crop&q=80" style="--i: 7" alt="Blood sugar test">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=280&auto=format&fit=crop&q=80" style="--i: 8" alt="Medical consultation">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=280&auto=format&fit=crop&q=80" style="--i: 9" alt="Doctor with patient">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1590013330451-3946e83e0392?w=280&auto=format&fit=crop&q=80" style="--i: 10" alt="Lab equipment">
-                    <img class="reports-card" src="https://images.unsplash.com/photo-1542850802-ff3c4b4425a4?w=280&auto=format&fit=crop&q=80" style="--i: 11" alt="Glucose meter reading">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=280&auto=format&fit=crop&q=80" style="--i: 0" alt="Lab report – HbA1c 9.4 → 5.6" loading="lazy">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=280&auto=format&fit=crop&q=80" style="--i: 1" alt="Lab result after 90 days" loading="lazy">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=280&auto=format&fit=crop&q=80" style="--i: 2" alt="Blood test tubes" loading="lazy">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=280&auto=format&fit=crop&q=80" style="--i: 3" alt="Doctor review" loading="lazy">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=280&auto=format&fit=crop&q=80" style="--i: 4" alt="Medical report" loading="lazy">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=280&auto=format&fit=crop&q=80" style="--i: 5" alt="Lab test results" loading="lazy">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=280&auto=format&fit=crop&q=80" style="--i: 6" alt="Blood glucose monitoring" loading="lazy">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=280&auto=format&fit=crop&q=80" style="--i: 7" alt="Blood sugar test" loading="lazy">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=280&auto=format&fit=crop&q=80" style="--i: 8" alt="Medical consultation" loading="lazy">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=280&auto=format&fit=crop&q=80" style="--i: 9" alt="Doctor with patient" loading="lazy">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1590013330451-3946e83e0392?w=280&auto=format&fit=crop&q=80" style="--i: 10" alt="Lab equipment" loading="lazy">
+                    <img class="reports-card" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=280&auto=format&fit=crop&q=80" style="--i: 11" alt="Glucose meter reading" loading="lazy">
                 </div>
             </div>
         </div>
@@ -771,20 +411,13 @@
             </div>
             <div
                 style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
-                <p>&copy; 2025 FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a
-                        href="javascript:void(0)" style="text-decoration: underline;">Disclaimer</a></p>
+                <p>&copy; <span data-fm-year>2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a
+                        href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> &middot; <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
             </div>
         </div>
     </footer>
 
-    <style>
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-        }
-    </style>
+    
 
     <!-- Floating Apply Now (mobile primary CTA) -->
     <div class="apply-float">
@@ -821,8 +454,224 @@
         });
     </script>
 
-
     <script src="script.js"></script>
+    <script>
+    // ======================================================================
+    // SIX-PILLAR PROTOCOL — scroll-pinned scene engine.
+    // Drives the numeral morph + card swap + rail dot + particle field.
+    // ======================================================================
+    (function () {
+        const stage = document.getElementById('sixPillarStage');
+        if (!stage) return;
+        const dataEl = document.getElementById('sp-data');
+        if (!dataEl) return;
+        const PILLARS = JSON.parse(dataEl.textContent);
+        const N = PILLARS.length;
+
+        const shell    = document.querySelector('.sp-numeral-shell');
+        const nowEl    = document.getElementById('spNumeralNow');
+        const nextEl   = document.getElementById('spNumeralNext');
+        const card     = document.getElementById('spCard');
+        const titleEl  = document.getElementById('spTitle');
+        const descEl   = document.getElementById('spDesc');
+        const tagEl    = document.getElementById('spTag');
+        const progEl   = document.getElementById('spProgress');
+        const railDots = [...document.querySelectorAll('.sp-rail-dot')];
+        const hint     = document.getElementById('spHint');
+        const reduced  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (reduced) {
+            // Static render — show all six pillars in a simple flow
+            const pin = document.querySelector('.sp-pin');
+            if (pin) {
+                pin.innerHTML = PILLARS.map((p, i) => `
+                    <div style="text-align:center; padding:2rem 0; max-width:560px; margin:0 auto;">
+                      <div style="font-family:'Fraunces',serif; font-style:italic; font-weight:600; font-size:4rem; background:linear-gradient(180deg,#faf0d0,#a17c2f); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1;">${p.numeral}</div>
+                      <h3 style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.8rem; color:var(--cream); margin:.5rem 0;">${p.title}</h3>
+                      <p style="font-family:'DM Sans',sans-serif; color:rgba(245,239,227,0.78); margin:0 auto; max-width:480px;">${p.desc}</p>
+                    </div>
+                `).join('');
+            }
+            return;
+        }
+
+        // Currently shown scene index
+        let current = -1;            // start at -1 so the first morphTo(0) runs
+        let swapTimer = null;
+        let palette = 0;             // 0 → inflamed-red, 1 → vital-green
+
+        // Helper: wrap text in word spans for the per-word reveal
+        function asWords(text, baseDelay) {
+            return text.split(/\s+/).map((w, i) => `<span class="w" style="--w:${i + (baseDelay||0)}">${w}</span>`).join(' ');
+        }
+
+        function render(i) {
+            const p = PILLARS[i];
+            // Title — word-by-word
+            titleEl.innerHTML  = asWords(p.title, 0);
+            titleEl.classList.add('fm-words');
+            // Desc — word-by-word continuing the cascade
+            const titleWords = p.title.split(/\s+/).length;
+            // Strip HTML entities before splitting (preserve readability with simple HTML allowed)
+            descEl.innerHTML   = asWords(p.desc.replace(/<[^>]+>/g, ''), titleWords + 2);
+            descEl.classList.add('fm-words');
+            tagEl.textContent  = p.tag;
+            progEl.innerHTML   = String(i + 1).padStart(2, '0') + ' &middot; 0' + N;
+            railDots.forEach((d, k) => d.classList.toggle('active', k === i));
+            // Trigger the .in state on the next frame so the transition runs
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                titleEl.classList.add('in');
+                descEl.classList.add('in');
+            }));
+        }
+
+        function morphTo(i) {
+            if (i === current) return;
+            // Update palette progress for the canvas (smooth interpolation between phases)
+            palette = i / Math.max(1, N - 1);
+            // Stage the next numeral
+            nextEl.textContent = PILLARS[i].numeral;
+            shell.classList.add('sp-swap');
+            card.classList.add('sp-swap');
+            // Clear the .in state so words can re-reveal on commit
+            titleEl.classList.remove('in');
+            descEl.classList.remove('in');
+            clearTimeout(swapTimer);
+            swapTimer = setTimeout(() => {
+                nowEl.textContent = PILLARS[i].numeral;
+                shell.classList.remove('sp-swap');
+                render(i);
+                card.classList.remove('sp-swap');
+                current = i;
+            }, 320);
+        }
+
+        // Scroll progress hook — single rAF loop
+        let raf = 0;
+        function tick() {
+            raf = 0;
+            const rect = stage.getBoundingClientRect();
+            const vh = window.innerHeight;
+            const total = rect.height - vh;
+            if (total <= 0) return;
+            const scrolled = Math.max(0, Math.min(total, -rect.top));
+            const progress = scrolled / total; // 0..1
+            // Map [0..1] to [0..N-1], skipping the very top so the intro stays clean
+            const eased = Math.min(1, Math.max(0, (progress - 0.06) / 0.88));
+            const idx = Math.min(N - 1, Math.floor(eased * N));
+            if (idx !== current) morphTo(idx);
+
+            // Fade out hint after first interaction
+            if (hint && !hint.classList.contains('faded') && progress > 0.04) {
+                hint.classList.add('faded');
+            }
+        }
+        function onScroll() { if (!raf) raf = requestAnimationFrame(tick); }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        // Prime the first frame
+        render(0);
+        tick();
+
+        // ---------------- Ambient particle field ----------------
+        const canvas = document.getElementById('spParticles');
+        if (canvas && canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+            const DPR = Math.min(2, window.devicePixelRatio || 1);
+            const parts = [];
+            const COUNT = 90;
+
+            function resize() {
+                const rect = canvas.getBoundingClientRect();
+                canvas.width  = Math.max(1, Math.floor(rect.width  * DPR));
+                canvas.height = Math.max(1, Math.floor(rect.height * DPR));
+            }
+            function seed() {
+                parts.length = 0;
+                const w = canvas.width, h = canvas.height;
+                for (let i = 0; i < COUNT; i++) {
+                    parts.push({
+                        x: Math.random() * w,
+                        y: Math.random() * h,
+                        z: Math.random() * 0.7 + 0.3,           // 0.3..1
+                        r: Math.random() * 1.2 + 0.6,           // 0.6..1.8 css px
+                        vx: (Math.random() - 0.5) * 0.18,
+                        vy: (Math.random() - 0.5) * 0.18,
+                        ph: Math.random() * Math.PI * 2,
+                    });
+                }
+            }
+            resize(); seed();
+            window.addEventListener('resize', () => { resize(); seed(); }, { passive: true });
+
+            // Two palettes — "inflamed" (Pillar I) → "vital" (Pillar VI).
+            // We interpolate live each frame based on the global `palette` (0..1).
+            const PAL_HOT  = { core: [232, 90, 60],  glow: [232, 70, 50],  spark: [255, 220, 200] };
+            const PAL_COOL = { core: [120, 200, 150], glow: [140, 210, 160], spark: [225, 245, 220] };
+            function lerp(a, b, t) { return a + (b - a) * t; }
+            function lerpRGB(a, b, t) { return [Math.round(lerp(a[0], b[0], t)), Math.round(lerp(a[1], b[1], t)), Math.round(lerp(a[2], b[2], t))]; }
+            // Smooth-step the palette so transitions feel cinematic, not linear.
+            let paletteSmooth = 0;
+
+            let t = 0;
+            function frame() {
+                t += 16;
+                // Smooth the palette transition (5% per frame towards target)
+                paletteSmooth += (palette - paletteSmooth) * 0.05;
+                const core  = lerpRGB(PAL_HOT.core,  PAL_COOL.core,  paletteSmooth);
+                const spark = lerpRGB(PAL_HOT.spark, PAL_COOL.spark, paletteSmooth);
+
+                const w = canvas.width, h = canvas.height;
+                ctx.clearRect(0, 0, w, h);
+
+                // Radial wash — tinted to match the palette
+                const cx = w * 0.5;
+                const cy = h * 0.5;
+                const wash = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(w, h) * 0.6);
+                wash.addColorStop(0, `rgba(${core[0]},${core[1]},${core[2]},0.06)`);
+                wash.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.fillStyle = wash;
+                ctx.fillRect(0, 0, w, h);
+
+                ctx.globalCompositeOperation = 'lighter';
+                for (const p of parts) {
+                    p.x += p.vx * p.z;
+                    p.y += p.vy * p.z;
+                    if (p.x < -10) p.x = w + 10;
+                    if (p.x > w + 10) p.x = -10;
+                    if (p.y < -10) p.y = h + 10;
+                    if (p.y > h + 10) p.y = -10;
+
+                    // Cell-mitosis breathing — each particle pulses on its own phase
+                    const breath = 0.55 + 0.45 * Math.sin(t * 0.0015 + p.ph);
+                    const a = 0.20 * p.z * breath;
+                    const r = p.r * DPR * (0.85 + p.z * 0.45) * (0.9 + 0.2 * Math.sin(t * 0.0009 + p.ph * 1.3));
+
+                    // Outer halo
+                    const halo = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 4.5);
+                    halo.addColorStop(0,    `rgba(${core[0]},${core[1]},${core[2]},${a})`);
+                    halo.addColorStop(0.45, `rgba(${core[0]},${core[1]},${core[2]},${a * 0.35})`);
+                    halo.addColorStop(1,    `rgba(${core[0]},${core[1]},${core[2]},0)`);
+                    ctx.fillStyle = halo;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, r * 4.5, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Hot core (cell nucleus)
+                    ctx.fillStyle = `rgba(${spark[0]},${spark[1]},${spark[2]},${Math.min(1, a * 2.6)})`;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, r * 0.55, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.globalCompositeOperation = 'source-over';
+                requestAnimationFrame(frame);
+            }
+            requestAnimationFrame(frame);
+        }
+    })();
+    </script>
+
+    <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
 </body>
 
 </html>

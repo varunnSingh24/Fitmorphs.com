@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitMorphs Journal — Doctor-Supervised Metabolic Health Blog</title>
     <meta name="description" content="Read expert articles on diabetes reversal, HbA1c management, diet plans, and lifestyle changes from FitMorphs, India's premier doctor-supervised metabolic program.">
+    <meta property="og:title" content="FitMorphs Journal — Doctor-Supervised Metabolic Health Blog">
+    <meta property="og:description" content="Read expert articles on diabetes reversal, HbA1c management, diet plans, and lifestyle changes from FitMorphs, India's premier doctor-supervised metabolic program.">
+    <meta property="og:image" content="logo_stickey.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.fitmorphs.com/blog.html">
     <link rel="canonical" href="https://www.fitmorphs.com/blog.html">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,47 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" as="style">
 
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/@mantine/core@7.17.4/styles.css">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: { deep: '#b8860b', mid: '#d4a017', bright: '#f0c040', light: '#f0d060', pale: '#faf0d0' },
-                        dark: { DEFAULT: '#0f0f0c', deep: '#0c0a06', card: '#1a1610', surface: '#221e16' },
-                        charcoal: '#1a1a18', cream: '#f5efe3', 'off-white': '#fafaf7', ivory: '#fdfbf6',
-                    },
-                    fontFamily: {
-                        display: ['Playfair Display', 'serif'],
-                        body: ['DM Sans', 'sans-serif'],
-                        accent: ['Instrument Serif', 'serif']
-                    },
-                },
-            },
-        }
-    </script>
     
-    <style>
-        body { font-family: 'DM Sans', sans-serif; background-color: var(--dark); color: var(--cream); }
-        h1, h2, h3, h4, .playfair { font-family: 'Playfair Display', serif; }
-        .text-gold-gradient {
-            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: var(--gold-mid);
-        }
-
-        .blog-hero { text-align: center; padding: 12rem 2rem 5rem; position: relative; background-color: var(--dark-deep); }
-        
-        .blog-category-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0 4rem; }
-        .blog-cat-btn { background: var(--charcoal); border: 1px solid rgba(212,160,23,0.3); color: var(--cream); padding: 0.6rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; font-weight: 500; }
-        .blog-cat-btn:hover, .blog-cat-btn.active { background: var(--gold-mid); color: var(--dark); border-color: var(--gold-mid); }
-        
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1200px; margin: 0 auto 6rem; padding: 0 2rem; }
-    </style>
+    
+    <link rel="stylesheet" href="assets/css/blog-inline.css">
 </head>
 <body>
     <div id="stars-container" aria-hidden="true">
@@ -89,14 +56,30 @@
         <h1 class="text-gold-gradient" style="font-size: clamp(3rem, 6vw, 4.5rem); line-height:1.1; margin-bottom: 1rem; position:relative; z-index:1;">FitMorphs Journal</h1>
         <p style="font-size: 1.2rem; color: var(--cream); opacity: 0.8; max-width: 600px; margin: 0 auto; position:relative; z-index:1;">Science-backed education and expert clinical insights on reversing metabolic disease naturally.</p>
         
-        <div class="blog-category-nav" style="position:relative; z-index:1;">
+        <div class="blog-category-nav blog-pill-row" id="fmBlogPillRow" style="position:relative; z-index:1;">
             <button class="blog-cat-btn active" data-filter="all">All Articles</button>
             <button class="blog-cat-btn" data-filter="diabetes">Diabetes Reversal</button>
             <button class="blog-cat-btn" data-filter="hba1c">HbA1c Management</button>
             <button class="blog-cat-btn" data-filter="diet">Diet Plans</button>
             <button class="blog-cat-btn" data-filter="lifestyle">Lifestyle Management</button>
+            <span class="pill-underline" id="fmBlogPillUnderline" aria-hidden="true"></span>
         </div>
     </div>
+
+    <!-- EDITOR'S PICK -->
+    <section class="container fade-in-section" style="max-width:1200px; padding: 4rem 1.5rem 0;">
+        <a href="how-to-reduce-hba1c-naturally.html" class="editors-pick" style="text-decoration:none; color:inherit;">
+            <div class="editors-pick-img">
+                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=1200" alt="How to Reduce HbA1c Naturally in 90 Days">
+            </div>
+            <div class="editors-pick-content">
+                <span class="eyebrow-deluxe on-dark" style="display:inline-flex;">Editor's Pick &middot; HbA1c Management</span>
+                <h2>How to Reduce HbA1c Naturally in <em>90 Days</em></h2>
+                <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(245,239,227,0.78); font-size:1.1rem; line-height:1.55; margin: 0 0 1.25rem;">Our patients average a 2.8-point HbA1c reduction in 90 days. The protocol is unglamorous. The supervision is rigorous. The outcomes are repeatable.</p>
+                <span class="blog-cta" style="display:inline-flex; align-items:center; gap:0.4rem; font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-bright); font-weight:600;">Read the Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+    </section>
 
         <div class="blog-grid" id="blog-grid">
         <!-- Card 1 -->
@@ -180,7 +163,7 @@
         <!-- Card 7 -->
         <a href="can-prediabetes-be-reversed.html" class="vogue-hover-card blog-card" data-category="diabetes">
             <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1559181567-c3190ca9d2b1?auto=format&fit=crop&q=80&w=800" alt="Can Prediabetes Be Reversed Before It Progresses?" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&q=80&w=800" alt="Can Prediabetes Be Reversed Before It Progresses?" loading="lazy">
             </div>
             <div class="blog-content">
                 <span class="category">Diabetes Reversal</span>
@@ -206,7 +189,7 @@
         <!-- Card 9 -->
         <a href="diabetes-reversal-program-india.html" class="vogue-hover-card blog-card" data-category="lifestyle">
             <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1571019614242-c5c5adee9f50?auto=format&fit=crop&q=80&w=800" alt="Best Diabetes Reversal Program in India 2025" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=80&w=800" alt="Best Diabetes Reversal Program in India 2025" loading="lazy">
             </div>
             <div class="blog-content">
                 <span class="category">Program India</span>
@@ -230,7 +213,6 @@
         </a>
 
     </div>
-
 
     <!-- FOOTER -->
     <footer style="background-color:var(--dark-deep); padding: 5rem 0 2rem; border-top:1px solid rgba(212,160,23,0.15); color:var(--cream); font-family:'DM Sans', sans-serif;">
@@ -262,7 +244,7 @@
                 </div>
             </div>
             <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
-                <p>&copy; 2025 FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="javascript:void(0)" style="text-decoration: underline;">Disclaimer</a></p>
+                <p>&copy; <span data-fm-year>2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> &middot; <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
             </div>
         </div>
     </footer>
@@ -301,6 +283,36 @@
                 });
             });
         });
+    </script>
+
+    <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
+
+    <script>
+    // ── Blog category-pill animated underline ──
+    (function () {
+        const row = document.getElementById('fmBlogPillRow');
+        const bar = document.getElementById('fmBlogPillUnderline');
+        if (!row || !bar) return;
+        function position(target) {
+            if (!target) return;
+            const r1 = target.getBoundingClientRect();
+            const r0 = row.getBoundingClientRect();
+            bar.style.left  = (r1.left - r0.left) + 'px';
+            bar.style.width = r1.width + 'px';
+        }
+        const active = row.querySelector('.blog-cat-btn.active');
+        requestAnimationFrame(() => position(active));
+        row.querySelectorAll('.blog-cat-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                row.querySelectorAll('.blog-cat-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                position(btn);
+            });
+            btn.addEventListener('mouseenter', () => position(btn));
+            btn.addEventListener('mouseleave', () => position(row.querySelector('.blog-cat-btn.active')));
+        });
+        window.addEventListener('resize', () => position(row.querySelector('.blog-cat-btn.active')));
+    })();
     </script>
 </body>
 </html>

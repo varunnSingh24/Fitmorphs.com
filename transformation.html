@@ -5,155 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fat Loss &amp; Body Recomposition | FitMorphs</title>
     <meta name="description" content="Shed visceral fat and build lean muscle simultaneously. FitMorphs' science-backed 12-week recomposition protocol designed for lasting physical transformation.">
+    <meta property="og:title" content="Fat Loss &amp; Body Recomposition | FitMorphs">
+    <meta property="og:description" content="Shed visceral fat and build lean muscle simultaneously. FitMorphs' science-backed 12-week recomposition protocol designed for lasting physical transformation.">
+    <meta property="og:image" content="logo_stickey.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.fitmorphs.com/transformation.html">
     
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/@mantine/core@7.17.4/styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: { deep: '#b8860b', mid: '#d4a017', bright: '#f0c040', light: '#f0d060', pale: '#faf0d0' },
-                        dark: { DEFAULT: '#0f0f0c', deep: '#0c0a06', card: '#1a1610', surface: '#221e16' },
-                        charcoal: '#1a1a18', cream: '#f5efe3', 'off-white': '#fafaf7', ivory: '#fdfbf6',
-                    },
-                    fontFamily: { 
-                        display: ['Playfair Display', 'serif'], 
-                        body: ['DM Sans', 'sans-serif'], 
-                        accent: ['Instrument Serif', 'serif'] 
-                    },
-                },
-            },
-        }
-    </script>
     
     <!-- Meta Pixel Code -->
     <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');let extId=localStorage.getItem('fitmorphs_external_id');if(!extId){extId='fmt_'+Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15);localStorage.setItem('fitmorphs_external_id',extId);}fbq('init','463098106520925',{external_id:extId});fbq('track','PageView');fbq('track','ViewContent');</script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=463098106520925&ev=PageView&noscript=1"/></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=463098106520925&ev=PageView&noscript=1" loading="lazy"  alt="FitMorphs website graphic" /></noscript>
 
-    <style>
-        /* BRAND TYPOGRAPHY OVERRIDES */
-        body { font-family: 'DM Sans', sans-serif; background-color: var(--dark); color: var(--cream); }
-        body.loaded { transform: none !important; } /* Fixes position:fixed context for WhatsApp button */
-        
-        h1, h2, h3, h4, h5, h6, .playfair { font-family: 'Playfair Display', serif; }
-        
-        .text-gold-gradient {
-            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: var(--gold-mid);
-        }
-
-        /* HERO VOGUE */
-        .hero-vogue {
-            position: relative;
-            background-color: var(--dark);
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            width: 100%;
-        }
-        .hero-bg-wrapper {
-            position: absolute;
-            top: 0; right: 0;
-            width: 55%;
-            height: 100%;
-            z-index: 0;
-        }
-        .hero-bg-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(10%); opacity: 0.9; }
-        .hero-gradient-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to right, var(--dark) 0%, rgba(15, 15, 12, 0.95) 45%, transparent 100%);
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 8rem 2rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .hero-title-vogue {
-            font-size: clamp(2.2rem, 7vw, 90px);
-            line-height: 1.05;
-            font-weight: 700;
-            max-width: 80%;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-        .hero-label {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--gold-bright);
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-        }
-
-        /* GRID COMPONENTS */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
-        
-        .science-card { background: var(--off-white); border: 1px solid rgba(212,160,23,0.1); padding: 3rem 2.5rem; border-radius: 4px; border-top: 3px solid var(--gold-mid); transition: transform 0.4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-        .science-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.06); }
-        .science-card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem; color: var(--dark); }
-        .science-card p { font-family: 'DM Sans', sans-serif; color: var(--charcoal); opacity: 0.8; line-height: 1.6; font-size: 0.95rem; }
-
-        /* THE BLUEPRINT PROTOCOLS */
-        .protocol-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
-        .check-icon { color: var(--gold-mid); font-size: 1.6rem; flex-shrink: 0; line-height: 1; font-family: 'Playfair Display', serif; }
-        .protocol-item h4 { color: var(--cream); margin-bottom: 0.4rem; font-family: 'Playfair Display', serif; font-size: 1.4rem; }
-        .protocol-item p { font-size: 0.95rem; color: rgba(245,239,227,0.7); margin: 0; font-family: 'DM Sans', sans-serif; line-height: 1.6; }
-
-        /* TIMELINE VOGUE */
-        .timeline { position: relative; max-width: 900px; margin: 4rem auto 0; padding-bottom: 2rem; }
-        .timeline::before { content: ''; position: absolute; top: 0; left: 50%; width: 1px; height: 100%; background: linear-gradient(to bottom, transparent, var(--gold-mid), transparent); transform: translateX(-50%); }
-        .timeline-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4rem; position: relative; }
-        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
-        
-        .timeline-content { width: 42%; background: var(--off-white); padding: 2.5rem; border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border: 1px solid rgba(212,160,23,0.15); transition: transform 0.4s ease, box-shadow 0.4s ease; position: relative; z-index: 10; }
-        .timeline-content:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
-        .timeline-content h4 { color: var(--dark); font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.8rem; }
-        .timeline-content p { color: var(--charcoal); opacity: 0.8; font-size: 0.95rem; line-height: 1.6; font-family: 'DM Sans', sans-serif; margin: 0; }
-        
-        .timeline-dot { position: absolute; left: 50%; top: 50%; width: 20px; height: 20px; background: var(--dark); border-radius: 50%; transform: translate(-50%, -50%); border: 2px solid var(--gold-mid); box-shadow: 0 0 0 4px rgba(212,160,23,0.15); z-index: 2; transition: transform 0.4s ease; }
-        .timeline-item:hover .timeline-dot { transform: translate(-50%, -50%) scale(1.3); background: var(--gold-bright); }
-
-        /* MULTI-MEDIA BENTO */
-        .ba-img-container { display: flex; flex-direction: column; border-radius: 4px; overflow: hidden; position: relative; border: 1px solid rgba(212,160,23,0.2); box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
-        .ba-img-row { display: flex; width: 100%; }
-        .ba-img-row img { width: 50%; aspect-ratio: 3/4; object-fit: cover; }
-        .ba-img-row::after { content: ''; position: absolute; left: 50%; top: 0; width: 2px; height: 100%; background: var(--off-white); transform: translateX(-50%); z-index: 5; }
-        
-        .pill-before, .pill-after { position: absolute; bottom: 1.5rem; padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; z-index: 10; font-family: 'DM Sans', sans-serif; text-transform: uppercase; border: 1px solid transparent; }
-        .pill-before { left: 1.5rem; background: rgba(26,26,24,0.8); color: var(--cream); backdrop-filter: blur(5px); }
-        .pill-after  { right: 1.5rem; background: var(--gold-mid); color: var(--dark); }
-
-        /* FINAL CTA */
-        .final-cta-vogue { position: relative; background-color: var(--dark); min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 2rem; }
-        .final-cta-vogue::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(212,160,23,0.08) 0%, transparent 70%); pointer-events: none; z-index: 0; }
-        .final-cta-content { position: relative; z-index: 1; max-width: 800px; }
-        .final-cta-h2 { font-size: clamp(3rem, 7vw, 6rem); color: var(--white); line-height: 1.05; margin-bottom: 3rem; font-weight: 700; }
-
-        @media (max-width: 900px) {
-            .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 3rem; }
-            .timeline::before { left: 24px; }
-            .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; align-items: flex-end; margin-bottom: 3rem; }
-            .timeline-content { width: calc(100% - 60px); }
-            .timeline-dot { left: 24px; transform: translate(-50%, -50%); }
-            .timeline-item:hover .timeline-dot { transform: translate(-50%, -50%) scale(1.3); }
-            .hero-bg-wrapper { display: none; }
-            .hero-title-vogue { max-width: 100%; }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="assets/css/transformation-inline.css">
 </head>
 
 <body>
@@ -274,45 +141,71 @@
                     </div>
                 </div>
                 <div style="position:relative; border-radius:4px; overflow:hidden; aspect-ratio:4/5; box-shadow:0 20px 60px rgba(0,0,0,0.6); border:1px solid rgba(212,160,23,0.3);">
-                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800" alt="Training protocol" style="width:100%; height:100%; object-fit:cover; filter:grayscale(20%); transition:transform 0.5s ease;" class="hover-scale">
+                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800" alt="Training protocol" style="width:100%; height:100%; object-fit:cover; filter:grayscale(20%); transition:transform 0.5s ease;" class="hover-scale" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TIMELINE -->
-    <section class="section" style="background-color:var(--white); padding:8rem 0;">
-        <div class="container fade-in-section">
-            <div style="text-align:center; margin-bottom:4rem;">
+    <!-- BEFORE / AFTER — scroll-scrubbed pin -->
+    <section class="fm-scrub-stage" id="fmScrubStage" aria-label="Before / after">
+        <div style="text-align:center; padding:6rem 1.5rem 0;">
+            <span class="eyebrow-deluxe on-dark" style="display:inline-flex;">Before &amp; After</span>
+            <h2 class="editorial-kicker on-dark" style="margin-top:1rem;">90 Days. <em>One Reversal</em>.</h2>
+            <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(245,239,227,0.7); max-width:560px; margin:1.25rem auto 0;">Drag &mdash; or just keep scrolling. Watch a real patient's HbA1c counter tick down as the after-frame emerges.</p>
+        </div>
+        <div class="fm-scrub-pin">
+            <div class="fm-scrub-figure">
+                <img class="before" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=80&w=900" alt="Before — Day 0">
+                <img class="after"  src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=900" alt="After — Day 90">
+                <span class="fm-scrub-tag before">Day 0</span>
+                <span class="fm-scrub-tag after">Day 90</span>
+                <div class="fm-scrub-divider" aria-hidden="true"></div>
+            </div>
+            <div class="fm-scrub-panel">
+                <h3>Rakesh M. &middot; Pune</h3>
+                <div class="metric"><span class="metric-label">HbA1c</span><span class="metric-value" id="fmScrubHba1c">9.4</span><span style="color:rgba(245,239,227,0.4); font-size:0.9rem;">→ 5.8</span></div>
+                <div class="metric"><span class="metric-label">Weight</span><span class="metric-value" id="fmScrubKg">86.4</span><span style="color:rgba(245,239,227,0.4); font-size:0.9rem;">kg</span></div>
+                <div class="metric"><span class="metric-label">Insulin</span><span class="metric-value" id="fmScrubIns" style="font-size:1.6rem;">Full dose</span></div>
+                <div class="fm-scrub-rail"><div class="fm-scrub-rail-bar"><div class="fm-scrub-rail-fill"></div></div></div>
+                <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(245,239,227,0.7); margin-top:1.5rem; font-size:1rem;">"I haven't felt this energetic in 7 years. Doctor reduced my insulin to half last week."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE OF RECOMPOSITION — scroll-pinned alternating reveal -->
+    <section class="fm-recomp-stage section">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:3rem;">
                 <span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">Journey</span>
                 <h2 class="editorial-kicker" style="color:var(--dark);">Timeline of <em>Recomposition</em></h2>
                 <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
                 <p style="text-align:center; color:var(--charcoal); opacity:0.8; margin-top:1rem; font-family:'DM Sans',sans-serif; font-size:1.1rem;">The 12-week physiological sequence.</p>
             </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Weeks 1–3: The Metabolic Shift</h4>
+            <ol class="fm-recomp-list" id="fmRecompList">
+                <li class="fm-recomp-item left">
+                    <div class="rc-card">
+                        <h4>Weeks 1&ndash;3 &mdash; The Metabolic Shift</h4>
                         <p>Glycogen stores deplete, dormant water weight drops, and your body transitions into an efficient fat-burning state. Energy levels initially dip before experiencing a massive surge.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Weeks 4–7: Visceral Oxidation</h4>
+                    <span class="rc-dot" aria-hidden="true"></span>
+                </li>
+                <li class="fm-recomp-item right">
+                    <span class="rc-dot" aria-hidden="true"></span>
+                    <div class="rc-card">
+                        <h4>Weeks 4&ndash;7 &mdash; Visceral Oxidation</h4>
                         <p>Your liver and internal organs begin shedding dangerous visceral fat. Clothes fit significantly better, sleep deepens, and systemic inflammation drastically reduces.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Weeks 8–12: Prime Recomposition</h4>
+                </li>
+                <li class="fm-recomp-item left">
+                    <div class="rc-card">
+                        <h4>Weeks 8&ndash;12 &mdash; Prime Recomposition</h4>
                         <p>Muscle density increases while subcutaneous fat melts aggressively. Your resting metabolic rate is elevated. Your reflection showcases a fundamentally changed, high-performance physique.</p>
                     </div>
-                </div>
-            </div>
+                    <span class="rc-dot" aria-hidden="true"></span>
+                </li>
+            </ol>
         </div>
     </section>
 
@@ -325,126 +218,7 @@
         </div>
 
         <!-- Scoped styles ONLY for this slider — isolated from Tailwind -->
-        <style>
-            #fm-slider { position:relative; width:100%; height:75vh; min-height:500px; overflow:hidden; }
-            #fm-slider .slider { list-style:none; padding:0; margin:0; width:100%; height:100%; position:relative; }
-            #fm-slider .item {
-                width:200px; height:300px; list-style-type:none;
-                position:absolute; top:50%; transform:translateY(-50%); z-index:1;
-                background-position:center; background-size:cover;
-                border-radius:20px;
-                box-shadow:0 20px 30px rgba(255,255,255,0.15) inset;
-                transition: left 0.75s cubic-bezier(0.25, 1, 0.5, 1),
-                            top 0.75s cubic-bezier(0.25, 1, 0.5, 1),
-                            width 0.75s cubic-bezier(0.25, 1, 0.5, 1),
-                            height 0.75s cubic-bezier(0.25, 1, 0.5, 1),
-                            transform 0.75s cubic-bezier(0.25, 1, 0.5, 1),
-                            border-radius 0.75s cubic-bezier(0.25, 1, 0.5, 1),
-                            opacity 0.75s cubic-bezier(0.25, 1, 0.5, 1),
-                            box-shadow 0.75s cubic-bezier(0.25, 1, 0.5, 1);
-                will-change: left, top, width, height, transform;
-            }
-            #fm-slider .item:nth-child(1),
-            #fm-slider .item:nth-child(2) {
-                left:0; top:0; width:100%; height:100%;
-                transform:none; border-radius:0; box-shadow:none; opacity:1;
-            }
-            #fm-slider .item:nth-child(1) { z-index:0; }
-            #fm-slider .item:nth-child(2) { z-index:2; }
-            #fm-slider .item:nth-child(3) { left:50%; z-index:3; }
-            #fm-slider .item:nth-child(4) { left:calc(50% + 220px); z-index:3; }
-            #fm-slider .item:nth-child(5) { left:calc(50% + 440px); z-index:3; }
-            #fm-slider .item:nth-child(6) { left:calc(50% + 660px); opacity:0; z-index:3; }
-
-            /* Dark gradient on left side of active slide */
-            #fm-slider .item:nth-child(2)::before {
-                content:'';
-                position:absolute; inset:0;
-                background:linear-gradient(90deg, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.6) 40%, transparent 75%);
-                z-index:1; pointer-events:none;
-            }
-
-            /* Content — hidden by default for ALL items */
-            #fm-slider .content {
-                width:min(38vw,460px);
-                position:absolute; top:50%; left:4rem;
-                transform:translateY(calc(-50% + 60px));
-                color:#f5efe3;
-                opacity:0;
-                display:none;
-                z-index:10;
-                pointer-events:none;
-            }
-            #fm-slider .content .title {
-                font-family:'Playfair Display',serif;
-                font-size:clamp(2.2rem,4vw,3.5rem);
-                text-transform:uppercase; line-height:1.1;
-                background:linear-gradient(135deg,#f0c040,#b8860b);
-                -webkit-background-clip:text; color:transparent;
-                margin-bottom:1rem;
-            }
-            #fm-slider .content .description {
-                font-family:'DM Sans',sans-serif;
-                line-height:1.7; margin:0 0 2rem;
-                font-size:1rem; color:rgba(245,239,227,0.85);
-            }
-            #fm-slider .content button {
-                font-family:'DM Sans',sans-serif;
-                background:rgba(212,160,23,0.15);
-                color:#d4a017; border:1px solid #d4a017;
-                border-radius:4px; padding:0.85rem 2rem;
-                cursor:pointer; font-size:0.85rem;
-                font-weight:700; text-transform:uppercase; letter-spacing:1.5px;
-                transition:background 0.3s, color 0.3s;
-            }
-            #fm-slider .content button:hover { background:#d4a017; color:#0f0f0c; }
-
-            /* ONLY the 2nd item shows its content, animated */
-            #fm-slider .item:nth-child(2) .content {
-                display:block;
-                animation:fmShow 0.75s ease-in-out 0.25s forwards;
-            }
-            @keyframes fmShow {
-                0%   { opacity:0; transform:translateY(calc(-50% + 60px)); filter:blur(4px); }
-                100% { opacity:1; transform:translateY(-50%); filter:blur(0); }
-            }
-
-            /* Nav buttons */
-            #fm-slider .nav {
-                position:absolute; bottom:2.5rem; right:2.5rem;
-                z-index:20; display:flex; gap:1rem;
-            }
-            #fm-slider .nav .btn {
-                background:rgba(26,22,16,0.75); color:#d4a017;
-                border:1px solid rgba(212,160,23,0.5);
-                width:52px; height:52px; border-radius:50%;
-                display:flex; align-items:center; justify-content:center;
-                cursor:pointer; backdrop-filter:blur(6px);
-                transition:background 0.3s, transform 0.3s, border-color 0.3s;
-            }
-            #fm-slider .nav .btn:hover { background:#d4a017; color:#0f0f0c; transform:scale(1.1); border-color:#d4a017; }
-
-            /* Responsive */
-            @media (max-width:900px) {
-                #fm-slider .item { width:160px; height:260px; }
-                #fm-slider .item:nth-child(3) { left:50%; }
-                #fm-slider .item:nth-child(4) { left:calc(50% + 175px); }
-                #fm-slider .item:nth-child(5) { left:calc(50% + 350px); }
-                #fm-slider .item:nth-child(6) { left:calc(50% + 525px); opacity:0; }
-                #fm-slider .content { left:2rem; width:calc(100% - 4rem); }
-            }
-            @media (max-width:600px) {
-                #fm-slider { height:80vh; }
-                #fm-slider .item { width:130px; height:220px; }
-                #fm-slider .item:nth-child(3) { left:50%; }
-                #fm-slider .item:nth-child(4) { left:calc(50% + 140px); }
-                #fm-slider .item:nth-child(5) { left:calc(50% + 280px); }
-                #fm-slider .item:nth-child(6) { left:calc(50% + 420px); opacity:0; }
-                #fm-slider .content { left:1.5rem; width:calc(100% - 3rem); }
-                #fm-slider .content .title { font-size:1.8rem; }
-                #fm-slider .nav { right:1rem; bottom:1.5rem; }
-            }
-        </style>
+        
 
         <div id="fm-slider">
             <ul class="slider">
@@ -455,7 +229,7 @@
                         <button onclick="window.location='apply.html'">Book Free Consultation</button>
                     </div>
                 </li>
-                <li class="item" style="background-image:url('https://images.unsplash.com/photo-1571019614242-c5c5adee9f50?auto=format&fit=crop&q=80&w=1200')">
+                <li class="item" style="background-image:url('https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=80&w=1200')">
                     <div class="content">
                         <h2 class="title">-22kg Fat Loss</h2>
                         <p class="description">A drastic reduction in total body fat percentage while simultaneously adding visible lean muscle to the upper body frame.</p>
@@ -530,67 +304,6 @@
             <a href="results.html" class="btn btn-outline" style="border-color:var(--gold-mid); color:var(--gold-deep); padding:1.2rem 3rem;">Explore More Transformations</a>
         </div>
     </section>
-    <section class="section" style="background-color:var(--off-white); padding:8rem 0;">
-        <div class="container fade-in-section">
-            <div style="text-align:center; margin-bottom:5rem;">
-                <span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">Case Studies</span>
-                <h2 class="editorial-kicker" style="color:var(--dark);">Visual <em>Evidence</em></h2>
-                <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
-            </div>
-            
-            <div class="slider-main">
-                <ul class="t-slider">
-                    <li class="t-item" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800')">
-                        <div class="t-content">
-                            <h2 class="t-title">Hormonal Reset</h2>
-                            <p class="t-description">Reversed PCOD symptoms, eliminated bloating, and lost stubborn hormonal fat through our exact clinical macro protocol.</p>
-                        </div>
-                    </li>
-                    <li class="t-item" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5adee9f50?auto=format&fit=crop&q=80&w=800')">
-                        <div class="t-content">
-                            <h2 class="t-title">-22kg Fat Loss</h2>
-                            <p class="t-description">A drastic reduction in total body fat percentage while simultaneously adding visible muscle mass to the upper body frame.</p>
-                        </div>
-                    </li>
-                    <li class="t-item" style="background-image: url('https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=80&w=800')">
-                        <div class="t-content">
-                            <h2 class="t-title">V-Taper Built</h2>
-                            <p class="t-description">Targeted lat and shoulder development alongside strict fat reduction in the mid-section without starvation.</p>
-                        </div>
-                    </li>
-                    <li class="t-item" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800')">
-                        <div class="t-content">
-                            <h2 class="t-title">HbA1c to 5.4</h2>
-                            <p class="t-description">Tapered off medications and recovered total insulin sensitivity using our 12-week doctor-supervised roadmap.</p>
-                        </div>
-                    </li>
-                    <li class="t-item" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800')">
-                        <div class="t-content">
-                            <h2 class="t-title">Peak Endurance</h2>
-                            <p class="t-description">Restored vital cardiovascular performance and completely transformed body composition, allowing for limitless energy.</p>
-                        </div>
-                    </li>
-                    <li class="t-item" style="background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800')">
-                        <div class="t-content">
-                            <h2 class="t-title">Core Rebuild</h2>
-                            <p class="t-description">Eliminated visceral fat around the abdomen, unveiling hard-earned core definition through targeted nutrient timing.</p>
-                        </div>
-                    </li>
-                </ul>
-                <nav class="t-nav">
-                    <button class="t-btn prev" aria-label="Previous Transformation">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                    </button>
-                    <button class="t-btn next" aria-label="Next Transformation">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </button>
-                </nav>
-            </div>
-            <div style="text-align:center; margin-top:5rem;">
-                <a href="results.html" class="btn btn-outline" style="border-color:var(--gold-mid); color:var(--gold-deep); padding:1.2rem 3rem;">Explore More Transformations</a>
-            </div>
-        </div>
-    </section>
 
     <!-- FINAL CTA -->
     <section class="final-cta-vogue">
@@ -631,16 +344,12 @@
                 </div>
             </div>
             <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
-                <p>&copy; 2025 FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="javascript:void(0)" style="text-decoration: underline;">Disclaimer</a></p>
+                <p>&copy; <span data-fm-year>2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> &middot; <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
             </div>
         </div>
     </footer>
     
-    <style>
-        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
-        .hover-scale { transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .hover-scale:hover { transform: scale(1.05); }
-    </style>
+    
 
     <!-- Floating Apply Now (mobile primary CTA) -->
     <div class="apply-float">
@@ -654,7 +363,53 @@
         <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
     </a>
 
-
     <script src="script.js"></script>
+
+    <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
+
+    <script>
+    // ── Before/After scrub + HbA1c counter ──
+    (function () {
+        const stage  = document.getElementById('fmScrubStage');
+        if (!stage) return;
+        const figure = stage.querySelector('.fm-scrub-figure');
+        const hba1c  = document.getElementById('fmScrubHba1c');
+        const kg     = document.getElementById('fmScrubKg');
+        const ins    = document.getElementById('fmScrubIns');
+        function lerp(a, b, t) { return a + (b - a) * t; }
+        let raf = 0;
+        function tick() {
+            raf = 0;
+            const r = stage.getBoundingClientRect();
+            const total = r.height - window.innerHeight;
+            if (total <= 0) return;
+            const scrolled = Math.max(0, Math.min(total, -r.top));
+            const p = scrolled / total;
+            // Map to scrub progress 0..100% over 15–85% window
+            const eased = Math.max(0, Math.min(1, (p - 0.15) / 0.7));
+            const pct = eased * 100;
+            figure.style.setProperty('--scrub', pct + '%');
+            stage.querySelector('.fm-scrub-rail-fill').style.setProperty('--scrub', pct + '%');
+            stage.querySelector('.fm-scrub-rail-fill').style.width = pct + '%';
+            if (hba1c) hba1c.textContent = lerp(9.4, 5.8, eased).toFixed(1);
+            if (kg)    kg.textContent    = lerp(86.4, 72.1, eased).toFixed(1);
+            if (ins)   ins.textContent   = eased < 0.4 ? 'Full dose' : eased < 0.75 ? 'Half dose' : 'Tapered off';
+        }
+        function onScroll() { if (!raf) raf = requestAnimationFrame(tick); }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        tick();
+    })();
+
+    // ── Recomp timeline alternating reveal ──
+    (function () {
+        const items = document.querySelectorAll('#fmRecompList .fm-recomp-item');
+        if (!items.length) return;
+        const obs = new IntersectionObserver((entries, o) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); } });
+        }, { threshold: 0.35 });
+        items.forEach(i => obs.observe(i));
+    })();
+    </script>
 </body>
 </html>

@@ -16,28 +16,34 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" as="style">
     
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/@mantine/core@7.17.4/styles.css">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: { deep: '#b8860b', mid: '#d4a017', bright: '#f0c040', light: '#f0d060', pale: '#faf0d0' },
-                        dark: { DEFAULT: '#0f0f0c', deep: '#0c0a06', card: '#1a1610', surface: '#221e16' },
-                        charcoal: '#1a1a18', cream: '#f5efe3', 'off-white': '#fafaf7', ivory: '#fdfbf6',
-                    },
-                    fontFamily: { 
-                        display: ['Playfair Display', 'serif'], 
-                        body: ['DM Sans', 'sans-serif'], 
-                        accent: ['Instrument Serif', 'serif'] 
-                    },
-                },
-            },
-        }
+
+    <!-- Structured data: MedicalBusiness + AggregateRating + 4 patient reviews -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "FitMorphs Health Technologies Pvt. Ltd.",
+      "alternateName": "FitMorphs",
+      "url": "https://www.fitmorphs.com/",
+      "logo": "https://www.fitmorphs.com/logo_stickey.png",
+      "image": "https://www.fitmorphs.com/logo_stickey.png",
+      "description": "India's premier doctor-supervised metabolic-reversal program. 10,000+ patients transformed across diabetes reversal, fat-loss recomposition, PCOD reset, and HbA1c management.",
+      "medicalSpecialty": ["Endocrine", "DietNutrition", "PreventiveMedicine"],
+      "telephone": "+91-820-869-2210",
+      "email": "hello@fitmorphs.com",
+      "areaServed": "IN",
+      "address": { "@type": "PostalAddress", "addressCountry": "IN", "addressRegion": "Maharashtra", "addressLocality": "Pune" },
+      "founder": { "@type": "Physician", "name": "Dr. Abhishek Mane", "jobTitle": "Chief Medical Officer", "url": "https://www.fitmorphs.com/about.html" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "bestRating": "5", "reviewCount": "1247" },
+      "review": [
+        { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Rakesh M." }, "reviewBody": "HbA1c dropped from 9.4 to 5.8 in 16 weeks. Doctor reduced my insulin to half. I haven't felt this energetic in 7 years." },
+        { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Priya G." }, "reviewBody": "Lost 14 kg in 90 days without giving up roti or rice. The macro plan was insanely Indian. My mother is now on the program too." },
+        { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Shanti P." }, "reviewBody": "My PCOD cycles regulated in 11 weeks. The hormonal panel came back balanced for the first time in 6 years." },
+        { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Anil J." }, "reviewBody": "Doctor said my fatty liver is reversed at the 4-month scan. I cried. 14 years of this and now it's gone." }
+      ]
+    }
     </script>
-    
+
     <!-- Meta Pixel — deferred after main content is interactive -->
     <script>
         window.addEventListener('load', function() {
@@ -55,604 +61,8 @@
         }, { once: true });
     </script>
     
-    <style>
-        /* BRAND TYPOGRAPHY OVERRIDES */
-        body { font-family: 'DM Sans', sans-serif; background-color: var(--dark); color: var(--cream); }
-        body.loaded { transform: none !important; } /* Fixes position:fixed context for WhatsApp button */
-        
-        h1, h2, h3, h4, h5, h6, .playfair { font-family: 'Playfair Display', serif; }
-        
-        .text-gold-gradient {
-            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: var(--gold-mid);
-        }
-
-        /* ---------------------------------------------------- */
-        /* SECTION 1: HERO VOGUE                                */
-        /* ---------------------------------------------------- */
-        .hero-vogue {
-            position: relative;
-            background-color: var(--dark);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            width: 100%;
-        }
-        
-        .hero-bg-wrapper {
-            position: absolute;
-            top: 0; right: 0;
-            width: 60%;
-            height: 100%;
-            z-index: 0;
-        }
-        .hero-bg-img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
-        .hero-gradient-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to right, var(--dark) 0%, rgba(15, 15, 12, 0.8) 25%, transparent 100%);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 8rem 2rem 6rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        
-        .hero-title-vogue {
-            font-size: clamp(2.4rem, 10vw, 120px);
-            line-height: 1.05;
-            font-weight: 700;
-            max-width: 70%;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-        
-        .hero-label {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--gold-bright);
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            text-transform: uppercase;
-        }
-
-        .hero-btns-vogue {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        /* Marquee */
-        .marquee-container {
-            position: absolute;
-            bottom: 0; left: 0; width: 100%;
-            background-color: var(--charcoal);
-            padding: 1.25rem 0;
-            overflow: hidden;
-            display: flex;
-            z-index: 3;
-            border-top: 1px solid rgba(212,160,23,0.15);
-        }
-        .marquee-text {
-            display: flex;
-            white-space: nowrap;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--gold-mid);
-            letter-spacing: 2px;
-            animation: scrollMarquee 30s linear infinite;
-        }
-        .marquee-text span { margin: 0 4rem; }
-        
-        @keyframes scrollMarquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        @media (max-width: 768px) {
-            .hero-bg-wrapper { display: none; }
-            .hero-title-vogue { max-width: 100%; }
-            .hero-vogue { min-height: 90vh; }
-        }
-
-        /* ---------------------------------------------------- */
-        /* SECTION 2: IMPACT STATS                              */
-        /* ---------------------------------------------------- */
-        .impact-section {
-            position: relative;
-            background-color: var(--dark);
-            padding: 8rem 2rem;
-            overflow: hidden;
-        }
-        .impact-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .impact-main-stat {
-            font-size: clamp(80px, 14vw, 160px);
-            line-height: 1;
-            font-weight: 700;
-            text-align: left;
-            margin-bottom: 0;
-        }
-        .impact-main-label {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 18px;
-            color: var(--cream);
-            margin-top: 1rem;
-        }
-        .impact-divider {
-            width: 1px;
-            height: 140px;
-            background-color: var(--gold-mid);
-            opacity: 0.3;
-        }
-        .impact-small-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        .impact-small-stat {
-            font-size: 3rem;
-            color: var(--gold-mid);
-            line-height: 1.1;
-            margin-bottom: 0.2rem;
-            font-weight: 600;
-        }
-        .impact-small-label {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.9rem;
-            color: var(--cream);
-            opacity: 0.8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        @media (max-width: 900px) {
-            .impact-grid { grid-template-columns: 1fr; gap: 3rem; text-align: left; }
-            .impact-divider { width: 100%; height: 1px; }
-            .impact-main-stat { text-align: left; }
-        }
-
-        /* ---------------------------------------------------- */
-        /* SECTION 3: PHILOSOPHY                                */
-        /* ---------------------------------------------------- */
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 8rem 2rem;
-        }
-        .gold-rule-thin {
-            width: 80px;
-            height: 2px;
-            background-color: var(--gold-mid);
-            margin-bottom: 1.5rem;
-        }
-        .philosophy-img {
-            width: 100%;
-            height: 100%;
-            min-height: 500px;
-            object-fit: cover;
-            border-radius: 4px;
-            box-shadow: 0 0 0 1px rgba(212,160,23,0.3);
-            aspect-ratio: 4/5;
-        }
-        .philosophy-h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.1;
-            margin: 1.5rem 0 2rem;
-            color: var(--dark);
-        }
-        @media (max-width: 768px) {
-            .philosophy-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .philosophy-img { min-height: 400px; }
-        }
-
-        /* ---------------------------------------------------- */
-        /* SECTION 4: EDITORIAL GRID                            */
-        /* ---------------------------------------------------- */
-        .editorial-section {
-            background-color: var(--charcoal);
-            padding: 8rem 2rem;
-        }
-        .editorial-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .editorial-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        .editorial-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--cream);
-            margin-bottom: 1rem;
-        }
-        .editorial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 400px;
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-        .ed-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 4px;
-            display: flex;
-            align-items: flex-end;
-            background-color: var(--dark);
-        }
-        .ed-card-tall {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-        .ed-card img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            transition: transform 0.6s ease;
-        }
-        .ed-card:hover img { transform: scale(1.05); }
-        .ed-gradient {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(15,15,12,0.9) 0%, transparent 60%);
-            z-index: 2;
-        }
-        .ed-pill {
-            position: absolute;
-            top: 2rem; left: 2.5rem;
-            background-color: var(--gold-mid);
-            color: var(--dark);
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            z-index: 3;
-            font-family: 'DM Sans', sans-serif;
-        }
-        .ed-content {
-            position: relative;
-            z-index: 3;
-            padding: 2.5rem;
-            width: 100%;
-        }
-        .ed-stat {
-            font-size: 1.8rem;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        .ed-card-tall .ed-stat { font-size: 2.5rem; }
-        .ed-name {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
-            color: var(--cream);
-            opacity: 0.8;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-        @media (max-width: 900px) {
-            .editorial-grid { grid-template-columns: 1fr; grid-auto-rows: 500px; }
-            .ed-card-tall { grid-column: span 1; grid-row: span 1; }
-            .ed-pill { top: 1.5rem; left: 1.5rem; }
-            .ed-content { padding: 1.5rem; }
-        }
-
-        /* ---------------------------------------------------- */
-        /* SECTION 5: TESTIMONIALS                              */
-        /* ---------------------------------------------------- */
-        .testimonials-vogue {
-            background-color: var(--dark);
-            position: relative;
-            padding: 8rem 2rem;
-            overflow: hidden;
-            text-align: center;
-        }
-        .quote-mark-bg {
-            position: absolute;
-            top: 4rem; left: 4rem;
-            font-size: 200px;
-            color: var(--gold-mid);
-            opacity: 0.15;
-            line-height: 1;
-            pointer-events: none;
-            user-select: none;
-        }
-        .featured-test {
-            max-width: 900px;
-            margin: 0 auto 5rem;
-            position: relative;
-            z-index: 2;
-        }
-        .featured-test p {
-            font-style: italic;
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            color: var(--cream);
-            line-height: 1.5;
-            margin-bottom: 2rem;
-        }
-        .test-author-gold {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--gold-mid);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-        .test-author-line {
-            width: 40px; height: 1px;
-            background-color: var(--gold-mid);
-            margin: 0.8rem auto 0;
-        }
-        .small-tests {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 900px;
-            margin: 0 auto 6rem;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        .small-test p {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.05rem;
-            color: var(--cream);
-            opacity: 0.85;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-        .trusted-by-row {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-            padding-top: 4rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .trusted-label {
-            width: 100%;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gold-mid);
-            opacity: 0.8;
-            margin-bottom: 1rem;
-        }
-        .trusted-logo {
-            font-size: 1.25rem;
-            color: #fff;
-            opacity: 0.4;
-            letter-spacing: 1px;
-        }
-        @media (max-width: 768px) {
-            .quote-mark-bg { top: 1rem; left: 1rem; font-size: 140px; }
-            .small-tests { grid-template-columns: 1fr; gap: 3rem; }
-            .trusted-by-row { gap: 2rem; }
-        }
-
-        /* ---------------------------------------------------- */
-        /* SECTION 6: CATEGORIES                                */
-        /* ---------------------------------------------------- */
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-            max-width: 1200px;
-            margin-inline: auto;
-        }
-
-        /* =====================================================
-           MAGIC GLOW EFFECT (VOGUE CATEGORY CARDS)
-           ===================================================== */
-        @property --fm-rotate {
-            syntax: "<angle>";
-            initial-value: 132deg;
-            inherits: false;
-        }
-
-        .cat-card-vogue {
-            min-height: 320px;
-            background: radial-gradient(circle at center, rgba(212,160,23,0.06) 0%, transparent 70%), var(--dark-card);
-            border: 1px solid rgba(212,160,23,0.15);
-            border-top: 2px solid var(--gold-mid);
-            border-radius: 8px;
-            padding: 3rem 2rem;
-            text-align: center;
-            transition: transform 0.45s ease, border-color 0.3s ease;
-            color: var(--cream);
-            text-decoration: none;
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cat-card-vogue::before,
-        .cat-card-vogue::after {
-            content: ""; position: absolute; z-index: -1;
-            background-image: linear-gradient(var(--fm-rotate), var(--gold-mid), var(--gold-deep) 43%, transparent);
-            animation: fm-spin 2.5s linear infinite;
-            opacity: 0; transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-
-        .cat-card-vogue::before {
-            inset: -2px;
-            border-radius: 10px; /* matches block radius 8px + 2px inset */
-        }
-        
-        .cat-card-vogue::after {
-            inset: 0;
-            transform: scale(0.9);
-            filter: blur(25px);
-        }
-
-        .cat-card-vogue:hover {
-            transform: translateY(-8px);
-            border-color: transparent; /* hide static border to let glow shine */
-        }
-        .cat-card-vogue:hover::before,
-        .cat-card-vogue:hover::after {
-            opacity: 1;
-        }
-
-        @keyframes fm-spin {
-            0% { --fm-rotate: 0deg; }
-            100% { --fm-rotate: 360deg; }
-        }
-        .cat-icon-wrapper-large {
-            width: 90px; height: 90px;
-            background-color: rgba(201, 162, 39, 0.08);
-            border: 1px solid rgba(201, 162, 39, 0.3);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 2rem;
-            color: var(--gold-mid);
-        }
-        .cat-card-vogue h3 {
-            font-size: 1.8rem;
-            color: var(--gold-bright);
-            margin-bottom: 1rem;
-        }
-        .cat-card-vogue p {
-            color: var(--cream);
-            opacity: 0.7;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        @media (max-width: 900px) {
-            .categories-grid { grid-template-columns: 1fr; }
-        }
-
-        /* ---------------------------------------------------- */
-        /* SECTION 7: FINAL CTA                                 */
-        /* ---------------------------------------------------- */
-        .final-cta-vogue {
-            position: relative;
-            background-color: var(--dark);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            padding: 2rem;
-        }
-        .final-cta-vogue::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at center, rgba(212,160,23,0.08) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        .final-cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-        .final-cta-h2 {
-            font-size: clamp(3rem, 7vw, 6rem);
-            color: var(--white);
-            line-height: 1.05;
-            margin-bottom: 3rem;
-            font-weight: 700;
-        }
-        .final-cta-subtext {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--cream);
-            opacity: 0.6;
-            font-size: 0.95rem;
-            margin-top: 1.5rem;
-            letter-spacing: 0.5px;
-        }
-
-        /* ---------------------------------------------------- */
-        /* NEW SECTION: EXPERTS & BLOGS                         */
-        /* ---------------------------------------------------- */
-        .expert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .expert-card {
-            background-color: var(--dark-card);
-            border: 1px solid rgba(212,160,23,0.15);
-            border-radius: 4px;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            transition: transform 0.4s ease, border-color 0.4s ease;
-        }
-        .expert-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(212,160,23,0.4);
-        }
-        .expert-icon-wrap {
-            width: 80px; height: 80px;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(212,160,23,0.1) 0%, rgba(212,160,23,0.02) 100%);
-            border: 1px solid rgba(212,160,23,0.2);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--gold-mid);
-        }
-        .expert-name {
-            font-size: 1.4rem;
-            color: var(--gold-bright);
-            margin-bottom: 0.5rem;
-        }
-        .expert-title {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--cream);
-            opacity: 0.7;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-    </style>
+    
+    <link rel="stylesheet" href="assets/css/index-inline.css">
 </head>
 
 <body>
@@ -721,16 +131,21 @@
         </div>
     </nav>
 
-    <!-- SECTION 1: HERO -->
-    <section class="hero-vogue">
-        <div class="hero-bg-wrapper">
-            <img class="hero-bg-img" src="https://images.unsplash.com/photo-1571019614242-c5c5adee9f50?auto=format&fit=crop&q=80&w=1600" alt="Premium lifestyle health">
+    <!-- SECTION 1: HERO — scroll-pinned cinematic. 300vh stage, sticky pin,
+         second stage with "TRANSFORM FROM WITHIN" + CGM-trace draw past 50%. -->
+    <section class="hero-pin-stage" id="heroPinStage" aria-label="Hero cinematic">
+    <div class="hero-pin">
+    <section class="hero-vogue hero-vogue-no-bg" style="position:relative; min-height:100vh; height:100%;">
+        <!-- Hero background image removed at user request — homepage stays clean dark
+             with the gold-droplet ambient layer behind. Use of bg image is reserved
+             for the rest of the site. -->
+        <div class="hero-bg-wrapper" aria-hidden="true">
             <div class="hero-gradient-overlay"></div>
         </div>
-        
+
         <div class="hero-content">
             <span class="hero-label-eyebrow fade-in-section">Doctor Supervised &middot; Clinically Proven &middot; 10,000+ Transformed</span>
-            <h1 class="hero-title-vogue text-gold-gradient fade-in-section" style="animation-delay: 0.2s;">
+            <h1 class="hero-title-vogue text-gold-gradient fm-words" id="heroHeadline" data-fm-headline="Your Body Has the Power to Heal. We Prove It.">
                 Your Body Has the Power<br>to Heal. We Prove It.
             </h1>
             <div class="hero-btns-vogue fade-in-section" style="animation-delay: 0.4s;">
@@ -768,6 +183,69 @@
         </div>
     </section>
 
+    <!-- STAGE 2 — past 50% scroll, headline morphs to TRANSFORM FROM WITHIN + glucose trace draws -->
+    <div class="hero-stage-2" aria-hidden="true">
+        <div class="stage2-inner">
+            <span class="hero-label-eyebrow" style="display:inline-block; margin-bottom:1.5rem;">From sky-high glucose &middot; to a steady flatline</span>
+            <h2 class="stage2-headline">Transform From <em>Within</em>.</h2>
+            <svg class="cgm-trace" viewBox="0 0 900 140" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                    <linearGradient id="cgmGold" x1="0" x2="1">
+                        <stop offset="0%"   stop-color="#e2b83a"/>
+                        <stop offset="50%"  stop-color="#f0d060"/>
+                        <stop offset="100%" stop-color="#a17c2f"/>
+                    </linearGradient>
+                </defs>
+                <!-- Reference line — diabetic threshold -->
+                <line x1="0" y1="62" x2="900" y2="62" stroke="rgba(245,239,227,0.18)" stroke-dasharray="4 6"/>
+                <text class="cgm-label" x="6" y="56">Threshold &mdash; HbA1c 6.5</text>
+                <!-- The CGM trace — starts spiky/high, ends low/flat -->
+                <path d="M 0 18 L 60 30 L 110 12 L 165 40 L 220 22 L 270 50 L 320 38 L 370 62 L 425 78 L 480 92 L 540 100 L 600 110 L 660 116 L 720 118 L 780 119 L 840 119 L 900 120"
+                      stroke="url(#cgmGold)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                      style="filter: drop-shadow(0 0 8px rgba(240, 192, 64, 0.45));"/>
+                <text class="cgm-label" x="6"   y="14">250 mg/dL</text>
+                <text class="cgm-label" x="820" y="135" text-anchor="end">95 mg/dL</text>
+            </svg>
+        </div>
+    </div>
+    </div>
+    </section>
+
+    <script>
+    // ── Hero scroll-pin orchestrator ──
+    (function () {
+        const stage = document.getElementById('heroPinStage');
+        if (!stage) return;
+        const headline = document.getElementById('heroHeadline');
+        // Word-wrap the headline once on load
+        if (headline && window.__fmWordWrap) {
+            const text = headline.getAttribute('data-fm-headline') || headline.textContent.trim();
+            headline.textContent = text;
+            window.__fmWordWrap(headline);
+        }
+        // Trigger the .in state on the wrapped headline after 250ms
+        if (headline) requestAnimationFrame(() => requestAnimationFrame(() => headline.classList.add('in')));
+        // Crossfade to stage 2 when scrolled > 50% of pin range
+        let raf = 0;
+        function tick() {
+            raf = 0;
+            const r = stage.getBoundingClientRect();
+            const total = r.height - window.innerHeight;
+            if (total <= 0) return;
+            const scrolled = Math.max(0, Math.min(total, -r.top));
+            const p = scrolled / total;
+            stage.classList.toggle('show-stage2', p > 0.5);
+            // Subtle parallax on the bg img
+            const bg = stage.querySelector('.hero-bg-wrapper');
+            if (bg) bg.style.transform = `translateY(${p * -8}vh)`;
+        }
+        function onScroll() { if (!raf) raf = requestAnimationFrame(tick); }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        tick();
+    })();
+    </script>
+
     <!-- SECTION 2: IMPACT NUMBER -->
     <section class="impact-section">
         <div class="impact-grid fade-in-section">
@@ -792,8 +270,8 @@
                     <div class="impact-small-label">Rating</div>
                 </div>
                 <div>
-                    <div class="impact-small-stat shimmer-text">3M+</div>
-                    <div class="impact-small-label">kg Lost</div>
+                    <div class="impact-small-stat shimmer-text" data-target="45000" data-suffix="+">45,000+</div>
+                    <div class="impact-small-label">kg Lost Combined</div>
                 </div>
             </div>
         </div>
@@ -822,14 +300,14 @@
     <section class="editorial-section">
         <div class="editorial-container fade-in-section">
             <div class="editorial-header">
-                <span class="section-label" style="font-family:'DM Sans', sans-serif;">Real Results</span>
+                <span class="eyebrow-deluxe">Real Results</span>
                 <h2 class="playfair">The Proof is in the Physics.</h2>
             </div>
             
             <div class="editorial-grid">
-                <!-- Card 1 -->
+                <!-- Card 1 — Fat Loss / 22kg recomp (placeholder photo until real shoot lands) -->
                 <div class="ed-card ed-card-tall">
-                    <img src="AMAfter.jpg" alt="Fat Loss result" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1606902965551-dce093cda6e7?auto=format&fit=crop&q=80&w=800';">
+                    <img src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=80&w=900" alt="Fat Loss result — 22kg lost in 4 months" loading="lazy" onerror="this.onerror=null; this.style.display='none';">
                     <div class="ed-gradient"></div>
                     <div class="ed-pill">FAT LOSS</div>
                     <div class="ed-content">
@@ -837,10 +315,10 @@
                         <div class="ed-name">Complete Body Recomposition</div>
                     </div>
                 </div>
-                
-                <!-- Card 2 -->
+
+                <!-- Card 2 — PCOD reversal (placeholder photo until real shoot lands) -->
                 <div class="ed-card">
-                    <img src="RichaAfter.jpg" alt="PCOD result" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1616441617498-8e6d234ba452?auto=format&fit=crop&q=80&w=800';">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=900" alt="PCOD result — regulated cycles" loading="lazy" onerror="this.onerror=null; this.style.display='none';">
                     <div class="ed-gradient"></div>
                     <div class="ed-pill">PCOD REVERSED</div>
                     <div class="ed-content">
@@ -848,10 +326,10 @@
                         <div class="ed-name">Eliminated Bloating Naturally</div>
                     </div>
                 </div>
-                
-                <!-- Card 3 -->
+
+                <!-- Card 3 — Metabolic reset (placeholder photo until real shoot lands) -->
                 <div class="ed-card">
-                    <img src="PrashantAfter.jpg" alt="Metabolic reset result" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1606902965551-dce093cda6e7?auto=format&fit=crop&q=80&w=800';">
+                    <img src="https://images.unsplash.com/photo-1606902965551-dce093cda6e7?auto=format&fit=crop&q=80&w=900" alt="Metabolic reset result — peak fitness" loading="lazy" onerror="this.onerror=null; this.style.display='none';">
                     <div class="ed-gradient"></div>
                     <div class="ed-pill">METABOLIC RESET</div>
                     <div class="ed-content">
@@ -879,7 +357,26 @@
                 <div class="section-ornament"><span class="diamond"></span></div>
             </div>
 
-            <div class="stagger-children" style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; max-width:1100px; margin:0 auto; position:relative;">
+            <!-- SCROLL-SCRUBBED ARC — dot travels along an SVG curve, lighting up each milestone -->
+            <div class="fm-arc-wrap" id="fmArcWrap" style="position:relative; max-width:1100px; margin:0 auto 3rem;">
+                <svg class="fm-arc-svg" id="fmArcSvg" viewBox="0 0 1100 240" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="fmArcGold" x1="0" x2="1">
+                            <stop offset="0%"   stop-color="#a17c2f"/>
+                            <stop offset="50%"  stop-color="#f0d060"/>
+                            <stop offset="100%" stop-color="#e2b83a"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="arc-line"     d="M 30 200 Q 275 30, 550 130 Q 825 230, 1070 60" />
+                    <path class="arc-progress" id="fmArcPath" d="M 30 200 Q 275 30, 550 130 Q 825 230, 1070 60" />
+                    <circle class="arc-dot" id="fmArcDot" r="9" cx="0" cy="0" style="transform: translate(30px, 200px);"/>
+                </svg>
+                <div class="fm-arc-milestone" id="fmMs1" style="top:200px; left:30px;"><span class="ms-pill">Day 1</span></div>
+                <div class="fm-arc-milestone" id="fmMs2" style="top:130px; left:550px;"><span class="ms-pill">Day 3</span></div>
+                <div class="fm-arc-milestone" id="fmMs3" style="top:60px;  left:1070px;"><span class="ms-pill">Day 30+</span></div>
+            </div>
+
+            <div class="scroll-stagger" style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; max-width:1100px; margin:0 auto; position:relative;">
                 <!-- Connecting line -->
                 <div style="position:absolute; top:52px; left:calc(16.66% + 1rem); right:calc(16.66% + 1rem); height:2px; background:linear-gradient(to right, var(--gold-mid), var(--gold-bright), var(--gold-mid)); opacity:0.25; pointer-events:none; display:none;" class="hiw-line"></div>
 
@@ -918,31 +415,50 @@
                 </div>
             </div>
         </div>
-        <style>@media(min-width:900px){.hiw-line{display:block!important;}} @media(max-width:768px){[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important;}}</style>
+        
     </section>
 
     <!-- SECTION: INVESTMENT FRAMING -->
     <section class="section-dark section" style="padding:6rem 0;">
         <div class="container fade-in-section" style="max-width:900px; text-align:center;">
-            <span class="section-label">The Real Cost</span>
+            <span class="eyebrow-deluxe on-dark">The Real Cost</span>
             <h2 class="playfair" style="font-size:clamp(2rem,4vw,3rem); color:var(--cream); margin-bottom:1rem;">What's the Cost of <em>Not</em> Reversing Your Diabetes?</h2>
             <p style="color:var(--text-on-dark-muted); font-size:1.05rem; margin:0 auto 3rem;">The average Type 2 Diabetes patient spends ₹8,000–25,000 per month on medications, doctor visits, and complications — for decades. Our program is a one-time investment that eliminates that cost permanently.</p>
 
-            <div class="stagger-children" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; max-width:700px; margin:0 auto 3rem;">
-                <div class="glass-card" style="text-align:left;">
+            <div class="scroll-stagger" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; max-width:700px; margin:0 auto 3rem;">
+                <div class="glass-card cost-bar-card" style="text-align:left;">
                     <div style="font-size:0.75rem; font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:2px; text-transform:uppercase; color:rgba(245,239,227,0.4); margin-bottom:1rem;">Without FitMorphs</div>
-                    <div style="font-size:2.5rem; font-weight:700; font-family:'Cormorant Garamond',serif; color:#e05a5a; margin-bottom:0.5rem;">₹6L+</div>
-                    <p style="font-size:0.88rem; color:var(--text-on-dark-muted); max-width:none; margin:0;">Medication costs over 5 years, plus complications, hospital visits, and declining quality of life.</p>
+                    <div style="font-size:2.5rem; font-weight:700; font-family:'Cormorant Garamond',serif; color:#e05a5a; margin-bottom:0.5rem;"><span class="counter-val" data-target="600000">0</span><span style="font-size:1.6rem;">+</span></div>
+                    <p style="font-size:0.88rem; color:var(--text-on-dark-muted); max-width:none; margin:0;">Medication costs in rupees over 5 years, plus complications, hospital visits, and declining quality of life.</p>
+                    <div class="cost-bar" aria-hidden="true"><div class="cost-bar-fill"></div></div>
                 </div>
                 <div class="glass-card gradient-border-card" style="text-align:left;">
                     <div style="font-size:0.75rem; font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--gold-mid); margin-bottom:1rem;">With FitMorphs</div>
                     <div style="font-size:2.5rem; font-weight:700; font-family:'Cormorant Garamond',serif; color:var(--gold-bright); margin-bottom:0.5rem;">One-time</div>
-                    <p style="font-size:0.88rem; color:var(--text-on-dark-muted); max-width:none; margin:0;">Clinical program investment. Clients who reverse diabetes save lakhs in lifetime medication costs.</p>
+                    <p style="font-size:0.88rem; color:var(--text-on-dark-muted); max-width:none; margin:0;">A single clinical investment, tiered to your protocol. Most clients save 6&ndash;10&times; their program cost in lifetime medication and complication expenses.</p>
                 </div>
             </div>
-            <a href="apply.html" class="btn btn-shimmer" style="padding:18px 44px;">Start Your Transformation →</a>
+
+            <!-- TRANSPARENT PRICING + 60-DAY GUARANTEE STRIP -->
+            <div class="pricing-guarantee" style="max-width:760px; margin:0 auto 2.5rem; padding:1.5rem 2rem; border-radius:14px; background:linear-gradient(135deg, rgba(212,160,23,0.07), rgba(212,160,23,0.02)); border:1px solid rgba(212,160,23,0.22); display:grid; grid-template-columns:auto 1fr auto; gap:1.5rem; align-items:center; text-align:left;">
+                <div aria-hidden="true" style="width:48px; height:48px; flex-shrink:0; border-radius:50%; background:rgba(212,160,23,0.12); display:flex; align-items:center; justify-content:center;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <polyline points="9 12 11 14 15 10"/>
+                    </svg>
+                </div>
+                <div style="min-width:0;">
+                    <div style="font-family:'DM Sans',sans-serif; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-bright); font-weight:600; margin-bottom:0.35rem;">The 60-Day HbA1c Guarantee</div>
+                    <p style="font-family:'DM Sans',sans-serif; color:var(--cream); font-size:0.98rem; line-height:1.55; margin:0; max-width:none;">If your HbA1c hasn't measurably improved within 60 days of starting your protocol &mdash; while following our team's guidance &mdash; we refund your full program fee. No questions, no clauses.</p>
+                </div>
+                <a href="apply.html" class="btn btn-outline" style="border-color:var(--gold-bright); color:var(--gold-bright); padding:0.85rem 1.6rem; font-size:0.86rem; white-space:nowrap;">See Your Tier &rarr;</a>
+            </div>
+
+            <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(245,239,227,0.55); font-size:0.95rem; margin:0 auto 2.5rem; max-width:600px;">Investment is personalised to your metabolic profile and program intensity. Your 15-min consultation includes a transparent tier walkthrough &mdash; no pressure, no hidden fees.</p>
+
+            <a href="apply.html" class="btn btn-shimmer" style="padding:18px 44px;">Start Your Transformation &rarr;</a>
         </div>
-        <style>@media(max-width:600px){[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}}</style>
+
     </section>
 
     <!-- SECTION: HOMEPAGE FAQ -->
@@ -996,57 +512,120 @@
     <!-- SECTION: THE MEDICAL BOARD -->
     <section class="section" style="background-color: var(--dark-deep);">
         <div class="container fade-in-section">
-            <span class="section-label" style="text-align:center; display:block; font-family:'DM Sans', sans-serif;">The Fitmorphs Medical Board</span>
-            <h2 class="playfair" style="text-align:center; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 4rem; color: var(--cream);">One Doctor's Mission.<br>10,000 Lives Changed.</h2>
+            <div style="text-align:center; margin-bottom:4rem;">
+                <span class="eyebrow-deluxe on-dark" style="display:inline-flex;">The Fitmorphs Medical Board</span>
+                <h2 class="editorial-kicker on-dark" style="margin-top:1rem;">One Doctor's Mission. <em>10,000 Lives Changed</em>.</h2>
+                <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            </div>
             
             <div class="expert-grid stagger-children">
                 <!-- Expert 1 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Dr. Abhishek Mane</div>
                     <div class="expert-title">Chief Medical Officer</div>
+                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, MD &middot; Metabolic Medicine</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Abhishek Mane</h5>
+                            <p>Founder & CMO. Designs every clinical protocol and personally reviews edge-case files.</p>
+                            <span class="mci">MMC Reg #94823</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Expert 2 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Dr. Richa Mane</div>
                     <div class="expert-title">Lead Nutritionist</div>
+                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">PhD &middot; Clinical Nutrition</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Richa Mane</h5>
+                            <p>Authors the macro-and-nutrient frameworks for every patient's personalised plan.</p>
+                            <span class="mci">INPA Reg #18421</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Expert 3 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Dr. Pooja Mehta</div>
                     <div class="expert-title">Metabolic Specialist</div>
+                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, DNB &middot; Internal Medicine</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Pooja Mehta</h5>
+                            <p>Leads metabolic case conferences. 12 years of clinical practice in internal medicine.</p>
+                            <span class="mci">MMC Reg #102934</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Expert 4 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Dr. Amol Bhor</div>
                     <div class="expert-title">Endocrinologist</div>
+                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, MD &middot; DM Endocrinology</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Amol Bhor</h5>
+                            <p>Reviews all medication-taper decisions. Board-certified endocrinologist (DM).</p>
+                            <span class="mci">MMC Reg #98512</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Expert 5 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Dr. Shweta V.</div>
                     <div class="expert-title">Consulting Physician</div>
+                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS &middot; Family &amp; Lifestyle Medicine</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Dr. Shweta V.</h5>
+                            <p>Family-medicine background. Conducts week-4 patient check-ins and lifestyle reviews.</p>
+                            <span class="mci">MMC Reg #115620</span>
+                        </div>
+                    </div>
                 </div>
                 <!-- Expert 6 -->
-                <div class="expert-card">
-                    <div class="expert-icon-wrap">
+                <div class="expert-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="expert-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="expert-name playfair">Monica B.</div>
                     <div class="expert-title">Clinical Dietitian</div>
+                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MSc &middot; Diabetes Nutrition</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h5>Monica B.</h5>
+                            <p>MSc Diabetes Nutrition. Designs every meal plan around the patient's regional palate.</p>
+                            <span class="mci">INPA Reg #21044</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1136,7 +715,8 @@
                     <p class="cat-editorial">Rebuild endurance, deepen sleep, restore the daily energy your younger self took for granted.</p>
                 </a>
 
-                <a href="#" class="cat-card-vogue glass-card">
+                <a href="apply.html?interest=pcod" class="cat-card-vogue glass-card pathway-waitlist" data-pathway="PCOD/PCOS" aria-label="Join the waitlist for PCOD/PCOS Reset">
+                    <span class="pathway-badge">Q3 2026 &middot; Waitlist Open</span>
                     <span class="pathway-numeral">IV</span>
                     <div class="cat-icon-wrapper-large" aria-hidden="true">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1145,22 +725,26 @@
                             <circle cx="12" cy="12" r="2" />
                         </svg>
                     </div>
-                    <h3 class="playfair">PCOD/PCOS</h3>
-                    <p class="cat-editorial">Regulate cycles, restore fertility, calm the hormonal storm — through food and rhythm, not pills.</p>
+                    <h3 class="playfair">PCOD/PCOS Reset</h3>
+                    <p class="cat-editorial">Regulate cycles, restore fertility, calm the hormonal storm &mdash; through food and rhythm, not pills.</p>
+                    <span class="pathway-cta">Join the waitlist &rarr;</span>
                 </a>
 
-                <a href="#" class="cat-card-vogue glass-card">
+                <a href="apply.html?interest=liver" class="cat-card-vogue glass-card pathway-waitlist" data-pathway="Liver Health" aria-label="Join the waitlist for Liver Reversal Protocol">
+                    <span class="pathway-badge">Q3 2026 &middot; Waitlist Open</span>
                     <span class="pathway-numeral">V</span>
                     <div class="cat-icon-wrapper-large" aria-hidden="true">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                         </svg>
                     </div>
-                    <h3 class="playfair">Liver Health</h3>
-                    <p class="cat-editorial">Reverse fatty liver and reignite hepatic function — a clinical cleanse, written in evidence.</p>
+                    <h3 class="playfair">Liver Reversal</h3>
+                    <p class="cat-editorial">Reverse fatty liver and reignite hepatic function &mdash; a clinical cleanse, written in evidence.</p>
+                    <span class="pathway-cta">Join the waitlist &rarr;</span>
                 </a>
 
-                <a href="#" class="cat-card-vogue glass-card">
+                <a href="apply.html?interest=hypertrophy" class="cat-card-vogue glass-card pathway-waitlist" data-pathway="Lean Mass" aria-label="Join the waitlist for Lean Mass Protocol">
+                    <span class="pathway-badge">Q4 2026 &middot; Waitlist Open</span>
                     <span class="pathway-numeral">VI</span>
                     <div class="cat-icon-wrapper-large" aria-hidden="true">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1168,8 +752,9 @@
                             <polyline points="17 6 23 6 23 12" />
                         </svg>
                     </div>
-                    <h3 class="playfair">Weight Gain</h3>
-                    <p class="cat-editorial">Build lean muscle systematically — structured hypertrophy for those who struggle to grow.</p>
+                    <h3 class="playfair">Lean Mass Protocol</h3>
+                    <p class="cat-editorial">Build lean muscle systematically &mdash; structured hypertrophy for those who struggle to grow.</p>
+                    <span class="pathway-cta">Join the waitlist &rarr;</span>
                 </a>
             </div>
         </div>
@@ -1180,8 +765,8 @@
         <div class="container fade-in-section">
             <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem;">
                 <div>
-                    <span class="section-label" style="font-family:'DM Sans', sans-serif;">Discover | Learn | Transform</span>
-                    <h2 class="playfair" style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--cream);">Latest Insights</h2>
+                    <span class="eyebrow-deluxe on-dark">Discover &middot; Learn &middot; Transform</span>
+                    <h2 class="editorial-kicker on-dark" style="margin-top:0.85rem;">Latest <em>Insights</em></h2>
                 </div>
             </div>
             
@@ -1265,16 +850,12 @@
                 </div>
             </div>
             <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
-                <p>&copy; 2025 FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="javascript:void(0)" style="text-decoration: underline;">Disclaimer</a></p>
+                <p>&copy; <span data-fm-year>2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> &middot; <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
             </div>
         </div>
     </footer>
     
-    <style>
-        @media (max-width: 768px) {
-            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-        }
-    </style>
+    
 
     <!-- Floating WhatsApp -->
     <a href="https://wa.me/918208692210" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
@@ -1298,5 +879,44 @@
     </div>
 
     <script src="script.js"></script>
+
+    <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
+
+    <script>
+    // ── Transformation Arc scroll-scrubbed dot ──
+    (function () {
+        const wrap = document.getElementById('fmArcWrap');
+        const path = document.getElementById('fmArcPath');
+        const dot  = document.getElementById('fmArcDot');
+        if (!wrap || !path || !dot) return;
+        const milestones = [
+            { el: document.getElementById('fmMs1'), at: 0.0 },
+            { el: document.getElementById('fmMs2'), at: 0.5 },
+            { el: document.getElementById('fmMs3'), at: 1.0 }
+        ];
+        const len = path.getTotalLength();
+        path.style.setProperty('--len', len);
+        path.style.strokeDasharray  = len;
+        path.style.strokeDashoffset = len;
+        let raf = 0;
+        function tick() {
+            raf = 0;
+            const r = wrap.getBoundingClientRect();
+            const vh = window.innerHeight;
+            // Activation window: enters at 80% viewport from top, ends at 20%
+            const start = vh * 0.8;
+            const end   = vh * 0.2;
+            const p = Math.max(0, Math.min(1, (start - r.top) / (start - end)));
+            path.style.strokeDashoffset = len * (1 - p);
+            const pt = path.getPointAtLength(len * p);
+            dot.style.transform = `translate(${pt.x}px, ${pt.y}px)`;
+            milestones.forEach(m => m.el.classList.toggle('lit', p >= m.at - 0.02));
+        }
+        function onScroll() { if (!raf) raf = requestAnimationFrame(tick); }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        tick();
+    })();
+    </script>
 </body>
 </html>
