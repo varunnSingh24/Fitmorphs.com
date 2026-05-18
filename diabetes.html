@@ -537,13 +537,15 @@
             titleEl.classList.remove('in');
             descEl.classList.remove('in');
             clearTimeout(swapTimer);
+            // Tightened from 320ms → 140ms so the scene commits feel
+            // synchronous with scroll rather than lagging behind.
             swapTimer = setTimeout(() => {
                 nowEl.textContent = PILLARS[i].numeral;
                 shell.classList.remove('sp-swap');
                 render(i);
                 card.classList.remove('sp-swap');
                 current = i;
-            }, 320);
+            }, 140);
         }
 
         // Scroll progress hook — single rAF loop
