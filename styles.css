@@ -3419,3 +3419,52 @@ body { overflow-x: clip; }
 }
 .fm-type.done::after { animation: none; opacity: 0; }
 @keyframes fm-caret { 50% { opacity: 0; } }
+
+/* =========================================================
+   IMAGE-FREE HOMEPAGE HERO + SEAMLESS HERO BG OVERLAY
+   (Fixes user-reported "gap" / seam visible on diabetes/
+   transformation heroes, and removes hero image on homepage)
+   ========================================================= */
+
+/* Homepage hero — no image behind the headline. Just a deep,
+   warm radial wash + the existing gold-droplet stars layer. */
+.hero-vogue-no-bg .hero-bg-wrapper {
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(212, 160, 23, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(201, 90, 60, 0.06) 0%, transparent 60%),
+    linear-gradient(135deg, #0c0a06 0%, #15110a 50%, #0a0805 100%);
+}
+.hero-vogue-no-bg .hero-bg-wrapper .hero-gradient-overlay {
+  background: none;
+}
+
+/* Inner-page heroes (diabetes, transformation, results, about, blog,
+   apply, methodology) — the existing layout has a 55%-wide image on
+   the right. The seam visible at ~45% of the hero is the LEFT edge
+   of the bg-wrapper meeting the dark area. The fix: paint a full-
+   hero-width gradient OVERLAY via a pseudo-element on .hero-vogue
+   itself (not inside the 55% wrapper) so it crosses the seam line
+   smoothly from solid dark on the left to transparent on the right. */
+.hero-vogue:not(.hero-vogue-no-bg)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1; /* above bg-wrapper (z:0), below hero-content (z:2) */
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    var(--dark) 0%,
+    var(--dark) 38%,
+    rgba(15, 15, 12, 0.85) 55%,
+    rgba(15, 15, 12, 0.40) 75%,
+    rgba(15, 15, 12, 0.08) 92%,
+    transparent 100%
+  );
+}
+/* And neutralise the legacy in-wrapper overlay so it doesn't stack
+   another visible band on top of the new full-width one. */
+.hero-vogue:not(.hero-vogue-no-bg) .hero-bg-wrapper .hero-gradient-overlay {
+  background: none !important;
+}
+/* Make sure .hero-content sits above the new ::after */
+.hero-vogue:not(.hero-vogue-no-bg) .hero-content { z-index: 2; }
