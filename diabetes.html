@@ -19,8 +19,6 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="tailwind-config.js"></script>
 
     <!-- Meta Pixel Code -->
     <script>!function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js'); let extId = localStorage.getItem('fitmorphs_external_id'); if (!extId) { extId = 'fmt_' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15); localStorage.setItem('fitmorphs_external_id', extId); } fbq('init', '463098106520925', { external_id: extId }); fbq('track', 'PageView'); fbq('track', 'ViewContent');</script>
@@ -133,49 +131,68 @@
         </div>
     </section>
 
-    <!-- THE 6-PILLAR PROTOCOL -->
-    <section class="section" style="background-color:var(--dark); position:relative; overflow:hidden; padding:8rem 0;">
-        <div class="container fade-in-section" style="position:relative; z-index:2;">
-            <div style="text-align:center; margin-bottom:5rem;">
-                <span class="eyebrow-deluxe" style="display:inline-flex;">The FitMorphs Method</span>
-                <h2 class="editorial-kicker" style="color:var(--cream);">The Six-Pillar <em>Protocol</em></h2>
-                <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
-                <p style="color:rgba(245,239,227,0.65); max-width:620px; margin:1rem auto 0; font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.15rem;">
-                    Our comprehensive ecosystem leaves nothing to chance.</p>
+    <!-- ====================================================
+         THE SIX-PILLAR PROTOCOL — Scroll-pinned cinematic.
+         The section is 600vh tall. Inside, a sticky 100dvh
+         stage shows a giant Roman numeral that morphs I→II→
+         III→IV→V→VI as the user scrolls, with the pillar's
+         name + description fading in alongside it.
+         ==================================================== */ -->
+    <section class="six-pillar-stage" id="sixPillarStage" aria-label="The Six-Pillar Protocol">
+        <div class="sp-intro container">
+            <span class="eyebrow-deluxe" style="display:inline-flex;">The FitMorphs Method</span>
+            <h2 class="editorial-kicker" style="color:var(--cream);">The Six-Pillar <em>Protocol</em></h2>
+            <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+            <p class="sp-intro-dek">Six doctrines. One ecosystem. Scroll &mdash; nothing is left to chance.</p>
+        </div>
+
+        <!-- The pinned cinema -->
+        <div class="sp-pin">
+            <!-- Ambient particle field (canvas) -->
+            <canvas id="spParticles" class="sp-particles" aria-hidden="true"></canvas>
+
+            <!-- Center stage: giant morphing numeral -->
+            <div class="sp-numeral-shell" aria-hidden="true">
+                <span class="sp-numeral sp-numeral-now" id="spNumeralNow">I</span>
+                <span class="sp-numeral sp-numeral-next" id="spNumeralNext">II</span>
             </div>
-            <div class="grid-3 stagger-children" style="gap:2rem;">
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">I</span>
-                    <h4>Precision Nutrition</h4>
-                    <p>Scientifically calibrated macros tailored for your Indian palate without starving.</p>
-                </div>
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">II</span>
-                    <h4>Metabolic Reset</h4>
-                    <p>Targeted physiological interventions to reverse insulin resistance at a cellular level.</p>
-                </div>
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">III</span>
-                    <h4>Behavioural Coaching</h4>
-                    <p>Psychological tools and habit architecture to ensure lasting adherence.</p>
-                </div>
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">IV</span>
-                    <h4>Real-Time Tracking</h4>
-                    <p>Continuous monitoring of glucose markers and metabolic indicators.</p>
-                </div>
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">V</span>
-                    <h4>Peer Community</h4>
-                    <p>Network of individuals on the same journey, providing unmatched motivation.</p>
-                </div>
-                <div class="pillar-card" style="position:relative;">
-                    <span class="pathway-numeral">VI</span>
-                    <h4>Doctor Supervision</h4>
-                    <p>Every step medically monitored to safely taper off medications.</p>
-                </div>
+
+            <!-- Pillar text overlay (right of numeral on desktop, below on mobile) -->
+            <div class="sp-card" id="spCard">
+                <span class="sp-progress" id="spProgress">01 &middot; 06</span>
+                <h3 class="sp-title" id="spTitle">Precision Nutrition</h3>
+                <p class="sp-desc" id="spDesc">Scientifically calibrated macros tailored for your Indian palate &mdash; never starvation, always satiety, always blood-sugar stable.</p>
+                <span class="sp-tag" id="spTag">Nutrition</span>
+            </div>
+
+            <!-- Progress rail on right edge -->
+            <ol class="sp-rail" aria-hidden="true">
+                <li class="sp-rail-dot active" data-i="0"></li>
+                <li class="sp-rail-dot" data-i="1"></li>
+                <li class="sp-rail-dot" data-i="2"></li>
+                <li class="sp-rail-dot" data-i="3"></li>
+                <li class="sp-rail-dot" data-i="4"></li>
+                <li class="sp-rail-dot" data-i="5"></li>
+            </ol>
+
+            <!-- Scroll hint -->
+            <div class="sp-hint" id="spHint" aria-hidden="true">
+                <span>Scroll</span>
+                <svg width="14" height="20" viewBox="0 0 14 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="0.5" y="0.5" width="13" height="19" rx="6.5"/><line class="sp-hint-bar" x1="7" y1="5" x2="7" y2="9"/></svg>
             </div>
         </div>
+
+        <!-- Data sidecar — read by JS to drive the morph -->
+        <script id="sp-data" type="application/json">
+        [
+          { "numeral":"I",   "tag":"Nutrition",  "title":"Precision Nutrition",   "desc":"Scientifically calibrated macros tailored for your Indian palate &mdash; never starvation, always satiety, always blood-sugar stable." },
+          { "numeral":"II",  "tag":"Cellular",   "title":"Metabolic Reset",       "desc":"Targeted physiological interventions that repair insulin sensitivity at the cellular level. The pancreas is given room to heal." },
+          { "numeral":"III", "tag":"Behaviour",  "title":"Behavioural Coaching",  "desc":"Habit architecture and psychological tooling that converts a 90-day protocol into a permanent operating system." },
+          { "numeral":"IV",  "tag":"Telemetry",  "title":"Real-Time Tracking",    "desc":"Continuous monitoring of glucose, sleep, and metabolic markers. Your data writes the next week's prescription." },
+          { "numeral":"V",   "tag":"Community",  "title":"Peer Community",        "desc":"A private network of patients walking the same road. Unmatched accountability, lived expertise, on-demand support." },
+          { "numeral":"VI",  "tag":"Supervision","title":"Doctor Supervision",    "desc":"Every protocol decision medically reviewed. Medications safely tapered as your lab values respond. Nothing is left to chance." }
+        ]
+        </script>
     </section>
 
     <!-- LAB REPORTS -->
@@ -344,8 +361,8 @@
             </div>
             <div
                 style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
-                <p>&copy; 2026 FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a
-                        href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a></p>
+                <p>&copy; <span data-fm-year>2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a
+                        href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> &middot; <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
             </div>
         </div>
     </footer>
@@ -387,8 +404,186 @@
         });
     </script>
 
-
     <script src="script.js"></script>
+    <script>
+    // ======================================================================
+    // SIX-PILLAR PROTOCOL — scroll-pinned scene engine.
+    // Drives the numeral morph + card swap + rail dot + particle field.
+    // ======================================================================
+    (function () {
+        const stage = document.getElementById('sixPillarStage');
+        if (!stage) return;
+        const dataEl = document.getElementById('sp-data');
+        if (!dataEl) return;
+        const PILLARS = JSON.parse(dataEl.textContent);
+        const N = PILLARS.length;
+
+        const shell    = document.querySelector('.sp-numeral-shell');
+        const nowEl    = document.getElementById('spNumeralNow');
+        const nextEl   = document.getElementById('spNumeralNext');
+        const card     = document.getElementById('spCard');
+        const titleEl  = document.getElementById('spTitle');
+        const descEl   = document.getElementById('spDesc');
+        const tagEl    = document.getElementById('spTag');
+        const progEl   = document.getElementById('spProgress');
+        const railDots = [...document.querySelectorAll('.sp-rail-dot')];
+        const hint     = document.getElementById('spHint');
+        const reduced  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (reduced) {
+            // Static render — show all six pillars in a simple flow
+            const pin = document.querySelector('.sp-pin');
+            if (pin) {
+                pin.innerHTML = PILLARS.map((p, i) => `
+                    <div style="text-align:center; padding:2rem 0; max-width:560px; margin:0 auto;">
+                      <div style="font-family:'Fraunces',serif; font-style:italic; font-weight:600; font-size:4rem; background:linear-gradient(180deg,#faf0d0,#a17c2f); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1;">${p.numeral}</div>
+                      <h3 style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.8rem; color:var(--cream); margin:.5rem 0;">${p.title}</h3>
+                      <p style="font-family:'DM Sans',sans-serif; color:rgba(245,239,227,0.78); margin:0 auto; max-width:480px;">${p.desc}</p>
+                    </div>
+                `).join('');
+            }
+            return;
+        }
+
+        // Currently shown scene index
+        let current = 0;
+        let swapTimer = null;
+
+        function render(i) {
+            const p = PILLARS[i];
+            titleEl.textContent  = p.title;
+            descEl.innerHTML     = p.desc;
+            tagEl.textContent    = p.tag;
+            progEl.innerHTML     = String(i + 1).padStart(2, '0') + ' &middot; 0' + N;
+            railDots.forEach((d, k) => d.classList.toggle('active', k === i));
+        }
+
+        function morphTo(i) {
+            if (i === current) return;
+            // Stage the next numeral in nextEl, then trigger the swap class
+            nextEl.textContent = PILLARS[i].numeral;
+            shell.classList.add('sp-swap');
+            card.classList.add('sp-swap');
+            clearTimeout(swapTimer);
+            swapTimer = setTimeout(() => {
+                // Commit: now becomes the new value, next stays in DOM for the next swap
+                nowEl.textContent  = PILLARS[i].numeral;
+                shell.classList.remove('sp-swap');
+                render(i);
+                card.classList.remove('sp-swap');
+                current = i;
+            }, 320);
+        }
+
+        // Scroll progress hook — single rAF loop
+        let raf = 0;
+        function tick() {
+            raf = 0;
+            const rect = stage.getBoundingClientRect();
+            const vh = window.innerHeight;
+            const total = rect.height - vh;
+            if (total <= 0) return;
+            const scrolled = Math.max(0, Math.min(total, -rect.top));
+            const progress = scrolled / total; // 0..1
+            // Map [0..1] to [0..N-1], skipping the very top so the intro stays clean
+            const eased = Math.min(1, Math.max(0, (progress - 0.06) / 0.88));
+            const idx = Math.min(N - 1, Math.floor(eased * N));
+            if (idx !== current) morphTo(idx);
+
+            // Fade out hint after first interaction
+            if (hint && !hint.classList.contains('faded') && progress > 0.04) {
+                hint.classList.add('faded');
+            }
+        }
+        function onScroll() { if (!raf) raf = requestAnimationFrame(tick); }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        // Prime the first frame
+        render(0);
+        tick();
+
+        // ---------------- Ambient particle field ----------------
+        const canvas = document.getElementById('spParticles');
+        if (canvas && canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+            const DPR = Math.min(2, window.devicePixelRatio || 1);
+            const parts = [];
+            const COUNT = 90;
+
+            function resize() {
+                const rect = canvas.getBoundingClientRect();
+                canvas.width  = Math.max(1, Math.floor(rect.width  * DPR));
+                canvas.height = Math.max(1, Math.floor(rect.height * DPR));
+            }
+            function seed() {
+                parts.length = 0;
+                const w = canvas.width, h = canvas.height;
+                for (let i = 0; i < COUNT; i++) {
+                    parts.push({
+                        x: Math.random() * w,
+                        y: Math.random() * h,
+                        z: Math.random() * 0.7 + 0.3,           // 0.3..1
+                        r: Math.random() * 1.2 + 0.6,           // 0.6..1.8 css px
+                        vx: (Math.random() - 0.5) * 0.18,
+                        vy: (Math.random() - 0.5) * 0.18,
+                        ph: Math.random() * Math.PI * 2,
+                    });
+                }
+            }
+            resize(); seed();
+            window.addEventListener('resize', () => { resize(); seed(); }, { passive: true });
+
+            let t = 0;
+            function frame() {
+                t += 16;
+                const w = canvas.width, h = canvas.height;
+                ctx.clearRect(0, 0, w, h);
+
+                // Subtle radial wash
+                const cx = w * 0.5;
+                const cy = h * 0.5;
+                const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(w, h) * 0.55);
+                grad.addColorStop(0, 'rgba(212,160,23,0.03)');
+                grad.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, w, h);
+
+                ctx.globalCompositeOperation = 'lighter';
+                for (const p of parts) {
+                    p.x += p.vx * p.z;
+                    p.y += p.vy * p.z;
+                    if (p.x < -10) p.x = w + 10;
+                    if (p.x > w + 10) p.x = -10;
+                    if (p.y < -10) p.y = h + 10;
+                    if (p.y > h + 10) p.y = -10;
+
+                    const sparkle = 0.55 + 0.45 * Math.sin(t * 0.0015 + p.ph);
+                    const a = 0.18 * p.z * sparkle;
+                    const r = p.r * DPR * (0.8 + p.z * 0.4);
+
+                    const pg = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 4);
+                    pg.addColorStop(0, `rgba(240,192,64,${a})`);
+                    pg.addColorStop(0.45, `rgba(240,192,64,${a * 0.35})`);
+                    pg.addColorStop(1, 'rgba(240,192,64,0)');
+                    ctx.fillStyle = pg;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, r * 4, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.fillStyle = `rgba(255,240,200,${Math.min(1, a * 2.4)})`;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, r * 0.55, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.globalCompositeOperation = 'source-over';
+                requestAnimationFrame(frame);
+            }
+            requestAnimationFrame(frame);
+        }
+    })();
+    </script>
+
+    <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
 </body>
 
 </html>

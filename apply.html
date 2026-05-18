@@ -13,8 +13,6 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="tailwind-config.js"></script>
     <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');let extId=localStorage.getItem('fitmorphs_external_id');if(!extId){extId='fmt_'+Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15);localStorage.setItem('fitmorphs_external_id',extId);}fbq('init','463098106520925',{external_id:extId});fbq('track','PageView');fbq('track','ViewContent');</script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=463098106520925&ev=PageView&noscript=1" loading="lazy"  alt="FitMorphs website graphic" /></noscript>
     
@@ -190,8 +188,14 @@
                             <input type="text" id="duration" name="duration" class="form-control" placeholder="E.g., 3 years, recently diagnosed…">
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="hba1c">Latest HbA1c reading (if known)</label>
-                            <input type="text" id="hba1c" name="hba1c" class="form-control" placeholder="E.g., 7.2">
+                            <label class="form-label" for="hba1c">Latest HbA1c reading <span style="color:var(--text-muted); font-weight:400;">(if known, % units)</span></label>
+                            <div style="position:relative;">
+                                <input type="number" id="hba1c" name="hba1c" class="form-control" placeholder="E.g., 7.2" inputmode="decimal" min="3" max="15" step="0.1" aria-describedby="hba1cHint" style="padding-right:3.5rem;">
+                                <span aria-hidden="true" style="position:absolute; right:1rem; top:50%; transform:translateY(-50%); font-family:'DM Sans',sans-serif; font-size:0.8rem; color:var(--text-muted); letter-spacing:0.05em; font-weight:600;">%</span>
+                                <div id="hba1cMeter" aria-hidden="true" style="margin-top:0.45rem; height:3px; border-radius:2px; background:linear-gradient(90deg, #2ecc71 0%, #2ecc71 30%, #f1c40f 50%, #f39c12 70%, #e74c3c 100%); position:relative; opacity:0; transition:opacity 0.4s ease;">
+                                    <span id="hba1cMarker" style="position:absolute; top:50%; left:0; width:10px; height:10px; border-radius:50%; background:var(--white); border:2px solid var(--text-primary); box-shadow:0 2px 6px rgba(0,0,0,0.18); transform:translate(-50%, -50%); transition:left 0.4s cubic-bezier(0.22, 1, 0.36, 1);"></span>
+                                </div>
+                            </div>
                             <div class="form-hint info" id="hba1cHint"></div>
                         </div>
                         <div class="form-group">
@@ -339,19 +343,51 @@
             card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectCard(); } });
         });
 
-        // HbA1c hint
+        // HbA1c live feedback — meter position + tier-aware hint copy
         const hba1cInput = document.getElementById('hba1c');
         if (hba1cInput) {
-            hba1cInput.addEventListener('blur', () => {
+            const meter  = document.getElementById('hba1cMeter');
+            const marker = document.getElementById('hba1cMarker');
+            const hint   = document.getElementById('hba1cHint');
+
+            const render = () => {
                 const val = parseFloat(hba1cInput.value);
-                const hint = document.getElementById('hba1cHint');
-                if (!isNaN(val) && val >= 5.7) {
-                    hint.textContent = val >= 8 ? '⚠️ This indicates advanced diabetes — our protocol is specifically designed for this range.' : '✓ This is within our program\'s ideal range for reversal.';
-                    hint.className = 'form-hint info show';
-                } else {
-                    hint.className = 'form-hint info';
+                if (isNaN(val) || val < 3 || val > 15) {
+                    if (meter) meter.style.opacity = '0';
+                    if (hint) hint.className = 'form-hint info';
+                    return;
                 }
-            });
+                // Position the marker on the 3.0–13.0 scale (clamp visually)
+                if (meter)  meter.style.opacity = '1';
+                if (marker) {
+                    const pct = Math.max(0, Math.min(100, ((val - 4) / (12 - 4)) * 100));
+                    marker.style.left = pct + '%';
+                }
+                if (hint) {
+                    let msg, cls;
+                    if (val < 5.7) {
+                        msg = '✓ Healthy range. Our preventive protocols can help you keep it there.';
+                        cls = 'success';
+                    } else if (val < 6.5) {
+                        msg = '✓ Pre-diabetic range — the most reversible tier. Our 90-day protocol is ideal.';
+                        cls = 'success';
+                    } else if (val < 8.0) {
+                        msg = '✓ Diabetic range — squarely within our 60-day HbA1c guarantee window.';
+                        cls = 'info';
+                    } else if (val < 10.0) {
+                        msg = '✓ Advanced diabetic range — our protocol is engineered precisely for this tier.';
+                        cls = 'info';
+                    } else {
+                        msg = '⚠ Very high reading. Our doctors will design a phased, medication-monitored taper.';
+                        cls = 'warning';
+                    }
+                    hint.textContent = msg;
+                    hint.className = 'form-hint show ' + cls;
+                }
+            };
+
+            hba1cInput.addEventListener('input', render);
+            hba1cInput.addEventListener('blur',  render);
         }
 
         // Phone hint

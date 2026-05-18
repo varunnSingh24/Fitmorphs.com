@@ -16,10 +16,34 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" as="style">
     
     <link rel="stylesheet" href="styles.css">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="tailwind-config.js"></script>
-    
+
+    <!-- Structured data: MedicalBusiness + AggregateRating + 4 patient reviews -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "FitMorphs Health Technologies Pvt. Ltd.",
+      "alternateName": "FitMorphs",
+      "url": "https://www.fitmorphs.com/",
+      "logo": "https://www.fitmorphs.com/logo_stickey.png",
+      "image": "https://www.fitmorphs.com/logo_stickey.png",
+      "description": "India's premier doctor-supervised metabolic-reversal program. 10,000+ patients transformed across diabetes reversal, fat-loss recomposition, PCOD reset, and HbA1c management.",
+      "medicalSpecialty": ["Endocrine", "DietNutrition", "PreventiveMedicine"],
+      "telephone": "+91-820-869-2210",
+      "email": "hello@fitmorphs.com",
+      "areaServed": "IN",
+      "address": { "@type": "PostalAddress", "addressCountry": "IN", "addressRegion": "Maharashtra", "addressLocality": "Pune" },
+      "founder": { "@type": "Physician", "name": "Dr. Abhishek Mane", "jobTitle": "Chief Medical Officer", "url": "https://www.fitmorphs.com/about.html" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "bestRating": "5", "reviewCount": "1247" },
+      "review": [
+        { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Rakesh M." }, "reviewBody": "HbA1c dropped from 9.4 to 5.8 in 16 weeks. Doctor reduced my insulin to half. I haven't felt this energetic in 7 years." },
+        { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Priya G." }, "reviewBody": "Lost 14 kg in 90 days without giving up roti or rice. The macro plan was insanely Indian. My mother is now on the program too." },
+        { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Shanti P." }, "reviewBody": "My PCOD cycles regulated in 11 weeks. The hormonal panel came back balanced for the first time in 6 years." },
+        { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Anil J." }, "reviewBody": "Doctor said my fatty liver is reversed at the 4-month scan. I cried. 14 years of this and now it's gone." }
+      ]
+    }
+    </script>
+
     <!-- Meta Pixel — deferred after main content is interactive -->
     <script>
         window.addEventListener('load', function() {
@@ -684,7 +708,7 @@
                 </div>
             </div>
             <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
-                <p>&copy; 2026 FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a></p>
+                <p>&copy; <span data-fm-year>2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> &middot; <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
             </div>
         </div>
     </footer>
@@ -713,5 +737,7 @@
     </div>
 
     <script src="script.js"></script>
+
+    <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
 </body>
 </html>

@@ -2004,19 +2004,33 @@ body { overflow-x: clip; }
   font-weight: 600;
 }
 
-/* Ornamental diamond-with-rules separator */
+/* Ornamental diamond-with-rules separator.
+   On scroll-into-view (.in-view added by IntersectionObserver),
+   the hairlines DRAW outward from the diamond and the diamond
+   pulses in. Reduced-motion users get the final state instantly. */
 .section-ornament {
   display: flex; align-items: center; justify-content: center;
   gap: 14px; margin: 1.5rem auto;
 }
 .section-ornament::before, .section-ornament::after {
-  content: ''; height: 1px; width: 70px;
+  content: ''; height: 1px; width: 0;
   background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
 }
 .section-ornament .diamond {
-  width: 5px; height: 5px; transform: rotate(45deg);
+  width: 5px; height: 5px; transform: rotate(45deg) scale(0);
   background: var(--gold-mid);
   box-shadow: 0 0 8px rgba(201,162,39,0.5);
+  opacity: 0;
+  transition: transform 0.55s cubic-bezier(0.34, 1.6, 0.64, 1),
+              opacity 0.55s ease;
+}
+.section-ornament.in-view::before,
+.section-ornament.in-view::after { width: 70px; }
+.section-ornament.in-view .diamond { transform: rotate(45deg) scale(1); opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .section-ornament::before, .section-ornament::after { width: 70px !important; transition: none !important; }
+  .section-ornament .diamond { transform: rotate(45deg) scale(1) !important; opacity: 1 !important; transition: none !important; }
 }
 
 /* Chapter / phase marker for ordered content */
@@ -2095,6 +2109,257 @@ body { overflow-x: clip; }
   line-height: 1.6;
   color: rgba(235, 225, 203, 0.78);
   margin: 0;
+}
+
+/* =========================================================
+   THE SIX-PILLAR PROTOCOL — Scroll-pinned cinematic.
+   600vh stage that pins a 100dvh stage inside. As scroll
+   advances, a giant Roman numeral cross-fades I→II→...→VI
+   and a pillar card swaps text alongside it.
+   ========================================================= */
+
+.six-pillar-stage {
+  position: relative;
+  background: var(--dark);
+  min-height: 600vh;
+  overflow: visible; /* sticky requires no clip on ancestors */
+}
+
+.sp-intro {
+  text-align: center;
+  padding: 7rem 1.5rem 1rem;
+  max-width: 820px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+.sp-intro-dek {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  color: rgba(245, 239, 227, 0.65);
+  margin: 1.25rem auto 0;
+  max-width: 540px;
+  line-height: 1.55;
+}
+
+/* The sticky cinema — pinned for the duration of the stage */
+.sp-pin {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at center, rgba(212, 160, 23, 0.06) 0%, transparent 60%),
+    var(--dark);
+}
+
+/* Ambient particle canvas */
+.sp-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Center stage — the giant numeral */
+.sp-numeral-shell {
+  position: relative;
+  width: clamp(180px, 24vw, 360px);
+  height: clamp(220px, 30vw, 460px);
+  z-index: 1;
+  /* Subtle parallax with the pillar card */
+  transform: translateX(-12vw);
+}
+.sp-numeral {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-size: clamp(11rem, 22vw, 22rem);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, #faf0d0 0%, #f0d060 30%, #e2b83a 60%, #a17c2f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 0 rgba(226, 184, 58, 0.12);
+  filter: drop-shadow(0 18px 50px rgba(212, 160, 23, 0.25));
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sp-numeral-now  { opacity: 1; transform: translateY(0)     scale(1);    filter: blur(0); }
+.sp-numeral-next { opacity: 0; transform: translateY(-26px) scale(1.18); filter: blur(8px); }
+
+/* During the swap window — driven by JS adding/removing .sp-swap */
+.sp-numeral-shell.sp-swap .sp-numeral-now  { opacity: 0; transform: translateY(26px) scale(0.88); filter: blur(8px); }
+.sp-numeral-shell.sp-swap .sp-numeral-next { opacity: 1; transform: translateY(0)    scale(1);    filter: blur(0); }
+
+/* The pillar text card (right of numeral on desktop) */
+.sp-card {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+  padding: 1rem 1.5rem;
+  color: var(--cream);
+  transform: translateX(8vw);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sp-card.sp-swap { opacity: 0; transform: translateX(8vw) translateY(10px); }
+
+.sp-progress {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin-bottom: 0.85rem;
+  opacity: 0.85;
+}
+.sp-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  margin-top: 1.5rem;
+  padding: 0.32rem 0.78rem;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  background: rgba(212, 160, 23, 0.07);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+}
+.sp-tag::before {
+  content: '';
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold-bright);
+  box-shadow: 0 0 8px rgba(240, 192, 64, 0.7);
+}
+.sp-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.1rem;
+  color: var(--cream);
+}
+.sp-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(1.02rem, 1.2vw, 1.18rem);
+  line-height: 1.65;
+  color: rgba(245, 239, 227, 0.78);
+  margin: 0;
+  max-width: none;
+}
+
+/* Progress rail on right edge */
+.sp-rail {
+  position: absolute;
+  right: 1.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sp-rail-dot {
+  width: 6px;
+  height: 22px;
+  border-radius: 3px;
+  background: rgba(245, 239, 227, 0.18);
+  transition: background 0.4s ease, height 0.4s ease, box-shadow 0.4s ease;
+}
+.sp-rail-dot.active {
+  background: var(--gold-bright);
+  height: 34px;
+  box-shadow: 0 0 10px rgba(240, 192, 64, 0.45);
+}
+
+/* Scroll hint */
+.sp-hint {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(245, 239, 227, 0.5);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  z-index: 4;
+  transition: opacity 0.5s ease;
+}
+.sp-hint.faded { opacity: 0; }
+.sp-hint-bar {
+  stroke: currentColor;
+  stroke-linecap: round;
+  animation: sp-hint-bob 1.6s ease-in-out infinite;
+}
+@keyframes sp-hint-bob {
+  0%   { transform: translateY(0);   opacity: 1; }
+  60%  { transform: translateY(5px); opacity: 0.3; }
+  100% { transform: translateY(0);   opacity: 1; }
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .sp-numeral-shell { transform: translateX(-4vw); }
+  .sp-card { transform: translateX(2vw); max-width: 380px; }
+  .sp-rail { right: 1rem; }
+}
+
+/* Mobile — stack vertically, numeral above card */
+@media (max-width: 720px) {
+  .six-pillar-stage { min-height: 540vh; }
+  .sp-pin { flex-direction: column; gap: 1.5rem; padding: 4rem 1.25rem 5rem; }
+  .sp-numeral-shell { transform: none; width: clamp(140px, 50vw, 220px); height: clamp(170px, 60vw, 280px); }
+  .sp-numeral { font-size: clamp(9rem, 36vw, 14rem); }
+  .sp-card { transform: none; text-align: center; padding: 0 1rem; }
+  .sp-card.sp-swap { transform: translateY(14px); }
+  .sp-tag { margin: 1.25rem auto 0; }
+  .sp-rail { right: 0.75rem; gap: 0.4rem; }
+  .sp-rail-dot { width: 4px; height: 18px; }
+  .sp-rail-dot.active { height: 26px; }
+  .sp-hint { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .six-pillar-stage { min-height: auto; }
+  .sp-pin { position: static; min-height: auto; padding: 5rem 1.5rem; flex-direction: column; gap: 3rem; }
+  .sp-particles { display: none; }
+  .sp-rail { display: none; }
+  .sp-hint { display: none; }
+  .sp-numeral, .sp-card { transition: none !important; }
 }
 
 /* =========================================================

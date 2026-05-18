@@ -20,9 +20,6 @@
     <link rel="stylesheet" href="https://unpkg.com/@mantine/core@7.17.4/styles.css">
     <link rel="stylesheet" href="assets/css/blog-article-shared.css">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="tailwind-config.js"></script>
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -321,7 +318,7 @@
                     <a href="disclaimer.html" style="color:inherit; text-decoration: underline;">Disclaimer</a> ·
                     <a href="privacy.html" style="color:inherit; text-decoration: underline;">Privacy</a> ·
                     <a href="terms.html" style="color:inherit; text-decoration: underline;">Terms</a> ·
-                    <a href="refund.html" style="color:inherit; text-decoration: underline;">Refund Policy</a></p>
+                    <a href="refund.html" style="color:inherit; text-decoration: underline;">Refund Policy</a> · <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
             </div>
         </div>
     </footer>
@@ -342,5 +339,7 @@
     <script src="script.js"></script>
     <script src="assets/js/blog-article.js"></script>
 
+
+    <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
 </body>
 </html>
