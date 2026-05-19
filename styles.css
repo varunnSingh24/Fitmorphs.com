@@ -316,7 +316,18 @@ ul { list-style: none; }
 
 .navbar .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
 
-.nav-brand img { height: 60px; width: auto; object-fit: contain; margin-top: 0px; }
+/* Logo: cap at 52px so it fits comfortably inside the 80px navbar
+   (14px clearance top + bottom). Previously 60px, which overflowed
+   by ~9px because the logo's natural aspect ratio (194:221) is taller
+   than wide — getting visually clipped by the section beneath. */
+.nav-brand { display: inline-flex; align-items: center; height: 100%; }
+.nav-brand img {
+  height: 52px;
+  width: auto;
+  max-height: calc(100% - 16px);
+  object-fit: contain;
+  display: block;
+}
 
 .nav-links { display: flex; gap: 2rem; align-items: center; }
 
