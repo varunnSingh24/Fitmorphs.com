@@ -316,7 +316,7 @@ ul { list-style: none; }
 
 .navbar .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
 
-.nav-brand img { height: 70px; width: auto; object-fit: contain; margin-top: 6px; }
+.nav-brand img { height: 60px; width: auto; object-fit: contain; margin-top: 0px; }
 
 .nav-links { display: flex; gap: 2rem; align-items: center; }
 
@@ -1622,8 +1622,8 @@ p { max-width: 640px; }
 
   /* Nav brand logo — slightly smaller on mobile */
   .nav-brand img {
-    height: 56px;
-    margin-top: 4px;
+    height: 48px;
+    margin-top: 0px;
   }
 
   /* Hero buttons — stack vertically on mobile */
@@ -3438,17 +3438,25 @@ body { overflow-x: clip; }
    transformation heroes, and removes hero image on homepage)
    ========================================================= */
 
-/* Homepage hero — no image behind the headline. Just a deep,
-   warm radial wash + the existing gold-droplet stars layer. */
-.hero-vogue-no-bg .hero-bg-wrapper {
-  background:
-    radial-gradient(ellipse at 70% 50%, rgba(212, 160, 23, 0.10) 0%, transparent 55%),
-    radial-gradient(ellipse at 20% 80%, rgba(201, 90, 60, 0.06) 0%, transparent 60%),
-    linear-gradient(135deg, #0c0a06 0%, #15110a 50%, #0a0805 100%);
+/* Homepage hero — entirely black behind the headline (no warm
+   radial wash, no half-gold glow). Just the existing gold-droplet
+   star-layer ambient floats on top. !important needed because
+   index-inline.css loads AFTER styles.css and would otherwise win
+   the cascade with its own .hero-vogue { background-color: ... }. */
+.hero-vogue.hero-vogue-no-bg {
+  background: #000 !important;
 }
-.hero-vogue-no-bg .hero-bg-wrapper .hero-gradient-overlay {
-  background: none;
+.hero-vogue.hero-vogue-no-bg .hero-bg-wrapper {
+  background: #000 !important;
 }
+.hero-vogue.hero-vogue-no-bg .hero-bg-wrapper .hero-gradient-overlay {
+  background: none !important;
+}
+/* Also neutralise the inherited golden-hour conic warmth on this hero
+   so nothing leaks colour onto the headline area. */
+.hero-vogue.hero-vogue-no-bg::before { background: none !important; }
+/* Stop the bg-breathe keyframe from oscillating the hero bg-color */
+.hero-vogue.hero-vogue-no-bg { animation: none !important; }
 
 /* Inner-page heroes (diabetes, transformation, results, about, blog,
    apply, methodology) — the existing layout has a 55%-wide image on
@@ -3480,3 +3488,345 @@ body { overflow-x: clip; }
 }
 /* Make sure .hero-content sits above the new ::after */
 .hero-vogue:not(.hero-vogue-no-bg) .hero-content { z-index: 2; }
+
+/* =========================================================
+   LAB REPORTS — before/after case-file grid (diabetes.html)
+   Each .fm-report-pair = one patient's case-file: a Day-0 card +
+   "X days" arrow + Day-N card. Three pairs stack vertically.
+   Cards reveal with stagger as the section scrolls in.
+   ========================================================= */
+
+.fm-reports-stage { overflow: hidden; }
+
+.fm-reports-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.fm-report-pair {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fm-report-pair.in { opacity: 1; transform: translateY(0); }
+
+.fm-report-head {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+.fm-report-tag {
+  display: inline-block;
+  padding: 0.28rem 0.85rem;
+  background: rgba(212, 160, 23, 0.07);
+  border: 1px solid rgba(212, 160, 23, 0.32);
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.85rem;
+}
+.fm-report-head h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  color: var(--dark);
+  margin: 0 0 0.35rem;
+  line-height: 1.15;
+}
+.fm-report-head h3 span {
+  font-style: normal;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: rgba(15, 15, 12, 0.55);
+  font-weight: 400;
+  display: inline-block;
+  margin-left: 0.35rem;
+}
+.fm-report-protocol {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Before / arrow / After triptych */
+.fm-report-pair-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.fm-report-card {
+  position: relative;
+  margin: 0;
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 15, 12, 0.08);
+  box-shadow: 0 12px 36px rgba(15, 15, 12, 0.08), 0 2px 8px rgba(15, 15, 12, 0.04);
+  perspective: 1400px;
+  transform: scale(0.96);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.55s ease,
+              opacity 0.55s ease;
+  opacity: 0;
+}
+.fm-report-pair.in .fm-report-before { transition-delay: 0.05s; opacity: 1; transform: scale(1); }
+.fm-report-pair.in .fm-report-after  { transition-delay: 0.25s; opacity: 1; transform: scale(1); }
+.fm-report-card:hover {
+  transform: translateY(-3px) scale(1);
+  box-shadow: 0 18px 50px rgba(15, 15, 12, 0.12), 0 4px 12px rgba(15, 15, 12, 0.06);
+}
+.fm-report-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  filter: saturate(0.85) contrast(0.97);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Continuous subtle 3D sway on the report image (not the card frame).
+   Each card gets a slow, alternating ±2.5° rotation + tiny depth shift,
+   staggered so the before/after don't sync. Pauses on hover so the
+   reader can study the report without motion. */
+.fm-report-pair.in .fm-report-card img {
+  animation: fm-report-sway 9.5s ease-in-out infinite;
+}
+.fm-report-pair.in .fm-report-after  img { animation-delay: -4.75s; animation-duration: 10.5s; }
+.fm-report-pair:nth-child(2).in .fm-report-before img { animation-delay: -2s; }
+.fm-report-pair:nth-child(2).in .fm-report-after  img { animation-delay: -7s; animation-duration: 11s; }
+.fm-report-pair:nth-child(3).in .fm-report-before img { animation-delay: -3.5s; animation-duration: 9s; }
+.fm-report-pair:nth-child(3).in .fm-report-after  img { animation-delay: -1.25s; animation-duration: 10s; }
+.fm-report-card:hover img { animation-play-state: paused; }
+
+@keyframes fm-report-sway {
+  0%   { transform: rotateY(-2.4deg) rotateX( 0.6deg) translateZ(0)    scale(1.012); }
+  50%  { transform: rotateY( 2.4deg) rotateX(-0.6deg) translateZ(6px)  scale(1.018); }
+  100% { transform: rotateY(-2.4deg) rotateX( 0.6deg) translateZ(0)    scale(1.012); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-report-pair.in .fm-report-card img { animation: none !important; transform: none !important; }
+}
+.fm-report-stamp {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  padding: 0.32rem 0.78rem;
+  background: rgba(15, 15, 12, 0.82);
+  color: var(--cream);
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  z-index: 1;
+  backdrop-filter: blur(4px);
+}
+.fm-report-stamp.ok {
+  background: rgba(46, 204, 113, 0.95);
+  color: #fff;
+}
+
+.fm-report-card figcaption {
+  padding: 1.1rem 1.25rem 1.25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 1rem;
+  row-gap: 0.15rem;
+  align-items: baseline;
+  background: linear-gradient(180deg, var(--white), rgba(15, 15, 12, 0.025));
+}
+.fm-metric-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(15, 15, 12, 0.55);
+  font-weight: 600;
+  grid-column: 1;
+  grid-row: 1;
+}
+.fm-metric-value {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.95rem;
+  line-height: 1;
+  color: var(--dark);
+  grid-column: 1;
+  grid-row: 2;
+  white-space: nowrap;
+}
+.fm-metric-value small {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: rgba(15, 15, 12, 0.45);
+  margin-left: 0.25rem;
+  text-transform: uppercase;
+}
+.fm-metric-tier {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  align-self: end;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+}
+.fm-metric-tier.hi { background: rgba(231, 76, 60, 0.10); color: #c0392b; border: 1px solid rgba(231, 76, 60, 0.25); }
+.fm-metric-tier.ok { background: rgba(46, 204, 113, 0.10); color: #1e8449; border: 1px solid rgba(46, 204, 113, 0.28); }
+
+/* The connecting arrow between before / after */
+.fm-report-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--gold-deep);
+  min-width: 70px;
+}
+.fm-report-arrow-line {
+  display: block;
+  width: 1px;
+  height: 38px;
+  background: linear-gradient(to bottom, transparent, var(--gold-mid), transparent);
+}
+.fm-report-arrow-pill {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--gold-deep);
+  padding: 0.25rem 0.7rem;
+  background: rgba(212, 160, 23, 0.08);
+  border-radius: 999px;
+  border: 1px solid rgba(212, 160, 23, 0.32);
+  white-space: nowrap;
+}
+
+/* Tablet — keep horizontal triptych but slimmer arrow */
+@media (max-width: 900px) {
+  .fm-report-pair-grid { grid-template-columns: 1fr auto 1fr; gap: 1rem; }
+  .fm-report-arrow { min-width: 56px; }
+  .fm-report-arrow-pill { font-size: 0.92rem; padding: 0.2rem 0.55rem; }
+}
+
+/* Mobile — stack vertically with rotated arrow + balanced spacing */
+@media (max-width: 640px) {
+  .fm-reports-grid { gap: 3rem; }
+  .fm-report-pair-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+  .fm-report-arrow {
+    flex-direction: row;
+    justify-content: center;
+    min-width: 0;
+    padding: 0.25rem 0;
+  }
+  .fm-report-arrow-line {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-mid), transparent);
+  }
+  .fm-report-arrow svg { transform: rotate(90deg); }
+  .fm-report-card img { aspect-ratio: 16 / 11; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-report-pair, .fm-report-card { transition: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+/* =========================================================
+   DIABETES REPORTS CONTINUOUS MARQUEE
+   ========================================================= */
+.fm-reports-stage {
+  overflow: hidden;
+  padding: 4rem 0 !important;
+}
+.fm-reports-marquee {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 4rem !important;
+  max-width: none !important;
+  width: max-content !important;
+  animation: fm-reports-marquee 40s linear infinite !important;
+  margin: 0 !important;
+  padding: 2rem 0;
+}
+@keyframes fm-reports-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 2rem)); } 
+}
+.fm-reports-marquee:hover {
+  animation-play-state: paused !important;
+}
+.fm-reports-marquee .fm-report-pair {
+  width: 800px;
+  flex-shrink: 0;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+@media (max-width: 900px) {
+  .fm-reports-marquee .fm-report-pair {
+    width: 85vw;
+  }
+  .fm-reports-marquee { gap: 2rem !important; }
+  @keyframes fm-reports-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); } 
+  }
+}
+
+/* =========================================================
+   MOBILE OPTIMIZATION FIXES
+   ========================================================= */
+@media (max-width: 768px) {
+  /* Fix Announcement Bar Overlap */
+  .announcement-msg {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 95vw;
+  }
+  
+  /* Fix "METABOLIC SPECIALIST" truncation on small screens */
+  .expert-title, .team-role {
+    word-break: break-word;
+    white-space: normal;
+    font-size: 0.8rem !important;
+  }
+  
+  /* Fix "Specialised Interventions" heading top cutoff */
+  .editorial-header h2 {
+    line-height: 1.2 !important;
+    padding-top: 0.2em;
+  }
+  
+  /* Fix "Asking" 'g' descender cutoff in FAQs */
+  .editorial-kicker {
+    line-height: 1.3 !important;
+    padding-bottom: 0.15em;
+  }
+}

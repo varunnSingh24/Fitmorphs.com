@@ -1,290 +1,268 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply Now | Begin Your Transformation with FitMorphs</title>
-    <meta name="description" content="Apply to join the FitMorphs program. Share your health goals and our clinical team will design a personalized roadmap to reverse metabolic disease.">
-    <meta property="og:title" content="Apply Now | Begin Your Transformation with FitMorphs">
-    <meta property="og:description" content="Apply to join the FitMorphs program. Share your health goals and our clinical team will design a personalized roadmap to reverse metabolic disease.">
-    <meta property="og:image" content="logo_stickey.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.fitmorphs.com/apply.html">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap">
-    <link rel="stylesheet" href="styles.css">
-    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');let extId=localStorage.getItem('fitmorphs_external_id');if(!extId){extId='fmt_'+Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15);localStorage.setItem('fitmorphs_external_id',extId);}fbq('init','463098106520925',{external_id:extId});fbq('track','PageView');fbq('track','ViewContent');</script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=463098106520925&ev=PageView&noscript=1" loading="lazy"  alt="FitMorphs website graphic" /></noscript>
-    
-    <link rel="stylesheet" href="assets/css/apply-inline.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Apply Now | Begin Your Transformation with FitMorphs</title>
+<meta content="Apply to join the FitMorphs program. Share your health goals and our clinical team will design a personalized roadmap to reverse metabolic disease." name="description"/>
+<meta content="Apply Now | Begin Your Transformation with FitMorphs" property="og:title"/>
+<meta content="Apply to join the FitMorphs program. Share your health goals and our clinical team will design a personalized roadmap to reverse metabolic disease." property="og:description"/>
+<meta content="logo_stickey.png" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="https://www.fitmorphs.com/apply.html" property="og:url"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@1&amp;display=swap" rel="preload"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@1&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');let extId=localStorage.getItem('fitmorphs_external_id');if(!extId){extId='fmt_'+Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15);localStorage.setItem('fitmorphs_external_id',extId);}fbq('init','463098106520925',{external_id:extId});fbq('track','PageView');fbq('track','ViewContent');</script>
+<noscript><img alt="FitMorphs website graphic" height="1" loading="lazy" src="https://www.facebook.com/tr?id=463098106520925&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/></noscript>
+<link href="assets/css/apply-inline.css" rel="stylesheet"/>
 </head>
 <body>
-    <div id="stars-container" aria-hidden="true">
-        <div id="stars1" class="star-layer"></div>
-        <div id="stars2" class="star-layer"></div>
-        <div id="stars3" class="star-layer"></div>
-    </div>
-    <div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
-    <div class="custom-cursor" aria-hidden="true"></div>
-    <div id="page-wipe" aria-hidden="true"></div>
-    <!-- Announcement Bar -->
-    <div class="announcement-bar" id="announcementBar" aria-live="polite">
-        <div class="announcement-inner">
-            <span class="announcement-msg active">✦ Limited spots available for Q2 2026 — Apply before they fill</span>
-            <span class="announcement-msg">✦ 10,000+ lives transformed across India</span>
-            <span class="announcement-msg">✦ Doctor-supervised protocols. Science-backed results.</span>
-            <span class="announcement-msg">✦ Average HbA1c reduction of 2.8 points in 90 days</span>
-        </div>
-    </div>
-
-    <nav class="navbar scrolled" role="navigation" aria-label="Main navigation">
-        <div class="container">
-            <a href="index.html" class="nav-brand" aria-label="FitMorphs Home"><img src="logo_stickey.png" alt="FitMorphs Logo" class="footer-logo" width="70" height="70"></a>
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
-            <div class="nav-links" id="nav-links">
-                <a href="index.html">Home</a>
-                <a href="diabetes.html">Diabetes Reversal</a>
-                <a href="transformation.html">Transformation</a>
-                <a href="results.html">Results</a>
-                <a href="about.html">About</a>
-                <a href="blog.html">Blog</a>
-            </div>
-        </div>
-    </nav>
-    <noscript><style>.fade-in-section{opacity:1!important;transform:none!important}body{opacity:1!important}</style></noscript>
-
-    <div class="apply-layout">
-        <!-- Left: Info & Trust -->
-        <div class="apply-info fade-in-section">
-            <div style="position:relative;z-index:1;">
-                <h1 class="text-gold-gradient" style="font-size:clamp(2.2rem,5vw,3.5rem); margin-bottom:1rem; line-height:1.1;">This Is Where Your<br>Story Turns Around.</h1>
-                <p style="font-size:1.1rem; color:var(--text-on-dark-muted); max-width:400px; line-height:1.8;">Apply for your free clinical assessment. Not everyone is accepted — but for the right candidate, we'll design a personalised protocol to reverse your condition in 90 days.</p>
-
-                <div class="trust-badges stagger-children" role="list" aria-label="Program trust badges">
-                    <div class="badge" role="listitem">
-                        <div class="badge-icon" aria-hidden="true">✓</div>
-                        <div class="badge-text"><h4>Doctor Supervised</h4><p>100% safe clinical protocols</p></div>
-                    </div>
-                    <div class="badge" role="listitem">
-                        <div class="badge-icon" aria-hidden="true">🔒</div>
-                        <div class="badge-text"><h4>100% Secure</h4><p>Your medical data is protected</p></div>
-                    </div>
-                    <div class="badge" role="listitem">
-                        <div class="badge-icon" aria-hidden="true">★</div>
-                        <div class="badge-text"><h4>4.9/5 Rating</h4><p>Thousands of happy clients</p></div>
-                    </div>
-                    <div class="badge" role="listitem">
-                        <div class="badge-icon" aria-hidden="true">📈</div>
-                        <div class="badge-text"><h4>10,000+ Transformed</h4><p>Proven track record</p></div>
-                    </div>
-                </div>
-
-                <div class="direct-contact">
-                    <p style="margin-bottom:1rem; color:var(--gold-mid); text-transform:uppercase; font-size:0.8rem; letter-spacing:2px; font-family:'Plus Jakarta Sans',sans-serif;">Prefer direct contact?</p>
-                    <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
-                        <a href="https://wa.me/918208692210" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+<div aria-hidden="true" id="stars-container">
+<div class="star-layer" id="stars1"></div>
+<div class="star-layer" id="stars2"></div>
+<div class="star-layer" id="stars3"></div>
+</div>
+<div aria-hidden="true" class="scroll-progress-container"><div class="scroll-progress-bar"></div></div>
+<div aria-hidden="true" class="custom-cursor"></div>
+<div aria-hidden="true" id="page-wipe"></div>
+<!-- Announcement Bar -->
+<div aria-live="polite" class="announcement-bar" id="announcementBar">
+<div class="announcement-inner">
+<span class="announcement-msg active">✦ 10,000+ lives transformed across India</span>
+<span class="announcement-msg">✦ Doctor-supervised protocols. Science-backed results.</span>
+<span class="announcement-msg">✦ Average HbA1c reduction of 2.8 points in 90 days</span>
+</div>
+</div>
+<nav aria-label="Main navigation" class="navbar scrolled" role="navigation">
+<div class="container">
+<a aria-label="FitMorphs Home" class="nav-brand" href="index.html"><img alt="FitMorphs Logo" class="footer-logo" height="70" src="logo_stickey.png" width="70"/></a>
+<button aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu" class="hamburger"><span></span><span></span><span></span></button>
+<div class="nav-links" id="nav-links">
+<a href="index.html">Home</a>
+<a href="diabetes.html">Diabetes Reversal</a>
+<a href="transformation.html">Transformation</a>
+<a href="results.html">Results</a>
+<a href="about.html">About</a>
+<a href="blog.html">Blog</a>
+</div>
+</div>
+</nav>
+<noscript><style>.fade-in-section{opacity:1!important;transform:none!important}body{opacity:1!important}</style></noscript>
+<div class="apply-layout">
+<!-- Left: Info & Trust -->
+<div class="apply-info fade-in-section">
+<div style="position:relative;z-index:1;">
+<h1 class="text-gold-gradient" style="font-size:clamp(2.2rem,5vw,3.5rem); margin-bottom:1rem; line-height:1.1;">This Is Where Your<br/>Story Turns Around.</h1>
+<p style="font-size:1.1rem; color:var(--text-on-dark-muted); max-width:400px; line-height:1.8;">Apply for your free clinical assessment. Not everyone is accepted — but for the right candidate, we'll design a personalised protocol to reverse your condition in 90 days.</p>
+<div aria-label="Program trust badges" class="trust-badges stagger-children" role="list">
+<div class="badge" role="listitem">
+<div aria-hidden="true" class="badge-icon">✓</div>
+<div class="badge-text"><h4>Doctor Supervised</h4><p>100% safe clinical protocols</p></div>
+</div>
+<div class="badge" role="listitem">
+<div aria-hidden="true" class="badge-icon">🔒</div>
+<div class="badge-text"><h4>100% Secure</h4><p>Your medical data is protected</p></div>
+</div>
+<div class="badge" role="listitem">
+<div aria-hidden="true" class="badge-icon">★</div>
+<div class="badge-text"><h4>4.9/5 Rating</h4><p>Thousands of happy clients</p></div>
+</div>
+<div class="badge" role="listitem">
+<div aria-hidden="true" class="badge-icon">📈</div>
+<div class="badge-text"><h4>10,000+ Transformed</h4><p>Proven track record</p></div>
+</div>
+</div>
+<div class="direct-contact">
+<p style="margin-bottom:1rem; color:var(--gold-mid); text-transform:uppercase; font-size:0.8rem; letter-spacing:2px; font-family:'Plus Jakarta Sans',sans-serif;">Prefer direct contact?</p>
+<div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+<a aria-label="Chat on WhatsApp" href="https://wa.me/918208692210" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path></svg>
                             WhatsApp Us
                         </a>
-                        <a href="tel:+918208692210" aria-label="Call +91 8208692210">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+<a aria-label="Call +91 8208692210" href="tel:+918208692210">
+<svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
                             +91 8208692210
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right: Multi-Step Application Form -->
-        <div class="apply-form-container fade-in-section">
-            <div style="max-width:520px; width:100%; margin:0 auto; padding:2.5rem; border-radius:16px; border:1px solid rgba(201,162,39,0.18); box-shadow:0 8px 40px rgba(161,124,47,0.08); background:var(--white);">
-
-                <!-- Waitlist banner — shown when arrived via ?interest=… deep link from a waitlist pathway tile on the homepage -->
-                <div id="waitlistBanner" hidden style="margin: -1.5rem -1.5rem 1.5rem; padding: 0.9rem 1.25rem; border-radius: 12px; background: linear-gradient(135deg, rgba(212,160,23,0.10), rgba(212,160,23,0.04)); border: 1px solid rgba(212,160,23,0.32); display: flex; align-items: center; gap: 0.75rem; font-family: 'Plus Jakarta Sans', sans-serif;">
-                    <span aria-hidden="true" style="display:inline-flex; width:32px; height:32px; flex-shrink:0; border-radius:50%; background:rgba(212,160,23,0.15); align-items:center; justify-content:center;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    </span>
-                    <div style="flex:1; min-width:0;">
-                        <div style="font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:#a17c2f; font-weight:600;">Waitlist Signup</div>
-                        <div style="font-size:0.92rem; color:var(--text-primary, #0f0f0c); font-weight:500; margin-top:0.15rem;">You're joining the <span id="waitlistPathway">—</span> waitlist. Our team will contact you with availability.</div>
-                    </div>
-                </div>
-
-                <!-- Step Progress Indicator -->
-                <div class="step-progress" id="stepProgress" aria-label="Form progress">
-                    <div class="step-node active" id="sn1">
-                        <div class="step-circle">1</div>
-                        <div class="step-label">Your Goal</div>
-                    </div>
-                    <div class="step-connector" id="sc1"></div>
-                    <div class="step-node" id="sn2">
-                        <div class="step-circle">2</div>
-                        <div class="step-label">Health Details</div>
-                    </div>
-                    <div class="step-connector" id="sc2"></div>
-                    <div class="step-node" id="sn3">
-                        <div class="step-circle">3</div>
-                        <div class="step-label">Contact Info</div>
-                    </div>
-                </div>
-
-                <form id="applyForm" action="https://formspree.io/f/xyknkwgg" method="POST" aria-label="Clinical assessment application" novalidate>
-                    <input type="hidden" name="_subject" value="New FitMorphs Application">
-
-                    <!-- ── STEP 1: Goal ── -->
-                    <div class="form-step active" id="step1">
-                        <h2 style="font-size:1.6rem; color:var(--text-primary); margin-bottom:0.4rem; font-family:'Cormorant Garamond',serif;">What's your primary health goal?</h2>
-                        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.5rem; font-family:'Plus Jakarta Sans',sans-serif; max-width:none;">Select the area you'd most like to transform.</p>
-
-                        <div class="goal-grid">
-                            <div class="goal-card" data-goal="Diabetes Reversal" tabindex="0" role="button" aria-pressed="false">
-                                <div class="goal-check" aria-hidden="true">
-                                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                </div>
-                                <span class="goal-card-icon">🩺</span>
-                                <div class="goal-card-label">Diabetes Reversal</div>
-                                <div class="goal-card-sub">Reverse Type 2 in 90 days</div>
-                            </div>
-                            <div class="goal-card" data-goal="Fat Loss & Recomposition" tabindex="0" role="button" aria-pressed="false">
-                                <div class="goal-check" aria-hidden="true">
-                                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                </div>
-                                <span class="goal-card-icon">⚡</span>
-                                <div class="goal-card-label">Fat Loss &amp; Recomp</div>
-                                <div class="goal-card-sub">Science-backed, sustainable</div>
-                            </div>
-                            <div class="goal-card" data-goal="PCOD / Thyroid Reversal" tabindex="0" role="button" aria-pressed="false">
-                                <div class="goal-check" aria-hidden="true">
-                                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                </div>
-                                <span class="goal-card-icon">🌿</span>
-                                <div class="goal-card-label">PCOD / Thyroid</div>
-                                <div class="goal-card-sub">Hormonal balance naturally</div>
-                            </div>
-                            <div class="goal-card" data-goal="General Fitness & Strength" tabindex="0" role="button" aria-pressed="false">
-                                <div class="goal-check" aria-hidden="true">
-                                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                </div>
-                                <span class="goal-card-icon">💪</span>
-                                <div class="goal-card-label">Strength &amp; Vitality</div>
-                                <div class="goal-card-sub">Energy, stamina &amp; longevity</div>
-                            </div>
-                        </div>
-                        <input type="hidden" id="goalInput" name="goal" required>
-                        <div class="form-hint info" id="goalHint"></div>
-
-                        <div class="step-nav">
-                            <button type="button" class="btn btn-shimmer btn-next" id="next1" disabled>Continue →</button>
-                        </div>
-                    </div>
-
-                    <!-- ── STEP 2: Health Details ── -->
-                    <div class="form-step" id="step2">
-                        <h2 style="font-size:1.6rem; color:var(--text-primary); margin-bottom:0.4rem; font-family:'Cormorant Garamond',serif;">Tell us about your health</h2>
-                        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.5rem; font-family:'Plus Jakarta Sans',sans-serif; max-width:none;">This helps our doctors personalise your protocol.</p>
-
-                        <div class="form-group">
-                            <label class="form-label" for="duration">How long have you had this condition?</label>
-                            <input type="text" id="duration" name="duration" class="form-control" placeholder="E.g., 3 years, recently diagnosed…">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="hba1c" style="display:flex; align-items:center; gap:0.5rem;">
-                                <svg aria-hidden="true" width="18" height="14" viewBox="0 0 36 18" fill="none" style="flex-shrink:0;">
-                                    <path d="M1 14 L 5 14 L 8 4 L 12 14 L 16 9 L 20 14 L 24 6 L 28 14 L 32 11 L 35 11" stroke="#d4a017" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Multi-Step Application Form -->
+<div class="apply-form-container fade-in-section">
+<div style="max-width:520px; width:100%; margin:0 auto; padding:2.5rem; border-radius:16px; border:1px solid rgba(201,162,39,0.18); box-shadow:0 8px 40px rgba(161,124,47,0.08); background:var(--white);">
+<!-- Waitlist banner — shown when arrived via ?interest=… deep link from a waitlist pathway tile on the homepage -->
+<div hidden="" id="waitlistBanner" style="margin: -1.5rem -1.5rem 1.5rem; padding: 0.9rem 1.25rem; border-radius: 12px; background: linear-gradient(135deg, rgba(212,160,23,0.10), rgba(212,160,23,0.04)); border: 1px solid rgba(212,160,23,0.32); display: flex; align-items: center; gap: 0.75rem; font-family: 'Plus Jakarta Sans', sans-serif;">
+<span aria-hidden="true" style="display:inline-flex; width:32px; height:32px; flex-shrink:0; border-radius:50%; background:rgba(212,160,23,0.15); align-items:center; justify-content:center;">
+<svg fill="none" height="14" stroke="#d4a017" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+</span>
+<div style="flex:1; min-width:0;">
+<div style="font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:#a17c2f; font-weight:600;">Waitlist Signup</div>
+<div style="font-size:0.92rem; color:var(--text-primary, #0f0f0c); font-weight:500; margin-top:0.15rem;">You're joining the <span id="waitlistPathway">—</span> waitlist. Our team will contact you with availability.</div>
+</div>
+</div>
+<!-- Step Progress Indicator -->
+<div aria-label="Form progress" class="step-progress" id="stepProgress">
+<div class="step-node active" id="sn1">
+<div class="step-circle">1</div>
+<div class="step-label">Your Goal</div>
+</div>
+<div class="step-connector" id="sc1"></div>
+<div class="step-node" id="sn2">
+<div class="step-circle">2</div>
+<div class="step-label">Health Details</div>
+</div>
+<div class="step-connector" id="sc2"></div>
+<div class="step-node" id="sn3">
+<div class="step-circle">3</div>
+<div class="step-label">Contact Info</div>
+</div>
+</div>
+<form action="https://formspree.io/f/xyknkwgg" aria-label="Clinical assessment application" id="applyForm" method="POST" novalidate="">
+<input name="_subject" type="hidden" value="New FitMorphs Application"/>
+<!-- ── STEP 1: Goal ── -->
+<div class="form-step active" id="step1">
+<h2 style="font-size:1.6rem; color:var(--text-primary); margin-bottom:0.4rem; font-family:'Cormorant Garamond',serif;">What's your primary health goal?</h2>
+<p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.5rem; font-family:'Plus Jakarta Sans',sans-serif; max-width:none;">Select the area you'd most like to transform.</p>
+<div class="goal-grid">
+<div aria-pressed="false" class="goal-card" data-goal="Diabetes Reversal" role="button" tabindex="0">
+<div aria-hidden="true" class="goal-check">
+<svg fill="none" height="10" viewbox="0 0 12 12" width="10"><path d="M2 6l3 3 5-5" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<span class="goal-card-icon">🩺</span>
+<div class="goal-card-label">Diabetes Reversal</div>
+<div class="goal-card-sub">Reverse Type 2 in 90 days</div>
+</div>
+<div aria-pressed="false" class="goal-card" data-goal="Fat Loss &amp; Recomposition" role="button" tabindex="0">
+<div aria-hidden="true" class="goal-check">
+<svg fill="none" height="10" viewbox="0 0 12 12" width="10"><path d="M2 6l3 3 5-5" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<span class="goal-card-icon">⚡</span>
+<div class="goal-card-label">Fat Loss &amp; Recomp</div>
+<div class="goal-card-sub">Science-backed, sustainable</div>
+</div>
+<div aria-pressed="false" class="goal-card" data-goal="PCOD / Thyroid Reversal" role="button" tabindex="0">
+<div aria-hidden="true" class="goal-check">
+<svg fill="none" height="10" viewbox="0 0 12 12" width="10"><path d="M2 6l3 3 5-5" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<span class="goal-card-icon">🌿</span>
+<div class="goal-card-label">PCOD / Thyroid</div>
+<div class="goal-card-sub">Hormonal balance naturally</div>
+</div>
+<div aria-pressed="false" class="goal-card" data-goal="General Fitness &amp; Strength" role="button" tabindex="0">
+<div aria-hidden="true" class="goal-check">
+<svg fill="none" height="10" viewbox="0 0 12 12" width="10"><path d="M2 6l3 3 5-5" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<span class="goal-card-icon">💪</span>
+<div class="goal-card-label">Strength &amp; Vitality</div>
+<div class="goal-card-sub">Energy, stamina &amp; longevity</div>
+</div>
+</div>
+<input id="goalInput" name="goal" required="" type="hidden"/>
+<div class="form-hint info" id="goalHint"></div>
+<div class="step-nav">
+<button class="btn btn-shimmer btn-next" disabled="" id="next1" type="button">Continue →</button>
+</div>
+</div>
+<!-- ── STEP 2: Health Details ── -->
+<div class="form-step" id="step2">
+<h2 style="font-size:1.6rem; color:var(--text-primary); margin-bottom:0.4rem; font-family:'Cormorant Garamond',serif;">Tell us about your health</h2>
+<p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.5rem; font-family:'Plus Jakarta Sans',sans-serif; max-width:none;">This helps our doctors personalise your protocol.</p>
+<div class="form-group">
+<label class="form-label" for="duration">How long have you had this condition?</label>
+<input class="form-control" id="duration" name="duration" placeholder="E.g., 3 years, recently diagnosed…" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="hba1c" style="display:flex; align-items:center; gap:0.5rem;">
+<svg aria-hidden="true" fill="none" height="14" style="flex-shrink:0;" viewbox="0 0 36 18" width="18">
+<path d="M1 14 L 5 14 L 8 4 L 12 14 L 16 9 L 20 14 L 24 6 L 28 14 L 32 11 L 35 11" stroke="#d4a017" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
                                 Latest HbA1c reading <span style="color:var(--text-muted); font-weight:400;">(if known, % units)</span>
-                            </label>
-                            <div style="position:relative;">
-                                <input type="number" id="hba1c" name="hba1c" class="form-control" placeholder="E.g., 7.2" inputmode="decimal" min="3" max="15" step="0.1" aria-describedby="hba1cHint" style="padding-right:3.5rem;">
-                                <span aria-hidden="true" style="position:absolute; right:1rem; top:50%; transform:translateY(-50%); font-family:'DM Sans',sans-serif; font-size:0.8rem; color:var(--text-muted); letter-spacing:0.05em; font-weight:600;">%</span>
-                                <div id="hba1cMeter" aria-hidden="true" style="margin-top:0.45rem; height:3px; border-radius:2px; background:linear-gradient(90deg, #2ecc71 0%, #2ecc71 30%, #f1c40f 50%, #f39c12 70%, #e74c3c 100%); position:relative; opacity:0; transition:opacity 0.4s ease;">
-                                    <span id="hba1cMarker" style="position:absolute; top:50%; left:0; width:10px; height:10px; border-radius:50%; background:var(--white); border:2px solid var(--text-primary); box-shadow:0 2px 6px rgba(0,0,0,0.18); transform:translate(-50%, -50%); transition:left 0.4s cubic-bezier(0.22, 1, 0.36, 1);"></span>
-                                </div>
-                            </div>
-                            <div class="form-hint info" id="hba1cHint"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="medication">Current medications (if any)</label>
-                            <textarea id="medication" name="medication" class="form-control" placeholder="List any ongoing medications, or type 'None'…" rows="3"></textarea>
-                        </div>
-
-                        <div class="step-nav">
-                            <button type="button" class="btn-back" id="back2">← Back</button>
-                            <button type="button" class="btn btn-shimmer btn-next" id="next2">Continue →</button>
-                        </div>
-                    </div>
-
-                    <!-- ── STEP 3: Contact Info ── -->
-                    <div class="form-step" id="step3">
-                        <h2 style="font-size:1.6rem; color:var(--text-primary); margin-bottom:0.4rem; font-family:'Cormorant Garamond',serif;">Almost there — where can we reach you?</h2>
-                        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.5rem; font-family:'Plus Jakarta Sans',sans-serif; max-width:none;">Our clinical team will call you within 2 hours.</p>
-
-                        <div class="form-group">
-                            <label class="form-label" for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-control" required placeholder="Your full name" autocomplete="name">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="phone">WhatsApp Number *</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" required placeholder="+91 98765 43210" autocomplete="tel">
-                            <div class="form-hint success" id="phoneHint">
+</label>
+<div style="position:relative;">
+<input aria-describedby="hba1cHint" class="form-control" id="hba1c" inputmode="decimal" max="15" min="3" name="hba1c" placeholder="E.g., 7.2" step="0.1" style="padding-right:3.5rem;" type="number"/>
+<span aria-hidden="true" style="position:absolute; right:1rem; top:50%; transform:translateY(-50%); font-family:'DM Sans',sans-serif; font-size:0.8rem; color:var(--text-muted); letter-spacing:0.05em; font-weight:600;">%</span>
+<div aria-hidden="true" id="hba1cMeter" style="margin-top:0.45rem; height:3px; border-radius:2px; background:linear-gradient(90deg, #2ecc71 0%, #2ecc71 30%, #f1c40f 50%, #f39c12 70%, #e74c3c 100%); position:relative; opacity:0; transition:opacity 0.4s ease;">
+<span id="hba1cMarker" style="position:absolute; top:50%; left:0; width:10px; height:10px; border-radius:50%; background:var(--white); border:2px solid var(--text-primary); box-shadow:0 2px 6px rgba(0,0,0,0.18); transform:translate(-50%, -50%); transition:left 0.4s cubic-bezier(0.22, 1, 0.36, 1);"></span>
+</div>
+</div>
+<div class="form-hint info" id="hba1cHint"></div>
+</div>
+<div class="form-group">
+<label class="form-label" for="medication">Current medications (if any)</label>
+<textarea class="form-control" id="medication" name="medication" placeholder="List any ongoing medications, or type 'None'…" rows="3"></textarea>
+</div>
+<div class="step-nav">
+<button class="btn-back" id="back2" type="button">← Back</button>
+<button class="btn btn-shimmer btn-next" id="next2" type="button">Continue →</button>
+</div>
+</div>
+<!-- ── STEP 3: Contact Info ── -->
+<div class="form-step" id="step3">
+<h2 style="font-size:1.6rem; color:var(--text-primary); margin-bottom:0.4rem; font-family:'Cormorant Garamond',serif;">Almost there — where can we reach you?</h2>
+<p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.5rem; font-family:'Plus Jakarta Sans',sans-serif; max-width:none;">Our clinical team will call you within 2 hours.</p>
+<div class="form-group">
+<label class="form-label" for="name">Full Name *</label>
+<input autocomplete="name" class="form-control" id="name" name="name" placeholder="Your full name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="phone">WhatsApp Number *</label>
+<input autocomplete="tel" class="form-control" id="phone" name="phone" placeholder="+91 98765 43210" required="" type="tel"/>
+<div class="form-hint success" id="phoneHint">
                                 ✓ We'll reach out on WhatsApp within 2 hours.
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="email">Email Address <span style="color:var(--text-muted); font-weight:400;">(optional)</span></label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" autocomplete="email">
-                        </div>
-
-                        <div class="step-nav">
-                            <button type="button" class="btn-back" id="back3">← Back</button>
-                            <button type="submit" class="btn btn-shimmer btn-next btn-submit" id="submitBtn">Submit Application →</button>
-                        </div>
-                        <p class="cta-microcopy">Free 15-min consultation. No obligation. Your data is encrypted &amp; confidential.</p>
-                    </div>
-                </form>
-
-                <!-- Success State -->
-                <div class="form-success" id="formSuccess">
-                    <div class="success-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-                    </div>
-                    <h2 style="font-size:1.8rem; color:var(--text-primary); margin-bottom:0.75rem; font-family:'Cormorant Garamond',serif;">You're In.</h2>
-                    <p style="color:var(--text-muted); font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem; margin-bottom:2rem; max-width:none;">Our clinical team will call you on WhatsApp within 2 hours. While you wait — read about your first step.</p>
-                    <a href="results.html" class="btn btn-primary" style="text-decoration:none;">See Real Transformations →</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Exit Intent Popup (desktop only) -->
-    <div class="exit-overlay" id="exitOverlay" role="dialog" aria-modal="true" aria-label="Before you go">
-        <div class="exit-modal">
-            <button class="exit-close" id="exitClose" aria-label="Close">✕</button>
-            <div style="text-align:center; margin-bottom:1.5rem;">
-                <div style="width:56px; height:56px; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                </div>
-                <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.7rem; color:var(--text-primary); margin-bottom:0.5rem;">Before you go…</h3>
-                <p style="font-size:0.95rem; color:var(--text-muted); font-family:'Plus Jakarta Sans',sans-serif; line-height:1.6; max-width:none;">Download our free guide: <strong style="color:var(--text-primary);">"5 Lab Tests That Predict Diabetes Reversal Success"</strong></p>
-            </div>
-            <form id="exitForm" style="display:flex; flex-direction:column; gap:0.8rem;">
-                <input type="email" class="form-control" placeholder="Your email address" required autocomplete="email">
-                <button type="submit" class="btn btn-shimmer" style="width:100%; padding:0.95rem;">Send Me the Free Guide</button>
-            </form>
-            <button class="btn-back" style="width:100%; margin-top:0.75rem; text-align:center;" id="exitStay">No thanks, I'll pass</button>
-        </div>
-    </div>
-
-    <!-- Floating Apply Now (mobile primary CTA) -->
-    <div class="apply-float">
-        <a href="apply.html" class="apply-float-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+</div>
+<div class="form-group">
+<label class="form-label" for="email">Email Address <span style="color:var(--text-muted); font-weight:400;">(optional)</span></label>
+<input autocomplete="email" class="form-control" id="email" name="email" placeholder="john@example.com" type="email"/>
+</div>
+<div class="step-nav">
+<button class="btn-back" id="back3" type="button">← Back</button>
+<button class="btn btn-shimmer btn-next btn-submit" id="submitBtn" type="submit">Submit Application →</button>
+</div>
+<p class="cta-microcopy">Free 15-min consultation. No obligation. Your data is encrypted &amp; confidential.</p>
+</div>
+</form>
+<!-- Success State -->
+<div class="form-success" id="formSuccess">
+<div class="success-icon">
+<svg fill="none" height="32" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="32"><path d="M20 6L9 17l-5-5"></path></svg>
+</div>
+<h2 style="font-size:1.8rem; color:var(--text-primary); margin-bottom:0.75rem; font-family:'Cormorant Garamond',serif;">You're In.</h2>
+<p style="color:var(--text-muted); font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem; margin-bottom:2rem; max-width:none;">Our clinical team will call you on WhatsApp within 2 hours. While you wait — read about your first step.</p>
+<a class="btn btn-primary" href="results.html" style="text-decoration:none;">See Real Transformations →</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Exit Intent Popup (desktop only) -->
+<div aria-label="Before you go" aria-modal="true" class="exit-overlay" id="exitOverlay" role="dialog">
+<div class="exit-modal">
+<button aria-label="Close" class="exit-close" id="exitClose">✕</button>
+<div style="text-align:center; margin-bottom:1.5rem;">
+<div style="width:56px; height:56px; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem;">
+<svg fill="none" height="24" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+</div>
+<h3 style="font-family:'Cormorant Garamond',serif; font-size:1.7rem; color:var(--text-primary); margin-bottom:0.5rem;">Before you go…</h3>
+<p style="font-size:0.95rem; color:var(--text-muted); font-family:'Plus Jakarta Sans',sans-serif; line-height:1.6; max-width:none;">Download our free guide: <strong style="color:var(--text-primary);">"5 Lab Tests That Predict Diabetes Reversal Success"</strong></p>
+</div>
+<form id="exitForm" style="display:flex; flex-direction:column; gap:0.8rem;">
+<input autocomplete="email" class="form-control" placeholder="Your email address" required="" type="email"/>
+<button class="btn btn-shimmer" style="width:100%; padding:0.95rem;" type="submit">Send Me the Free Guide</button>
+</form>
+<button class="btn-back" id="exitStay" style="width:100%; margin-top:0.75rem; text-align:center;">No thanks, I'll pass</button>
+</div>
+</div>
+<!-- Floating Apply Now (mobile primary CTA) -->
+<div class="apply-float">
+<a class="apply-float-btn" href="apply.html">
+<svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
             Apply Now
         </a>
-    </div>
-
-    <script src="script.js"></script>
-    <script>
+</div>
+<script src="script.js"></script>
+<script>
     // ── ?interest=… deep-link from the homepage waitlist pathway tiles ──
     (function () {
         const params = new URLSearchParams(window.location.search);

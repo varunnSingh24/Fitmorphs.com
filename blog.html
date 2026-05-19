@@ -1,272 +1,243 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitMorphs Journal — Doctor-Supervised Metabolic Health Blog</title>
-    <meta name="description" content="Read expert articles on diabetes reversal, HbA1c management, diet plans, and lifestyle changes from FitMorphs, India's premier doctor-supervised metabolic program.">
-    <meta property="og:title" content="FitMorphs Journal — Doctor-Supervised Metabolic Health Blog">
-    <meta property="og:description" content="Read expert articles on diabetes reversal, HbA1c management, diet plans, and lifestyle changes from FitMorphs, India's premier doctor-supervised metabolic program.">
-    <meta property="og:image" content="logo_stickey.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.fitmorphs.com/blog.html">
-    <link rel="canonical" href="https://www.fitmorphs.com/blog.html">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" as="style">
-
-    <link rel="stylesheet" href="styles.css">
-    
-    
-    <link rel="stylesheet" href="assets/css/blog-inline.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FitMorphs Journal — Doctor-Supervised Metabolic Health Blog</title>
+<meta content="Read expert articles on diabetes reversal, HbA1c management, diet plans, and lifestyle changes from FitMorphs, India's premier doctor-supervised metabolic program." name="description"/>
+<meta content="FitMorphs Journal — Doctor-Supervised Metabolic Health Blog" property="og:title"/>
+<meta content="Read expert articles on diabetes reversal, HbA1c management, diet plans, and lifestyle changes from FitMorphs, India's premier doctor-supervised metabolic program." property="og:description"/>
+<meta content="logo_stickey.png" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="https://www.fitmorphs.com/blog.html" property="og:url"/>
+<link href="https://www.fitmorphs.com/blog.html" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&amp;family=Instrument+Serif:ital@1&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="assets/css/blog-inline.css" rel="stylesheet"/>
 </head>
 <body>
-    <div id="stars-container" aria-hidden="true">
-        <div id="stars1" class="star-layer"></div>
-        <div id="stars2" class="star-layer"></div>
-        <div id="stars3" class="star-layer"></div>
-    </div>
-    <div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
-    <div class="custom-cursor" aria-hidden="true"></div>
-    <div id="page-wipe" aria-hidden="true"></div>
-
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="container">
-            <a href="index.html" class="nav-brand" aria-label="FitMorphs Home">
-                <img src="logo_stickey.png" alt="FitMorphs Logo" class="footer-logo" width="70" height="70">
-            </a>
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
-                <span></span><span></span><span></span>
-            </button>
-            <div class="nav-links" id="nav-links">
-                <a href="index.html" style="font-family:'DM Sans', sans-serif;">Home</a>
-                <a href="diabetes.html" style="font-family:'DM Sans', sans-serif;">Diabetes Reversal</a>
-                <a href="transformation.html" style="font-family:'DM Sans', sans-serif;">Transformation</a>
-                <a href="results.html" style="font-family:'DM Sans', sans-serif;">Results</a>
-                <a href="about.html" style="font-family:'DM Sans', sans-serif;">About</a>
-                <a href="blog.html" class="active" style="font-family:'DM Sans', sans-serif;">Blog</a>
-                <a href="apply.html" class="btn btn-nav" style="font-family:'DM Sans', sans-serif;">Apply Now</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="blog-hero fade-in-section">
-        
-        <h1 class="text-gold-gradient" style="font-size: clamp(3rem, 6vw, 4.5rem); line-height:1.1; margin-bottom: 1rem; position:relative; z-index:1;">FitMorphs Journal</h1>
-        <p style="font-size: 1.2rem; color: var(--cream); opacity: 0.8; max-width: 600px; margin: 0 auto; position:relative; z-index:1;">Science-backed education and expert clinical insights on reversing metabolic disease naturally.</p>
-        
-        <div class="blog-category-nav blog-pill-row" id="fmBlogPillRow" style="position:relative; z-index:1;">
-            <button class="blog-cat-btn active" data-filter="all">All Articles</button>
-            <button class="blog-cat-btn" data-filter="diabetes">Diabetes Reversal</button>
-            <button class="blog-cat-btn" data-filter="hba1c">HbA1c Management</button>
-            <button class="blog-cat-btn" data-filter="diet">Diet Plans</button>
-            <button class="blog-cat-btn" data-filter="lifestyle">Lifestyle Management</button>
-            <span class="pill-underline" id="fmBlogPillUnderline" aria-hidden="true"></span>
-        </div>
-    </div>
-
-    <!-- EDITOR'S PICK -->
-    <section class="container fade-in-section" style="max-width:1200px; padding: 4rem 1.5rem 0;">
-        <a href="how-to-reduce-hba1c-naturally.html" class="editors-pick" style="text-decoration:none; color:inherit;">
-            <div class="editors-pick-img">
-                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=1200" alt="How to Reduce HbA1c Naturally in 90 Days">
-            </div>
-            <div class="editors-pick-content">
-                <span class="eyebrow-deluxe on-dark" style="display:inline-flex;">Editor's Pick &middot; HbA1c Management</span>
-                <h2>How to Reduce HbA1c Naturally in <em>90 Days</em></h2>
-                <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(245,239,227,0.78); font-size:1.1rem; line-height:1.55; margin: 0 0 1.25rem;">Our patients average a 2.8-point HbA1c reduction in 90 days. The protocol is unglamorous. The supervision is rigorous. The outcomes are repeatable.</p>
-                <span class="blog-cta" style="display:inline-flex; align-items:center; gap:0.4rem; font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-bright); font-weight:600;">Read the Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-        </a>
-    </section>
-
-        <div class="blog-grid" id="blog-grid">
-        <!-- Card 1 -->
-        <a href="how-to-reduce-hba1c-naturally.html" class="vogue-hover-card blog-card" data-category="hba1c">
-            <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" alt="How to Reduce HbA1c Naturally in 90 Days" loading="lazy">
-            </div>
-            <div class="blog-content">
-                <span class="category">HbA1c Management</span>
-                <h2 class="blog-title">How to Reduce HbA1c Naturally in 90 Days</h2>
-                <p class="blog-desc">Discover clinically proven, natural strategies to lower your HbA1c without relying entirely on medication.</p>
-                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-        </a>
-
-        <!-- Card 2 -->
-        <a href="can-type-2-diabetes-be-reversed.html" class="vogue-hover-card blog-card" data-category="diabetes">
-            <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800" alt="Can Type 2 Diabetes Actually Be Reversed?" loading="lazy">
-            </div>
-            <div class="blog-content">
-                <span class="category">Diabetes Reversal</span>
-                <h2 class="blog-title">Can Type 2 Diabetes Actually Be Reversed?</h2>
-                <p class="blog-desc">Understanding the science behind metabolic reversal, beta-cell recovery, and shedding insulin resistance permanently.</p>
-                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-        </a>
-
-        <!-- Card 3 -->
-        <a href="best-diet-plan-for-diabetes-reversal.html" class="vogue-hover-card blog-card" data-category="diet">
-            <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800" alt="The Best Diet Plan for Diabetes Reversal" loading="lazy">
-            </div>
-            <div class="blog-content">
-                <span class="category">Diet Plans</span>
-                <h2 class="blog-title">The Best Diet Plan for Diabetes Reversal</h2>
-                <p class="blog-desc">A precision nutrition protocol targeting insulin resistance using low-glycemic, anti-inflammatory whole foods.</p>
-                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-        </a>
-
-        <!-- Card 4 -->
-        <a href="how-to-control-blood-sugar-without-medicine.html" class="vogue-hover-card blog-card" data-category="hba1c">
-            <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=800" alt="How to Control Blood Sugar Without Medicine" loading="lazy">
-            </div>
-            <div class="blog-content">
-                <span class="category">HbA1c Management</span>
-                <h2 class="blog-title">How to Control Blood Sugar Without Medicine</h2>
-                <p class="blog-desc">Sustainable, doctor-backed lifestyle strategies to maintain stable blood glucose without pharmaceutical dependence.</p>
-                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-        </a>
-
-        <!-- Card 5 -->
-        <a href="foods-to-avoid-in-diabetes.html" class="vogue-hover-card blog-card" data-category="diet">
-            <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800" alt="Foods to Avoid If You Have Diabetes" loading="lazy">
-            </div>
-            <div class="blog-content">
-                <span class="category">Diet Plans</span>
-                <h2 class="blog-title">Foods to Avoid If You Have Diabetes</h2>
-                <p class="blog-desc">The hidden glycemic saboteurs in your kitchen — and the precise swaps that protect your metabolic health.</p>
-                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-        </a>
-
-        <!-- Card 6 -->
-        <a href="best-breakfast-for-diabetics.html" class="vogue-hover-card blog-card" data-category="diet">
-            <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?auto=format&fit=crop&q=80&w=800" alt="The Best Breakfast for Diabetics" loading="lazy">
-            </div>
-            <div class="blog-content">
-                <span class="category">Diet Plans</span>
-                <h2 class="blog-title">The Best Breakfast for Diabetics</h2>
-                <p class="blog-desc">Morning nutrition strategies that stabilize blood glucose for the entire day, backed by metabolic science.</p>
-                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-        </a>
-
-        <!-- Card 7 -->
-        <a href="can-prediabetes-be-reversed.html" class="vogue-hover-card blog-card" data-category="diabetes">
-            <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&q=80&w=800" alt="Can Prediabetes Be Reversed Before It Progresses?" loading="lazy">
-            </div>
-            <div class="blog-content">
-                <span class="category">Diabetes Reversal</span>
-                <h2 class="blog-title">Can Prediabetes Be Reversed Before It Progresses?</h2>
-                <p class="blog-desc">The window of opportunity before full diabetes onset — and the exact steps to reverse prediabetes completely.</p>
-                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-        </a>
-
-        <!-- Card 8 -->
-        <a href="natural-treatment-for-insulin-resistance.html" class="vogue-hover-card blog-card" data-category="lifestyle">
-            <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" alt="Natural Treatment for Insulin Resistance" loading="lazy">
-            </div>
-            <div class="blog-content">
-                <span class="category">Lifestyle</span>
-                <h2 class="blog-title">Natural Treatment for Insulin Resistance</h2>
-                <p class="blog-desc">Root-cause approaches to overcome insulin resistance using exercise timing, sleep protocols, and targeted macros.</p>
-                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-        </a>
-
-        <!-- Card 9 -->
-        <a href="diabetes-reversal-program-india.html" class="vogue-hover-card blog-card" data-category="lifestyle">
-            <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=80&w=800" alt="Best Diabetes Reversal Program in India 2025" loading="lazy">
-            </div>
-            <div class="blog-content">
-                <span class="category">Program India</span>
-                <h2 class="blog-title">Best Diabetes Reversal Program in India 2025</h2>
-                <p class="blog-desc">A comprehensive look at how structured, doctor-supervised metabolic programs outperform all medication approaches.</p>
-                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-        </a>
-
-        <!-- Card 10 -->
-        <a href="how-to-lower-blood-sugar-naturally.html" class="vogue-hover-card blog-card" data-category="hba1c">
-            <div class="blog-img-wrap">
-                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800" alt="How to Lower Blood Sugar Naturally & Fast" loading="lazy">
-            </div>
-            <div class="blog-content">
-                <span class="category">HbA1c Management</span>
-                <h2 class="blog-title">How to Lower Blood Sugar Naturally & Fast</h2>
-                <p class="blog-desc">Evidence-based nutritional and lifestyle interventions that produce measurable drops in blood glucose within weeks.</p>
-                <span class="blog-cta">Book Free Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-        </a>
-
-    </div>
-
-    <!-- FOOTER -->
-    <footer style="background-color:var(--dark-deep); padding: 5rem 0 2rem; border-top:1px solid rgba(212,160,23,0.15); color:var(--cream); font-family:'DM Sans', sans-serif;">
-        <div class="container">
-            <div style="display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:3rem; margin-bottom:4rem;" class="footer-grid fade-in-section">
-                <div>
-                    <img src="logo_stickey.png" alt="FitMorphs Logo" width="70" height="70" loading="lazy" style="margin-bottom:1.5rem;">
-                    <p style="opacity:0.6; font-size:0.95rem;">Body. Mind. Soul.<br>Transform From Within.</p>
-                </div>
-                <div>
-                    <h4 style="color:var(--gold-mid); text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Quick Links</h4>
-                    <ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
-                        <li><a href="index.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Home</a></li>
-                        <li><a href="diabetes.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Diabetes Reversal</a></li>
-                        <li><a href="transformation.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Transformation</a></li>
-                        <li><a href="results.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Results</a></li>
-                        <li><a href="about.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">About Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="color:var(--gold-mid); text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Contact</h4>
-                    <ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
-                        <li><a href="tel:+918208692210" style="color:rgba(245,239,227,0.7); text-decoration:none;">+91 8208692210</a></li>
-                        <li><a href="mailto:hello@fitmorphs.com" style="color:rgba(245,239,227,0.7); text-decoration:none;">hello@fitmorphs.com</a></li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <a href="apply.html" class="btn btn-outline" style="padding: 0.8rem 2rem; border-color:var(--gold-mid); color:var(--gold-mid);">Apply Now</a>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
-                <p>&copy; <span data-fm-year>2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> &middot; <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
-            </div>
-        </div>
-    </footer>
-    
-    <style> @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; } } </style>
-
-    <!-- Floating Apply Now -->
-    <div class="apply-float">
-        <a href="apply.html" class="apply-float-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+<div aria-hidden="true" id="stars-container">
+<div class="star-layer" id="stars1"></div>
+<div class="star-layer" id="stars2"></div>
+<div class="star-layer" id="stars3"></div>
+</div>
+<div aria-hidden="true" class="scroll-progress-container"><div class="scroll-progress-bar"></div></div>
+<div aria-hidden="true" class="custom-cursor"></div>
+<div aria-hidden="true" id="page-wipe"></div>
+<nav aria-label="Main navigation" class="navbar" role="navigation">
+<div class="container">
+<a aria-label="FitMorphs Home" class="nav-brand" href="index.html">
+<img alt="FitMorphs Logo" class="footer-logo" height="70" src="logo_stickey.png" width="70"/>
+</a>
+<button aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu" class="hamburger">
+<span></span><span></span><span></span>
+</button>
+<div class="nav-links" id="nav-links">
+<a href="index.html" style="font-family:'DM Sans', sans-serif;">Home</a>
+<a href="diabetes.html" style="font-family:'DM Sans', sans-serif;">Diabetes Reversal</a>
+<a href="transformation.html" style="font-family:'DM Sans', sans-serif;">Transformation</a>
+<a href="results.html" style="font-family:'DM Sans', sans-serif;">Results</a>
+<a href="about.html" style="font-family:'DM Sans', sans-serif;">About</a>
+<a class="active" href="blog.html" style="font-family:'DM Sans', sans-serif;">Blog</a>
+<a class="btn btn-nav" href="apply.html" style="font-family:'DM Sans', sans-serif;">Apply Now</a>
+</div>
+</div>
+</nav>
+<div class="blog-hero fade-in-section">
+<h1 class="text-gold-gradient" style="font-size: clamp(3rem, 6vw, 4.5rem); line-height:1.1; margin-bottom: 1rem; position:relative; z-index:1;">FitMorphs Journal</h1>
+<p style="font-size: 1.2rem; color: var(--cream); opacity: 0.8; max-width: 600px; margin: 0 auto; position:relative; z-index:1;">Science-backed education and expert clinical insights on reversing metabolic disease naturally.</p>
+<div class="blog-category-nav blog-pill-row" id="fmBlogPillRow" style="position:relative; z-index:1;">
+<button class="blog-cat-btn active" data-filter="all">All Articles</button>
+<button class="blog-cat-btn" data-filter="diabetes">Diabetes Reversal</button>
+<button class="blog-cat-btn" data-filter="hba1c">HbA1c Management</button>
+<button class="blog-cat-btn" data-filter="diet">Diet Plans</button>
+<button class="blog-cat-btn" data-filter="lifestyle">Lifestyle Management</button>
+<span aria-hidden="true" class="pill-underline" id="fmBlogPillUnderline"></span>
+</div>
+</div>
+<!-- EDITOR'S PICK -->
+<section class="container fade-in-section" style="max-width:1200px; padding: 4rem 1.5rem 0;">
+<a class="editors-pick" href="how-to-reduce-hba1c-naturally.html" style="text-decoration:none; color:inherit;">
+<div class="editors-pick-img">
+<img alt="How to Reduce HbA1c Naturally in 90 Days" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&amp;fit=crop&amp;q=80&amp;w=1200"/>
+</div>
+<div class="editors-pick-content">
+<span class="eyebrow-deluxe on-dark" style="display:inline-flex;">Editor's Pick · HbA1c Management</span>
+<h2>How to Reduce HbA1c Naturally in <em>90 Days</em></h2>
+<p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(245,239,227,0.78); font-size:1.1rem; line-height:1.55; margin: 0 0 1.25rem;">Our patients average a 2.8-point HbA1c reduction in 90 days. The protocol is unglamorous. The supervision is rigorous. The outcomes are repeatable.</p>
+<span class="blog-cta" style="display:inline-flex; align-items:center; gap:0.4rem; font-family:'DM Sans',sans-serif; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-bright); font-weight:600;">Read the Article <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+</section>
+<div class="blog-grid" id="blog-grid">
+<!-- Card 1 -->
+<a class="vogue-hover-card blog-card" data-category="hba1c" href="how-to-reduce-hba1c-naturally.html">
+<div class="blog-img-wrap">
+<img alt="How to Reduce HbA1c Naturally in 90 Days" loading="lazy" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">HbA1c Management</span>
+<h2 class="blog-title">How to Reduce HbA1c Naturally in 90 Days</h2>
+<p class="blog-desc">Discover clinically proven, natural strategies to lower your HbA1c without relying entirely on medication.</p>
+<span class="blog-cta">Book Free Consultation <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<!-- Card 2 -->
+<a class="vogue-hover-card blog-card" data-category="diabetes" href="can-type-2-diabetes-be-reversed.html">
+<div class="blog-img-wrap">
+<img alt="Can Type 2 Diabetes Actually Be Reversed?" loading="lazy" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">Diabetes Reversal</span>
+<h2 class="blog-title">Can Type 2 Diabetes Actually Be Reversed?</h2>
+<p class="blog-desc">Understanding the science behind metabolic reversal, beta-cell recovery, and shedding insulin resistance permanently.</p>
+<span class="blog-cta">Book Free Consultation <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<!-- Card 3 -->
+<a class="vogue-hover-card blog-card" data-category="diet" href="best-diet-plan-for-diabetes-reversal.html">
+<div class="blog-img-wrap">
+<img alt="The Best Diet Plan for Diabetes Reversal" loading="lazy" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">Diet Plans</span>
+<h2 class="blog-title">The Best Diet Plan for Diabetes Reversal</h2>
+<p class="blog-desc">A precision nutrition protocol targeting insulin resistance using low-glycemic, anti-inflammatory whole foods.</p>
+<span class="blog-cta">Book Free Consultation <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<!-- Card 4 -->
+<a class="vogue-hover-card blog-card" data-category="hba1c" href="how-to-control-blood-sugar-without-medicine.html">
+<div class="blog-img-wrap">
+<img alt="How to Control Blood Sugar Without Medicine" loading="lazy" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">HbA1c Management</span>
+<h2 class="blog-title">How to Control Blood Sugar Without Medicine</h2>
+<p class="blog-desc">Sustainable, doctor-backed lifestyle strategies to maintain stable blood glucose without pharmaceutical dependence.</p>
+<span class="blog-cta">Book Free Consultation <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<!-- Card 5 -->
+<a class="vogue-hover-card blog-card" data-category="diet" href="foods-to-avoid-in-diabetes.html">
+<div class="blog-img-wrap">
+<img alt="Foods to Avoid If You Have Diabetes" loading="lazy" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">Diet Plans</span>
+<h2 class="blog-title">Foods to Avoid If You Have Diabetes</h2>
+<p class="blog-desc">The hidden glycemic saboteurs in your kitchen — and the precise swaps that protect your metabolic health.</p>
+<span class="blog-cta">Book Free Consultation <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<!-- Card 6 -->
+<a class="vogue-hover-card blog-card" data-category="diet" href="best-breakfast-for-diabetics.html">
+<div class="blog-img-wrap">
+<img alt="The Best Breakfast for Diabetics" loading="lazy" src="https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">Diet Plans</span>
+<h2 class="blog-title">The Best Breakfast for Diabetics</h2>
+<p class="blog-desc">Morning nutrition strategies that stabilize blood glucose for the entire day, backed by metabolic science.</p>
+<span class="blog-cta">Book Free Consultation <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<!-- Card 7 -->
+<a class="vogue-hover-card blog-card" data-category="diabetes" href="can-prediabetes-be-reversed.html">
+<div class="blog-img-wrap">
+<img alt="Can Prediabetes Be Reversed Before It Progresses?" loading="lazy" src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">Diabetes Reversal</span>
+<h2 class="blog-title">Can Prediabetes Be Reversed Before It Progresses?</h2>
+<p class="blog-desc">The window of opportunity before full diabetes onset — and the exact steps to reverse prediabetes completely.</p>
+<span class="blog-cta">Book Free Consultation <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<!-- Card 8 -->
+<a class="vogue-hover-card blog-card" data-category="lifestyle" href="natural-treatment-for-insulin-resistance.html">
+<div class="blog-img-wrap">
+<img alt="Natural Treatment for Insulin Resistance" loading="lazy" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">Lifestyle</span>
+<h2 class="blog-title">Natural Treatment for Insulin Resistance</h2>
+<p class="blog-desc">Root-cause approaches to overcome insulin resistance using exercise timing, sleep protocols, and targeted macros.</p>
+<span class="blog-cta">Book Free Consultation <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<!-- Card 9 -->
+<a class="vogue-hover-card blog-card" data-category="lifestyle" href="diabetes-reversal-program-india.html">
+<div class="blog-img-wrap">
+<img alt="Best Diabetes Reversal Program in India 2025" loading="lazy" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">Program India</span>
+<h2 class="blog-title">Best Diabetes Reversal Program in India 2025</h2>
+<p class="blog-desc">A comprehensive look at how structured, doctor-supervised metabolic programs outperform all medication approaches.</p>
+<span class="blog-cta">Book Free Consultation <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<!-- Card 10 -->
+<a class="vogue-hover-card blog-card" data-category="hba1c" href="how-to-lower-blood-sugar-naturally.html">
+<div class="blog-img-wrap">
+<img alt="How to Lower Blood Sugar Naturally &amp; Fast" loading="lazy" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">HbA1c Management</span>
+<h2 class="blog-title">How to Lower Blood Sugar Naturally &amp; Fast</h2>
+<p class="blog-desc">Evidence-based nutritional and lifestyle interventions that produce measurable drops in blood glucose within weeks.</p>
+<span class="blog-cta">Book Free Consultation <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+</div>
+<!-- FOOTER -->
+<footer style="background-color:var(--dark-deep); padding: 5rem 0 2rem; border-top:1px solid rgba(212,160,23,0.15); color:var(--cream); font-family:'DM Sans', sans-serif;">
+<div class="container">
+<div class="footer-grid fade-in-section" style="display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:3rem; margin-bottom:4rem;">
+<div>
+<img alt="FitMorphs Logo" height="70" loading="lazy" src="logo_stickey.png" style="margin-bottom:1.5rem;" width="70"/>
+<p style="opacity:0.6; font-size:0.95rem;">Body. Mind. Soul.<br/>Transform From Within.</p>
+</div>
+<div>
+<h4 style="color:var(--gold-mid); text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Quick Links</h4>
+<ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
+<li><a href="index.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Home</a></li>
+<li><a href="diabetes.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Diabetes Reversal</a></li>
+<li><a href="transformation.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Transformation</a></li>
+<li><a href="results.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Results</a></li>
+<li><a href="about.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">About Us</a></li>
+</ul>
+</div>
+<div>
+<h4 style="color:var(--gold-mid); text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Contact</h4>
+<ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
+<li><a href="tel:+918208692210" style="color:rgba(245,239,227,0.7); text-decoration:none;">+91 8208692210</a></li>
+<li><a href="mailto:hello@fitmorphs.com" style="color:rgba(245,239,227,0.7); text-decoration:none;">hello@fitmorphs.com</a></li>
+</ul>
+<div style="margin-top: 2rem;">
+<a class="btn btn-outline" href="apply.html" style="padding: 0.8rem 2rem; border-color:var(--gold-mid); color:var(--gold-mid);">Apply Now</a>
+</div>
+</div>
+</div>
+<div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
+<p>© <span data-fm-year="">2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> · <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
+</div>
+</div>
+</footer>
+<style> @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; } } </style>
+<!-- Floating Apply Now -->
+<div class="apply-float">
+<a class="apply-float-btn" href="apply.html">
+<svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
             Apply Now
         </a>
-    </div>
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/918208692210" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-    </a>
-
-    <script src="script.js"></script>
-
-    <script>
+</div>
+<script src="script.js"></script>
+<script>
         // Simple filter logic for blog categories
         document.querySelectorAll('.blog-cat-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -284,10 +255,8 @@
             });
         });
     </script>
-
-    <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
-
-    <script>
+<script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
+<script>
     // ── Blog category-pill animated underline ──
     (function () {
         const row = document.getElementById('fmBlogPillRow');
