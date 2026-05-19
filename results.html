@@ -1,285 +1,260 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Patient Results &amp; Transformations | FitMorphs</title>
-    <meta name="description" content="See real, documented patient transformations from FitMorphs. Browse fat loss, diabetes reversal, and hormonal health case studies with before and after evidence.">
-    <meta property="og:title" content="Real Patient Results &amp; Transformations | FitMorphs">
-    <meta property="og:description" content="See real, documented patient transformations from FitMorphs. Browse fat loss, diabetes reversal, and hormonal health case studies with before and after evidence.">
-    <meta property="og:image" content="logo_stickey.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.fitmorphs.com/results.html">
-    
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap">
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Meta Pixel Code -->
-    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');let extId=localStorage.getItem('fitmorphs_external_id');if(!extId){extId='fmt_'+Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15);localStorage.setItem('fitmorphs_external_id',extId);}fbq('init','463098106520925',{external_id:extId});fbq('track','PageView');fbq('track','ViewContent');</script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=463098106520925&ev=PageView&noscript=1" loading="lazy"  alt="FitMorphs website graphic" /></noscript>
-
-    
-    <link rel="stylesheet" href="assets/css/results-inline.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Real Patient Results &amp; Transformations | FitMorphs</title>
+<meta content="See real, documented patient transformations from FitMorphs. Browse fat loss, diabetes reversal, and hormonal health case studies with before and after evidence." name="description"/>
+<meta content="Real Patient Results &amp; Transformations | FitMorphs" property="og:title"/>
+<meta content="See real, documented patient transformations from FitMorphs. Browse fat loss, diabetes reversal, and hormonal health case studies with before and after evidence." property="og:description"/>
+<meta content="logo_stickey.png" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="https://www.fitmorphs.com/results.html" property="og:url"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&amp;family=Instrument+Serif:ital@1&amp;display=swap" rel="preload"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&amp;family=Instrument+Serif:ital@1&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<!-- Meta Pixel Code -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');let extId=localStorage.getItem('fitmorphs_external_id');if(!extId){extId='fmt_'+Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15);localStorage.setItem('fitmorphs_external_id',extId);}fbq('init','463098106520925',{external_id:extId});fbq('track','PageView');fbq('track','ViewContent');</script>
+<noscript><img alt="FitMorphs website graphic" height="1" loading="lazy" src="https://www.facebook.com/tr?id=463098106520925&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/></noscript>
+<link href="assets/css/results-inline.css" rel="stylesheet"/>
 </head>
-
 <body>
-    <div id="stars-container" aria-hidden="true">
-        <div id="stars1" class="star-layer"></div>
-        <div id="stars2" class="star-layer"></div>
-        <div id="stars3" class="star-layer"></div>
-    </div>
-    <div class="scroll-progress-container" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
-    <div class="custom-cursor" aria-hidden="true"></div>
-    <div id="page-wipe" aria-hidden="true"></div>
-
-    <!-- Announcement Bar -->
-    <div class="announcement-bar" id="announcementBar" aria-live="polite">
-        <div class="announcement-inner">
-            <span class="announcement-msg active">✦ Limited spots available for Q2 2026 — Apply before they fill</span>
-            <span class="announcement-msg">✦ 10,000+ lives transformed across India</span>
-            <span class="announcement-msg">✦ Doctor-supervised protocols. Science-backed results.</span>
-            <span class="announcement-msg">✦ Average HbA1c reduction of 2.8 points in 90 days</span>
-        </div>
-    </div>
-
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="container">
-            <a href="index.html" class="nav-brand" aria-label="FitMorphs Home"><img src="logo_stickey.png" alt="FitMorphs Logo" width="70" height="70"></a>
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
-            <div class="nav-links" id="nav-links">
-                <a href="index.html" style="font-family:'DM Sans', sans-serif;">Home</a>
-                <a href="diabetes.html" style="font-family:'DM Sans', sans-serif;">Diabetes Reversal</a>
-                <a href="transformation.html" style="font-family:'DM Sans', sans-serif;">Transformation</a>
-                <a href="results.html" class="active" style="font-family:'DM Sans', sans-serif;">Results</a>
-                <a href="about.html" style="font-family:'DM Sans', sans-serif;">About</a>
-                <a href="blog.html" style="font-family:'DM Sans', sans-serif;">Blog</a>
-                <a href="apply.html" class="btn btn-nav" style="font-family:'DM Sans', sans-serif;">Apply Now</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO -->
-    <header class="hero-vogue" aria-label="Results Hero">
-        <div class="hero-bg-wrapper">
-            <img class="hero-bg-img" src="https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&q=80&w=1600" alt="Results portrait">
-            <div class="hero-gradient-overlay"></div>
-        </div>
-        <div class="hero-content fade-in-section">
-            <span class="hero-label-eyebrow">Documented Evidence</span>
-            <h1 class="hero-title-vogue text-gold-gradient">The Numbers Don't Lie.<br>Neither Do These Faces.</h1>
-            <p style="font-size:1.1rem; color:var(--cream); opacity:0.8; max-width:580px; line-height:1.6; margin-top:2rem;">
+<div aria-hidden="true" id="stars-container">
+<div class="star-layer" id="stars1"></div>
+<div class="star-layer" id="stars2"></div>
+<div class="star-layer" id="stars3"></div>
+</div>
+<div aria-hidden="true" class="scroll-progress-container"><div class="scroll-progress-bar"></div></div>
+<div aria-hidden="true" class="custom-cursor"></div>
+<div aria-hidden="true" id="page-wipe"></div>
+<!-- Announcement Bar -->
+<div aria-live="polite" class="announcement-bar" id="announcementBar">
+<div class="announcement-inner">
+<span class="announcement-msg active">✦ 10,000+ lives transformed across India</span>
+<span class="announcement-msg">✦ Doctor-supervised protocols. Science-backed results.</span>
+<span class="announcement-msg">✦ Average HbA1c reduction of 2.8 points in 90 days</span>
+</div>
+</div>
+<nav aria-label="Main navigation" class="navbar" role="navigation">
+<div class="container">
+<a aria-label="FitMorphs Home" class="nav-brand" href="index.html"><img alt="FitMorphs Logo" height="70" src="logo_stickey.png" width="70"/></a>
+<button aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu" class="hamburger"><span></span><span></span><span></span></button>
+<div class="nav-links" id="nav-links">
+<a href="index.html" style="font-family:'DM Sans', sans-serif;">Home</a>
+<a href="diabetes.html" style="font-family:'DM Sans', sans-serif;">Diabetes Reversal</a>
+<a href="transformation.html" style="font-family:'DM Sans', sans-serif;">Transformation</a>
+<a class="active" href="results.html" style="font-family:'DM Sans', sans-serif;">Results</a>
+<a href="about.html" style="font-family:'DM Sans', sans-serif;">About</a>
+<a href="blog.html" style="font-family:'DM Sans', sans-serif;">Blog</a>
+<a class="btn btn-nav" href="apply.html" style="font-family:'DM Sans', sans-serif;">Apply Now</a>
+</div>
+</div>
+</nav>
+<!-- HERO -->
+<header aria-label="Results Hero" class="hero-vogue">
+<div class="hero-bg-wrapper">
+<img alt="Results portrait" class="hero-bg-img" src="https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&amp;fit=crop&amp;q=80&amp;w=1600"/>
+<div class="hero-gradient-overlay"></div>
+</div>
+<div class="hero-content fade-in-section">
+<span class="hero-label-eyebrow">Documented Evidence</span>
+<h1 class="hero-title-vogue text-gold-gradient">The Numbers Don't Lie.<br/>Neither Do These Faces.</h1>
+<p style="font-size:1.1rem; color:var(--cream); opacity:0.8; max-width:580px; line-height:1.6; margin-top:2rem;">
                 Explore real, clinically verified case studies of metabolic and physical transformations achieved through the FitMorphs protocol.
             </p>
-        </div>
-    </header>
-
-    <noscript><style>.fade-in-section{opacity:1!important;transform:none!important}body{opacity:1!important}</style></noscript>
-
-    <!-- HERO STAT BAR -->
-    <section style="background:linear-gradient(135deg, var(--dark-card), var(--dark-surface)); border-bottom:1px solid rgba(201,162,39,0.12); padding:2.5rem 0;">
-        <div class="container fade-in-section">
-            <div style="display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:3rem; text-align:center;">
-                <div>
-                    <div class="shimmer-text" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; line-height:1;">45,000+</div>
-                    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-on-dark-muted); margin-top:0.35rem;">kg Lost Combined</div>
-                </div>
-                <div style="width:1px; height:48px; background:rgba(201,162,39,0.2); flex-shrink:0;"></div>
-                <div>
-                    <div class="shimmer-text" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; line-height:1;">2.8pt</div>
-                    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-on-dark-muted); margin-top:0.35rem;">Avg HbA1c Reduction</div>
-                </div>
-                <div style="width:1px; height:48px; background:rgba(201,162,39,0.2); flex-shrink:0;"></div>
-                <div>
-                    <div class="shimmer-text" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; line-height:1;">98%</div>
-                    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-on-dark-muted); margin-top:0.35rem;">Success Rate</div>
-                </div>
-                <div style="width:1px; height:48px; background:rgba(201,162,39,0.2); flex-shrink:0;"></div>
-                <div>
-                    <div class="shimmer-text" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; line-height:1;">10,000+</div>
-                    <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-on-dark-muted); margin-top:0.35rem;">Lives Transformed</div>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-
-    <!-- FEATURED TRANSFORMATION SLIDER -->
-    <section id="fm-slider-section" aria-label="Featured Transformations">
-        <div id="fm-slider">
-            <!-- Hidden images: loaded for WebGL textures -->
-            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=90&w=1600" alt="" loading="lazy">
-            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=90&w=1600" alt="" loading="lazy">
-            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=90&w=1600" alt="" loading="lazy">
-            <img data-slide-img crossorigin="anonymous" style="display:none" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=90&w=1600" alt="" loading="lazy">
-
-            <div class="fm-gradient-overlay"></div>
-
-            <div class="fm-slider-inner">
-                <div id="fm-slide-content">
-                    <div class="fm-slide-eyebrow">Transformation</div>
-                    <h2 id="fm-slide-title">-22kg in<br>4 Months</h2>
-                    <span data-fm-title="0">-22kg in<br>4 Months</span>
-                    <span data-fm-title="1">HbA1c<br>9.4 → 5.6</span>
-                    <span data-fm-title="2">Regulated<br>Cycles</span>
-                    <span data-fm-title="3">Lean in<br>90 Days</span>
-                    <div class="fm-slide-eyebrow">Programme</div>
-                    <div id="fm-slide-category">Fat Loss &amp; Recomp</div>
-                    <span data-fm-category="0">Fat Loss &amp; Recomp</span>
-                    <span data-fm-category="1">Diabetes Reversal</span>
-                    <span data-fm-category="2">PCOD &amp; Hormones</span>
-                    <span data-fm-category="3">Body Recomposition</span>
-                </div>
-            </div>
-
-            <div id="fm-pagination" role="tablist" aria-label="Slide navigation">
-                <button class="active" data-slide="0" aria-label="Slide 1"></button>
-                <button data-slide="1" aria-label="Slide 2"></button>
-                <button data-slide="2" aria-label="Slide 3"></button>
-                <button data-slide="3" aria-label="Slide 4"></button>
-            </div>
-
-            <div id="fm-slider-loading" aria-hidden="true">
-                <div class="fm-loading-dot"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- IMMERSIVE TRANSFORMATION GRID — scroll-driven cinematic gallery -->
-    <section class="fm-scroll-grid-wrap" aria-label="Transformation gallery">
-        <div class="fm-grid-intro fade-in-section">
-            <span class="eyebrow-deluxe" style="display:inline-flex;">A Living Archive</span>
-            <h2 class="editorial-kicker">A Constellation of <em>Wins</em></h2>
-            <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
-            <p class="fm-grid-sub">Scroll. Watch one story bloom into hundreds.</p>
-        </div>
-
-        <div class="fm-scroll-grid-clip">
-        <section class="fm-grid-scroll-stage">
-            <div class="fm-grid-content">
-                <div class="fm-grid">
-                    <!-- Layer 1: Outer edges (6) — supporting context: training, nutrition, lifestyle -->
-                    <div class="fm-layer">
-                        <div><img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                        <div><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                        <div><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                        <div><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                        <div><img src="https://images.unsplash.com/photo-1606902965551-dce093cda6e7?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                        <div><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                    </div>
-                    <!-- Layer 2: Inner columns (6) — case studies + training intensity + nutrition -->
-                    <div class="fm-layer">
-                        <div><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                        <div><img src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                        <div><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                        <div><img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                        <div><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                        <div><img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                    </div>
-                    <!-- Layer 3: Center column top + bottom (2) — flagship case-study heroes -->
-                    <div class="fm-layer">
-                        <div><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                        <div><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&auto=format&fit=crop&q=70" alt="" loading="lazy"></div>
-                    </div>
-                    <!-- Center scaler — THE hero. Opens full-viewport, shrinks into its grid cell -->
-                    <div class="fm-scaler">
-                        <img src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1800&auto=format&fit=crop&q=88" alt="Featured Fitmorphs transformation" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </section>
-        </div>
-
-        <div class="fm-grid-outro fade-in-section">
-            <p class="fm-grid-fin">10,000+ stories. One <em>protocol</em>.<span>Hundreds more, every quarter.</span></p>
-        </div>
-    </section>
-
-    <!-- STATS BAR + LIVE TICKER RIBBON -->
-    <section class="stats-section" aria-label="Key statistics">
-        <div class="container fade-in-section">
-            <div class="stats-bar-container">
-                <div class="stat-item">
-                    <h3><span class="counter-val text-gold-gradient" data-target="10000">0</span><span class="text-gold-gradient">+</span></h3>
-                    <p>Lives Transformed</p>
-                </div>
-                <div class="stat-item">
-                    <h3><span class="counter-val text-gold-gradient" data-target="98">0</span><span class="text-gold-gradient">%</span></h3>
-                    <p>Success Rate</p>
-                </div>
-                <div class="stat-item">
-                    <h3><span class="counter-val text-gold-gradient" data-target="45000">0</span><span class="text-gold-gradient">+</span></h3>
-                    <p>Kilos Lost Combined</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="text-gold-gradient">100%</h3>
-                    <p>Customised Plans</p>
-                </div>
-            </div>
-
-            <!-- Live HbA1c reversal ticker — cycles every 3.5s -->
-            <div class="fm-live-ticker" id="fmLiveTicker" aria-live="polite">
-                <span class="pulse-dot" aria-hidden="true"></span>
-                <span class="label">Just Now</span>
-                <span class="msg" id="fmTickerMsg">HbA1c <strong>8.2 &rarr; 5.9</strong> &middot; Pune &middot; Day 78</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- VIDEO TESTIMONIALS -->
-    <section class="section" style="background-color:var(--off-white); padding:8rem 0;">
-        <div class="container fade-in-section">
-            <div style="text-align:center; margin-bottom:5rem;">
-                <span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">Journeys</span>
-                <h2 class="editorial-kicker" style="color:var(--dark);">In Their <em>Own Words</em></h2>
-                <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
-                <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; color:rgba(15,15,12,0.62); margin:1.25rem auto 0; max-width:560px;">Patient video stories &mdash; recorded with consent, anonymised where requested. Full library coming Q3 2026 alongside our clinical photography release.</p>
-            </div>
-
-            <div class="video-grid stagger-children">
-                <div class="video-card video-card-pending" role="button" aria-label="Patient story coming soon — Type 2 reversal" tabindex="0" data-pending="true">
-                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800" alt="Patient story — Type 2 reversal (release pending)" loading="lazy">
-                    <div class="video-overlay">
-                        <span class="video-eyebrow">Coming Soon</span>
-                        <span class="video-title">Type 2 Reversal</span>
-                        <span class="video-meta">Pune &middot; 90-Day Protocol</span>
-                    </div>
-                </div>
-                <div class="video-card video-card-pending" role="button" aria-label="Patient story coming soon — Fat loss recomposition" tabindex="0" data-pending="true">
-                    <img src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=80&w=800" alt="Patient story — fat-loss recomposition (release pending)" loading="lazy">
-                    <div class="video-overlay">
-                        <span class="video-eyebrow">Coming Soon</span>
-                        <span class="video-title">22kg Recomposition</span>
-                        <span class="video-meta">Mumbai &middot; 16-Week Arc</span>
-                    </div>
-                </div>
-                <div class="video-card video-card-pending" role="button" aria-label="Patient story coming soon — PCOD reset" tabindex="0" data-pending="true">
-                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800" alt="Patient story — PCOD reset (release pending)" loading="lazy">
-                    <div class="video-overlay">
-                        <span class="video-eyebrow">Coming Soon</span>
-                        <span class="video-title">PCOD Reset</span>
-                        <span class="video-meta">Bengaluru &middot; 12-Week Cycle</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- UNFILTERED REACTIONS -->
-    <section class="section" style="background-color:var(--white); padding:8rem 0;">
-        <div class="container fade-in-section">
-            <div style="text-align:center; margin-bottom:4rem;">
-                <span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">Everyday Wins</span>
-                <h2 class="editorial-kicker" style="color:var(--dark);">Unfiltered <em>Reactions</em></h2>
-                <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
-                <p style="text-align:center; color:var(--charcoal); opacity:0.75; margin-top:1rem; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; max-width:600px; margin-left:auto; margin-right:auto;">A selection of patient messages, paraphrased &amp; anonymised for privacy. Verbatim screenshots are reviewed on request after consent.</p>
-            </div>
-
-            <!-- Infinite marquee — paragraphs slide slowly right-to-left, paused on hover -->
-            <div class="fm-marquee" id="fmWaMarquee" aria-label="Patient reactions, scrolling">
-                <div class="fm-marquee-track" id="fmWaTrack"></div>
-            </div>
-            <script type="application/json" id="fmWaData">
+</div>
+</header>
+<noscript><style>.fade-in-section{opacity:1!important;transform:none!important}body{opacity:1!important}</style></noscript>
+<!-- HERO STAT BAR -->
+<section style="background:linear-gradient(135deg, var(--dark-card), var(--dark-surface)); border-bottom:1px solid rgba(201,162,39,0.12); padding:2.5rem 0;">
+<div class="container fade-in-section">
+<div style="display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:3rem; text-align:center;">
+<div>
+<div class="shimmer-text" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; line-height:1;">45,000+</div>
+<div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-on-dark-muted); margin-top:0.35rem;">kg Lost Combined</div>
+</div>
+<div style="width:1px; height:48px; background:rgba(201,162,39,0.2); flex-shrink:0;"></div>
+<div>
+<div class="shimmer-text" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; line-height:1;">2.8pt</div>
+<div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-on-dark-muted); margin-top:0.35rem;">Avg HbA1c Reduction</div>
+</div>
+<div style="width:1px; height:48px; background:rgba(201,162,39,0.2); flex-shrink:0;"></div>
+<div>
+<div class="shimmer-text" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; line-height:1;">98%</div>
+<div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-on-dark-muted); margin-top:0.35rem;">Success Rate</div>
+</div>
+<div style="width:1px; height:48px; background:rgba(201,162,39,0.2); flex-shrink:0;"></div>
+<div>
+<div class="shimmer-text" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; line-height:1;">10,000+</div>
+<div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-on-dark-muted); margin-top:0.35rem;">Lives Transformed</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FEATURED TRANSFORMATION SLIDER -->
+<section aria-label="Featured Transformations" id="fm-slider-section">
+<div id="fm-slider">
+<!-- Hidden images: loaded for WebGL textures -->
+<img alt="" crossorigin="anonymous" data-slide-img="" loading="lazy" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;q=90&amp;w=1600" style="display:none"/>
+<img alt="" crossorigin="anonymous" data-slide-img="" loading="lazy" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&amp;fit=crop&amp;q=90&amp;w=1600" style="display:none"/>
+<img alt="" crossorigin="anonymous" data-slide-img="" loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&amp;fit=crop&amp;q=90&amp;w=1600" style="display:none"/>
+<img alt="" crossorigin="anonymous" data-slide-img="" loading="lazy" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&amp;fit=crop&amp;q=90&amp;w=1600" style="display:none"/>
+<div class="fm-gradient-overlay"></div>
+<div class="fm-slider-inner">
+<div id="fm-slide-content">
+<div class="fm-slide-eyebrow">Transformation</div>
+<h2 id="fm-slide-title">-22kg in<br/>4 Months</h2>
+<span data-fm-title="0">-22kg in<br/>4 Months</span>
+<span data-fm-title="1">HbA1c<br/>9.4 → 5.6</span>
+<span data-fm-title="2">Regulated<br/>Cycles</span>
+<span data-fm-title="3">Lean in<br/>90 Days</span>
+<div class="fm-slide-eyebrow">Programme</div>
+<div id="fm-slide-category">Fat Loss &amp; Recomp</div>
+<span data-fm-category="0">Fat Loss &amp; Recomp</span>
+<span data-fm-category="1">Diabetes Reversal</span>
+<span data-fm-category="2">PCOD &amp; Hormones</span>
+<span data-fm-category="3">Body Recomposition</span>
+</div>
+</div>
+<div aria-label="Slide navigation" id="fm-pagination" role="tablist">
+<button aria-label="Slide 1" class="active" data-slide="0"></button>
+<button aria-label="Slide 2" data-slide="1"></button>
+<button aria-label="Slide 3" data-slide="2"></button>
+<button aria-label="Slide 4" data-slide="3"></button>
+</div>
+<div aria-hidden="true" id="fm-slider-loading">
+<div class="fm-loading-dot"></div>
+</div>
+</div>
+</section>
+<!-- IMMERSIVE TRANSFORMATION GRID — scroll-driven cinematic gallery -->
+<section aria-label="Transformation gallery" class="fm-scroll-grid-wrap">
+<div class="fm-grid-intro fade-in-section">
+<span class="eyebrow-deluxe" style="display:inline-flex;">A Living Archive</span>
+<h2 class="editorial-kicker">A Constellation of <em>Wins</em></h2>
+<div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+<p class="fm-grid-sub">Scroll. Watch one story bloom into hundreds.</p>
+</div>
+<div class="fm-scroll-grid-clip">
+<section class="fm-grid-scroll-stage">
+<div class="fm-grid-content">
+<div class="fm-grid">
+<!-- Layer 1: Outer edges (6) — supporting context: training, nutrition, lifestyle -->
+<div class="fm-layer">
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1606902965551-dce093cda6e7?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+</div>
+<!-- Layer 2: Inner columns (6) — case studies + training intensity + nutrition -->
+<div class="fm-layer">
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+</div>
+<!-- Layer 3: Center column top + bottom (2) — flagship case-study heroes -->
+<div class="fm-layer">
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+</div>
+<!-- Center scaler — THE hero. Opens full-viewport, shrinks into its grid cell -->
+<div class="fm-scaler">
+<img alt="Featured Fitmorphs transformation" loading="lazy" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1800&amp;auto=format&amp;fit=crop&amp;q=88"/>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="fm-grid-outro fade-in-section">
+<p class="fm-grid-fin">10,000+ stories. One <em>protocol</em>.<span>Hundreds more, every quarter.</span></p>
+</div>
+</section>
+<!-- STATS BAR + LIVE TICKER RIBBON -->
+<section aria-label="Key statistics" class="stats-section">
+<div class="container fade-in-section">
+<div class="stats-bar-container">
+<div class="stat-item">
+<h3><span class="counter-val text-gold-gradient" data-target="10000">0</span><span class="text-gold-gradient">+</span></h3>
+<p>Lives Transformed</p>
+</div>
+<div class="stat-item">
+<h3><span class="counter-val text-gold-gradient" data-target="98">0</span><span class="text-gold-gradient">%</span></h3>
+<p>Success Rate</p>
+</div>
+<div class="stat-item">
+<h3><span class="counter-val text-gold-gradient" data-target="45000">0</span><span class="text-gold-gradient">+</span></h3>
+<p>Kilos Lost Combined</p>
+</div>
+<div class="stat-item">
+<h3 class="text-gold-gradient">100%</h3>
+<p>Customised Plans</p>
+</div>
+</div>
+<!-- Live HbA1c reversal ticker — cycles every 3.5s -->
+<div aria-live="polite" class="fm-live-ticker" id="fmLiveTicker">
+<span aria-hidden="true" class="pulse-dot"></span>
+<span class="label">Just Now</span>
+<span class="msg" id="fmTickerMsg">HbA1c <strong>8.2 → 5.9</strong> · Pune · Day 78</span>
+</div>
+</div>
+</section>
+<!-- VIDEO TESTIMONIALS -->
+<section class="section" style="background-color:var(--off-white); padding:8rem 0;">
+<div class="container fade-in-section">
+<div style="text-align:center; margin-bottom:5rem;">
+<span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">Journeys</span>
+<h2 class="editorial-kicker" style="color:var(--dark);">In Their <em>Own Words</em></h2>
+<div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+<p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; color:rgba(15,15,12,0.62); margin:1.25rem auto 0; max-width:560px;">Patient video stories — recorded with consent, anonymised where requested. Full library coming Q3 2026 alongside our clinical photography release.</p>
+</div>
+<div class="video-grid stagger-children">
+<div aria-label="Patient story coming soon — Type 2 reversal" class="video-card video-card-pending" data-pending="true" role="button" tabindex="0">
+<img alt="Patient story — Type 2 reversal (release pending)" loading="lazy" src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+<div class="video-overlay">
+<span class="video-eyebrow">Coming Soon</span>
+<span class="video-title">Type 2 Reversal</span>
+<span class="video-meta">Pune · 90-Day Protocol</span>
+</div>
+</div>
+<div aria-label="Patient story coming soon — Fat loss recomposition" class="video-card video-card-pending" data-pending="true" role="button" tabindex="0">
+<img alt="Patient story — fat-loss recomposition (release pending)" loading="lazy" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+<div class="video-overlay">
+<span class="video-eyebrow">Coming Soon</span>
+<span class="video-title">22kg Recomposition</span>
+<span class="video-meta">Mumbai · 16-Week Arc</span>
+</div>
+</div>
+<div aria-label="Patient story coming soon — PCOD reset" class="video-card video-card-pending" data-pending="true" role="button" tabindex="0">
+<img alt="Patient story — PCOD reset (release pending)" loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+<div class="video-overlay">
+<span class="video-eyebrow">Coming Soon</span>
+<span class="video-title">PCOD Reset</span>
+<span class="video-meta">Bengaluru · 12-Week Cycle</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- UNFILTERED REACTIONS -->
+<section class="section" style="background-color:var(--white); padding:8rem 0;">
+<div class="container fade-in-section">
+<div style="text-align:center; margin-bottom:4rem;">
+<span class="eyebrow-deluxe" style="display:inline-flex; color:var(--dark);">Everyday Wins</span>
+<h2 class="editorial-kicker" style="color:var(--dark);">Unfiltered <em>Reactions</em></h2>
+<div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+<p style="text-align:center; color:var(--charcoal); opacity:0.75; margin-top:1rem; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; max-width:600px; margin-left:auto; margin-right:auto;">A selection of patient messages, paraphrased &amp; anonymised for privacy. Verbatim screenshots are reviewed on request after consent.</p>
+</div>
+<!-- Infinite marquee — paragraphs slide slowly right-to-left, paused on hover -->
+<div aria-label="Patient reactions, scrolling" class="fm-marquee" id="fmWaMarquee">
+<div class="fm-marquee-track" id="fmWaTrack"></div>
+</div>
+<script id="fmWaData" type="application/json">
             [
               {"q":"HbA1c dropped from 9.4 to 5.8 in 16 weeks. Doctor reduced my insulin to half last week. I haven&rsquo;t felt this energetic in 7 years.","who":"Rakesh M. &middot; Pune &middot; Day 112"},
               {"q":"Lost 14 kg in 90 days &mdash; without giving up roti or rice. The macro plan was insanely Indian. My mother is now on the program too.","who":"Priya G. &middot; Mumbai &middot; Day 90"},
@@ -289,69 +264,61 @@
               {"q":"Thyroid meds reduced. Energy back. My husband notices the difference more than I do. Thank you, FitMorphs.","who":"Meera V. &middot; Delhi &middot; Day 98"}
             ]
             </script>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="final-cta-vogue">
-        <div class="final-cta-content fade-in-section">
-            <h2 class="final-cta-h2 text-gold-gradient">Be Our Next Success Story</h2>
-            <p style="font-family:'DM Sans', sans-serif; color:var(--cream); opacity:0.8; font-size:1.1rem; max-width:560px; margin:0 auto 3rem; line-height:1.6;">Your biology is unique. Get a personalised roadmap designed by our clinical team.</p>
-            <a href="apply.html" class="btn btn-shimmer" style="padding: 1.4rem 4.5rem; font-size: 1.15rem; border-radius: 4px; border:none; color:var(--dark);">Start Now</a>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer style="background-color:var(--dark-deep); padding: 5rem 0 2rem; border-top:1px solid rgba(212,160,23,0.15); color:var(--cream); font-family:'DM Sans', sans-serif;">
-        <div class="container">
-            <div style="display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:3rem; margin-bottom:4rem;" class="footer-grid">
-                <div>
-                    <img src="logo_stickey.png" alt="FitMorphs Logo" width="70" height="70" loading="lazy" style="margin-bottom:1.5rem;">
-                    <p style="opacity:0.6; font-size:0.95rem;">Body. Mind. Soul.<br>Transform From Within.</p>
-                </div>
-                <div>
-                    <h4 style="color:var(--gold-mid); text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Quick Links</h4>
-                    <ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
-                        <li><a href="index.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Home</a></li>
-                        <li><a href="diabetes.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Diabetes Reversal</a></li>
-                        <li><a href="transformation.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Transformation</a></li>
-                        <li><a href="results.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Results</a></li>
-                        <li><a href="about.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">About Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="color:var(--gold-mid); text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Contact</h4>
-                    <ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
-                        <li><a href="tel:+918208692210" style="color:rgba(245,239,227,0.7); text-decoration:none;">+91 8208692210</a></li>
-                        <li><a href="mailto:hello@fitmorphs.com" style="color:rgba(245,239,227,0.7); text-decoration:none;">hello@fitmorphs.com</a></li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <a href="apply.html" class="btn btn-outline" style="padding: 0.8rem 2rem; border-color:var(--gold-mid); color:var(--gold-mid);">Apply Now</a>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
-                <p>&copy; <span data-fm-year>2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> &middot; <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
-            </div>
-        </div>
-    </footer>
-    
-    <style> @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; } } </style>
-
-    <!-- Floating Apply Now (mobile primary CTA) -->
-    <div class="apply-float">
-        <a href="apply.html" class="apply-float-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+</div>
+</section>
+<!-- FINAL CTA -->
+<section class="final-cta-vogue">
+<div class="final-cta-content fade-in-section">
+<h2 class="final-cta-h2 text-gold-gradient">Be Our Next Success Story</h2>
+<p style="font-family:'DM Sans', sans-serif; color:var(--cream); opacity:0.8; font-size:1.1rem; max-width:560px; margin:0 auto 3rem; line-height:1.6;">Your biology is unique. Get a personalised roadmap designed by our clinical team.</p>
+<a class="btn btn-shimmer" href="apply.html" style="padding: 1.4rem 4.5rem; font-size: 1.15rem; border-radius: 4px; border:none; color:var(--dark);">Start Now</a>
+</div>
+</section>
+<!-- FOOTER -->
+<footer style="background-color:var(--dark-deep); padding: 5rem 0 2rem; border-top:1px solid rgba(212,160,23,0.15); color:var(--cream); font-family:'DM Sans', sans-serif;">
+<div class="container">
+<div class="footer-grid" style="display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:3rem; margin-bottom:4rem;">
+<div>
+<img alt="FitMorphs Logo" height="70" loading="lazy" src="logo_stickey.png" style="margin-bottom:1.5rem;" width="70"/>
+<p style="opacity:0.6; font-size:0.95rem;">Body. Mind. Soul.<br/>Transform From Within.</p>
+</div>
+<div>
+<h4 style="color:var(--gold-mid); text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Quick Links</h4>
+<ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
+<li><a href="index.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Home</a></li>
+<li><a href="diabetes.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Diabetes Reversal</a></li>
+<li><a href="transformation.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Transformation</a></li>
+<li><a href="results.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Results</a></li>
+<li><a href="about.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">About Us</a></li>
+</ul>
+</div>
+<div>
+<h4 style="color:var(--gold-mid); text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Contact</h4>
+<ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
+<li><a href="tel:+918208692210" style="color:rgba(245,239,227,0.7); text-decoration:none;">+91 8208692210</a></li>
+<li><a href="mailto:hello@fitmorphs.com" style="color:rgba(245,239,227,0.7); text-decoration:none;">hello@fitmorphs.com</a></li>
+</ul>
+<div style="margin-top: 2rem;">
+<a class="btn btn-outline" href="apply.html" style="padding: 0.8rem 2rem; border-color:var(--gold-mid); color:var(--gold-mid);">Apply Now</a>
+</div>
+</div>
+</div>
+<div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
+<p>© <span data-fm-year="">2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> · <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
+</div>
+</div>
+</footer>
+<style> @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; } } </style>
+<!-- Floating Apply Now (mobile primary CTA) -->
+<div class="apply-float">
+<a class="apply-float-btn" href="apply.html">
+<svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
             Apply Now
         </a>
-    </div>
+</div>
 
-    <a href="https://wa.me/918208692210" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-    </a>
-
-    <!-- Cinematic scroll-driven grid (Motion library, Jhey-style) -->
-    <script type="module">
+<!-- Cinematic scroll-driven grid (Motion library, Jhey-style) -->
+<script type="module">
         import { animate, scroll, cubicBezier } from 'https://cdn.jsdelivr.net/npm/motion@11.11.16/+esm';
 
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -431,13 +398,11 @@
             }
         }
     </script>
-
-    <script src="script.js"></script>
-
-    <!-- Three.js + GSAP for displacement slider -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script>
+<script src="script.js"></script>
+<!-- Three.js + GSAP for displacement slider -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script>
     (function () {
         const sliderEl = document.getElementById('fm-slider');
         const loadingEl = document.getElementById('fm-slider-loading');
@@ -603,10 +568,8 @@
         if (imgs.length === 0) initSlider();
     })();
     </script>
-
-    <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
-
-    <script>
+<script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
+<script>
     // ── Live HbA1c reversal ticker ──
     (function () {
         const msgEl = document.getElementById('fmTickerMsg');

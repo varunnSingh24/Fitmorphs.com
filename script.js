@@ -849,30 +849,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // =========================================================
-  // 25. WHATSAPP CHAT BUBBLE (first visit, after 5s)
-  // =========================================================
-  const waBubble = document.getElementById('waBubble');
-  const waBubbleClose = document.getElementById('waBubbleClose');
-
-  if (waBubble && !sessionStorage.getItem('fm_wa_dismissed')) {
-    setTimeout(() => {
-      waBubble.classList.add('visible');
-      // Auto-dismiss after 8s
-      setTimeout(() => {
-        if (waBubble.classList.contains('visible')) {
-          waBubble.classList.remove('visible');
-        }
-      }, 8000);
-    }, 5000);
-
-    if (waBubbleClose) {
-      waBubbleClose.addEventListener('click', () => {
-        waBubble.classList.remove('visible');
-        sessionStorage.setItem('fm_wa_dismissed', '1');
-      });
-    }
-  }
+  // Removed waBubble logic
 
 
   // =========================================================

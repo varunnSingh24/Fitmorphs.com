@@ -1,24 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitMorphs — Transform From Within | Doctor-Supervised Metabolic Health</title>
-    <meta name="description" content="FitMorphs is India's premier doctor-supervised metabolic health program. Reverse Type 2 Diabetes, achieve fat loss, and reclaim your life in 90 days.">
-    <meta property="og:title" content="FitMorphs — Transform From Within">
-    <meta property="og:description" content="India's premier doctor-supervised metabolic reversal program. 10,000+ lives transformed.">
-    <meta property="og:image" content="logo_stickey.png">
-    <meta property="og:type" content="website">
-    <link rel="canonical" href="https://www.fitmorphs.com/">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" as="style">
-    
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Structured data: MedicalBusiness + AggregateRating + 4 patient reviews -->
-    <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FitMorphs — Transform From Within | Doctor-Supervised Metabolic Health</title>
+<meta content="FitMorphs is India's premier doctor-supervised metabolic health program. Reverse Type 2 Diabetes, achieve fat loss, and reclaim your life in 90 days." name="description"/>
+<meta content="FitMorphs — Transform From Within" property="og:title"/>
+<meta content="India's premier doctor-supervised metabolic reversal program. 10,000+ lives transformed." property="og:description"/>
+<meta content="logo_stickey.png" property="og:image"/>
+<meta content="website" property="og:type"/>
+<link href="https://www.fitmorphs.com/" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&amp;family=Instrument+Serif:ital@1&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<!-- Structured data: MedicalBusiness + AggregateRating + 4 patient reviews -->
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
@@ -43,9 +41,8 @@
       ]
     }
     </script>
-
-    <!-- Meta Pixel — deferred after main content is interactive -->
-    <script>
+<!-- Meta Pixel — deferred after main content is interactive -->
+<script>
         window.addEventListener('load', function() {
             (function(f,b,e,v,n,t,s){
                 if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -60,158 +57,142 @@
             fbq('track','ViewContent');
         }, { once: true });
     </script>
-    
-    
-    <link rel="stylesheet" href="assets/css/index-inline.css">
+<link href="assets/css/index-inline.css" rel="stylesheet"/>
 </head>
-
 <body>
-    <div id="stars-container" aria-hidden="true">
-        <div id="stars1" class="star-layer"></div>
-        <div id="stars2" class="star-layer"></div>
-        <div id="stars3" class="star-layer"></div>
-    </div>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress-container" aria-hidden="true">
-        <div class="scroll-progress-bar"></div>
-    </div>
-    <!-- Custom Cursor -->
-    <div class="custom-cursor" aria-hidden="true"></div>
-
-    <!-- Page Wipe Transition -->
-    <div id="page-wipe" aria-hidden="true"></div>
-
-    <!-- Homepage Intro Sequence (first visit only) -->
-    <div id="fm-intro" aria-hidden="true">
-        <div class="fm-vignette"></div>
-        <div class="fm-grain"></div>
-        <div class="fm-intro-stage">
-            <span class="fm-eyebrow">Reverse &middot; Restore &middot; Restart</span>
-            <div class="fm-hairline"></div>
-            <h1 class="fm-wordmark">
-                <span class="fm-letter" style="--i:0">F</span><span class="fm-letter" style="--i:1">i</span><span class="fm-letter" style="--i:2">t</span><span class="fm-letter" style="--i:3">m</span><span class="fm-letter" style="--i:4">o</span><span class="fm-letter" style="--i:5">r</span><span class="fm-letter" style="--i:6">p</span><span class="fm-letter" style="--i:7">h</span><span class="fm-letter" style="--i:8">s</span><span class="fm-reg-small">&reg;</span>
-                <span class="fm-sweep" aria-hidden="true"></span>
-            </h1>
-            <div class="fm-hairline fm-hairline-lower"></div>
-            <span class="fm-tagline">Transform&nbsp;From&nbsp;Within</span>
-        </div>
-    </div>
-
-    <!-- Scroll Journey Dots -->
-    <nav class="scroll-dots" id="scrollDots" aria-label="Page sections"></nav>
-
-    <!-- Announcement Bar -->
-    <div class="announcement-bar" id="announcementBar" aria-live="polite">
-        <div class="announcement-inner">
-            <span class="announcement-msg active">✦ Limited spots available for Q2 2026 — Apply before they fill</span>
-            <span class="announcement-msg">✦ 10,000+ lives transformed across India</span>
-            <span class="announcement-msg">✦ Doctor-supervised protocols. Science-backed results.</span>
-            <span class="announcement-msg">✦ Average HbA1c reduction of 2.8 points in 90 days</span>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="container">
-            <a href="index.html" class="nav-brand" aria-label="FitMorphs Home">
-                <img src="logo_stickey.png" alt="FitMorphs Logo" class="footer-logo" width="70" height="70">
-            </a>
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
-                <span></span><span></span><span></span>
-            </button>
-            <div class="nav-links" id="nav-links">
-                <a href="index.html" class="active" style="font-family:'DM Sans', sans-serif;">Home</a>
-                <a href="diabetes.html" style="font-family:'DM Sans', sans-serif;">Diabetes Reversal</a>
-                <a href="transformation.html" style="font-family:'DM Sans', sans-serif;">Transformation</a>
-                <a href="results.html" style="font-family:'DM Sans', sans-serif;">Results</a>
-                <a href="about.html" style="font-family:'DM Sans', sans-serif;">About</a>
-                <a href="blog.html" style="font-family:'DM Sans', sans-serif;">Blog</a>
-                <a href="apply.html" class="btn btn-nav" style="font-family:'DM Sans', sans-serif;">Apply Now</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- SECTION 1: HERO — scroll-pinned cinematic. 300vh stage, sticky pin,
+<div aria-hidden="true" id="stars-container">
+<div class="star-layer" id="stars1"></div>
+<div class="star-layer" id="stars2"></div>
+<div class="star-layer" id="stars3"></div>
+</div>
+<!-- Scroll Progress Bar -->
+<div aria-hidden="true" class="scroll-progress-container">
+<div class="scroll-progress-bar"></div>
+</div>
+<!-- Custom Cursor -->
+<div aria-hidden="true" class="custom-cursor"></div>
+<!-- Page Wipe Transition -->
+<div aria-hidden="true" id="page-wipe"></div>
+<!-- Homepage Intro Sequence (first visit only) -->
+<div aria-hidden="true" id="fm-intro">
+<div class="fm-vignette"></div>
+<div class="fm-grain"></div>
+<div class="fm-intro-stage">
+<span class="fm-eyebrow">Reverse · Restore · Restart</span>
+<div class="fm-hairline"></div>
+<h1 class="fm-wordmark">
+<span class="fm-letter" style="--i:0">F</span><span class="fm-letter" style="--i:1">i</span><span class="fm-letter" style="--i:2">t</span><span class="fm-letter" style="--i:3">m</span><span class="fm-letter" style="--i:4">o</span><span class="fm-letter" style="--i:5">r</span><span class="fm-letter" style="--i:6">p</span><span class="fm-letter" style="--i:7">h</span><span class="fm-letter" style="--i:8">s</span><span class="fm-reg-small">®</span>
+<span aria-hidden="true" class="fm-sweep"></span>
+</h1>
+<div class="fm-hairline fm-hairline-lower"></div>
+<span class="fm-tagline">Transform From Within</span>
+</div>
+</div>
+<!-- Scroll Journey Dots -->
+<nav aria-label="Page sections" class="scroll-dots" id="scrollDots"></nav>
+<!-- Announcement Bar -->
+<div aria-live="polite" class="announcement-bar" id="announcementBar">
+<div class="announcement-inner">
+<span class="announcement-msg active">✦ 10,000+ lives transformed across India</span>
+<span class="announcement-msg">✦ Doctor-supervised protocols. Science-backed results.</span>
+<span class="announcement-msg">✦ Average HbA1c reduction of 2.8 points in 90 days</span>
+</div>
+</div>
+<!-- Navigation -->
+<nav aria-label="Main navigation" class="navbar" role="navigation">
+<div class="container">
+<a aria-label="FitMorphs Home" class="nav-brand" href="index.html">
+<img alt="FitMorphs Logo" class="footer-logo" height="70" src="logo_stickey.png" width="70"/>
+</a>
+<button aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu" class="hamburger">
+<span></span><span></span><span></span>
+</button>
+<div class="nav-links" id="nav-links">
+<a class="active" href="index.html" style="font-family:'DM Sans', sans-serif;">Home</a>
+<a href="diabetes.html" style="font-family:'DM Sans', sans-serif;">Diabetes Reversal</a>
+<a href="transformation.html" style="font-family:'DM Sans', sans-serif;">Transformation</a>
+<a href="results.html" style="font-family:'DM Sans', sans-serif;">Results</a>
+<a href="about.html" style="font-family:'DM Sans', sans-serif;">About</a>
+<a href="blog.html" style="font-family:'DM Sans', sans-serif;">Blog</a>
+<a class="btn btn-nav" href="apply.html" style="font-family:'DM Sans', sans-serif;">Apply Now</a>
+</div>
+</div>
+</nav>
+<!-- SECTION 1: HERO — scroll-pinned cinematic. 300vh stage, sticky pin,
          second stage with "TRANSFORM FROM WITHIN" + CGM-trace draw past 50%. -->
-    <section class="hero-pin-stage" id="heroPinStage" aria-label="Hero cinematic">
-    <div class="hero-pin">
-    <section class="hero-vogue hero-vogue-no-bg" style="position:relative; min-height:100vh; height:100%;">
-        <!-- Hero background image removed at user request — homepage stays clean dark
+<section aria-label="Hero cinematic" class="hero-pin-stage" id="heroPinStage">
+<div class="hero-pin">
+<section class="hero-vogue hero-vogue-no-bg" style="position:relative; min-height:100vh; height:100%;">
+<!-- Hero background image removed at user request — homepage stays clean dark
              with the gold-droplet ambient layer behind. Use of bg image is reserved
              for the rest of the site. -->
-        <div class="hero-bg-wrapper" aria-hidden="true">
-            <div class="hero-gradient-overlay"></div>
-        </div>
-
-        <div class="hero-content">
-            <span class="hero-label-eyebrow fade-in-section">Doctor Supervised &middot; Clinically Proven &middot; 10,000+ Transformed</span>
-            <h1 class="hero-title-vogue text-gold-gradient fm-words" id="heroHeadline" data-fm-headline="Your Body Has the Power to Heal. We Prove It.">
-                Your Body Has the Power<br>to Heal. We Prove It.
+<div aria-hidden="true" class="hero-bg-wrapper">
+<div class="hero-gradient-overlay"></div>
+</div>
+<div class="hero-content">
+<span class="hero-label-eyebrow fade-in-section">Doctor Supervised · Clinically Proven · 10,000+ Transformed</span>
+<h1 class="hero-title-vogue text-gold-gradient fm-words" data-fm-headline="Your Body Has the Power to Heal. We Prove It." id="heroHeadline">
+                Your Body Has the Power<br/>to Heal. We Prove It.
             </h1>
-            <div class="hero-btns-vogue fade-in-section" style="animation-delay: 0.4s;">
-                <div class="cta-group">
-                    <a href="apply.html" class="btn btn-shimmer btn-hero-cta">Check Your Eligibility</a>
-                    <span class="cta-microcopy">Free 15-min consultation · No obligation</span>
-                </div>
-                <a href="results.html" class="btn btn-outline" style="background:transparent; border-color:var(--gold-mid); color:var(--gold-bright);">See Our Results &rarr;</a>
-            </div>
-        </div>
-        
-        <div class="marquee-container">
-            <div class="marquee-text">
-                <span>HbA1c REVERSED</span>
-                <span>&middot;</span>
-                <span>INSULIN FREE</span>
-                <span>&middot;</span>
-                <span>22KG LOST</span>
-                <span>&middot;</span>
-                <span>DIABETES REVERSED</span>
-                <span>&middot;</span>
-                <span>PCOD HEALED</span>
-                <span>&middot;</span>
-                <span>HbA1c REVERSED</span>
-                <span>&middot;</span>
-                <span>INSULIN FREE</span>
-                <span>&middot;</span>
-                <span>22KG LOST</span>
-                <span>&middot;</span>
-                <span>DIABETES REVERSED</span>
-                <span>&middot;</span>
-                <span>PCOD HEALED</span>
-                <span>&middot;</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- STAGE 2 — past 50% scroll, headline morphs to TRANSFORM FROM WITHIN + glucose trace draws -->
-    <div class="hero-stage-2" aria-hidden="true">
-        <div class="stage2-inner">
-            <span class="hero-label-eyebrow" style="display:inline-block; margin-bottom:1.5rem;">From sky-high glucose &middot; to a steady flatline</span>
-            <h2 class="stage2-headline">Transform From <em>Within</em>.</h2>
-            <svg class="cgm-trace" viewBox="0 0 900 140" preserveAspectRatio="none" aria-hidden="true">
-                <defs>
-                    <linearGradient id="cgmGold" x1="0" x2="1">
-                        <stop offset="0%"   stop-color="#e2b83a"/>
-                        <stop offset="50%"  stop-color="#f0d060"/>
-                        <stop offset="100%" stop-color="#a17c2f"/>
-                    </linearGradient>
-                </defs>
-                <!-- Reference line — diabetic threshold -->
-                <line x1="0" y1="62" x2="900" y2="62" stroke="rgba(245,239,227,0.18)" stroke-dasharray="4 6"/>
-                <text class="cgm-label" x="6" y="56">Threshold &mdash; HbA1c 6.5</text>
-                <!-- The CGM trace — starts spiky/high, ends low/flat -->
-                <path d="M 0 18 L 60 30 L 110 12 L 165 40 L 220 22 L 270 50 L 320 38 L 370 62 L 425 78 L 480 92 L 540 100 L 600 110 L 660 116 L 720 118 L 780 119 L 840 119 L 900 120"
-                      stroke="url(#cgmGold)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                      style="filter: drop-shadow(0 0 8px rgba(240, 192, 64, 0.45));"/>
-                <text class="cgm-label" x="6"   y="14">250 mg/dL</text>
-                <text class="cgm-label" x="820" y="135" text-anchor="end">95 mg/dL</text>
-            </svg>
-        </div>
-    </div>
-    </div>
-    </section>
-
-    <script>
+<div class="hero-btns-vogue fade-in-section" style="animation-delay: 0.4s;">
+<div class="cta-group">
+<a class="btn btn-shimmer btn-hero-cta" href="apply.html">Check Your Eligibility</a>
+<span class="cta-microcopy">Free 15-min consultation · No obligation</span>
+</div>
+<a class="btn btn-outline" href="results.html" style="background:transparent; border-color:var(--gold-mid); color:var(--gold-bright);">See Our Results →</a>
+</div>
+</div>
+<div class="marquee-container">
+<div class="marquee-text">
+<span>HbA1c REVERSED</span>
+<span>·</span>
+<span>INSULIN FREE</span>
+<span>·</span>
+<span>22KG LOST</span>
+<span>·</span>
+<span>DIABETES REVERSED</span>
+<span>·</span>
+<span>PCOD HEALED</span>
+<span>·</span>
+<span>HbA1c REVERSED</span>
+<span>·</span>
+<span>INSULIN FREE</span>
+<span>·</span>
+<span>22KG LOST</span>
+<span>·</span>
+<span>DIABETES REVERSED</span>
+<span>·</span>
+<span>PCOD HEALED</span>
+<span>·</span>
+</div>
+</div>
+</section>
+<!-- STAGE 2 — past 50% scroll, headline morphs to TRANSFORM FROM WITHIN + glucose trace draws -->
+<div aria-hidden="true" class="hero-stage-2">
+<div class="stage2-inner">
+<span class="hero-label-eyebrow" style="display:inline-block; margin-bottom:1.5rem;">From sky-high glucose · to a steady flatline</span>
+<h2 class="stage2-headline">Transform From <em>Within</em>.</h2>
+<svg aria-hidden="true" class="cgm-trace" preserveaspectratio="none" viewbox="0 0 900 140">
+<defs>
+<lineargradient id="cgmGold" x1="0" x2="1">
+<stop offset="0%" stop-color="#e2b83a"></stop>
+<stop offset="50%" stop-color="#f0d060"></stop>
+<stop offset="100%" stop-color="#a17c2f"></stop>
+</lineargradient>
+</defs>
+<!-- Reference line — diabetic threshold -->
+<line stroke="rgba(245,239,227,0.18)" stroke-dasharray="4 6" x1="0" x2="900" y1="62" y2="62"></line>
+<text class="cgm-label" x="6" y="56">Threshold — HbA1c 6.5</text>
+<!-- The CGM trace — starts spiky/high, ends low/flat -->
+<path d="M 0 18 L 60 30 L 110 12 L 165 40 L 220 22 L 270 50 L 320 38 L 370 62 L 425 78 L 480 92 L 540 100 L 600 110 L 660 116 L 720 118 L 780 119 L 840 119 L 900 120" fill="none" stroke="url(#cgmGold)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="filter: drop-shadow(0 0 8px rgba(240, 192, 64, 0.45));"></path>
+<text class="cgm-label" x="6" y="14">250 mg/dL</text>
+<text class="cgm-label" text-anchor="end" x="820" y="135">95 mg/dL</text>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<script>
     // ── Hero scroll-pin orchestrator ──
     (function () {
         const stage = document.getElementById('heroPinStage');
@@ -245,644 +226,581 @@
         tick();
     })();
     </script>
-
-    <!-- SECTION 2: IMPACT NUMBER -->
-    <section class="impact-section">
-        <div class="impact-grid fade-in-section">
-            <div>
-                <h2 class="impact-main-stat shimmer-text" data-target="10000" data-suffix="+">10,000+</h2>
-                <div class="impact-main-label">Lives Transformed Across India</div>
-            </div>
-
-            <div class="impact-divider"></div>
-
-            <div class="impact-small-grid">
-                <div>
-                    <div class="impact-small-stat shimmer-text" data-target="98" data-suffix="%">98%</div>
-                    <div class="impact-small-label">Success Rate</div>
-                </div>
-                <div>
-                    <div class="impact-small-stat shimmer-text" data-target="90">90</div>
-                    <div class="impact-small-label">Days Average</div>
-                </div>
-                <div>
-                    <div class="impact-small-stat shimmer-text">4.9★</div>
-                    <div class="impact-small-label">Rating</div>
-                </div>
-                <div>
-                    <div class="impact-small-stat shimmer-text" data-target="45000" data-suffix="+">45,000+</div>
-                    <div class="impact-small-label">kg Lost Combined</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: PHILOSOPHY -->
-    <section class="section" style="background-color: var(--off-white); padding: 0;">
-        <div class="philosophy-grid fade-in-section">
-            <div>
-                <div class="gold-rule-thin"></div>
-                <span class="eyebrow-deluxe single-rule">Our Founding Principle</span>
-                <span class="editorial-kicker">A Manifesto in Metabolic Precision</span>
-                <h2 class="playfair philosophy-h2">Doctor Supervised.<br>Data Driven.</h2>
-                <p class="lead-para">To embark on a profound journey of self-transformation, we must delve into the precise artistry of shaping both body and mind. The realm of Fitness Science extends far beyond mere calculations of muscle and fat ratios.</p>
-                <blockquote class="pull-quote">Every body is a unique equation. No template survives first contact with your physiology.<cite>— The Fitmorphs Doctrine</cite></blockquote>
-                <p class="serif-rich">Likewise, the Science of Nutrition transcends simplistic equations. Our clinical team authors personalised protocols — calibrated to your labs, your rhythm, your life — that fit seamlessly into the everyday.</p>
-                <a href="about.html" class="btn btn-primary" style="background:var(--gold-deep); color:var(--dark); margin-top:0.75rem;">Read Our Story</a>
-            </div>
-            <div>
-                <img class="philosophy-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="Doctor consultation session" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: EDITORIAL GRID -->
-    <section class="editorial-section">
-        <div class="editorial-container fade-in-section">
-            <div class="editorial-header">
-                <span class="eyebrow-deluxe">Real Results</span>
-                <h2 class="playfair">The Proof is in the Physics.</h2>
-            </div>
-            
-            <div class="editorial-grid">
-                <!-- Card 1 — Fat Loss / 22kg recomp (placeholder photo until real shoot lands) -->
-                <div class="ed-card ed-card-tall">
-                    <img src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=80&w=900" alt="Fat Loss result — 22kg lost in 4 months" loading="lazy" onerror="this.onerror=null; this.style.display='none';">
-                    <div class="ed-gradient"></div>
-                    <div class="ed-pill">FAT LOSS</div>
-                    <div class="ed-content">
-                        <div class="ed-stat playfair">22kg Lost in 4 Months</div>
-                        <div class="ed-name">Complete Body Recomposition</div>
-                    </div>
-                </div>
-
-                <!-- Card 2 — PCOD reversal (placeholder photo until real shoot lands) -->
-                <div class="ed-card">
-                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=900" alt="PCOD result — regulated cycles" loading="lazy" onerror="this.onerror=null; this.style.display='none';">
-                    <div class="ed-gradient"></div>
-                    <div class="ed-pill">PCOD REVERSED</div>
-                    <div class="ed-content">
-                        <div class="ed-stat playfair">Regulated Cycles</div>
-                        <div class="ed-name">Eliminated Bloating Naturally</div>
-                    </div>
-                </div>
-
-                <!-- Card 3 — Metabolic reset (placeholder photo until real shoot lands) -->
-                <div class="ed-card">
-                    <img src="https://images.unsplash.com/photo-1606902965551-dce093cda6e7?auto=format&fit=crop&q=80&w=900" alt="Metabolic reset result — peak fitness" loading="lazy" onerror="this.onerror=null; this.style.display='none';">
-                    <div class="ed-gradient"></div>
-                    <div class="ed-pill">METABOLIC RESET</div>
-                    <div class="ed-content">
-                        <div class="ed-stat playfair">Peak Fitness</div>
-                        <div class="ed-name">Reclaimed Stamina &amp; Vitality</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align:center;">
-                <a href="results.html" class="btn btn-outline" style="border-color:var(--gold-mid); color:var(--gold-mid);">View All Results &rarr;</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: HOW IT WORKS -->
-    <section class="section" style="background-color: var(--off-white); position:relative; overflow:hidden;">
-        <div class="container fade-in-section">
-            <div style="text-align:center; margin-bottom:5rem;">
-                <span class="eyebrow-deluxe">The Process</span>
-                <div style="margin-top:1rem;"></div>
-                <span class="editorial-kicker">Three chapters. Ninety days. One reversal.</span>
-                <h2 class="playfair" style="font-size:clamp(2.2rem,4vw,3.5rem); color:var(--text-primary); margin-bottom:1rem;">The Transformation Arc</h2>
-                <p class="editorial-subtitle centered" style="text-align:center;">From first application to final read-out — a choreography of clinical care, data, and daily support.</p>
-                <div class="section-ornament"><span class="diamond"></span></div>
-            </div>
-
-            <!-- SCROLL-SCRUBBED ARC — dot travels along an SVG curve, lighting up each milestone -->
-            <div class="fm-arc-wrap" id="fmArcWrap" style="position:relative; max-width:1100px; margin:0 auto 3rem;">
-                <svg class="fm-arc-svg" id="fmArcSvg" viewBox="0 0 1100 240" preserveAspectRatio="none" aria-hidden="true">
-                    <defs>
-                        <linearGradient id="fmArcGold" x1="0" x2="1">
-                            <stop offset="0%"   stop-color="#a17c2f"/>
-                            <stop offset="50%"  stop-color="#f0d060"/>
-                            <stop offset="100%" stop-color="#e2b83a"/>
-                        </linearGradient>
-                    </defs>
-                    <path class="arc-line"     d="M 30 200 Q 275 30, 550 130 Q 825 230, 1070 60" />
-                    <path class="arc-progress" id="fmArcPath" d="M 30 200 Q 275 30, 550 130 Q 825 230, 1070 60" />
-                    <circle class="arc-dot" id="fmArcDot" r="9" cx="0" cy="0" style="transform: translate(30px, 200px);"/>
-                </svg>
-                <div class="fm-arc-milestone" id="fmMs1" style="top:200px; left:30px;"><span class="ms-pill">Day 1</span></div>
-                <div class="fm-arc-milestone" id="fmMs2" style="top:130px; left:550px;"><span class="ms-pill">Day 3</span></div>
-                <div class="fm-arc-milestone" id="fmMs3" style="top:60px;  left:1070px;"><span class="ms-pill">Day 30+</span></div>
-            </div>
-
-            <div class="scroll-stagger" style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; max-width:1100px; margin:0 auto; position:relative;">
-                <!-- Connecting line -->
-                <div style="position:absolute; top:52px; left:calc(16.66% + 1rem); right:calc(16.66% + 1rem); height:2px; background:linear-gradient(to right, var(--gold-mid), var(--gold-bright), var(--gold-mid)); opacity:0.25; pointer-events:none; display:none;" class="hiw-line"></div>
-
-                <!-- Step 1 -->
-                <div style="text-align:center; padding:2.5rem 2rem; background:var(--white); border:1px solid rgba(201,162,39,0.15); border-radius:14px; position:relative;">
-                    <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">1</div>
-                    <div class="chapter-mark">Chapter I</div>
-                    <h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">The Diagnostic</h3>
-                    <p class="serif-rich" style="margin:0; font-size:1.02rem;">Complete your clinical application. Our medical team reviews your metabolic profile and calls within two hours — no sales, just science.</p>
-                    <span class="timeline-pill">Day 1 · Assessment</span>
-                </div>
-
-                <!-- Step 2 -->
-                <div style="text-align:center; padding:2.5rem 2rem; background:var(--white); border:1px solid rgba(201,162,39,0.15); border-radius:14px; position:relative;">
-                    <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">2</div>
-                    <div class="chapter-mark">Chapter II</div>
-                    <h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">The Prescription</h3>
-                    <p class="serif-rich" style="margin:0; font-size:1.02rem;">Your dedicated doctor authors a personalised nutrition and lifestyle protocol — calibrated to your exact lab values, body type, and daily rhythm.</p>
-                    <span class="timeline-pill">Day 3 · Protocol</span>
-                </div>
-
-                <!-- Step 3 -->
-                <div style="text-align:center; padding:2.5rem 2rem; background:var(--white); border:1px solid rgba(201,162,39,0.15); border-radius:14px; position:relative;">
-                    <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">3</div>
-                    <div class="chapter-mark">Chapter III</div>
-                    <h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">The Evolution</h3>
-                    <p class="serif-rich" style="margin:0; font-size:1.02rem;">Weekly check-ins, lab tracking, and real-time coaching keep momentum alive. Most clients see measurable change within thirty days.</p>
-                    <span class="timeline-pill">Day 30+ · Transformation</span>
-                </div>
-            </div>
-
-            <div style="text-align:center; margin-top:3.5rem;">
-                <div class="cta-group" style="display:inline-flex; flex-direction:column; align-items:center; gap:0.45rem;">
-                    <a href="apply.html" class="btn btn-primary" style="padding:16px 40px; font-size:1rem;">Check Your Eligibility →</a>
-                    <span style="font-size:0.78rem; color:var(--text-muted); font-family:'Plus Jakarta Sans',sans-serif;">Free assessment. No obligation.</span>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-
-    <!-- SECTION: INVESTMENT FRAMING -->
-    <section class="section-dark section" style="padding:6rem 0;">
-        <div class="container fade-in-section" style="max-width:900px; text-align:center;">
-            <span class="eyebrow-deluxe on-dark">The Real Cost</span>
-            <h2 class="playfair" style="font-size:clamp(2rem,4vw,3rem); color:var(--cream); margin-bottom:1rem;">What's the Cost of <em>Not</em> Reversing Your Diabetes?</h2>
-            <p style="color:var(--text-on-dark-muted); font-size:1.05rem; margin:0 auto 3rem;">The average Type 2 Diabetes patient spends ₹8,000–25,000 per month on medications, doctor visits, and complications — for decades. Our program is a one-time investment that eliminates that cost permanently.</p>
-
-            <div class="scroll-stagger" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; max-width:700px; margin:0 auto 3rem;">
-                <div class="glass-card cost-bar-card" style="text-align:left;">
-                    <div style="font-size:0.75rem; font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:2px; text-transform:uppercase; color:rgba(245,239,227,0.4); margin-bottom:1rem;">Without FitMorphs</div>
-                    <div style="font-size:2.5rem; font-weight:700; font-family:'Cormorant Garamond',serif; color:#e05a5a; margin-bottom:0.5rem;"><span class="counter-val" data-target="600000">0</span><span style="font-size:1.6rem;">+</span></div>
-                    <p style="font-size:0.88rem; color:var(--text-on-dark-muted); max-width:none; margin:0;">Medication costs in rupees over 5 years, plus complications, hospital visits, and declining quality of life.</p>
-                    <div class="cost-bar" aria-hidden="true"><div class="cost-bar-fill"></div></div>
-                </div>
-                <div class="glass-card gradient-border-card" style="text-align:left;">
-                    <div style="font-size:0.75rem; font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--gold-mid); margin-bottom:1rem;">With FitMorphs</div>
-                    <div style="font-size:2.5rem; font-weight:700; font-family:'Cormorant Garamond',serif; color:var(--gold-bright); margin-bottom:0.5rem;">One-time</div>
-                    <p style="font-size:0.88rem; color:var(--text-on-dark-muted); max-width:none; margin:0;">A single clinical investment, tiered to your protocol. Most clients save 6&ndash;10&times; their program cost in lifetime medication and complication expenses.</p>
-                </div>
-            </div>
-
-            <!-- TRANSPARENT PRICING + 60-DAY GUARANTEE STRIP -->
-            <div class="pricing-guarantee" style="max-width:760px; margin:0 auto 2.5rem; padding:1.5rem 2rem; border-radius:14px; background:linear-gradient(135deg, rgba(212,160,23,0.07), rgba(212,160,23,0.02)); border:1px solid rgba(212,160,23,0.22); display:grid; grid-template-columns:auto 1fr auto; gap:1.5rem; align-items:center; text-align:left;">
-                <div aria-hidden="true" style="width:48px; height:48px; flex-shrink:0; border-radius:50%; background:rgba(212,160,23,0.12); display:flex; align-items:center; justify-content:center;">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <polyline points="9 12 11 14 15 10"/>
-                    </svg>
-                </div>
-                <div style="min-width:0;">
-                    <div style="font-family:'DM Sans',sans-serif; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-bright); font-weight:600; margin-bottom:0.35rem;">The 60-Day HbA1c Guarantee</div>
-                    <p style="font-family:'DM Sans',sans-serif; color:var(--cream); font-size:0.98rem; line-height:1.55; margin:0; max-width:none;">If your HbA1c hasn't measurably improved within 60 days of starting your protocol &mdash; while following our team's guidance &mdash; we refund your full program fee. No questions, no clauses.</p>
-                </div>
-                <a href="apply.html" class="btn btn-outline" style="border-color:var(--gold-bright); color:var(--gold-bright); padding:0.85rem 1.6rem; font-size:0.86rem; white-space:nowrap;">See Your Tier &rarr;</a>
-            </div>
-
-            <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(245,239,227,0.55); font-size:0.95rem; margin:0 auto 2.5rem; max-width:600px;">Investment is personalised to your metabolic profile and program intensity. Your 15-min consultation includes a transparent tier walkthrough &mdash; no pressure, no hidden fees.</p>
-
-            <a href="apply.html" class="btn btn-shimmer" style="padding:18px 44px;">Start Your Transformation &rarr;</a>
-        </div>
-
-    </section>
-
-    <!-- SECTION: HOMEPAGE FAQ -->
-    <section class="section" style="background-color:var(--ivory); position:relative;">
-        <div class="container fade-in-section" style="max-width:780px;">
-            <div style="text-align:center; margin-bottom:3.5rem;">
-                <span class="eyebrow-deluxe">Common Questions</span>
-                <div style="margin-top:0.8rem;"></div>
-                <span class="editorial-kicker">Honest answers before your first call.</span>
-                <h2 class="playfair" style="font-size:clamp(2rem,4vw,3rem); color:var(--text-primary);">The Questions Worth Asking</h2>
-                <div class="section-ornament"><span class="diamond"></span></div>
-            </div>
-
-            <div style="display:flex; flex-direction:column; gap:0.75rem;">
-                <!-- FAQ 1 -->
-                <div class="faq-item" style="border:1px solid rgba(201,162,39,0.18); border-radius:10px; overflow:hidden; background:var(--white);">
-                    <button class="faq-question" aria-expanded="false" style="width:100%; text-align:left; padding:1.4rem 1.75rem; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--text-primary);">
-                        <span style="display:flex; align-items:center;"><span class="faq-number">Nº 01</span>Is this approach medically safe?</span>
-                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; transition:transform 0.3s ease; color:var(--gold-mid);"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
-                        <p style="padding:0 1.75rem 1.4rem; color:var(--text-body); max-width:none; margin:0;">Absolutely. Every protocol is designed and supervised by MBBS-qualified doctors with specialisation in metabolic medicine. We track your lab values throughout the program and adjust your protocol based on real data — not guesswork. Our approach is aligned with the latest clinical research on metabolic reversal.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="faq-item" style="border:1px solid rgba(201,162,39,0.18); border-radius:10px; overflow:hidden; background:var(--white);">
-                    <button class="faq-question" aria-expanded="false" style="width:100%; text-align:left; padding:1.4rem 1.75rem; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--text-primary);">
-                        <span style="display:flex; align-items:center;"><span class="faq-number">Nº 02</span>How long until I see real results?</span>
-                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; transition:transform 0.3s ease; color:var(--gold-mid);"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
-                        <p style="padding:0 1.75rem 1.4rem; color:var(--text-body); max-width:none; margin:0;">Most clients notice meaningful changes — improved energy, reduced cravings, and better blood sugar control — within the first 2–4 weeks. Significant lab-value improvements (HbA1c, fasting glucose) typically appear by the 45–60 day mark. By day 90, the majority of our diabetes clients have reduced or eliminated medications under doctor supervision.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="faq-item" style="border:1px solid rgba(201,162,39,0.18); border-radius:10px; overflow:hidden; background:var(--white);">
-                    <button class="faq-question" aria-expanded="false" style="width:100%; text-align:left; padding:1.4rem 1.75rem; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--text-primary);">
-                        <span style="display:flex; align-items:center;"><span class="faq-number">Nº 03</span>What if the program doesn't work for me?</span>
-                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; transition:transform 0.3s ease; color:var(--gold-mid);"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
-                        <p style="padding:0 1.75rem 1.4rem; color:var(--text-body); max-width:none; margin:0;">We have a 98% success rate because we don't accept clients we can't genuinely help. During your initial assessment, our doctors determine whether you're a suitable candidate. If we believe the program is right for you and you follow the protocol with our team's support, results are not just possible — they're expected. We stand fully behind the science.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: THE MEDICAL BOARD -->
-    <section class="section" style="background-color: var(--dark-deep);">
-        <div class="container fade-in-section">
-            <div style="text-align:center; margin-bottom:4rem;">
-                <span class="eyebrow-deluxe on-dark" style="display:inline-flex;">The Fitmorphs Medical Board</span>
-                <h2 class="editorial-kicker on-dark" style="margin-top:1rem;">One Doctor's Mission. <em>10,000 Lives Changed</em>.</h2>
-                <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
-            </div>
-            
-            <div class="expert-grid stagger-children">
-                <!-- Expert 1 -->
-                <div class="expert-card flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="expert-icon-wrap">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <div class="expert-name playfair">Dr. Abhishek Mane</div>
-                    <div class="expert-title">Chief Medical Officer</div>
-                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, MD &middot; Metabolic Medicine</div>
-                        </div>
-                        <div class="flip-card-back">
-                            <h5>Dr. Abhishek Mane</h5>
-                            <p>Founder & CMO. Designs every clinical protocol and personally reviews edge-case files.</p>
-                            <span class="mci">MMC Reg #94823</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Expert 2 -->
-                <div class="expert-card flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="expert-icon-wrap">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <div class="expert-name playfair">Dr. Richa Mane</div>
-                    <div class="expert-title">Lead Nutritionist</div>
-                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">PhD &middot; Clinical Nutrition</div>
-                        </div>
-                        <div class="flip-card-back">
-                            <h5>Dr. Richa Mane</h5>
-                            <p>Authors the macro-and-nutrient frameworks for every patient's personalised plan.</p>
-                            <span class="mci">INPA Reg #18421</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Expert 3 -->
-                <div class="expert-card flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="expert-icon-wrap">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <div class="expert-name playfair">Dr. Pooja Mehta</div>
-                    <div class="expert-title">Metabolic Specialist</div>
-                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, DNB &middot; Internal Medicine</div>
-                        </div>
-                        <div class="flip-card-back">
-                            <h5>Dr. Pooja Mehta</h5>
-                            <p>Leads metabolic case conferences. 12 years of clinical practice in internal medicine.</p>
-                            <span class="mci">MMC Reg #102934</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Expert 4 -->
-                <div class="expert-card flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="expert-icon-wrap">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <div class="expert-name playfair">Dr. Amol Bhor</div>
-                    <div class="expert-title">Endocrinologist</div>
-                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, MD &middot; DM Endocrinology</div>
-                        </div>
-                        <div class="flip-card-back">
-                            <h5>Dr. Amol Bhor</h5>
-                            <p>Reviews all medication-taper decisions. Board-certified endocrinologist (DM).</p>
-                            <span class="mci">MMC Reg #98512</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Expert 5 -->
-                <div class="expert-card flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="expert-icon-wrap">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <div class="expert-name playfair">Dr. Shweta V.</div>
-                    <div class="expert-title">Consulting Physician</div>
-                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS &middot; Family &amp; Lifestyle Medicine</div>
-                        </div>
-                        <div class="flip-card-back">
-                            <h5>Dr. Shweta V.</h5>
-                            <p>Family-medicine background. Conducts week-4 patient check-ins and lifestyle reviews.</p>
-                            <span class="mci">MMC Reg #115620</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Expert 6 -->
-                <div class="expert-card flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="expert-icon-wrap">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <div class="expert-name playfair">Monica B.</div>
-                    <div class="expert-title">Clinical Dietitian</div>
-                    <div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MSc &middot; Diabetes Nutrition</div>
-                        </div>
-                        <div class="flip-card-back">
-                            <h5>Monica B.</h5>
-                            <p>MSc Diabetes Nutrition. Designs every meal plan around the patient's regional palate.</p>
-                            <span class="mci">INPA Reg #21044</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: TESTIMONIALS -->
-    <section class="testimonials-vogue">
-        <div class="quote-mark-bg playfair">&ldquo;</div>
-        
-        <div class="featured-test fade-in-section gradient-border-card" style="border-radius:14px; padding:3rem; background:rgba(18,16,10,0.6); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);">
-            <p class="playfair">"I was skeptical because I had tried many diet plans. But FitMorphs actually explained the science. I lost 12kg and my doctor took me off all diabetic meds."</p>
-            <div class="test-author-gold">Rajesh Shewale</div>
-            <div class="test-author-line"></div>
-        </div>
-        
-        <div class="small-tests fade-in-section">
-            <div class="small-test">
-                <p>"My life revolved around insulin shots. The coaches helped me completely change my lifestyle without missing traditional meals."</p>
-                <div class="test-author-gold" style="font-size:0.75rem;">Priya Gangurde</div>
-            </div>
-            <div class="small-test">
-                <p>"The constant fatigue is gone. I couldn't believe it when my 3-month reports came back. Absolute peace of mind."</p>
-                <div class="test-author-gold" style="font-size:0.75rem;">Anil Jadhav</div>
-            </div>
-            <div class="small-test">
-                <p>"I've tried different diets, but the one from FITMORPHS helped me lose weight permanently. It is simple, effective, and I feel fantastic."</p>
-                <div class="test-author-gold" style="font-size:0.75rem;">Jignesh S.</div>
-            </div>
-            <div class="small-test">
-                <p>"Since 13, I experienced PCOD symptoms. Thanks to FITMORPHS routines, I was able to completely minimize the severity and regain peace of mind."</p>
-                <div class="test-author-gold" style="font-size:0.75rem;">Shanti Patel</div>
-            </div>
-        </div>
-        
-        <div class="trusted-by-row fade-in-section">
-            <div class="trusted-label">Trusted By &amp; Featured In</div>
-            <span class="trusted-logo playfair">The Times of India</span>
-            <span class="trusted-logo playfair">Healthline</span>
-            <span class="trusted-logo playfair">Forbes India</span>
-        </div>
-    </section>
-
-    <!-- SECTION 6: SPECIALISED INTERVENTIONS -->
-    <section class="section" style="background-color: var(--dark-surface);">
-        <div class="container fade-in-section">
-            <div style="text-align:center;">
-                <span class="eyebrow-deluxe on-dark">The Fitmorphs Pathways</span>
-                <div style="margin-top:1rem;"></div>
-                <span class="editorial-kicker on-dark">Six doctrines. One destination: metabolic freedom.</span>
-                <h2 class="playfair" style="text-align:center; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 0.6rem; color: var(--cream);">Specialised Interventions</h2>
-                <p class="editorial-subtitle on-dark centered" style="text-align:center; max-width:620px;">Clinically supervised protocols — each a distinct answer to a different metabolic question. Choose your pathway.</p>
-                <div class="section-ornament"><span class="diamond"></span></div>
-            </div>
-
-            <div class="categories-grid stagger-children">
-                <a href="diabetes.html" class="cat-card-vogue glass-card">
-                    <span class="pathway-numeral">I</span>
-                    <div class="cat-icon-wrapper-large" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                        </svg>
-                    </div>
-                    <h3 class="playfair">Diabetes Reversal</h3>
-                    <p class="cat-editorial">Reverse Type 2 Diabetes in 90 days — a clinical repair of metabolism, not a managed disease.</p>
-                </a>
-
-                <a href="transformation.html" class="cat-card-vogue glass-card">
-                    <span class="pathway-numeral">II</span>
-                    <div class="cat-icon-wrapper-large" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                        </svg>
-                    </div>
-                    <h3 class="playfair">Fat Loss &amp; Recomp</h3>
-                    <p class="cat-editorial">Precision fat loss without starvation — shed adipose, sculpt lean tissue, keep the results.</p>
-                </a>
-
-                <a href="results.html" class="cat-card-vogue glass-card">
-                    <span class="pathway-numeral">III</span>
-                    <div class="cat-icon-wrapper-large" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="m10 15 5-3-5-3v6Z" />
-                            <rect width="20" height="14" x="2" y="5" rx="2" />
-                        </svg>
-                    </div>
-                    <h3 class="playfair">Strength &amp; Vitality</h3>
-                    <p class="cat-editorial">Rebuild endurance, deepen sleep, restore the daily energy your younger self took for granted.</p>
-                </a>
-
-                <a href="apply.html?interest=pcod" class="cat-card-vogue glass-card pathway-waitlist" data-pathway="PCOD/PCOS" aria-label="Join the waitlist for PCOD/PCOS Reset">
-                    <span class="pathway-badge">Q3 2026 &middot; Waitlist Open</span>
-                    <span class="pathway-numeral">IV</span>
-                    <div class="cat-icon-wrapper-large" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10" />
-                            <circle cx="12" cy="12" r="6" />
-                            <circle cx="12" cy="12" r="2" />
-                        </svg>
-                    </div>
-                    <h3 class="playfair">PCOD/PCOS Reset</h3>
-                    <p class="cat-editorial">Regulate cycles, restore fertility, calm the hormonal storm &mdash; through food and rhythm, not pills.</p>
-                    <span class="pathway-cta">Join the waitlist &rarr;</span>
-                </a>
-
-                <a href="apply.html?interest=liver" class="cat-card-vogue glass-card pathway-waitlist" data-pathway="Liver Health" aria-label="Join the waitlist for Liver Reversal Protocol">
-                    <span class="pathway-badge">Q3 2026 &middot; Waitlist Open</span>
-                    <span class="pathway-numeral">V</span>
-                    <div class="cat-icon-wrapper-large" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        </svg>
-                    </div>
-                    <h3 class="playfair">Liver Reversal</h3>
-                    <p class="cat-editorial">Reverse fatty liver and reignite hepatic function &mdash; a clinical cleanse, written in evidence.</p>
-                    <span class="pathway-cta">Join the waitlist &rarr;</span>
-                </a>
-
-                <a href="apply.html?interest=hypertrophy" class="cat-card-vogue glass-card pathway-waitlist" data-pathway="Lean Mass" aria-label="Join the waitlist for Lean Mass Protocol">
-                    <span class="pathway-badge">Q4 2026 &middot; Waitlist Open</span>
-                    <span class="pathway-numeral">VI</span>
-                    <div class="cat-icon-wrapper-large" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                            <polyline points="17 6 23 6 23 12" />
-                        </svg>
-                    </div>
-                    <h3 class="playfair">Lean Mass Protocol</h3>
-                    <p class="cat-editorial">Build lean muscle systematically &mdash; structured hypertrophy for those who struggle to grow.</p>
-                    <span class="pathway-cta">Join the waitlist &rarr;</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: LATEST INSIGHTS -->
-    <section class="section" style="background-color: var(--dark); padding-bottom: 8rem;">
-        <div class="container fade-in-section">
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem;">
-                <div>
-                    <span class="eyebrow-deluxe on-dark">Discover &middot; Learn &middot; Transform</span>
-                    <h2 class="editorial-kicker on-dark" style="margin-top:0.85rem;">Latest <em>Insights</em></h2>
-                </div>
-            </div>
-            
-            <div class="blog-grid stagger-children">
-                <a href="blog.html" class="vogue-hover-card blog-card">
-                    <div class="blog-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&q=80&w=800" alt="Managing Diabetes Naturally" loading="lazy">
-                    </div>
-                    <div class="blog-content">
-                        <span class="category">Diabetes Reversal</span>
-                        <h3 class="blog-title">Managing Diabetes Naturally: Effective Tips</h3>
-                        <p class="blog-desc">Clinically proven strategies to maintain healthy blood sugar levels and reduce HbA1c without extreme dietary restrictions.</p>
-                        <span class="blog-cta">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                    </div>
-                </a>
-                <a href="best-diet-plan-for-diabetes-reversal.html" class="vogue-hover-card blog-card">
-                    <div class="blog-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800" alt="Diet for Diabetes Reversal" loading="lazy">
-                    </div>
-                    <div class="blog-content">
-                        <span class="category">Diet Plans</span>
-                        <h3 class="blog-title">The Best Diet Plan for Diabetes Reversal</h3>
-                        <p class="blog-desc">A precision nutrition protocol targeting insulin resistance using low-glycemic, anti-inflammatory whole foods.</p>
-                        <span class="blog-cta">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                    </div>
-                </a>
-                <a href="how-to-reduce-hba1c-naturally.html" class="vogue-hover-card blog-card">
-                    <div class="blog-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" alt="Reduce HbA1c Naturally" loading="lazy">
-                    </div>
-                    <div class="blog-content">
-                        <span class="category">HbA1c Management</span>
-                        <h3 class="blog-title">How to Reduce HbA1c Naturally in 90 Days</h3>
-                        <p class="blog-desc">Natural, clinically proven strategies to lower your HbA1c and reverse metabolic damage without full pharmaceutical dependence.</p>
-                        <span class="blog-cta">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 7: FINAL CTA -->
-    <section class="final-cta-vogue">
-        <div class="final-cta-content fade-in-section">
-            <span class="hero-label-eyebrow" style="color:rgba(201,162,39,0.55); margin-bottom:1.5rem;">Limited availability · Q2 2026</span>
-            <h2 class="final-cta-h2 text-gold-gradient">Start Your<br>Transformation.</h2>
-            <div class="cta-group">
-                <a href="apply.html" class="btn btn-shimmer btn-hero-cta" style="border-radius:8px; border:none; color:var(--dark);">Start Your Transformation →</a>
-                <span class="cta-microcopy" style="color:rgba(245,239,227,0.45);">Free clinical assessment. Our team calls within 2 hours.</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer style="background-color:var(--dark-deep); padding: 5rem 0 2rem; border-top:1px solid rgba(212,160,23,0.15); color:var(--cream); font-family:'DM Sans', sans-serif;">
-        <div class="container">
-            <div style="display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:3rem; margin-bottom:4rem;" class="footer-grid">
-                <div>
-                    <img src="logo_stickey.png" alt="FitMorphs Logo" width="70" height="70" loading="lazy" style="margin-bottom:1.5rem;">
-                    <p style="opacity:0.6; font-size:0.95rem;">Body. Mind. Soul.<br>Transform From Within.</p>
-                </div>
-                <div>
-                    <h4 style="color:var(--gold-mid); font-family:'DM Sans', sans-serif; text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Quick Links</h4>
-                    <ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
-                        <li><a href="index.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Home</a></li>
-                        <li><a href="diabetes.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Diabetes Reversal</a></li>
-                        <li><a href="transformation.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Transformation</a></li>
-                        <li><a href="results.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Results</a></li>
-                        <li><a href="about.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">About Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="color:var(--gold-mid); font-family:'DM Sans', sans-serif; text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Contact</h4>
-                    <ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
-                        <li><a href="tel:+918208692210" style="color:rgba(245,239,227,0.7); text-decoration:none;">+91 8208692210</a></li>
-                        <li><a href="mailto:hello@fitmorphs.com" style="color:rgba(245,239,227,0.7); text-decoration:none;">hello@fitmorphs.com</a></li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <a href="apply.html" class="btn btn-outline" style="padding: 0.8rem 2rem; border-color:var(--gold-mid); color:var(--gold-mid);">Apply Now</a>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
-                <p>&copy; <span data-fm-year>2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> &middot; <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
-            </div>
-        </div>
-    </footer>
-    
-    
-
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/918208692210" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
-        </svg>
-    </a>
-
-    <!-- WhatsApp Chat Bubble -->
-    <div class="wa-bubble" id="waBubble">
-        <button class="wa-bubble-close" id="waBubbleClose" aria-label="Close">✕</button>
-        <div class="wa-bubble-text">Hi! 👋 Have questions about our programs? <strong style="color:var(--gold-bright);">I'm here to help.</strong></div>
-    </div>
-
-    <!-- Floating Apply Now (mobile primary CTA) -->
-    <div class="apply-float">
-        <a href="apply.html" class="apply-float-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+<!-- SECTION 2: IMPACT NUMBER -->
+<section class="impact-section">
+<div class="impact-grid fade-in-section">
+<div>
+<h2 class="impact-main-stat shimmer-text" data-suffix="+" data-target="10000">10,000+</h2>
+<div class="impact-main-label">Lives Transformed Across India</div>
+</div>
+<div class="impact-divider"></div>
+<div class="impact-small-grid">
+<div>
+<div class="impact-small-stat shimmer-text" data-suffix="%" data-target="98">98%</div>
+<div class="impact-small-label">Success Rate</div>
+</div>
+<div>
+<div class="impact-small-stat shimmer-text" data-target="90">90</div>
+<div class="impact-small-label">Days Average</div>
+</div>
+<div>
+<div class="impact-small-stat shimmer-text">4.9★</div>
+<div class="impact-small-label">Rating</div>
+</div>
+<div>
+<div class="impact-small-stat shimmer-text" data-suffix="+" data-target="45000">45,000+</div>
+<div class="impact-small-label">kg Lost Combined</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: PHILOSOPHY -->
+<section class="section" style="background-color: var(--off-white); padding: 0;">
+<div class="philosophy-grid fade-in-section">
+<div>
+<div class="gold-rule-thin"></div>
+<span class="eyebrow-deluxe single-rule">Our Founding Principle</span>
+<span class="editorial-kicker">A Manifesto in Metabolic Precision</span>
+<h2 class="playfair philosophy-h2">Doctor Supervised.<br/>Data Driven.</h2>
+<p class="lead-para">To embark on a profound journey of self-transformation, we must delve into the precise artistry of shaping both body and mind. The realm of Fitness Science extends far beyond mere calculations of muscle and fat ratios.</p>
+<blockquote class="pull-quote">Every body is a unique equation. No template survives first contact with your physiology.<cite>— The Fitmorphs Doctrine</cite></blockquote>
+<p class="serif-rich">Likewise, the Science of Nutrition transcends simplistic equations. Our clinical team authors personalised protocols — calibrated to your labs, your rhythm, your life — that fit seamlessly into the everyday.</p>
+<a class="btn btn-primary" href="about.html" style="background:var(--gold-deep); color:var(--dark); margin-top:0.75rem;">Read Our Story</a>
+</div>
+<div>
+<img alt="Doctor consultation session" class="philosophy-img" loading="lazy" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+</div>
+</section>
+<!-- SECTION 4: EDITORIAL GRID -->
+<section class="editorial-section">
+<div class="editorial-container fade-in-section">
+<div class="editorial-header">
+<span class="eyebrow-deluxe">Real Results</span>
+<h2 class="playfair">The Proof is in the Physics.</h2>
+</div>
+<div class="editorial-grid">
+<!-- Card 1 — Fat Loss / 22kg recomp (placeholder photo until real shoot lands) -->
+<div class="ed-card ed-card-tall">
+<img alt="Fat Loss result — 22kg lost in 4 months" loading="lazy" onerror="this.onerror=null; this.style.display='none';" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&amp;fit=crop&amp;q=80&amp;w=900"/>
+<div class="ed-gradient"></div>
+<div class="ed-pill">FAT LOSS</div>
+<div class="ed-content">
+<div class="ed-stat playfair">22kg Lost in 4 Months</div>
+<div class="ed-name">Complete Body Recomposition</div>
+</div>
+</div>
+<!-- Card 2 — PCOD reversal (placeholder photo until real shoot lands) -->
+<div class="ed-card">
+<img alt="PCOD result — regulated cycles" loading="lazy" onerror="this.onerror=null; this.style.display='none';" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&amp;fit=crop&amp;q=80&amp;w=900"/>
+<div class="ed-gradient"></div>
+<div class="ed-pill">PCOD REVERSED</div>
+<div class="ed-content">
+<div class="ed-stat playfair">Regulated Cycles</div>
+<div class="ed-name">Eliminated Bloating Naturally</div>
+</div>
+</div>
+<!-- Card 3 — Metabolic reset (placeholder photo until real shoot lands) -->
+<div class="ed-card">
+<img alt="Metabolic reset result — peak fitness" loading="lazy" onerror="this.onerror=null; this.style.display='none';" src="https://images.unsplash.com/photo-1606902965551-dce093cda6e7?auto=format&amp;fit=crop&amp;q=80&amp;w=900"/>
+<div class="ed-gradient"></div>
+<div class="ed-pill">METABOLIC RESET</div>
+<div class="ed-content">
+<div class="ed-stat playfair">Peak Fitness</div>
+<div class="ed-name">Reclaimed Stamina &amp; Vitality</div>
+</div>
+</div>
+</div>
+<div style="text-align:center;">
+<a class="btn btn-outline" href="results.html" style="border-color:var(--gold-mid); color:var(--gold-mid);">View All Results →</a>
+</div>
+</div>
+</section>
+<!-- SECTION: HOW IT WORKS -->
+<section class="section" style="background-color: var(--off-white); position:relative; overflow:hidden;">
+<div class="container fade-in-section">
+<div style="text-align:center; margin-bottom:5rem;">
+<span class="eyebrow-deluxe">The Process</span>
+<div style="margin-top:1rem;"></div>
+<span class="editorial-kicker">Three chapters. Ninety days. One reversal.</span>
+<h2 class="playfair" style="font-size:clamp(2.2rem,4vw,3.5rem); color:var(--text-primary); margin-bottom:1rem;">The Transformation Arc</h2>
+<p class="editorial-subtitle centered" style="text-align:center;">From first application to final read-out — a choreography of clinical care, data, and daily support.</p>
+<div class="section-ornament"><span class="diamond"></span></div>
+</div>
+<!-- SCROLL-SCRUBBED ARC — dot travels along an SVG curve, lighting up each milestone -->
+<div class="fm-arc-wrap" id="fmArcWrap" style="position:relative; max-width:1100px; margin:0 auto 3rem;">
+<svg aria-hidden="true" class="fm-arc-svg" id="fmArcSvg" preserveaspectratio="none" viewbox="0 0 1100 240">
+<defs>
+<lineargradient id="fmArcGold" x1="0" x2="1">
+<stop offset="0%" stop-color="#a17c2f"></stop>
+<stop offset="50%" stop-color="#f0d060"></stop>
+<stop offset="100%" stop-color="#e2b83a"></stop>
+</lineargradient>
+</defs>
+<path class="arc-line" d="M 30 200 Q 275 30, 550 130 Q 825 230, 1070 60"></path>
+<path class="arc-progress" d="M 30 200 Q 275 30, 550 130 Q 825 230, 1070 60" id="fmArcPath"></path>
+<circle class="arc-dot" cx="0" cy="0" id="fmArcDot" r="9" style="transform: translate(30px, 200px);"></circle>
+</svg>
+<div class="fm-arc-milestone" id="fmMs1" style="top:200px; left:30px;"><span class="ms-pill">Day 1</span></div>
+<div class="fm-arc-milestone" id="fmMs2" style="top:130px; left:550px;"><span class="ms-pill">Day 3</span></div>
+<div class="fm-arc-milestone" id="fmMs3" style="top:60px;  left:1070px;"><span class="ms-pill">Day 30+</span></div>
+</div>
+<div class="scroll-stagger" style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; max-width:1100px; margin:0 auto; position:relative;">
+<!-- Connecting line -->
+<div class="hiw-line" style="position:absolute; top:52px; left:calc(16.66% + 1rem); right:calc(16.66% + 1rem); height:2px; background:linear-gradient(to right, var(--gold-mid), var(--gold-bright), var(--gold-mid)); opacity:0.25; pointer-events:none; display:none;"></div>
+<!-- Step 1 -->
+<div style="text-align:center; padding:2.5rem 2rem; background:var(--white); border:1px solid rgba(201,162,39,0.15); border-radius:14px; position:relative;">
+<div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">1</div>
+<div class="chapter-mark">Chapter I</div>
+<h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">The Diagnostic</h3>
+<p class="serif-rich" style="margin:0; font-size:1.02rem;">Complete your clinical application. Our medical team reviews your metabolic profile and calls within two hours — no sales, just science.</p>
+<span class="timeline-pill">Day 1 · Assessment</span>
+</div>
+<!-- Step 2 -->
+<div style="text-align:center; padding:2.5rem 2rem; background:var(--white); border:1px solid rgba(201,162,39,0.15); border-radius:14px; position:relative;">
+<div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">2</div>
+<div class="chapter-mark">Chapter II</div>
+<h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">The Prescription</h3>
+<p class="serif-rich" style="margin:0; font-size:1.02rem;">Your dedicated doctor authors a personalised nutrition and lifestyle protocol — calibrated to your exact lab values, body type, and daily rhythm.</p>
+<span class="timeline-pill">Day 3 · Protocol</span>
+</div>
+<!-- Step 3 -->
+<div style="text-align:center; padding:2.5rem 2rem; background:var(--white); border:1px solid rgba(201,162,39,0.15); border-radius:14px; position:relative;">
+<div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-deep)); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--dark);">3</div>
+<div class="chapter-mark">Chapter III</div>
+<h3 class="playfair" style="font-size:1.4rem; color:var(--text-primary); margin-bottom:0.75rem;">The Evolution</h3>
+<p class="serif-rich" style="margin:0; font-size:1.02rem;">Weekly check-ins, lab tracking, and real-time coaching keep momentum alive. Most clients see measurable change within thirty days.</p>
+<span class="timeline-pill">Day 30+ · Transformation</span>
+</div>
+</div>
+<div style="text-align:center; margin-top:3.5rem;">
+<div class="cta-group" style="display:inline-flex; flex-direction:column; align-items:center; gap:0.45rem;">
+<a class="btn btn-primary" href="apply.html" style="padding:16px 40px; font-size:1rem;">Check Your Eligibility →</a>
+<span style="font-size:0.78rem; color:var(--text-muted); font-family:'Plus Jakarta Sans',sans-serif;">Free assessment. No obligation.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: INVESTMENT FRAMING -->
+<section class="section-dark section" style="padding:6rem 0;">
+<div class="container fade-in-section" style="max-width:900px; text-align:center;">
+<span class="eyebrow-deluxe on-dark">The Real Cost</span>
+<h2 class="playfair" style="font-size:clamp(2rem,4vw,3rem); color:var(--cream); margin-bottom:1rem;">What's the Cost of <em>Not</em> Reversing Your Diabetes?</h2>
+<p style="color:var(--text-on-dark-muted); font-size:1.05rem; margin:0 auto 3rem;">The average Type 2 Diabetes patient spends ₹8,000–25,000 per month on medications, doctor visits, and complications — for decades. Our program is a one-time investment that eliminates that cost permanently.</p>
+<div class="scroll-stagger" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; max-width:700px; margin:0 auto 3rem;">
+<div class="glass-card cost-bar-card" style="text-align:left;">
+<div style="font-size:0.75rem; font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:2px; text-transform:uppercase; color:rgba(245,239,227,0.4); margin-bottom:1rem;">Without FitMorphs</div>
+<div style="font-size:2.5rem; font-weight:700; font-family:'Cormorant Garamond',serif; color:#e05a5a; margin-bottom:0.5rem;"><span class="counter-val" data-target="600000">0</span><span style="font-size:1.6rem;">+</span></div>
+<p style="font-size:0.88rem; color:var(--text-on-dark-muted); max-width:none; margin:0;">Medication costs in rupees over 5 years, plus complications, hospital visits, and declining quality of life.</p>
+<div aria-hidden="true" class="cost-bar"><div class="cost-bar-fill"></div></div>
+</div>
+<div class="glass-card gradient-border-card" style="text-align:left;">
+<div style="font-size:0.75rem; font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--gold-mid); margin-bottom:1rem;">With FitMorphs</div>
+<div style="font-size:2.5rem; font-weight:700; font-family:'Cormorant Garamond',serif; color:var(--gold-bright); margin-bottom:0.5rem;">One-time</div>
+<p style="font-size:0.88rem; color:var(--text-on-dark-muted); max-width:none; margin:0;">A single clinical investment, tiered to your protocol. Most clients save 6–10× their program cost in lifetime medication and complication expenses.</p>
+</div>
+</div>
+<!-- TRANSPARENT PRICING + 60-DAY GUARANTEE STRIP -->
+<div class="pricing-guarantee" style="max-width:760px; margin:0 auto 2.5rem; padding:1.5rem 2rem; border-radius:14px; background:linear-gradient(135deg, rgba(212,160,23,0.07), rgba(212,160,23,0.02)); border:1px solid rgba(212,160,23,0.22); display:grid; grid-template-columns:auto 1fr auto; gap:1.5rem; align-items:center; text-align:left;">
+<div aria-hidden="true" style="width:48px; height:48px; flex-shrink:0; border-radius:50%; background:rgba(212,160,23,0.12); display:flex; align-items:center; justify-content:center;">
+<svg fill="none" height="22" stroke="#f0c040" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+<polyline points="9 12 11 14 15 10"></polyline>
+</svg>
+</div>
+<div style="min-width:0;">
+<div style="font-family:'DM Sans',sans-serif; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-bright); font-weight:600; margin-bottom:0.35rem;">The 60-Day HbA1c Guarantee</div>
+<p style="font-family:'DM Sans',sans-serif; color:var(--cream); font-size:0.98rem; line-height:1.55; margin:0; max-width:none;">If your HbA1c hasn't measurably improved within 60 days of starting your protocol — while following our team's guidance — we refund your full program fee. No questions, no clauses.</p>
+</div>
+<a class="btn btn-outline" href="apply.html" style="border-color:var(--gold-bright); color:var(--gold-bright); padding:0.85rem 1.6rem; font-size:0.86rem; white-space:nowrap;">See Your Tier →</a>
+</div>
+<p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(245,239,227,0.55); font-size:0.95rem; margin:0 auto 2.5rem; max-width:600px;">Investment is personalised to your metabolic profile and program intensity. Your 15-min consultation includes a transparent tier walkthrough — no pressure, no hidden fees.</p>
+<a class="btn btn-shimmer" href="apply.html" style="padding:18px 44px;">Start Your Transformation →</a>
+</div>
+</section>
+<!-- SECTION: HOMEPAGE FAQ -->
+<section class="section" style="background-color:var(--ivory); position:relative;">
+<div class="container fade-in-section" style="max-width:780px;">
+<div style="text-align:center; margin-bottom:3.5rem;">
+<span class="eyebrow-deluxe">Common Questions</span>
+<div style="margin-top:0.8rem;"></div>
+<span class="editorial-kicker">Honest answers before your first call.</span>
+<h2 class="playfair" style="font-size:clamp(2rem,4vw,3rem); color:var(--text-primary);">The Questions Worth Asking</h2>
+<div class="section-ornament"><span class="diamond"></span></div>
+</div>
+<div style="display:flex; flex-direction:column; gap:0.75rem;">
+<!-- FAQ 1 -->
+<div class="faq-item" style="border:1px solid rgba(201,162,39,0.18); border-radius:10px; overflow:hidden; background:var(--white);">
+<button aria-expanded="false" class="faq-question" style="width:100%; text-align:left; padding:1.4rem 1.75rem; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--text-primary);">
+<span style="display:flex; align-items:center;"><span class="faq-number">Nº 01</span>Is this approach medically safe?</span>
+<svg class="faq-chevron" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0; transition:transform 0.3s ease; color:var(--gold-mid);" viewbox="0 0 24 24" width="20"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
+<p style="padding:0 1.75rem 1.4rem; color:var(--text-body); max-width:none; margin:0;">Absolutely. Every protocol is designed and supervised by MBBS-qualified doctors with specialisation in metabolic medicine. We track your lab values throughout the program and adjust your protocol based on real data — not guesswork. Our approach is aligned with the latest clinical research on metabolic reversal.</p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="faq-item" style="border:1px solid rgba(201,162,39,0.18); border-radius:10px; overflow:hidden; background:var(--white);">
+<button aria-expanded="false" class="faq-question" style="width:100%; text-align:left; padding:1.4rem 1.75rem; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--text-primary);">
+<span style="display:flex; align-items:center;"><span class="faq-number">Nº 02</span>How long until I see real results?</span>
+<svg class="faq-chevron" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0; transition:transform 0.3s ease; color:var(--gold-mid);" viewbox="0 0 24 24" width="20"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
+<p style="padding:0 1.75rem 1.4rem; color:var(--text-body); max-width:none; margin:0;">Most clients notice meaningful changes — improved energy, reduced cravings, and better blood sugar control — within the first 2–4 weeks. Significant lab-value improvements (HbA1c, fasting glucose) typically appear by the 45–60 day mark. By day 90, the majority of our diabetes clients have reduced or eliminated medications under doctor supervision.</p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="faq-item" style="border:1px solid rgba(201,162,39,0.18); border-radius:10px; overflow:hidden; background:var(--white);">
+<button aria-expanded="false" class="faq-question" style="width:100%; text-align:left; padding:1.4rem 1.75rem; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--text-primary);">
+<span style="display:flex; align-items:center;"><span class="faq-number">Nº 03</span>What if the program doesn't work for me?</span>
+<svg class="faq-chevron" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0; transition:transform 0.3s ease; color:var(--gold-mid);" viewbox="0 0 24 24" width="20"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<div class="faq-answer" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
+<p style="padding:0 1.75rem 1.4rem; color:var(--text-body); max-width:none; margin:0;">We have a 98% success rate because we don't accept clients we can't genuinely help. During your initial assessment, our doctors determine whether you're a suitable candidate. If we believe the program is right for you and you follow the protocol with our team's support, results are not just possible — they're expected. We stand fully behind the science.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: THE MEDICAL BOARD -->
+<section class="section" style="background-color: var(--dark-deep);">
+<div class="container fade-in-section">
+<div style="text-align:center; margin-bottom:4rem;">
+<span class="eyebrow-deluxe on-dark" style="display:inline-flex;">The Fitmorphs Medical Board</span>
+<h2 class="editorial-kicker on-dark" style="margin-top:1rem;">One Doctor's Mission. <em>10,000 Lives Changed</em>.</h2>
+<div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+</div>
+<div class="expert-grid stagger-children">
+<!-- Expert 1 -->
+<div class="expert-card flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="expert-icon-wrap">
+<svg fill="none" height="32" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="32"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<div class="expert-name playfair">Dr. Abhishek Mane</div>
+<div class="expert-title">Chief Medical Officer</div>
+<div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, MD · Metabolic Medicine</div>
+</div>
+<div class="flip-card-back">
+<h5>Dr. Abhishek Mane</h5>
+<p>Founder &amp; CMO. Designs every clinical protocol and personally reviews edge-case files.</p>
+<span class="mci">MMC Reg #94823</span>
+</div>
+</div>
+</div>
+<!-- Expert 2 -->
+<div class="expert-card flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="expert-icon-wrap">
+<svg fill="none" height="32" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="32"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<div class="expert-name playfair">Dr. Richa Mane</div>
+<div class="expert-title">Lead Nutritionist</div>
+<div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">PhD · Clinical Nutrition</div>
+</div>
+<div class="flip-card-back">
+<h5>Dr. Richa Mane</h5>
+<p>Authors the macro-and-nutrient frameworks for every patient's personalised plan.</p>
+<span class="mci">INPA Reg #18421</span>
+</div>
+</div>
+</div>
+<!-- Expert 3 -->
+<div class="expert-card flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="expert-icon-wrap">
+<svg fill="none" height="32" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="32"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<div class="expert-name playfair">Dr. Pooja Mehta</div>
+<div class="expert-title">Metabolic Specialist</div>
+<div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, DNB · Internal Medicine</div>
+</div>
+<div class="flip-card-back">
+<h5>Dr. Pooja Mehta</h5>
+<p>Leads metabolic case conferences. 12 years of clinical practice in internal medicine.</p>
+<span class="mci">MMC Reg #102934</span>
+</div>
+</div>
+</div>
+<!-- Expert 4 -->
+<div class="expert-card flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="expert-icon-wrap">
+<svg fill="none" height="32" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="32"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<div class="expert-name playfair">Dr. Amol Bhor</div>
+<div class="expert-title">Endocrinologist</div>
+<div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS, MD · DM Endocrinology</div>
+</div>
+<div class="flip-card-back">
+<h5>Dr. Amol Bhor</h5>
+<p>Reviews all medication-taper decisions. Board-certified endocrinologist (DM).</p>
+<span class="mci">MMC Reg #98512</span>
+</div>
+</div>
+</div>
+<!-- Expert 5 -->
+<div class="expert-card flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="expert-icon-wrap">
+<svg fill="none" height="32" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="32"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<div class="expert-name playfair">Dr. Shweta V.</div>
+<div class="expert-title">Consulting Physician</div>
+<div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MBBS · Family &amp; Lifestyle Medicine</div>
+</div>
+<div class="flip-card-back">
+<h5>Dr. Shweta V.</h5>
+<p>Family-medicine background. Conducts week-4 patient check-ins and lifestyle reviews.</p>
+<span class="mci">MMC Reg #115620</span>
+</div>
+</div>
+</div>
+<!-- Expert 6 -->
+<div class="expert-card flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="expert-icon-wrap">
+<svg fill="none" height="32" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="32"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<div class="expert-name playfair">Monica B.</div>
+<div class="expert-title">Clinical Dietitian</div>
+<div class="expert-cred" style="font-family:'DM Sans',sans-serif; font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-mid); margin-top:0.45rem; opacity:0.78;">MSc · Diabetes Nutrition</div>
+</div>
+<div class="flip-card-back">
+<h5>Monica B.</h5>
+<p>MSc Diabetes Nutrition. Designs every meal plan around the patient's regional palate.</p>
+<span class="mci">INPA Reg #21044</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: TESTIMONIALS -->
+<section class="testimonials-vogue">
+<div class="quote-mark-bg playfair">“</div>
+<div class="featured-test fade-in-section gradient-border-card" style="border-radius:14px; padding:3rem; background:rgba(18,16,10,0.6); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);">
+<p class="playfair">"I was skeptical because I had tried many diet plans. But FitMorphs actually explained the science. I lost 12kg and my doctor took me off all diabetic meds."</p>
+<div class="test-author-gold">Rajesh Shewale</div>
+<div class="test-author-line"></div>
+</div>
+<div class="small-tests fade-in-section">
+<div class="small-test">
+<p>"My life revolved around insulin shots. The coaches helped me completely change my lifestyle without missing traditional meals."</p>
+<div class="test-author-gold" style="font-size:0.75rem;">Priya Gangurde</div>
+</div>
+<div class="small-test">
+<p>"The constant fatigue is gone. I couldn't believe it when my 3-month reports came back. Absolute peace of mind."</p>
+<div class="test-author-gold" style="font-size:0.75rem;">Anil Jadhav</div>
+</div>
+<div class="small-test">
+<p>"I've tried different diets, but the one from FITMORPHS helped me lose weight permanently. It is simple, effective, and I feel fantastic."</p>
+<div class="test-author-gold" style="font-size:0.75rem;">Jignesh S.</div>
+</div>
+<div class="small-test">
+<p>"Since 13, I experienced PCOD symptoms. Thanks to FITMORPHS routines, I was able to completely minimize the severity and regain peace of mind."</p>
+<div class="test-author-gold" style="font-size:0.75rem;">Shanti Patel</div>
+</div>
+</div>
+<div class="trusted-by-row fade-in-section">
+<div class="trusted-label">Trusted By &amp; Featured In</div>
+<span class="trusted-logo playfair">The Times of India</span>
+<span class="trusted-logo playfair">Healthline</span>
+<span class="trusted-logo playfair">Forbes India</span>
+</div>
+</section>
+<!-- SECTION 6: SPECIALISED INTERVENTIONS -->
+<section class="section" style="background-color: var(--dark-surface);">
+<div class="container fade-in-section">
+<div style="text-align:center;">
+<span class="eyebrow-deluxe on-dark">The Fitmorphs Pathways</span>
+<div style="margin-top:1rem;"></div>
+<span class="editorial-kicker on-dark">Six doctrines. One destination: metabolic freedom.</span>
+<h2 class="playfair" style="text-align:center; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 0.6rem; color: var(--cream);">Specialised Interventions</h2>
+<p class="editorial-subtitle on-dark centered" style="text-align:center; max-width:620px;">Clinically supervised protocols — each a distinct answer to a different metabolic question. Choose your pathway.</p>
+<div class="section-ornament"><span class="diamond"></span></div>
+</div>
+<div class="categories-grid stagger-children">
+<a class="cat-card-vogue glass-card" href="diabetes.html">
+<span class="pathway-numeral">I</span>
+<div aria-hidden="true" class="cat-icon-wrapper-large">
+<svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="40">
+<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+</svg>
+</div>
+<h3 class="playfair">Diabetes Reversal</h3>
+<p class="cat-editorial">Reverse Type 2 Diabetes in 90 days — a clinical repair of metabolism, not a managed disease.</p>
+</a>
+<a class="cat-card-vogue glass-card" href="transformation.html">
+<span class="pathway-numeral">II</span>
+<div aria-hidden="true" class="cat-icon-wrapper-large">
+<svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="40">
+<path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+</svg>
+</div>
+<h3 class="playfair">Fat Loss &amp; Recomp</h3>
+<p class="cat-editorial">Precision fat loss without starvation — shed adipose, sculpt lean tissue, keep the results.</p>
+</a>
+<a class="cat-card-vogue glass-card" href="results.html">
+<span class="pathway-numeral">III</span>
+<div aria-hidden="true" class="cat-icon-wrapper-large">
+<svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="40">
+<path d="m10 15 5-3-5-3v6Z"></path>
+<rect height="14" rx="2" width="20" x="2" y="5"></rect>
+</svg>
+</div>
+<h3 class="playfair">Strength &amp; Vitality</h3>
+<p class="cat-editorial">Rebuild endurance, deepen sleep, restore the daily energy your younger self took for granted.</p>
+</a>
+<a aria-label="Join the waitlist for PCOD/PCOS Reset" class="cat-card-vogue glass-card pathway-waitlist" data-pathway="PCOD/PCOS" href="apply.html?interest=pcod">
+<span class="pathway-badge">Q3 2026 · Waitlist Open</span>
+<span class="pathway-numeral">IV</span>
+<div aria-hidden="true" class="cat-icon-wrapper-large">
+<svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="40">
+<circle cx="12" cy="12" r="10"></circle>
+<circle cx="12" cy="12" r="6"></circle>
+<circle cx="12" cy="12" r="2"></circle>
+</svg>
+</div>
+<h3 class="playfair">PCOD/PCOS Reset</h3>
+<p class="cat-editorial">Regulate cycles, restore fertility, calm the hormonal storm — through food and rhythm, not pills.</p>
+<span class="pathway-cta">Join the waitlist →</span>
+</a>
+<a aria-label="Join the waitlist for Liver Reversal Protocol" class="cat-card-vogue glass-card pathway-waitlist" data-pathway="Liver Health" href="apply.html?interest=liver">
+<span class="pathway-badge">Q3 2026 · Waitlist Open</span>
+<span class="pathway-numeral">V</span>
+<div aria-hidden="true" class="cat-icon-wrapper-large">
+<svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="40">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+</svg>
+</div>
+<h3 class="playfair">Liver Reversal</h3>
+<p class="cat-editorial">Reverse fatty liver and reignite hepatic function — a clinical cleanse, written in evidence.</p>
+<span class="pathway-cta">Join the waitlist →</span>
+</a>
+<a aria-label="Join the waitlist for Lean Mass Protocol" class="cat-card-vogue glass-card pathway-waitlist" data-pathway="Lean Mass" href="apply.html?interest=hypertrophy">
+<span class="pathway-badge">Q4 2026 · Waitlist Open</span>
+<span class="pathway-numeral">VI</span>
+<div aria-hidden="true" class="cat-icon-wrapper-large">
+<svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="40">
+<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+<polyline points="17 6 23 6 23 12"></polyline>
+</svg>
+</div>
+<h3 class="playfair">Lean Mass Protocol</h3>
+<p class="cat-editorial">Build lean muscle systematically — structured hypertrophy for those who struggle to grow.</p>
+<span class="pathway-cta">Join the waitlist →</span>
+</a>
+</div>
+</div>
+</section>
+<!-- SECTION: LATEST INSIGHTS -->
+<section class="section" style="background-color: var(--dark); padding-bottom: 8rem;">
+<div class="container fade-in-section">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem;">
+<div>
+<span class="eyebrow-deluxe on-dark">Discover · Learn · Transform</span>
+<h2 class="editorial-kicker on-dark" style="margin-top:0.85rem;">Latest <em>Insights</em></h2>
+</div>
+</div>
+<div class="blog-grid stagger-children">
+<a class="vogue-hover-card blog-card" href="blog.html">
+<div class="blog-img-wrap">
+<img alt="Managing Diabetes Naturally" loading="lazy" src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">Diabetes Reversal</span>
+<h3 class="blog-title">Managing Diabetes Naturally: Effective Tips</h3>
+<p class="blog-desc">Clinically proven strategies to maintain healthy blood sugar levels and reduce HbA1c without extreme dietary restrictions.</p>
+<span class="blog-cta">Read Article <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<a class="vogue-hover-card blog-card" href="best-diet-plan-for-diabetes-reversal.html">
+<div class="blog-img-wrap">
+<img alt="Diet for Diabetes Reversal" loading="lazy" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">Diet Plans</span>
+<h3 class="blog-title">The Best Diet Plan for Diabetes Reversal</h3>
+<p class="blog-desc">A precision nutrition protocol targeting insulin resistance using low-glycemic, anti-inflammatory whole foods.</p>
+<span class="blog-cta">Read Article <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<a class="vogue-hover-card blog-card" href="how-to-reduce-hba1c-naturally.html">
+<div class="blog-img-wrap">
+<img alt="Reduce HbA1c Naturally" loading="lazy" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+</div>
+<div class="blog-content">
+<span class="category">HbA1c Management</span>
+<h3 class="blog-title">How to Reduce HbA1c Naturally in 90 Days</h3>
+<p class="blog-desc">Natural, clinically proven strategies to lower your HbA1c and reverse metabolic damage without full pharmaceutical dependence.</p>
+<span class="blog-cta">Read Article <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- SECTION 7: FINAL CTA -->
+<section class="final-cta-vogue">
+<div class="final-cta-content fade-in-section">
+<span class="hero-label-eyebrow" style="color:rgba(201,162,39,0.55); margin-bottom:1.5rem;">Limited availability · Q2 2026</span>
+<h2 class="final-cta-h2 text-gold-gradient">Start Your<br/>Transformation.</h2>
+<div class="cta-group">
+<a class="btn btn-shimmer btn-hero-cta" href="apply.html" style="border-radius:8px; border:none; color:var(--dark);">Start Your Transformation →</a>
+<span class="cta-microcopy" style="color:rgba(245,239,227,0.45);">Free clinical assessment. Our team calls within 2 hours.</span>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer style="background-color:var(--dark-deep); padding: 5rem 0 2rem; border-top:1px solid rgba(212,160,23,0.15); color:var(--cream); font-family:'DM Sans', sans-serif;">
+<div class="container">
+<div class="footer-grid" style="display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:3rem; margin-bottom:4rem;">
+<div>
+<img alt="FitMorphs Logo" height="70" loading="lazy" src="logo_stickey.png" style="margin-bottom:1.5rem;" width="70"/>
+<p style="opacity:0.6; font-size:0.95rem;">Body. Mind. Soul.<br/>Transform From Within.</p>
+</div>
+<div>
+<h4 style="color:var(--gold-mid); font-family:'DM Sans', sans-serif; text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Quick Links</h4>
+<ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
+<li><a href="index.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Home</a></li>
+<li><a href="diabetes.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Diabetes Reversal</a></li>
+<li><a href="transformation.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Transformation</a></li>
+<li><a href="results.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">Results</a></li>
+<li><a href="about.html" style="color:rgba(245,239,227,0.7); text-decoration:none;">About Us</a></li>
+</ul>
+</div>
+<div>
+<h4 style="color:var(--gold-mid); font-family:'DM Sans', sans-serif; text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin-bottom:1.5rem; font-weight:700;">Contact</h4>
+<ul style="list-style:none; padding:0; margin:0; line-height:2.2;">
+<li><a href="tel:+918208692210" style="color:rgba(245,239,227,0.7); text-decoration:none;">+91 8208692210</a></li>
+<li><a href="mailto:hello@fitmorphs.com" style="color:rgba(245,239,227,0.7); text-decoration:none;">hello@fitmorphs.com</a></li>
+</ul>
+<div style="margin-top: 2rem;">
+<a class="btn btn-outline" href="apply.html" style="padding: 0.8rem 2rem; border-color:var(--gold-mid); color:var(--gold-mid);">Apply Now</a>
+</div>
+</div>
+</div>
+<div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; opacity:0.5;">
+<p>© <span data-fm-year="">2026</span> FitMorphs Health Technologies Pvt. Ltd. All Rights Reserved. | <a href="disclaimer.html" style="text-decoration: underline;">Disclaimer</a> · <a href="privacy.html" style="text-decoration: underline; color:inherit;">Privacy</a> · <a href="terms.html" style="text-decoration: underline; color:inherit;">Terms</a> · <a href="refund.html" style="text-decoration: underline; color:inherit;">Refund Policy</a> · <a href="methodology.html" style="color:inherit; text-decoration: underline;">Methodology</a></p>
+</div>
+</div>
+</footer>
+<!-- Floating Apply Now (mobile primary CTA) -->
+<div class="apply-float">
+<a class="apply-float-btn" href="apply.html">
+<svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
             Apply Now
         </a>
-    </div>
-
-    <script src="script.js"></script>
-
-    <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
-
-    <script>
+</div>
+<script src="script.js"></script>
+<script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
+<script>
     // ── Transformation Arc scroll-scrubbed dot ──
     (function () {
         const wrap = document.getElementById('fmArcWrap');
