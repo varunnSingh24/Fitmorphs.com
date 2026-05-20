@@ -561,15 +561,16 @@
             titleEl.classList.remove('in');
             descEl.classList.remove('in');
             clearTimeout(swapTimer);
-            // Tightened from 320ms → 140ms so the scene commits feel
-            // synchronous with scroll rather than lagging behind.
+            // Round-2 perf: 140ms → 80ms. Combined with the new 0.20s
+            // numeral / 0.18s card / 0.22s word cascade, the scene now
+            // lands fully in ~300ms after scroll — near-instant.
             swapTimer = setTimeout(() => {
                 nowEl.textContent = PILLARS[i].numeral;
                 shell.classList.remove('sp-swap');
                 render(i);
                 card.classList.remove('sp-swap');
                 current = i;
-            }, 140);
+            }, 80);
         }
 
         // Scroll progress hook — single rAF loop

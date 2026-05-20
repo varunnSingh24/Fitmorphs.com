@@ -1103,4 +1103,18 @@ document.addEventListener('DOMContentLoaded', () => {
     el.dataset.fmWords = '1';
     el.innerHTML = words.map((w, i) => `<span class="w" style="--w:${i}">${w}</span>`).join(' ');
   };
+
+  /* ── Flip-card tap handler — toggles .is-flipped on click.
+       On touch devices, :hover never fires, so this is the only way
+       to see the back content. On desktop, hover already shows the
+       back; the toggle here doesn't change the visible state because
+       the pointer is hovering over the card when clicked. Tap again
+       on touch to flip back. ── */
+  document.addEventListener('click', e => {
+    const card = e.target.closest('.flip-card');
+    if (!card) return;
+    // Don't intercept anchors/buttons inside the card.
+    if (e.target.closest('a, button')) return;
+    card.classList.toggle('is-flipped');
+  });
 });
