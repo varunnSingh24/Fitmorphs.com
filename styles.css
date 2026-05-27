@@ -2209,18 +2209,18 @@ body { overflow-x: clip; }
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 0 rgba(226, 184, 58, 0.12);
   filter: drop-shadow(0 18px 50px rgba(212, 160, 23, 0.25));
-  /* Tightened from 0.65s → 0.32s so the numeral cross-fade lands
-     in sync with the 140ms swap commit + 320ms word cascade. */
-  transition: opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Round-2 perf: 0.32s → 0.20s. With the 80ms swap commit and the
+     220ms word cascade, the entire scene now lands in ~300ms. */
+  transition: opacity 0.20s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.20s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.20s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.sp-numeral-now  { opacity: 1; transform: translateY(0)     scale(1);    filter: blur(0); }
-.sp-numeral-next { opacity: 0; transform: translateY(-26px) scale(1.18); filter: blur(8px); }
-
-/* During the swap window — driven by JS adding/removing .sp-swap */
-.sp-numeral-shell.sp-swap .sp-numeral-now  { opacity: 0; transform: translateY(26px) scale(0.88); filter: blur(8px); }
-.sp-numeral-shell.sp-swap .sp-numeral-next { opacity: 1; transform: translateY(0)    scale(1);    filter: blur(0); }
+/* Smaller travel distance + softer blur — keeps the cross-fade
+   readable at the new shorter duration without feeling jittery. */
+.sp-numeral-now  { opacity: 1; transform: translateY(0)    scale(1);    filter: blur(0); }
+.sp-numeral-next { opacity: 0; transform: translateY(-14px) scale(1.10); filter: blur(4px); }
+.sp-numeral-shell.sp-swap .sp-numeral-now  { opacity: 0; transform: translateY(14px) scale(0.92); filter: blur(4px); }
+.sp-numeral-shell.sp-swap .sp-numeral-next { opacity: 1; transform: translateY(0)   scale(1);    filter: blur(0); }
 
 /* The pillar text card (right of numeral on desktop) */
 .sp-card {
@@ -2230,11 +2230,11 @@ body { overflow-x: clip; }
   padding: 1rem 1.5rem;
   color: var(--cream);
   transform: translateX(8vw);
-  /* Tightened from 0.55s → 0.28s for snappier card swap */
-  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Round-2: 0.28s → 0.18s. Smaller exit translate (was 10px → 6px). */
+  transition: opacity 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.sp-card.sp-swap { opacity: 0; transform: translateX(8vw) translateY(10px); }
+.sp-card.sp-swap { opacity: 0; transform: translateX(8vw) translateY(6px); }
 
 .sp-progress {
   display: inline-block;
@@ -2730,7 +2730,12 @@ body { overflow-x: clip; }
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  /* User report: "flip happens, then 1s wait, then content shows" —
+     dropping 0.7s → 0.4s and using an easeOutExpo curve so the
+     halfway-point (where the back face becomes visible) lands at
+     ~140ms instead of ~280ms. The back content now appears almost
+     immediately on click/hover. */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .flip-card:hover .flip-card-inner,
 .flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
@@ -2745,13 +2750,20 @@ body { overflow-x: clip; }
   justify-content: center;
   border-radius: inherit;
   padding: inherit;
+  /* The back content shouldn't crossfade in separately — the flip
+     itself reveals it. But ensure both faces respect their parent's
+     box so no padding shift causes a "second jump". */
+  box-sizing: border-box;
 }
 .flip-card-back {
   transform: rotateY(180deg);
-  background: rgba(15, 15, 12, 0.92);
+  background: rgba(15, 15, 12, 0.94);
   color: var(--cream);
   padding: 1.5rem;
   text-align: left;
+  /* Snap to fully opaque the moment the back face becomes camera-
+     facing — no fade delay. */
+  opacity: 1;
 }
 .flip-card-back h5 {
   font-family: 'Playfair Display', serif;
@@ -2900,23 +2912,26 @@ body { overflow-x: clip; }
 .fm-words .w {
   display: inline-block;
   opacity: 0;
-  transform: translateY(12px) rotateX(18deg);
-  filter: blur(4px);
+  transform: translateY(8px);
+  filter: blur(2px);
   transform-origin: top center;
-  transition: opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.32s cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: calc(var(--w, 0) * 14ms);
+  /* Tightened again — 0.22s transition + 8ms stagger means a 16-word
+     block lands fully in ~350ms total. Drop the rotateX too; pure
+     vertical+blur reveal feels lighter and more synchronous. */
+  transition: opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--w, 0) * 8ms);
 }
-.fm-words.in .w { opacity: 1; transform: translateY(0) rotateX(0); filter: blur(0); }
+.fm-words.in .w { opacity: 1; transform: translateY(0); filter: blur(0); }
 @media (prefers-reduced-motion: reduce) {
   .fm-words .w { opacity: 1; transform: none; filter: none; transition: none; }
 }
 
-/* Six-Pillar specifically — the title cascade has only 2-3 words,
-   no need to delay them further; sync them to the swap commit. */
-.sp-title.fm-words .w,
-.sp-desc.fm-words  .w { transition-delay: calc(var(--w, 0) * 12ms); }
+/* Six-Pillar specifically — even tighter cascade because the user
+   needs the next scene to read INSTANTLY on scroll. */
+.sp-title.fm-words .w { transition-delay: calc(var(--w, 0) * 6ms); }
+.sp-desc.fm-words  .w { transition-delay: calc(var(--w, 0) * 7ms); }
 
 /* ── INDEX HERO — scroll-pinned cinematic with parallax + CGM trace ── */
 .hero-pin-stage { position: relative; min-height: 300vh; }

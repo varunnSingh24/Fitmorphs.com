@@ -1,5 +1,36 @@
 // FitMorphs — Premium Script V3
 
+/* =========================================================
+   BACK/FORWARD CACHE RESET
+   When the user hits the browser back button, modern browsers
+   restore the page from bfcache *exactly as it was* — including
+   the page-wipe gold overlay still mid-animation and the body
+   marked as .page-exit. The result is a "frozen at the
+   transition" feel. The pageshow event (with persisted===true)
+   is the canonical signal for bfcache restore — reset every
+   transition-in-progress class so the page is interactive again.
+   ========================================================= */
+window.addEventListener('pageshow', e => {
+  // Always reset, but the persisted path is the bfcache case.
+  const wipe = document.getElementById('page-wipe');
+  if (wipe) {
+    wipe.classList.remove('wipe-in', 'wipe-from-left', 'wipe-from-right', 'wipe-from-top', 'wipe-from-bottom');
+    wipe.classList.add('wipe-out');
+  }
+  document.body.classList.remove('page-exit');
+  document.body.classList.add('loaded');
+  document.body.style.overflow = '';
+  // Also kill the intro overlay if it somehow got restored mid-fade
+  const intro = document.getElementById('fm-intro');
+  if (intro && e.persisted) intro.style.display = 'none';
+});
+/* iOS Safari fires `pagehide` (not unload) when navigating away —
+   make sure we DON'T leave the wipe-in class hanging on bfcache. */
+window.addEventListener('pagehide', () => {
+  const wipe = document.getElementById('page-wipe');
+  if (wipe) wipe.classList.remove('wipe-in');
+});
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // =========================================================
@@ -1103,4 +1134,18 @@ document.addEventListener('DOMContentLoaded', () => {
     el.dataset.fmWords = '1';
     el.innerHTML = words.map((w, i) => `<span class="w" style="--w:${i}">${w}</span>`).join(' ');
   };
+
+  /* ── Flip-card tap handler — toggles .is-flipped on click.
+       On touch devices, :hover never fires, so this is the only way
+       to see the back content. On desktop, hover already shows the
+       back; the toggle here doesn't change the visible state because
+       the pointer is hovering over the card when clicked. Tap again
+       on touch to flip back. ── */
+  document.addEventListener('click', e => {
+    const card = e.target.closest('.flip-card');
+    if (!card) return;
+    // Don't intercept anchors/buttons inside the card.
+    if (e.target.closest('a, button')) return;
+    card.classList.toggle('is-flipped');
+  });
 });
