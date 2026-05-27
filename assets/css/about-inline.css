@@ -201,9 +201,58 @@
             margin: 0;
         }
 
+        /* MOBILE RESPONSIVENESS AND SPACING POLISH */
         @media (max-width: 900px) { 
-            .profile-grid { grid-template-columns: 1fr; gap: 3rem; } 
-            .team-grid { grid-template-columns: 1fr; }
+            .profile-grid { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; } 
+            .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; padding: 4rem 1.5rem; }
+            .mission-section { padding: 5rem 1.5rem; }
+            .fm-path-stage { padding: 4rem 0 5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-bg-wrapper {
+                width: 100% !important;
+                height: 100%;
+                opacity: 0.15 !important;
+                display: block !important;
+            }
+            .hero-content {
+                padding: 6rem 1.5rem 4rem !important;
+            }
+            .hero-title-vogue {
+                max-width: 100% !important;
+                font-size: clamp(2rem, 6.5vw, 3.5rem);
+            }
+        }
+
+        @media (max-width: 720px) {
+            /* Draw a straight vertical timeline connector on mobile list */
+            .fm-path-list {
+                position: relative;
+            }
+            .fm-path-list::before {
+                content: '';
+                position: absolute;
+                top: 1.5rem;
+                bottom: 1.5rem;
+                left: 25px;
+                width: 2px;
+                background: linear-gradient(180deg, #a17c2f 0%, #f0d060 50%, #e2b83a 100%);
+                box-shadow: 0 0 6px rgba(240, 192, 64, 0.4);
+                z-index: 0;
+            }
+            .fm-path-svg {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .team-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .team-grid .team-card.flip-card { height: 420px; }
+            .team-grid .team-img-wrapper { height: 280px; }
+            .final-cta-vogue { min-height: 80vh; padding: 3rem 1.5rem; }
+            .final-cta-h2 { font-size: clamp(2.2rem, 8vw, 4rem) !important; margin-bottom: 2rem; }
+            .btn-shimmer { padding: 1.2rem 3rem !important; font-size: 1.05rem !important; }
         }
 
         /* FINAL CTA */
