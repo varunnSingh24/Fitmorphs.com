@@ -714,19 +714,17 @@ footer {
   100% { width: 280px; opacity: 1; }
 }
 
-/* Wordmark container — Fraunces variable serif: distinctive, premium, architectural.
-   Slight optical-size + soft-axis tuning gives the glyphs a subtle warmth without
-   slipping into "fashion italic" territory. */
+/* Wordmark container — Bebas Neue: ultra-bold, commanding, architectural impact.
+   Powerful all-caps condensed display font — strong and authoritative. */
 .fm-wordmark {
   margin: 0;
   padding: 0;
-  font-family: 'Fraunces', 'Playfair Display', serif;
+  font-family: 'Bebas Neue', 'Fraunces', 'Playfair Display', serif;
   font-style: normal;
-  font-weight: 600;
-  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
-  font-size: clamp(3rem, 10.5vw, 7.6rem);
+  font-weight: 400;
+  font-size: clamp(3.8rem, 13vw, 9.5rem);
   line-height: 1;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.04em;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -735,7 +733,7 @@ footer {
   perspective: 800px;
 }
 
-/* Each letter — drops from above with stagger, gold gradient fill */
+/* Each letter — pops into place with a scale-up burst, gold gradient fill */
 .fm-letter {
   display: inline-block;
   background: linear-gradient(180deg, #faf0d0 0%, #f0d060 35%, #e2b83a 65%, #a17c2f 100%);
@@ -743,19 +741,19 @@ footer {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 0;
-  transform: translateY(-65%) rotateX(60deg);
-  transform-origin: top center;
-  filter: blur(6px);
+  transform: scale(0.4);
+  transform-origin: center bottom;
+  filter: blur(8px);
   will-change: transform, opacity, filter;
-  text-shadow: 0 1px 0 rgba(226,184,58,0.25);
-  animation: fm-letter-drop 1.15s cubic-bezier(0.19, 1, 0.32, 1) forwards;
-  animation-delay: calc(0.65s + var(--i) * 0.085s);
+  animation: fm-letter-pop 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: calc(0.55s + var(--i) * 0.07s);
 }
 
-@keyframes fm-letter-drop {
-  0%   { opacity: 0; transform: translateY(-65%) rotateX(60deg) skewX(2deg); filter: blur(6px); }
-  60%  { opacity: 1; filter: blur(0); }
-  100% { opacity: 1; transform: translateY(0) rotateX(0) skewX(0);          filter: blur(0); }
+@keyframes fm-letter-pop {
+  0%   { opacity: 0; transform: scale(0.3);    filter: blur(10px); }
+  55%  { opacity: 1; filter: blur(0); }
+  75%  { transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1);       filter: blur(0); }
 }
 
 /* Gold sweep — diagonal shine across the wordmark */
