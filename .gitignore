@@ -27,5 +27,6 @@ fitmorphs-preview/
 .env.local
 
 # Local runtime / tooling — never commit
+*.log
 server.log
 .claude/
