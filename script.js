@@ -2,92 +2,26 @@
 
 /* =========================================================
    BACK/FORWARD CACHE RESET
-   When the user hits the browser back button, modern browsers
-   restore the page from bfcache *exactly as it was* — including
-   the page-wipe gold overlay still mid-animation and the body
-   marked as .page-exit. The result is a "frozen at the
-   transition" feel. The pageshow event (with persisted===true)
-   is the canonical signal for bfcache restore — reset every
-   transition-in-progress class so the page is interactive again.
+   The pageshow event (with persisted===true) is the canonical
+   signal for a bfcache restore — reset the page-wipe and body
+   state so a page frozen mid-transition becomes interactive
+   again. motion.js owns the wipe's resting position (off-screen
+   left) on fresh loads; this only handles the bfcache edge case.
    ========================================================= */
 window.addEventListener('pageshow', e => {
-  // Always reset, but the persisted path is the bfcache case.
   const wipe = document.getElementById('page-wipe');
-  if (wipe) {
-    wipe.classList.remove('wipe-in', 'wipe-from-left', 'wipe-from-right', 'wipe-from-top', 'wipe-from-bottom');
-    wipe.classList.add('wipe-out');
-  }
-  document.body.classList.remove('page-exit');
-  document.body.classList.add('loaded');
+  if (wipe && window.gsap) window.gsap.set(wipe, { xPercent: -101 });
   document.body.style.overflow = '';
-  // Also kill the intro overlay if it somehow got restored mid-fade
   const intro = document.getElementById('fm-intro');
   if (intro && e.persisted) intro.style.display = 'none';
-});
-/* iOS Safari fires `pagehide` (not unload) when navigating away —
-   make sure we DON'T leave the wipe-in class hanging on bfcache. */
-window.addEventListener('pagehide', () => {
-  const wipe = document.getElementById('page-wipe');
-  if (wipe) wipe.classList.remove('wipe-in');
 });
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // =========================================================
-  // 0-A. PAGE WIPE TRANSITION (all pages)
-  // =========================================================
-  const pageWipe = document.getElementById('page-wipe');
-  if (pageWipe) {
-    // Wipe out on arrival (reveal page)
-    requestAnimationFrame(() => {
-      pageWipe.classList.add('wipe-out');
-    });
-
-    // Intercept navigation links for wipe-in
-    document.querySelectorAll(
-      'a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([href^="javascript"])'
-    ).forEach(link => {
-      link.addEventListener('click', e => {
-        const href = link.getAttribute('href');
-        if (href && !href.startsWith('http') && !href.startsWith('//')) {
-          e.preventDefault();
-          e.stopPropagation(); // prevent double-fire with existing handler
-          pageWipe.classList.remove('wipe-out');
-          pageWipe.classList.add('wipe-in');
-          setTimeout(() => { window.location.href = href; }, 420);
-        }
-      }, true); // capture phase so it fires before the existing handler
-    });
-  }
-
-
-  // =========================================================
-  // 0-B. HOMEPAGE INTRO SEQUENCE (first visit per session)
-  // IronStride-style preloader — CSS-driven stutter fill +
-  // mix-blend wordmark + radial mask wipe-out.
-  // =========================================================
-  const fmIntro = document.getElementById('fm-intro');
-
-  if (fmIntro) {
-    const alreadySeen = sessionStorage.getItem('fm_intro_seen');
-
-    if (alreadySeen) {
-      fmIntro.style.display = 'none';
-    } else {
-      sessionStorage.setItem('fm_intro_seen', '1');
-      document.body.style.overflow = 'hidden';
-
-      // Total choreography ≈ 6.0s — build (3.0s) + hold (1.0s) + cinematic exit (2.0s):
-      //   stage dissolve (1.05s) + iris wipe (1.45s @ 0.45s delay) → display:none
-      const INTRO_MS = 4100;
-      setTimeout(() => {
-        fmIntro.classList.add('fade-out');
-        document.body.style.overflow = '';
-        setTimeout(() => { fmIntro.style.display = 'none'; }, 2000);
-      }, INTRO_MS);
-    }
-  }
-
+  // Page wipe transition and the homepage splash are now owned entirely
+  // by assets/js/motion.js (initPageTransitions / initSplash) — one GSAP
+  // timeline each instead of the two competing setTimeout-based systems
+  // that used to run here.
 
   // =========================================================
   // 0. ANNOUNCEMENT BAR — rotating messages + offset navbar
@@ -108,30 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 4000);
     }
   }
-
-
-  // =========================================================
-  // 1. PAGE LOAD TRANSITION
-  // =========================================================
-  requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('loaded')));
-
-
-  // =========================================================
-  // 2. SMOOTH PAGE TRANSITIONS
-  // =========================================================
-  document.querySelectorAll(
-    'a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([href^="javascript"])'
-  ).forEach(link => {
-    link.addEventListener('click', e => {
-      const href = link.getAttribute('href');
-      if (href && !href.startsWith('http') && !href.startsWith('//')) {
-        e.preventDefault();
-        document.body.classList.add('page-exit');
-        document.body.classList.remove('loaded');
-        setTimeout(() => { window.location.href = href; }, 380);
-      }
-    });
-  });
 
 
   // =========================================================
@@ -222,228 +132,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // =========================================================
-  // 7. GOLD PARTICLE CANVAS SYSTEM
-  // =========================================================
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isMobile = window.innerWidth < 768;
 
-  // Track mouse for parallax
-  let mouseParallaxX = 0, mouseParallaxY = 0;
-  if (!isTouch) {
-    document.addEventListener('mousemove', e => {
-      mouseParallaxX = (e.clientX / window.innerWidth - 0.5) * 2;  // -1 to 1
-      mouseParallaxY = (e.clientY / window.innerHeight - 0.5) * 2;
-    }, { passive: true });
-  }
-
-  function initGoldParticles(canvas) {
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animId;
-    const isHeroCanvas = canvas.closest('.hero-vogue') !== null;
-
-    function resize() {
-      const parent = canvas.offsetParent || canvas.parentElement;
-      canvas.width = parent ? parent.offsetWidth : window.innerWidth;
-      canvas.height = parent ? parent.offsetHeight : window.innerHeight;
-      createParticles();
-    }
-
-    function createParticles() {
-      const count = isMobile
-        ? Math.floor(Math.random() * 9) + 20    // 20–28 on mobile
-        : Math.floor(Math.random() * 16) + 55;   // 55–70 on desktop (increased)
-      particles = [];
-      for (let i = 0; i < count; i++) particles.push(makeParticle());
-    }
-
-    function makeParticle() {
-      return {
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 2.2 + 0.8,               // slightly smaller: 0.8–3px
-        speed: Math.random() * 0.85 + 0.2,              // 0.2–1.05 px/frame
-        opacity: Math.random() * 0.37 + 0.08,             // 0.08–0.45
-        swayAmp: Math.random() * 20 + 15,                 // 15–35 px
-        swayPeriod: Math.random() * 5000 + 3000,             // 3–8 s
-        swayOffset: Math.random() * Math.PI * 2,
-        parallaxFactor: Math.random() * 18 + 6,              // 6–24 px max mouse offset
-      };
-    }
-
-    function drawFrame(ts) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Parallax offset for hero canvas only
-      const px_offset = isHeroCanvas && !isTouch ? mouseParallaxX : 0;
-      const py_offset = isHeroCanvas && !isTouch ? mouseParallaxY : 0;
-
-      particles.forEach(p => {
-        const sway = Math.sin(ts / p.swayPeriod + p.swayOffset) * p.swayAmp;
-        const px = p.x + sway + px_offset * p.parallaxFactor;
-        const py = p.y + py_offset * p.parallaxFactor * 0.4;
-
-        // Glow halo
-        ctx.beginPath();
-        ctx.arc(px, py, p.r * 3, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(226, 184, 58, 0.03)';
-        ctx.fill();
-
-        // Core particle
-        ctx.beginPath();
-        ctx.arc(px, py, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(226, 184, 58, ${p.opacity})`;
-        ctx.fill();
-
-        // Move downward
-        p.y += p.speed;
-
-        // Reset when leaving bottom
-        if (p.y > canvas.height + p.r * 4) {
-          p.y = -p.r * 4;
-          p.x = Math.random() * canvas.width;
-        }
-      });
-
-      if (!prefersReducedMotion) animId = requestAnimationFrame(drawFrame);
-    }
-
-    resize();
-
-    if (prefersReducedMotion) {
-      // Draw static frame once
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(226, 184, 58, ${p.opacity})`;
-        ctx.fill();
-      });
-    } else {
-      animId = requestAnimationFrame(drawFrame);
-    }
-
-    // Pause animation when canvas is off-screen (CPU savings)
-    let isVisible = true;
-    const visObserver = new IntersectionObserver(([entry]) => {
-      isVisible = entry.isIntersecting;
-      if (isVisible && !prefersReducedMotion) {
-        cancelAnimationFrame(animId);
-        animId = requestAnimationFrame(drawFrame);
-      }
-    }, { rootMargin: '100px' });
-    visObserver.observe(canvas);
-
-    // Debounced resize
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(resize, 150);
-    });
-
-    // Override drawFrame to check visibility
-    const _drawFrame = drawFrame;
-    function drawFrame(ts) {
-      if (!isVisible) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const px_offset = isHeroCanvas && !isTouch ? mouseParallaxX : 0;
-      const py_offset = isHeroCanvas && !isTouch ? mouseParallaxY : 0;
-      particles.forEach(p => {
-        const sway = Math.sin(ts / p.swayPeriod + p.swayOffset) * p.swayAmp;
-        const px = p.x + sway + px_offset * p.parallaxFactor;
-        const py = p.y + py_offset * p.parallaxFactor * 0.4;
-        ctx.beginPath(); ctx.arc(px, py, p.r * 3, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(226, 184, 58, 0.03)'; ctx.fill();
-        ctx.beginPath(); ctx.arc(px, py, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(226, 184, 58, ${p.opacity})`; ctx.fill();
-        p.y += p.speed;
-        if (p.y > canvas.height + p.r * 4) { p.y = -p.r * 4; p.x = Math.random() * canvas.width; }
-      });
-      if (!prefersReducedMotion) animId = requestAnimationFrame(drawFrame);
-    }
-  }
-
-  document.querySelectorAll('canvas.gold-particles').forEach(initGoldParticles);
+  // (Gold-particle canvas system removed — it targeted canvas.gold-particles,
+  // an element no page ever actually renders; the function never ran. The
+  // site's signature motion element is now the vitals line in motion.js.)
 
 
-  // =========================================================
-  // 8. INTERSECTION OBSERVER — FADE IN
-  // =========================================================
-  const fadeObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-
-  document.querySelectorAll('.fade-in-section').forEach(el => fadeObserver.observe(el));
-
-
-  // =========================================================
-  // 9. STAGGERED CHILDREN
-  // =========================================================
-  const staggerObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('stagger-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.stagger-children').forEach(el => staggerObserver.observe(el));
-
-
-  // =========================================================
-  // 10. ANIMATED COUNTERS — runs on .counter-val plus the
-  // .impact-main-stat / .impact-small-stat elements on index.html
-  // (which carry data-target + optional data-suffix). Eases on
-  // a 1-cubic-easeOut curve over 2s on scroll-into-view.
-  // =========================================================
-  const counters = document.querySelectorAll(
-    '.counter-val[data-target], .impact-main-stat[data-target], .impact-small-stat[data-target]'
-  );
-
-  if (counters.length) {
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = parseFloat(el.getAttribute('data-target'));
-        if (!isFinite(target)) { observer.unobserve(el); return; }
-        const isDecimal = String(target).includes('.');
-        const suffix = el.getAttribute('data-suffix') || '';
-        const duration = 2000;
-        const startTime = performance.now();
-
-        const fmt = v => (isDecimal ? v.toFixed(1) : Math.ceil(v).toLocaleString('en-IN'));
-
-        const animate = now => {
-          const elapsed = now - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const current = target * eased;
-          el.textContent = fmt(current) + suffix;
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          } else {
-            el.textContent = fmt(target) + suffix;
-          }
-        };
-
-        // Start at 0 (avoid jump if the source already has the final value rendered)
-        el.textContent = fmt(0) + suffix;
-        requestAnimationFrame(animate);
-        observer.unobserve(el);
-      });
-    }, { threshold: 0.45 });
-
-    counters.forEach(c => counterObserver.observe(c));
-  }
+  // Fade-in / staggered-children reveals and the stat counters are now
+  // driven by assets/js/motion.js (one ScrollTrigger.batch call instead
+  // of three separate ad-hoc IntersectionObservers here).
 
 
   // =========================================================
@@ -466,42 +164,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // =========================================================
-  // 10-C. MAGNETIC CTA BUTTONS
-  // Any element with .btn-magnetic, or auto-applied to
-  // .btn-shimmer / .btn-hero-cta / .apply-float-btn that opts in,
-  // attracts the cursor on hover with a subtle parallax pull.
-  // Strength can be tuned via data-magnetic="N" (default 7px).
-  // =========================================================
-  const magnets = document.querySelectorAll(
-    '.btn-magnetic, .btn-hero-cta, .btn-shimmer:not(.no-magnet)'
-  );
-  if (magnets.length && !window.matchMedia('(pointer: coarse)').matches) {
-    magnets.forEach(btn => {
-      const strength = parseFloat(btn.getAttribute('data-magnetic')) || 7;
-      btn.style.transition = (btn.style.transition || '') + ', transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)';
-      let raf = 0;
-      const onMove = e => {
-        const r = btn.getBoundingClientRect();
-        const x = e.clientX - (r.left + r.width / 2);
-        const y = e.clientY - (r.top + r.height / 2);
-        // Only attract when within an extended hit area (1.4× button bounds)
-        const reach = Math.max(r.width, r.height) * 0.7;
-        const dist = Math.hypot(x, y);
-        const pull = Math.max(0, 1 - dist / reach);
-        const tx = (x / reach) * strength * pull;
-        const ty = (y / reach) * strength * pull;
-        if (raf) cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(() => { btn.style.transform = `translate(${tx}px, ${ty}px)`; });
-      };
-      const onLeave = () => {
-        if (raf) cancelAnimationFrame(raf);
-        btn.style.transform = '';
-      };
-      btn.addEventListener('mousemove', onMove);
-      btn.addEventListener('mouseleave', onLeave);
-    });
-  }
+  // Magnetic CTA is now a single implementation in motion.js
+  // (initMagnetic) — this used to be two separate, competing
+  // mousemove handlers (this one plus "14." further down) both
+  // attaching to .btn-shimmer.
 
 
   // =========================================================
@@ -595,35 +261,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // =========================================================
-  // 14. MAGNETIC CTA BUTTONS
-  // =========================================================
-  if (!isTouch) {
-    document.querySelectorAll('.btn-primary, .btn-shimmer, .blog-cat-btn').forEach(btn => {
-      btn.addEventListener('mousemove', e => {
-        const rect = btn.getBoundingClientRect();
-        const x = (e.clientX - rect.left - rect.width / 2) * 0.12;
-        const y = (e.clientY - rect.top - rect.height / 2) * 0.12;
-        btn.style.transform = `translate(${Math.max(-5, Math.min(5, x))}px, ${Math.max(-5, Math.min(5, y))}px)`;
-      });
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = '';
-        btn.style.transition = 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)';
-        setTimeout(() => { btn.style.transition = ''; }, 400);
-      });
-    });
-  }
+  // (Duplicate magnetic-CTA handler removed — see motion.js initMagnetic.)
 
 
   // =========================================================
   // 15. 3D TILT ON CARDS
+  // .team-card excluded — it now owns a dedicated flip-on-hover
+  // (see about-inline.css .flip-card-inner), and this generic
+  // mouse-tilt was fighting it: two rotations applied to nested
+  // elements at once. Team cards get the clean flip only.
   // =========================================================
   if (!isTouch) {
     // NOTE: .blog-card intentionally excluded — it already owns a rich CSS :hover
     // reveal (image lift, gradient slide, content slide-up). Stacking 3D tilt on
     // top causes perspective-rotation to redraw the hit area each mousemove,
     // which oscillates mouseenter/mouseleave near edges and breaks hover/click.
-    document.querySelectorAll('.card, .team-card, .result-card, .scroll-card, .dark-cat-card, .story-card, .expert-card').forEach(card => {
+    document.querySelectorAll('.card, .result-card, .scroll-card, .dark-cat-card, .story-card, .expert-card').forEach(card => {
       card.style.perspective = '1000px';
       card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
@@ -645,25 +298,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // =========================================================
-  // 16. HERO WORD-BY-WORD ANIMATION
-  // =========================================================
-  const heroH1 = document.querySelector('.hero-global h1');
-  // Only split if no pre-wrapped spans exist
-  if (heroH1 && !prefersReducedMotion && !heroH1.querySelector('span')) {
-    const words = heroH1.innerHTML.split(/(\s+)/);
-    heroH1.innerHTML = words.map(w =>
-      w.trim() ? `<span class="hero-word" style="display:inline-block;opacity:0;transform:translateY(25px);filter:blur(6px);transition:opacity 0.5s ease,transform 0.5s ease,filter 0.5s ease;">${w}</span>` : w
-    ).join('');
-
-    document.querySelectorAll('.hero-word').forEach((word, i) => {
-      setTimeout(() => {
-        word.style.opacity = '1';
-        word.style.transform = 'translateY(0)';
-        word.style.filter = 'blur(0)';
-      }, 200 + i * 80);
-    });
-  }
+  // (Hero word-by-word animation removed — targeted .hero-global h1, which
+  // no page actually uses; dead code. Hero headlines now use
+  // data-reveal="lines" via motion.js.)
 
 
   // =========================================================
@@ -803,59 +440,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // =========================================================
-  // 22. ENHANCED COUNTER — easeOutExpo + slot machine digits
-  // =========================================================
-  document.querySelectorAll('.counter-val[data-target]').forEach(el => {
-    // Already handled by section 10 — upgrade in-place with slot effect for shimmer-text counters
-    if (!el.classList.contains('shimmer-text')) return;
-
-    const target = parseFloat(el.getAttribute('data-target'));
-    const isDecimal = String(target).includes('.');
-    let started = false;
-
-    const upObserver = new IntersectionObserver(([entry], obs) => {
-      if (!entry.isIntersecting || started) return;
-      started = true;
-      obs.disconnect();
-
-      const duration = 1800;
-      const startTime = performance.now();
-
-      // easeOutExpo
-      const easeOutExpo = t => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-
-      const tick = now => {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const eased = easeOutExpo(progress);
-        const current = target * eased;
-
-        if (progress < 0.85) {
-          // Slot machine: random digits cycling
-          const randSuffix = isDecimal
-            ? (Math.random() * target).toFixed(1)
-            : Math.floor(Math.random() * target).toLocaleString('en-IN');
-          el.textContent = randSuffix;
-        } else {
-          el.textContent = isDecimal
-            ? current.toFixed(1)
-            : Math.ceil(current).toLocaleString('en-IN');
-        }
-
-        if (progress < 1) {
-          requestAnimationFrame(tick);
-        } else {
-          el.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString('en-IN');
-          // Pop in the suffix
-          const suffix = el.getAttribute('data-suffix');
-          if (suffix) el.textContent += suffix;
-        }
-      };
-      requestAnimationFrame(tick);
-    }, { threshold: 0.6 });
-
-    upObserver.observe(el);
-  });
+  // (Slot-machine counter upgrade removed — motion.js's initCounters
+  // does a calm gsap.to count-up with tabular-nums instead; a jittery
+  // random-digit cycle is exactly the kind of busy effect this pass
+  // is supposed to remove, not duplicate.)
 
 
   // =========================================================
@@ -885,30 +473,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // =========================================================
   // 24. SMOOTH SCROLL WITH EASING (nav anchor links)
+  // Only on touch/reduced-motion — motion.js hooks these same links
+  // through Lenis on desktop, and running both would double-scroll.
   // =========================================================
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-      const id = anchor.getAttribute('href').slice(1);
-      const target = document.getElementById(id);
-      if (!target) return;
-      e.preventDefault();
+  const anchorScrollIsTouchOnly = window.matchMedia('(pointer: coarse)').matches || prefersReducedMotion;
+  if (anchorScrollIsTouchOnly) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        const id = anchor.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
 
-      const startY = window.scrollY;
-      const endY = target.getBoundingClientRect().top + startY - 90;
-      const diff = endY - startY;
-      const duration = 700;
-      const startTime = performance.now();
+        const startY = window.scrollY;
+        const endY = target.getBoundingClientRect().top + startY - 90;
+        const diff = endY - startY;
+        const duration = 700;
+        const startTime = performance.now();
 
-      const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-      const step = now => {
-        const progress = Math.min((now - startTime) / duration, 1);
-        window.scrollTo(0, startY + diff * easeInOutCubic(progress));
-        if (progress < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
+        const step = now => {
+          const progress = Math.min((now - startTime) / duration, 1);
+          window.scrollTo(0, startY + diff * easeInOutCubic(progress));
+          if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
     });
-  });
+  }
 
   // =========================================================
   // 24. TRANSFORMATION SLIDER
@@ -1031,27 +624,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* ── Directional page-wipe — already-installed click handler will set the direction ── */
-  (function () {
-    const wipe = document.getElementById('page-wipe');
-    if (!wipe) return;
-    document.addEventListener('click', e => {
-      const a = e.target.closest('a[href]');
-      if (!a) return;
-      const href = a.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http') || a.target === '_blank') return;
-      const r = a.getBoundingClientRect();
-      const cx = r.left + r.width / 2;
-      const cy = r.top + r.height / 2;
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      // Direction = whichever edge the link is closest to.
-      const distances = { left: cx, right: vw - cx, top: cy, bottom: vh - cy };
-      const dir = Object.keys(distances).reduce((a, b) => distances[a] < distances[b] ? a : b);
-      wipe.classList.remove('wipe-from-left', 'wipe-from-right', 'wipe-from-top', 'wipe-from-bottom');
-      wipe.classList.add('wipe-from-' + dir);
-    }, true);
-  })();
+  /* Directional page-wipe removed — motion.js's initPageTransitions owns the
+     wipe now (a single GSAP timeline), so the old class-based directional
+     handler and its wipe-from-* / pw-from-* CSS were dead. */
 
   /* ── Scroll-staggered reveal — apply IntersectionObserver to .scroll-stagger
        containers AND set --i on children once. ── */

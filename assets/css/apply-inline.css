@@ -30,7 +30,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.8rem; font-weight: 700;
             color: var(--text-muted);
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
             position: relative; z-index: 1;
         }
         .step-node.active .step-circle  { border-color: var(--gold-mid); background: var(--gold-mid); color: var(--dark); }
@@ -46,7 +46,10 @@
             border: 1.5px solid rgba(201,162,39,0.2);
             border-radius: 10px; padding: 1.2rem 1rem;
             cursor: pointer; text-align: center;
-            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                        background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
             background: var(--off-white); position: relative;
             overflow: hidden;
         }
@@ -55,7 +58,7 @@
         .goal-card-icon { font-size: 1.8rem; margin-bottom: 0.5rem; display: block; }
         .goal-card-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--text-primary); }
         .goal-card-sub { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.3; }
-        .goal-check { position: absolute; top: 0.5rem; right: 0.6rem; width: 18px; height: 18px; border-radius: 50%; background: var(--gold-mid); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0); transition: all 0.25s cubic-bezier(0.22,1,0.36,1); }
+        .goal-check { position: absolute; top: 0.5rem; right: 0.6rem; width: 18px; height: 18px; border-radius: 50%; background: var(--gold-mid); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0); transition: opacity 0.25s cubic-bezier(0.22,1,0.36,1), transform 0.25s cubic-bezier(0.22,1,0.36,1); }
         .goal-card.selected .goal-check { opacity: 1; transform: scale(1); }
 
         /* ---- Contextual hint ---- */
@@ -73,7 +76,7 @@
 
         /* ---- Nav buttons ---- */
         .step-nav { display: flex; gap: 1rem; margin-top: 1.5rem; }
-        .btn-back { background: none; border: 1.5px solid rgba(201,162,39,0.3); color: var(--text-muted); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 0.9rem; padding: 0.85rem 1.5rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; }
+        .btn-back { background: none; border: 1.5px solid rgba(201,162,39,0.3); color: var(--text-muted); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 0.9rem; padding: 0.85rem 1.5rem; border-radius: 8px; cursor: pointer; transition: border-color 0.3s ease, color 0.3s ease; flex-shrink: 0; }
         .btn-back:hover { border-color: var(--gold-mid); color: var(--gold-mid); }
         .btn-next { flex: 1; padding: 1rem; font-size: 0.95rem; }
 

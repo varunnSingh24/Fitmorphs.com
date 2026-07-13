@@ -53,6 +53,22 @@
 <link href="assets/css/index-inline.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- Signature vitals line — thin gold ECG-style path, scroll-scrubbed.
+     Erratic near the top (the problem), settling to a calm strong pulse
+     by the results section (the resolution). Desktop only. -->
+<svg aria-hidden="true" id="fm-vitals-line" preserveAspectRatio="none" viewBox="0 0 100 4000" xmlns="http://www.w3.org/2000/svg">
+<path d="M 98 0
+         L 98 180 L 94 210 L 99 230 L 90 260 L 98 285 L 96 300
+         L 99 340 L 88 365 L 98 385 L 93 410 L 98 430
+         L 97 480 L 91 505 L 98 525 L 95 550 L 98 570
+         L 98 650 L 95 668 L 98 685 L 96 700 L 98 715
+         L 98 820 Q 98 835 96 840 T 98 855 Q 98 865 96 868 T 98 880
+         L 98 1000 Q 98 1012 97 1015 T 98 1025 Q 98 1033 97 1035 T 98 1045
+         L 98 1200 Q 98 1210 97.2 1212 T 98 1220 Q 98 1226 97.2 1228 T 98 1236
+         L 98 1500 Q 98 1508 97.5 1510 T 98 1516 Q 98 1521 97.5 1523 T 98 1529
+         L 98 2000 Q 98 2006 97.7 2008 T 98 2012 Q 98 2016 97.7 2018 T 98 2022
+         L 98 4000" fill="none" id="fm-vitals-path"></path>
+</svg>
 <div aria-hidden="true" id="stars-container">
 <div class="star-layer" id="stars1"></div>
 <div class="star-layer" id="stars2"></div>
@@ -273,19 +289,19 @@
 <h2 class="playfair">The Proof is in the Physics.</h2>
 </div>
 <div class="editorial-grid">
-<!-- Card 1 — Fat Loss / 22kg recomp (placeholder photo until real shoot lands) -->
+<!-- Card 1 — Fat Loss / recomp dossier (photo pending real, consented shoot) -->
 <div class="ed-card ed-card-tall">
-<img alt="Fat Loss result — 22kg lost in 4 months" loading="lazy" onerror="this.onerror=null; this.style.display='none';" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&amp;fit=crop&amp;q=80&amp;w=900"/>
+<div aria-hidden="true" class="fm-photo-pending fm-photo-pending--fill"><div class="fm-photo-pending-mark"><span class="diamond"></span><span>Photo Pending</span></div></div>
 <div class="ed-gradient"></div>
 <div class="ed-pill">FAT LOSS</div>
 <div class="ed-content">
-<div class="ed-stat playfair">22kg Lost in 4 Months</div>
+<div class="ed-stat playfair">[CLIENT TO CONFIRM] kg Lost in 4 Months</div>
 <div class="ed-name">Complete Body Recomposition</div>
 </div>
 </div>
-<!-- Card 2 — PCOD reversal (placeholder photo until real shoot lands) -->
+<!-- Card 2 — PCOD reversal dossier (photo pending real, consented shoot) -->
 <div class="ed-card">
-<img alt="PCOD result — regulated cycles" loading="lazy" onerror="this.onerror=null; this.style.display='none';" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&amp;fit=crop&amp;q=80&amp;w=900"/>
+<div aria-hidden="true" class="fm-photo-pending fm-photo-pending--fill"><div class="fm-photo-pending-mark"><span class="diamond"></span><span>Photo Pending</span></div></div>
 <div class="ed-gradient"></div>
 <div class="ed-pill">PCOD REVERSED</div>
 <div class="ed-content">
@@ -293,9 +309,9 @@
 <div class="ed-name">Eliminated Bloating Naturally</div>
 </div>
 </div>
-<!-- Card 3 — Metabolic reset (placeholder photo until real shoot lands) -->
+<!-- Card 3 — Metabolic reset dossier (photo pending real, consented shoot) -->
 <div class="ed-card">
-<img alt="Metabolic reset result — peak fitness" loading="lazy" onerror="this.onerror=null; this.style.display='none';" src="https://images.unsplash.com/photo-1606902965551-dce093cda6e7?auto=format&amp;fit=crop&amp;q=80&amp;w=900"/>
+<div aria-hidden="true" class="fm-photo-pending fm-photo-pending--fill"><div class="fm-photo-pending-mark"><span class="diamond"></span><span>Photo Pending</span></div></div>
 <div class="ed-gradient"></div>
 <div class="ed-pill">METABOLIC RESET</div>
 <div class="ed-content">
@@ -791,7 +807,12 @@
             Apply Now
         </a>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="script.js"></script>
+<script src="assets/js/motion.js"></script>
 <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
 <script>
     // ── Transformation Arc scroll-scrubbed dot ──
