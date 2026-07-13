@@ -59,7 +59,7 @@
 </div>
 <div class="hero-content fade-in-section">
 <span class="hero-label-eyebrow">Body Recomposition</span>
-<h1 class="hero-title-vogue text-gold-gradient">The Body You Thought<br/>You'd Lost. Rebuilt.</h1>
+<h1 class="hero-title-vogue text-gold-gradient" data-reveal="lines">The Body You Thought<br/>You'd Lost. Rebuilt.</h1>
 <p style="font-size:1.1rem; color:var(--cream); opacity:0.8; max-width:580px; line-height:1.6; margin-top:2rem;">
                 Shed visceral fat while building lean functional tissue. A science-backed clinical blueprint for unlocking your physical prime without extreme starvation.
             </p>
@@ -338,7 +338,12 @@
         </a>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="script.js"></script>
+<script src="assets/js/motion.js"></script>
 <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
 <script>
     // ── Before/After scrub — progress rail only; no fabricated metric values ──
