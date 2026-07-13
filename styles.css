@@ -833,20 +833,19 @@ footer {
    off into the hero reveal — replaces the old multi-keyframe CSS iris. */
 
 @media (prefers-reduced-motion: reduce) {
-  .fm-letter   { animation-duration: 0.25s; animation-delay: 0s; transform: none; filter: none; opacity: 1; }
-  .fm-hairline { animation-duration: 0.25s; animation-delay: 0s; }
-  .fm-hairline-lower { animation-delay: 0.1s; }
-  .fm-eyebrow, .fm-tagline, .fm-reg-small { animation-duration: 0.25s; animation-delay: 0.15s; }
+  /* Under reduced motion motion.js hides #fm-intro outright (initSplash),
+     so these are belt-and-suspenders: if the splash is ever shown its
+     content stays visible rather than stuck at the hidden initial state. */
+  .fm-letter, .fm-hairline, .fm-eyebrow, .fm-tagline, .fm-reg-small {
+    opacity: 1; transform: none; filter: none;
+  }
+  .fm-hairline { transform: scaleX(1); }
   .fm-sweep { display: none; }
   .fm-grain { animation: none; }
 }
 
 @media (max-width: 480px) {
-  @keyframes fm-hairline-in {
-    0%   { width: 0;     opacity: 0; }
-    30%  { opacity: 1; }
-    100% { width: 200px; opacity: 1; }
-  }
+  .fm-hairline { width: 200px; }
 }
 
 /* =========================================================
