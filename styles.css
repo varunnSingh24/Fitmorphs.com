@@ -197,12 +197,7 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
-/* ── Pulsing gold orb ── */
-@keyframes orb-pulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.08; }
-  50%       { transform: translate(-50%, -50%) scale(1.08); opacity: 0.18; }
-}
-
+/* ── Static gold orb (was an infinite pulse — stillness reads calmer) ── */
 .gold-bg-orb {
   position: absolute;
   width: 550px; height: 550px;
@@ -210,7 +205,7 @@ ul { list-style: none; }
   background: radial-gradient(circle, rgba(201,162,39,0.13) 0%, transparent 70%);
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  animation: orb-pulse 7s ease-in-out infinite;
+  opacity: 0.13;
   pointer-events: none;
   z-index: 0;
 }
@@ -222,7 +217,11 @@ ul { list-style: none; }
   display: inline-flex; align-items: center; justify-content: center;
   font-family: 'Plus Jakarta Sans', sans-serif;
   cursor: none !important; text-align: center;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
   font-weight: 700;
   letter-spacing: 0.3px;
@@ -265,12 +264,7 @@ ul { list-style: none; }
   transform: translateY(-2px);
 }
 
-/* Gold shimmer */
-@keyframes gold-shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
+/* Gold fill sweep — plays once on hover instead of looping forever */
 .btn-shimmer {
   background: linear-gradient(
     105deg,
@@ -281,17 +275,20 @@ ul { list-style: none; }
     var(--gold-mid) 100%
   );
   background-size: 200% auto;
+  background-position: 0% center;
   color: var(--dark);
   font-weight: 700;
   padding: 14px 32px; border: none; border-radius: 8px;
   letter-spacing: 0.3px;
-  animation: gold-shimmer 3.5s infinite linear;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              background-position 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-shimmer:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(161, 124, 47, 0.40);
+  background-position: 100% center;
 }
 
 /* =========================================================
@@ -355,7 +352,7 @@ ul { list-style: none; }
   background: linear-gradient(135deg, var(--gold-mid), var(--gold-deep));
   color: var(--dark);
   font-weight: 700; padding: 10px 24px; border-radius: 6px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-links .btn-nav:hover {
@@ -371,7 +368,7 @@ ul { list-style: none; }
 
 .hamburger span {
   display: block; width: 28px; height: 2px;
-  background-color: var(--cream); transition: all 0.35s ease; border-radius: 2px;
+  background-color: var(--cream); transition: transform 0.35s ease, background-color 0.35s ease; border-radius: 2px;
 }
 
 .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -485,12 +482,12 @@ ul { list-style: none; }
 .card-content { padding: 2rem; }
 .card-content h3 { color: var(--text-primary); }
 
-/* Play button pulse */
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.45); }
-  50%       { box-shadow: 0 0 0 14px rgba(201, 162, 39, 0); }
+/* Play button — static glow, responds on hover instead of pulsing forever */
+.play-btn {
+  box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.45);
+  transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.play-btn { animation: pulse-glow 2.2s ease-in-out infinite; }
+.play-btn:hover { box-shadow: 0 0 0 10px rgba(201, 162, 39, 0.15); }
 
 /* Timeline dot */
 .timeline-dot {
@@ -949,13 +946,13 @@ footer {
   height: 6px;
   border-radius: 50%;
   background: rgba(201, 162, 39, 0.25);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-dot.active {
   background: var(--gold-mid);
-  width: 8px;
-  height: 8px;
+  transform: scale(1.33);
   box-shadow: 0 0 8px rgba(201, 162, 39, 0.5);
 }
 
@@ -964,11 +961,7 @@ footer {
 /* =========================================================
    GOLD SHIMMER TEXT — key stats only
    ========================================================= */
-@keyframes text-shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
+/* Static gold-gradient text — was an infinite shimmer loop on every stat number sitewide */
 .shimmer-text {
   background: linear-gradient(
     105deg,
@@ -979,10 +972,10 @@ footer {
     var(--gold-deep) 100%
   );
   background-size: 200% auto;
+  background-position: 50% center;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: text-shimmer 4s linear infinite;
 }
 
 /* =========================================================
@@ -1002,20 +995,13 @@ footer {
   z-index: 1;
 }
 
-/* =========================================================
-   BACKGROUND BREATHING — subtle dark oscillation
-   ========================================================= */
-@keyframes bg-breathe {
-  0%, 100% { background-color: #0a0a08; }
-  50%       { background-color: #0e0c08; }
-}
-
+/* Static dark background — was an 8s infinite color-oscillation across every dark section */
 .section-dark,
 .hero-vogue,
 .impact-section,
 .testimonials-vogue,
 .final-cta-vogue {
-  animation: bg-breathe 8s ease-in-out infinite;
+  background-color: #0c0a07;
 }
 
 /* =========================================================
@@ -1214,23 +1200,17 @@ p { max-width: 640px; }
 }
 
 /* =========================================================
-   CTA BUTTON — PULSING GLOW (Hero Primary)
+   CTA BUTTON — HERO PRIMARY (static; magnetic hover handled by motion.js)
    ========================================================= */
-@keyframes cta-pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.5), 0 8px 28px rgba(161, 124, 47, 0.3); }
-  50%       { box-shadow: 0 0 0 10px rgba(201, 162, 39, 0), 0 12px 40px rgba(161, 124, 47, 0.5); }
-}
-
 .btn-hero-cta {
   padding: 20px 48px;
   font-size: 1rem;
-  animation: cta-pulse-glow 2.8s ease-in-out infinite;
+  box-shadow: 0 8px 28px rgba(161, 124, 47, 0.3);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
 
 .btn-hero-cta:hover {
   transform: scale(1.05) translateY(-2px) !important;
-  animation-play-state: paused;
   box-shadow: 0 16px 48px rgba(161, 124, 47, 0.55) !important;
 }
 
@@ -1246,7 +1226,7 @@ p { max-width: 640px; }
   border-radius: 6px !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  transition: all 0.3s ease !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease !important;
 }
 
 .nav-links .btn-nav:hover {
@@ -1348,18 +1328,12 @@ p { max-width: 640px; }
   border-radius: 50px;
   text-decoration: none;
   box-shadow: 0 4px 20px rgba(161, 124, 47, 0.4);
-  animation: float-pulse 3s ease-in-out infinite;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .apply-float-btn:hover {
   transform: scale(1.05) translateY(-2px);
   box-shadow: 0 8px 32px rgba(161, 124, 47, 0.6);
-}
-
-@keyframes float-pulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(161, 124, 47, 0.4); }
-  50%       { box-shadow: 0 4px 28px rgba(161, 124, 47, 0.65); }
 }
 
 /* =========================================================
@@ -1481,18 +1455,8 @@ p { max-width: 640px; }
 }
 
 /* =========================================================
-   ANIMATED GRADIENT BORDER (featured cards)
+   GRADIENT BORDER (featured cards) — static angle, was an infinite rotation
    ========================================================= */
-@property --border-angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
-}
-
-@keyframes border-rotate {
-  to { --border-angle: 360deg; }
-}
-
 .gradient-border-card {
   position: relative;
   border-radius: 14px;
@@ -1506,7 +1470,7 @@ p { max-width: 640px; }
   border-radius: 15px;
   padding: 1px;
   background: conic-gradient(
-    from var(--border-angle),
+    from 45deg,
     transparent 0deg,
     var(--gold-mid) 60deg,
     var(--gold-bright) 120deg,
@@ -1517,7 +1481,6 @@ p { max-width: 640px; }
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
-  animation: border-rotate 6s linear infinite;
   z-index: 0;
   pointer-events: none;
 }
@@ -1865,7 +1828,7 @@ body { overflow-x: clip; }
 .t-item:nth-child(2) .t-content { display: block !important; opacity: 0 !important; animation: showContent 0.75s ease-in-out 0.3s forwards !important; }
 @keyframes showContent { 0% { transform: translateY(calc(-50% + 50px)); opacity: 0; filter: blur(4px); } 100% { transform: translateY(-50%); opacity: 1; filter: blur(0); } }
 .t-nav { position: absolute; bottom: 2rem; right: 2rem; z-index: 5; user-select: none; display: flex; gap: 1rem; }
-.t-nav button { background-color: rgba(26,26,24,0.7); color: var(--gold-mid); border: 1px solid var(--gold-deep); display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; backdrop-filter: blur(5px); transition: all 0.3s ease; }
+.t-nav button { background-color: rgba(26,26,24,0.7); color: var(--gold-mid); border: 1px solid var(--gold-deep); display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; backdrop-filter: blur(5px); transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; }
 .t-nav button:hover { background-color: var(--gold-mid); color: var(--dark); transform: scale(1.1); }
 @media (max-width: 900px) {
   .t-item { width: 160px; height: 240px; }
@@ -1927,18 +1890,7 @@ body { overflow-x: clip; }
 #stars2,        #stars2::after        { width: 3px; height: 3px; }
 #stars3,        #stars3::after        { width: 4px; height: 4px; }
 
-#stars1 { animation: riseUp  55s linear infinite; }
-#stars2 { animation: riseUp 110s linear infinite; }
-#stars3 { animation: riseUp 170s linear infinite; }
-
-@keyframes riseUp {
-  from { transform: translate3d(0, 0,        0); }
-  to   { transform: translate3d(0, -2000px,  0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #stars1, #stars2, #stars3 { animation-duration: 900s; }
-}
+/* Static sparkle field — was a perpetual rising drift on every page */
 
 /* =========================================================
    EDITORIAL TYPOGRAPHY SYSTEM
@@ -2490,7 +2442,6 @@ body { overflow-x: clip; }
   width: 5px; height: 5px; border-radius: 50%;
   background: var(--gold-bright);
   box-shadow: 0 0 8px rgba(240,192,64,0.7);
-  animation: pathway-pulse 2.4s ease-in-out infinite;
 }
 .video-card-pending .video-title {
   font-family: 'Playfair Display', serif;
@@ -2574,11 +2525,6 @@ body { overflow-x: clip; }
   width: 5px; height: 5px; border-radius: 50%;
   background: var(--gold-bright);
   box-shadow: 0 0 8px rgba(240, 192, 64, 0.7);
-  animation: pathway-pulse 2.4s ease-in-out infinite;
-}
-@keyframes pathway-pulse {
-  0%, 100% { opacity: 0.55; transform: scale(0.85); }
-  50%      { opacity: 1;    transform: scale(1.15); }
 }
 
 .pathway-cta {
@@ -2683,22 +2629,7 @@ body { overflow-x: clip; }
 @keyframes pw-from-top    { to { transform: scaleY(1); } }
 @keyframes pw-from-bottom { to { transform: scaleY(1); } }
 
-/* ── Ken Burns drift on every hero image ── */
-@keyframes fm-ken-burns {
-  0%   { transform: scale(1)    translate(0, 0); }
-  50%  { transform: scale(1.07) translate(-1.5%, 0.5%); }
-  100% { transform: scale(1.04) translate(1%, -0.8%); }
-}
-.hero-bg-img,
-.profile-img,
-.philosophy-img,
-.hero-img-burns {
-  animation: fm-ken-burns 38s ease-in-out infinite alternate;
-  will-change: transform;
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg-img, .profile-img, .philosophy-img, .hero-img-burns { animation: none; }
-}
+/* Hero/profile/philosophy images — static; was a 38s infinite pan/zoom on every one */
 
 /* ── Form field upgrades (apply.html) ── */
 .fm-field {
@@ -3213,11 +3144,6 @@ body { overflow-x: clip; }
   background: #2ecc71;
   box-shadow: 0 0 10px rgba(46, 204, 113, 0.85);
   flex-shrink: 0;
-  animation: fm-live-pulse 1.6s ease-in-out infinite;
-}
-@keyframes fm-live-pulse {
-  0%, 100% { opacity: 0.55; transform: scale(0.85); }
-  50%      { opacity: 1;    transform: scale(1.25); }
 }
 .fm-live-ticker .label {
   font-size: 0.62rem;
@@ -3380,11 +3306,7 @@ body { overflow-x: clip; }
   background: var(--gold-bright);
   box-shadow: 0 0 0 6px rgba(212, 160, 23, 0.15);
   position: relative;
-  animation: fm-recomp-pulse 2.4s ease-in-out infinite;
-}
-@keyframes fm-recomp-pulse {
-  0%, 100% { box-shadow: 0 0 0 4px rgba(212, 160, 23, 0.12); }
-  50%      { box-shadow: 0 0 0 10px rgba(212, 160, 23, 0.04); }
+  box-shadow: 0 0 0 6px rgba(212, 160, 23, 0.12);
 }
 .fm-recomp-item .rc-card h4 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; color: var(--dark); margin: 0 0 0.5rem; }
 .fm-recomp-item .rc-card p  { font-family: 'DM Sans', sans-serif; color: var(--text-body); margin: 0; font-size: 0.98rem; line-height: 1.6; }
@@ -3417,7 +3339,7 @@ body { overflow-x: clip; }
   border-bottom: 1px solid rgba(212, 160, 23, 0.18);
 }
 .editors-pick-img { position: relative; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35); }
-.editors-pick-img img { width: 100%; height: 100%; object-fit: cover; animation: fm-ken-burns 35s ease-in-out infinite alternate; }
+.editors-pick-img img { width: 100%; height: 100%; object-fit: cover; }
 .editors-pick-content h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--cream); margin: 0.85rem 0 1rem; line-height: 1.1; }
 .editors-pick-content h2 em { color: var(--gold-bright); }
 @media (max-width: 760px) { .editors-pick { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 0; } }
@@ -3543,8 +3465,6 @@ body { overflow-x: clip; }
 /* Also neutralise the inherited golden-hour conic warmth on this hero
    so nothing leaks colour onto the headline area. */
 .hero-vogue.hero-vogue-no-bg::before { background: none !important; }
-/* Stop the bg-breathe keyframe from oscillating the hero bg-color */
-.hero-vogue.hero-vogue-no-bg { animation: none !important; }
 
 /* Inner-page heroes (diabetes, transformation, results, about, blog,
    apply, methodology) — the existing layout has a 55%-wide image on
@@ -3677,38 +3597,8 @@ body { overflow-x: clip; }
   transform: translateY(-3px) scale(1);
   box-shadow: 0 18px 50px rgba(15, 15, 12, 0.12), 0 4px 12px rgba(15, 15, 12, 0.06);
 }
-.fm-report-card img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+.fm-report-card .fm-photo-pending {
   filter: saturate(0.85) contrast(0.97);
-  transform-origin: center center;
-  will-change: transform;
-}
-
-/* Continuous subtle 3D sway on the report image (not the card frame).
-   Each card gets a slow, alternating ±2.5° rotation + tiny depth shift,
-   staggered so the before/after don't sync. Pauses on hover so the
-   reader can study the report without motion. */
-.fm-report-pair.in .fm-report-card img {
-  animation: fm-report-sway 9.5s ease-in-out infinite;
-}
-.fm-report-pair.in .fm-report-after  img { animation-delay: -4.75s; animation-duration: 10.5s; }
-.fm-report-pair:nth-child(2).in .fm-report-before img { animation-delay: -2s; }
-.fm-report-pair:nth-child(2).in .fm-report-after  img { animation-delay: -7s; animation-duration: 11s; }
-.fm-report-pair:nth-child(3).in .fm-report-before img { animation-delay: -3.5s; animation-duration: 9s; }
-.fm-report-pair:nth-child(3).in .fm-report-after  img { animation-delay: -1.25s; animation-duration: 10s; }
-.fm-report-card:hover img { animation-play-state: paused; }
-
-@keyframes fm-report-sway {
-  0%   { transform: rotateY(-2.4deg) rotateX( 0.6deg) translateZ(0)    scale(1.012); }
-  50%  { transform: rotateY( 2.4deg) rotateX(-0.6deg) translateZ(6px)  scale(1.018); }
-  100% { transform: rotateY(-2.4deg) rotateX( 0.6deg) translateZ(0)    scale(1.012); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .fm-report-pair.in .fm-report-card img { animation: none !important; transform: none !important; }
 }
 .fm-report-stamp {
   position: absolute;
@@ -3838,7 +3728,6 @@ body { overflow-x: clip; }
     background: linear-gradient(to right, transparent, var(--gold-mid), transparent);
   }
   .fm-report-arrow svg { transform: rotate(90deg); }
-  .fm-report-card img { aspect-ratio: 16 / 11; }
 }
 
 @media (prefers-reduced-motion: reduce) {
