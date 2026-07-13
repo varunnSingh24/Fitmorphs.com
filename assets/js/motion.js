@@ -66,19 +66,27 @@
   var lenis = null;
   if (!MOTION.reduced && !MOTION.touch && typeof window.Lenis !== 'undefined') {
     lenis = new window.Lenis({
-      duration: 1.1,
+      // lerp (fraction of remaining distance per frame), NOT a fixed
+      // duration. duration:1.1 meant EVERY wheel flick took a full 1.1s to
+      // settle, so scroll-driven sections (e.g. the six-pillar numeral
+      // stage, which tracks live scroll position) visibly trailed the input
+      // by ~1s. lerp:0.1 responds on the same frame and settles in ~0.3s.
+      lerp: 0.1,
       smoothWheel: true,
       wheelMultiplier: 1
     });
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
     if (ScrollTrigger) {
+      // Drive Lenis from GSAP's ticker as the SINGLE source of truth and
+      // keep ScrollTrigger synced. Previously a manual requestAnimationFrame
+      // loop ALSO called lenis.raf() every frame — Lenis was being stepped
+      // twice per frame from two loops with different timestamps, producing
+      // erratic scroll velocity.
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
       gsap.ticker.lagSmoothing(0);
+    } else {
+      // No ScrollTrigger available — drive Lenis from its own rAF loop.
+      (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })();
     }
     // Let Lenis handle in-page anchor scrolling instead of the old
     // manual easeInOutCubic implementation.
