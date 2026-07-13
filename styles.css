@@ -53,6 +53,14 @@ html {
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: var(--text-primary);
   background-color: var(--dark);
+  /* Horizontal-overflow guard on <html> too, not just body. On mobile the
+     document element is the real viewport scroller, so body { overflow-x:
+     clip } alone let the page pan sideways when any element (a big display
+     word, a full-bleed section) poked past the viewport — which also made
+     the normal side padding look absent because you were panning into the
+     overflow. clip (not hidden) so position:sticky sections keep working. */
+  overflow-x: clip;
+  max-width: 100%;
   /* scroll-behavior: smooth removed — Lenis now owns scroll smoothing on
      desktop (including its own scrollTo() for anchor links), and the
      touch/reduced-motion fallback in script.js manually steps scrollTo()
@@ -84,6 +92,13 @@ body {
 }
 
 @keyframes fm-body-failsafe { to { opacity: 1; } }
+
+/* Large display headings: break a word only if it's genuinely wider than the
+   line (prevents a big clamp()-sized word overflowing on narrow phones).
+   Normal-length words are unaffected. */
+h1, h2, h3, .hero-title-vogue, .editorial-kicker, .impact-main-stat {
+  overflow-wrap: break-word;
+}
 
 body.loaded  { opacity: 1; transform: translateY(0); animation: none; }
 body.page-exit { opacity: 0; transform: translateY(-10px); }
@@ -590,7 +605,9 @@ footer {
    MOBILE BREAKPOINTS
    ========================================================= */
 @media (max-width: 768px) {
-  .hamburger { display: flex; }
+  /* margin-left:auto pins the hamburger hard against the right edge, so it
+     can never end up sitting next to the logo even if a sibling changes. */
+  .hamburger { display: flex; margin-left: auto; }
 
   .nav-links {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
@@ -1186,11 +1203,20 @@ p { max-width: 640px; }
 
   .nav-links a:not(.btn-nav):hover { color: var(--gold-bright) !important; }
 
-  .nav-links.active a:not(.btn-nav):nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 0.08s !important; }
-  .nav-links.active a:not(.btn-nav):nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 0.16s !important; }
-  .nav-links.active a:not(.btn-nav):nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 0.24s !important; }
-  .nav-links.active a:not(.btn-nav):nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 0.32s !important; }
-  .nav-links.active a:not(.btn-nav):nth-child(5) { opacity: 1; transform: translateX(0); transition-delay: 0.40s !important; }
+  /* All links become visible when the menu opens — the general rule below
+     guarantees this regardless of how many links a page's nav has (Blog was
+     the 6th link and Cookbook adds a 7th, both of which were left invisible
+     when only nth-child 1–5 were un-hidden). The nth-child rules now only
+     add the staggered entrance delay. */
+  .nav-links.active a:not(.btn-nav) { opacity: 1; transform: translateX(0); }
+  .nav-links.active a:not(.btn-nav):nth-child(1) { transition-delay: 0.06s !important; }
+  .nav-links.active a:not(.btn-nav):nth-child(2) { transition-delay: 0.12s !important; }
+  .nav-links.active a:not(.btn-nav):nth-child(3) { transition-delay: 0.18s !important; }
+  .nav-links.active a:not(.btn-nav):nth-child(4) { transition-delay: 0.24s !important; }
+  .nav-links.active a:not(.btn-nav):nth-child(5) { transition-delay: 0.30s !important; }
+  .nav-links.active a:not(.btn-nav):nth-child(6) { transition-delay: 0.36s !important; }
+  .nav-links.active a:not(.btn-nav):nth-child(7) { transition-delay: 0.42s !important; }
+  .nav-links.active a:not(.btn-nav):nth-child(8) { transition-delay: 0.48s !important; }
 
   /* Apply Now pill at bottom of mobile menu */
   .nav-links .btn-nav {
