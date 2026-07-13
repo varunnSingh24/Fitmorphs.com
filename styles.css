@@ -799,7 +799,6 @@ footer {
   70%  { filter: blur(1px); }
   100% { opacity: 1;    transform: translateY(0);    filter: blur(0); }
 }
-}
 
 /* Gold sweep — diagonal shine across the wordmark */
 .fm-sweep {
@@ -1852,6 +1851,33 @@ body { overflow-x: clip; }
   .t-content .t-title { font-size: 1.8rem; }
   .t-content .t-description { font-size: 0.95rem; margin-bottom: 1rem; }
   .t-nav { top: 1rem; bottom: auto; right: 1rem; }
+}
+
+/* =========================================================
+   SIGNATURE VITALS LINE — thin gold ECG-style path, drawn via
+   scroll-scrubbed stroke-dashoffset (see motion.js initVitalsLine).
+   Desktop only, sits in the gutter, never overlaps text.
+   ========================================================= */
+#fm-vitals-line {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  width: 3px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+#fm-vitals-path {
+  stroke: var(--gold-bright);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.55;
+}
+@media (max-width: 900px), (pointer: coarse) {
+  #fm-vitals-line { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #fm-vitals-line { display: none; }
 }
 
 /* =========================================================
