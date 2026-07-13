@@ -76,7 +76,7 @@
         .dossier-delta-label { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(245,239,227,0.6); width: 100%; }
         .dossier-delta-from, .dossier-delta-to { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); font-weight: 600; }
         .dossier-delta-to { color: var(--gold-bright); }
-        .dossier-delta-arrow { color: var(--gold-mid); font-size: 1.1rem; }
+        .dossier-delta-arrow { color: var(--gold-mid); width: 32px; height: 12px; flex-shrink: 0; }
         .dossier-duration { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.05em; color: rgba(245,239,227,0.55); }
         @media (max-width: 900px) {
           .dossier-grid { grid-template-columns: repeat(2, 1fr); }

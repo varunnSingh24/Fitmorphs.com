@@ -548,6 +548,47 @@
   }
 
   /* ------------------------------------------------------------
+     RESULTS DOSSIER DELTA — the conversion moment: the "from" value
+     settles, the arrow draws itself (stroke-dashoffset), then the
+     "to" value arrives in gold. Gets the best timing on the page.
+     ------------------------------------------------------------ */
+  function initDossierDeltas() {
+    var deltas = gsap.utils.toArray('[data-dossier-delta]');
+    if (!deltas.length) return;
+    deltas.forEach(function (el) {
+      var from = el.querySelector('.dossier-delta-from');
+      var arrow = el.querySelector('.dossier-delta-arrow');
+      var to = el.querySelector('.dossier-delta-to');
+      if (!arrow) return;
+      var arrowPath = arrow.querySelector('path');
+      var arrowLength = arrowPath ? arrowPath.getTotalLength() : 0;
+
+      if (MOTION.reduced || !ScrollTrigger) {
+        gsap.set([from, to], { opacity: 1 });
+        return;
+      }
+
+      gsap.set(from, { opacity: 0, y: 8 });
+      gsap.set(to, { opacity: 0, scale: 0.85, transformOrigin: 'left center' });
+      if (arrowPath) gsap.set(arrowPath, { strokeDasharray: arrowLength, strokeDashoffset: arrowLength });
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 82%',
+        once: true,
+        onEnter: function () {
+          var tl = gsap.timeline();
+          tl.to(from, { opacity: 1, y: 0, duration: MOTION.fast, ease: MOTION.easeGsap });
+          if (arrowPath) {
+            tl.to(arrowPath, { strokeDashoffset: 0, duration: MOTION.fast, ease: 'power2.inOut' }, '-=0.05');
+          }
+          tl.to(to, { opacity: 1, scale: 1, duration: MOTION.fast, ease: 'back.out(2)' }, '-=0.1');
+        }
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------
      INIT — splash runs first (if present); everything else
      (including the hero's own data-reveal) starts once the splash
      hands off, so the exit and hero entrance overlap by design
@@ -564,6 +605,7 @@
     initMarquees();
     initTeamCards();
     initVitalsLine();
+    initDossierDeltas();
     if (ScrollTrigger) ScrollTrigger.refresh();
   }
 
