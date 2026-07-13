@@ -726,6 +726,10 @@ footer {
   padding: 1rem;
 }
 
+/* Splash reveal choreography is GSAP-owned (motion.js initSplash) — these
+   elements only carry their resting visual styling here; motion.js sets the
+   hidden initial states and animates them in. */
+
 /* Eyebrow — tracked caps */
 .fm-eyebrow {
   font-family: 'DM Sans', sans-serif;
@@ -735,33 +739,17 @@ footer {
   text-transform: uppercase;
   color: #c9a227;
   opacity: 0;
-  transform: translateY(6px);
-  animation: fm-eyebrow-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 1.95s forwards;
 }
 
-@keyframes fm-eyebrow-in {
-  0%   { opacity: 0; transform: translateY(6px); letter-spacing: 0.6em; }
-  100% { opacity: 0.88; transform: translateY(0); letter-spacing: 0.4em; }
-}
-
-/* Hairline rule — draws out from center */
+/* Hairline rule — GSAP scales it out from center (scaleX 0→1), so it needs a
+   real resting width to scale. */
 .fm-hairline {
-  width: 0;
+  width: 280px;
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, rgba(201,162,39,0.5) 15%, #e2b83a 50%, rgba(201,162,39,0.5) 85%, transparent 100%);
   box-shadow: 0 0 12px rgba(226, 184, 58, 0.35);
-  animation: fm-hairline-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
-}
-
-.fm-hairline-lower {
-  animation-delay: 2.15s;
-  animation-duration: 0.7s;
-}
-
-@keyframes fm-hairline-in {
-  0%   { width: 0;     opacity: 0; }
-  30%  { opacity: 1; }
-  100% { width: 280px; opacity: 1; }
+  transform: scaleX(0);
+  transform-origin: center;
 }
 
 /* Wordmark container — Cinzel: classical Roman serif used in film title cards.
@@ -794,16 +782,6 @@ footer {
   opacity: 0;
   transform: translateY(14px);
   filter: blur(8px);
-  will-change: transform, opacity, filter;
-  animation: fm-letter-focus 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  animation-delay: calc(0.45s + var(--i) * 0.11s);
-}
-
-@keyframes fm-letter-focus {
-  0%   { opacity: 0;    transform: translateY(14px); filter: blur(8px); }
-  30%  { opacity: 0.6; }
-  70%  { filter: blur(1px); }
-  100% { opacity: 1;    transform: translateY(0);    filter: blur(0); }
 }
 
 /* Gold sweep — diagonal shine across the wordmark */
@@ -823,15 +801,6 @@ footer {
   mix-blend-mode: screen;
   pointer-events: none;
   opacity: 0;
-  transform: translateX(0);
-  animation: fm-sweep-glide 1.6s cubic-bezier(0.65, 0, 0.35, 1) 1.85s forwards;
-}
-
-@keyframes fm-sweep-glide {
-  0%   { opacity: 0;    transform: translateX(0); }
-  20%  { opacity: 0.95; }
-  80%  { opacity: 0.95; }
-  100% { opacity: 0;    transform: translateX(700%); }
 }
 
 /* ® superscript */
@@ -846,12 +815,6 @@ footer {
   margin-left: 0.2em;
   margin-bottom: 2em;
   opacity: 0;
-  animation: fm-reg-in 0.6s ease 1.65s forwards;
-}
-
-@keyframes fm-reg-in {
-  0%   { opacity: 0; transform: translateY(-4px); }
-  100% { opacity: 0.8; transform: translateY(0); }
 }
 
 /* Tagline — italic serif */
@@ -864,55 +827,10 @@ footer {
   opacity: 0;
   transform: translateY(6px);
   letter-spacing: 0.02em;
-  animation: fm-tagline-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 2.5s forwards;
 }
 
-@keyframes fm-tagline-in {
-  0%   { opacity: 0; transform: translateY(6px); }
-  100% { opacity: 0.92; transform: translateY(0); }
-}
-
-/* ---- EXIT CHOREOGRAPHY ----
-   The wordmark/tagline first dissolve into the depth (scale-up + soft blur +
-   fade), the hairlines retract back to center, then a slower iris opens
-   to reveal the page beneath. Reads as a cinematic dissolve — not a snap. */
-
-/* 1. Content recedes — wordmark, tagline, eyebrow gracefully dissolve. */
-#fm-intro.fade-out .fm-intro-stage {
-  animation: fm-stage-exit 1.05s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}
-@keyframes fm-stage-exit {
-  0%   { opacity: 1;   transform: scale(1) translateY(0);     filter: blur(0); }
-  55%  { opacity: 0.85; }
-  100% { opacity: 0;   transform: scale(1.07) translateY(-10px); filter: blur(9px); }
-}
-
-/* 2. Hairlines retract back into the centerline as the content dissolves. */
-#fm-intro.fade-out .fm-hairline {
-  animation: fm-hairline-out 0.8s cubic-bezier(0.65, 0, 0.35, 1) 0.05s forwards;
-}
-@keyframes fm-hairline-out {
-  0%   { width: 280px; opacity: 1; }
-  100% { width: 0;     opacity: 0; }
-}
-
-/* 3. Final iris — slower, eased. Page reveals from center outward.
-   IMPORTANT: no static mask on the rule itself — that would hide the intro
-   immediately when .fade-out is added. Instead, the keyframe defines the
-   start (closed iris, intro fully covering page) and end (open iris, page
-   revealed) states, and `fill-mode: both` ensures the closed-iris state is
-   held during the 0.45s lead-in delay (while the stage content dissolves). */
-#fm-intro.fade-out {
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  animation: fm-intro-wipe 1.45s cubic-bezier(0.83, 0, 0.17, 1) 0.45s both;
-}
-
-@keyframes fm-intro-wipe {
-  0%   { -webkit-mask: radial-gradient(circle at center, transparent 0%,   #000 0.5%); mask: radial-gradient(circle at center, transparent 0%,   #000 0.5%); opacity: 1; }
-  88%  { opacity: 1; }
-  100% { -webkit-mask: radial-gradient(circle at center, transparent 130%, #000 130%); mask: radial-gradient(circle at center, transparent 130%, #000 130%); opacity: 0; }
-}
+/* Exit is a single GSAP autoAlpha fade on #fm-intro (motion.js), which hands
+   off into the hero reveal — replaces the old multi-keyframe CSS iris. */
 
 @media (prefers-reduced-motion: reduce) {
   .fm-letter   { animation-duration: 0.25s; animation-delay: 0s; transform: none; filter: none; opacity: 1; }
@@ -1034,15 +952,9 @@ footer {
   transform: translateX(-101%);
   pointer-events: none;
 }
-
-#page-wipe.wipe-in  {
-  transform: translateX(0);
-  transition: transform 0.38s cubic-bezier(0.76, 0, 0.24, 1);
-}
-#page-wipe.wipe-out {
-  transform: translateX(101%);
-  transition: transform 0.38s cubic-bezier(0.76, 0, 0.24, 1) 0.05s;
-}
+/* Wipe motion is GSAP-driven (motion.js initPageTransitions); the old
+   .wipe-in/.wipe-out/.wipe-from-* state classes and pw-from-* keyframes
+   are gone. */
 
 /* =========================================================
    SOCIAL PROOF TICKER
@@ -2649,16 +2561,6 @@ body { overflow-x: clip; }
   color: var(--gold-bright);
 }
 .custom-cursor.cursor-card { width: 40px; height: 40px; background: rgba(245, 239, 227, 0.12); border: none; mix-blend-mode: normal; }
-
-/* ── Directional page-wipe ── */
-#page-wipe.wipe-in.wipe-from-left  { transform-origin: left;   transform: scaleX(0); animation: pw-from-left 0.42s cubic-bezier(0.7, 0, 0.3, 1) forwards; }
-#page-wipe.wipe-in.wipe-from-right { transform-origin: right;  transform: scaleX(0); animation: pw-from-right 0.42s cubic-bezier(0.7, 0, 0.3, 1) forwards; }
-#page-wipe.wipe-in.wipe-from-top    { transform-origin: top;    transform: scaleY(0); animation: pw-from-top    0.42s cubic-bezier(0.7, 0, 0.3, 1) forwards; }
-#page-wipe.wipe-in.wipe-from-bottom { transform-origin: bottom; transform: scaleY(0); animation: pw-from-bottom 0.42s cubic-bezier(0.7, 0, 0.3, 1) forwards; }
-@keyframes pw-from-left   { to { transform: scaleX(1); } }
-@keyframes pw-from-right  { to { transform: scaleX(1); } }
-@keyframes pw-from-top    { to { transform: scaleY(1); } }
-@keyframes pw-from-bottom { to { transform: scaleY(1); } }
 
 /* Hero/profile/philosophy images — static; was a 38s infinite pan/zoom on every one */
 

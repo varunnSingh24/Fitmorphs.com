@@ -42,6 +42,11 @@
       el.style.opacity = '1';
       el.style.transform = 'none';
     });
+    // The splash's letters/lines start hidden (their reveal is GSAP-owned now),
+    // so without GSAP the overlay would sit there covering the page with
+    // invisible content. Hide the whole intro so the page is usable.
+    var introFallback = document.getElementById('fm-intro');
+    if (introFallback) introFallback.style.display = 'none';
     document.documentElement.classList.add('motion-fallback');
     return;
   }
@@ -435,8 +440,8 @@
     var tagline = intro.querySelector('.fm-tagline');
     var regMark = intro.querySelector('.fm-reg-small');
 
-    gsap.set(letters, { opacity: 0, filter: 'blur(14px)' });
-    gsap.set(hairlines, { scaleX: 0 });
+    gsap.set(letters, { opacity: 0, filter: 'blur(14px)', y: 14 });
+    gsap.set(hairlines, { scaleX: 0, transformOrigin: 'center' });
     gsap.set([eyebrow, tagline], { opacity: 0, y: 10 });
     if (regMark) gsap.set(regMark, { opacity: 0 });
     if (sweep) gsap.set(sweep, { xPercent: -150 });
@@ -462,6 +467,7 @@
       .to(letters, {
         opacity: 1,
         filter: 'blur(0px)',
+        y: 0,
         duration: 0.6,
         stagger: 0.035,
         ease: MOTION.easeGsap

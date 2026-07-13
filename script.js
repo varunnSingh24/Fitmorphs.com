@@ -624,27 +624,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* ── Directional page-wipe — already-installed click handler will set the direction ── */
-  (function () {
-    const wipe = document.getElementById('page-wipe');
-    if (!wipe) return;
-    document.addEventListener('click', e => {
-      const a = e.target.closest('a[href]');
-      if (!a) return;
-      const href = a.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http') || a.target === '_blank') return;
-      const r = a.getBoundingClientRect();
-      const cx = r.left + r.width / 2;
-      const cy = r.top + r.height / 2;
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      // Direction = whichever edge the link is closest to.
-      const distances = { left: cx, right: vw - cx, top: cy, bottom: vh - cy };
-      const dir = Object.keys(distances).reduce((a, b) => distances[a] < distances[b] ? a : b);
-      wipe.classList.remove('wipe-from-left', 'wipe-from-right', 'wipe-from-top', 'wipe-from-bottom');
-      wipe.classList.add('wipe-from-' + dir);
-    }, true);
-  })();
+  /* Directional page-wipe removed — motion.js's initPageTransitions owns the
+     wipe now (a single GSAP timeline), so the old class-based directional
+     handler and its wipe-from-* / pw-from-* CSS were dead. */
 
   /* ── Scroll-staggered reveal — apply IntersectionObserver to .scroll-stagger
        containers AND set --i on children once. ── */
