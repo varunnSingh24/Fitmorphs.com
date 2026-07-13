@@ -54,12 +54,12 @@
 <!-- HERO -->
 <header aria-label="Results Hero" class="hero-vogue">
 <div class="hero-bg-wrapper">
-<img alt="Results portrait" class="hero-bg-img" src="https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&amp;fit=crop&amp;q=80&amp;w=1600"/>
+<div aria-hidden="true" class="fm-photo-pending fm-photo-pending--fill"><div class="fm-photo-pending-mark"><span class="diamond"></span><span>Photo Pending</span></div></div>
 <div class="hero-gradient-overlay"></div>
 </div>
 <div class="hero-content fade-in-section">
 <span class="hero-label-eyebrow">Documented Evidence</span>
-<h1 class="hero-title-vogue text-gold-gradient">The Numbers Don't Lie.<br/>Neither Do These Faces.</h1>
+<h1 class="hero-title-vogue text-gold-gradient">The Numbers Don't Lie.</h1>
 <p style="font-size:1.1rem; color:var(--cream); opacity:0.8; max-width:580px; line-height:1.6; margin-top:2rem;">
                 Explore real, clinically verified case studies of metabolic and physical transformations achieved through the FitMorphs protocol.
             </p>
@@ -92,84 +92,52 @@
 </div>
 </div>
 </section>
-<!-- FEATURED TRANSFORMATION SLIDER -->
-<section aria-label="Featured Transformations" id="fm-slider-section">
-<div id="fm-slider">
-<!-- Hidden images: loaded for WebGL textures -->
-<img alt="" crossorigin="anonymous" data-slide-img="" loading="lazy" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;q=90&amp;w=1600" style="display:none"/>
-<img alt="" crossorigin="anonymous" data-slide-img="" loading="lazy" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&amp;fit=crop&amp;q=90&amp;w=1600" style="display:none"/>
-<img alt="" crossorigin="anonymous" data-slide-img="" loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&amp;fit=crop&amp;q=90&amp;w=1600" style="display:none"/>
-<img alt="" crossorigin="anonymous" data-slide-img="" loading="lazy" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&amp;fit=crop&amp;q=90&amp;w=1600" style="display:none"/>
-<div class="fm-gradient-overlay"></div>
-<div class="fm-slider-inner">
-<div id="fm-slide-content">
-<div class="fm-slide-eyebrow">Transformation</div>
-<h2 id="fm-slide-title">-22kg in<br/>4 Months</h2>
-<span data-fm-title="0">-22kg in<br/>4 Months</span>
-<span data-fm-title="1">HbA1c<br/>9.4 → 5.6</span>
-<span data-fm-title="2">Regulated<br/>Cycles</span>
-<span data-fm-title="3">Lean in<br/>90 Days</span>
-<div class="fm-slide-eyebrow">Programme</div>
-<div id="fm-slide-category">Fat Loss &amp; Recomp</div>
-<span data-fm-category="0">Fat Loss &amp; Recomp</span>
-<span data-fm-category="1">Diabetes Reversal</span>
-<span data-fm-category="2">PCOD &amp; Hormones</span>
-<span data-fm-category="3">Body Recomposition</span>
-</div>
-</div>
-<div aria-label="Slide navigation" id="fm-pagination" role="tablist">
-<button aria-label="Slide 1" class="active" data-slide="0"></button>
-<button aria-label="Slide 2" data-slide="1"></button>
-<button aria-label="Slide 3" data-slide="2"></button>
-<button aria-label="Slide 4" data-slide="3"></button>
-</div>
-<div aria-hidden="true" id="fm-slider-loading">
-<div class="fm-loading-dot"></div>
-</div>
-</div>
-</section>
-<!-- IMMERSIVE TRANSFORMATION GRID — scroll-driven cinematic gallery -->
-<section aria-label="Transformation gallery" class="fm-scroll-grid-wrap">
+<!-- RESULTS DOSSIERS — text-only outcome cards; photos pending a real, consented shoot -->
+<section aria-label="Featured Transformations" class="dossier-section">
 <div class="fm-grid-intro fade-in-section">
 <span class="eyebrow-deluxe" style="display:inline-flex;">A Living Archive</span>
 <h2 class="editorial-kicker">A Constellation of <em>Wins</em></h2>
 <div class="section-ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
-<p class="fm-grid-sub">Scroll. Watch one story bloom into hundreds.</p>
+<p class="fm-grid-sub">Real outcomes, real protocol. Photography arrives as each client consents.</p>
 </div>
-<div class="fm-scroll-grid-clip">
-<section class="fm-grid-scroll-stage">
-<div class="fm-grid-content">
-<div class="fm-grid">
-<!-- Layer 1: Outer edges (6) — supporting context: training, nutrition, lifestyle -->
-<div class="fm-layer">
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1606902965551-dce093cda6e7?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<div class="dossier-grid" data-reveal="stagger">
+<article class="dossier-card" data-reveal="fade-up">
+<div aria-hidden="true" class="fm-photo-pending fm-photo-pending--fill"><div class="fm-photo-pending-mark"><span class="diamond"></span><span>Photo Pending</span></div></div>
+<div class="dossier-body">
+<span class="dossier-eyebrow">Fat Loss &amp; Recomp</span>
+<div class="dossier-stat">[CLIENT TO CONFIRM] kg Lost</div>
+<span class="dossier-duration">4 Months</span>
 </div>
-<!-- Layer 2: Inner columns (6) — case studies + training intensity + nutrition -->
-<div class="fm-layer">
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+</article>
+<article class="dossier-card" data-reveal="fade-up">
+<div aria-hidden="true" class="fm-photo-pending fm-photo-pending--fill"><div class="fm-photo-pending-mark"><span class="diamond"></span><span>Photo Pending</span></div></div>
+<div class="dossier-body">
+<span class="dossier-eyebrow">Diabetes Reversal</span>
+<div class="dossier-delta" data-dossier-delta="">
+<span class="dossier-delta-label">HbA1c</span>
+<span class="dossier-delta-from">[CLIENT TO CONFIRM]</span>
+<span aria-hidden="true" class="dossier-delta-arrow">→</span>
+<span class="dossier-delta-to">[CLIENT TO CONFIRM]</span>
 </div>
-<!-- Layer 3: Center column top + bottom (2) — flagship case-study heroes -->
-<div class="fm-layer">
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
-<div><img alt="" loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&amp;auto=format&amp;fit=crop&amp;q=70"/></div>
+<span class="dossier-duration">90-Day Protocol</span>
 </div>
-<!-- Center scaler — THE hero. Opens full-viewport, shrinks into its grid cell -->
-<div class="fm-scaler">
-<img alt="Featured FitMorphs transformation" loading="lazy" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1800&amp;auto=format&amp;fit=crop&amp;q=88"/>
+</article>
+<article class="dossier-card" data-reveal="fade-up">
+<div aria-hidden="true" class="fm-photo-pending fm-photo-pending--fill"><div class="fm-photo-pending-mark"><span class="diamond"></span><span>Photo Pending</span></div></div>
+<div class="dossier-body">
+<span class="dossier-eyebrow">PCOD &amp; Hormones</span>
+<div class="dossier-stat">Regulated Cycles</div>
+<span class="dossier-duration">Ongoing</span>
 </div>
+</article>
+<article class="dossier-card" data-reveal="fade-up">
+<div aria-hidden="true" class="fm-photo-pending fm-photo-pending--fill"><div class="fm-photo-pending-mark"><span class="diamond"></span><span>Photo Pending</span></div></div>
+<div class="dossier-body">
+<span class="dossier-eyebrow">Body Recomposition</span>
+<div class="dossier-stat">Lean in 90 Days</div>
+<span class="dossier-duration">90-Day Protocol</span>
 </div>
-</div>
-</section>
+</article>
 </div>
 <div class="fm-grid-outro fade-in-section">
 <p class="fm-grid-fin">Real stories. One <em>protocol</em>.<span>More every quarter.</span></p>
@@ -215,7 +183,7 @@
 </div>
 <div class="video-grid stagger-children">
 <div aria-label="Patient story coming soon — Type 2 reversal" class="video-card video-card-pending" data-pending="true" role="button" tabindex="0">
-<img alt="Patient story — Type 2 reversal (release pending)" loading="lazy" src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+<div aria-hidden="true" class="fm-photo-pending" style="aspect-ratio:4/5;"><div class="fm-photo-pending-mark"><span class="diamond"></span><span>Photo Pending</span></div></div>
 <div class="video-overlay">
 <span class="video-eyebrow">Coming Soon</span>
 <span class="video-title">Type 2 Reversal</span>
@@ -223,15 +191,15 @@
 </div>
 </div>
 <div aria-label="Patient story coming soon — Fat loss recomposition" class="video-card video-card-pending" data-pending="true" role="button" tabindex="0">
-<img alt="Patient story — fat-loss recomposition (release pending)" loading="lazy" src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+<div aria-hidden="true" class="fm-photo-pending" style="aspect-ratio:4/5;"><div class="fm-photo-pending-mark"><span class="diamond"></span><span>Photo Pending</span></div></div>
 <div class="video-overlay">
 <span class="video-eyebrow">Coming Soon</span>
-<span class="video-title">22kg Recomposition</span>
+<span class="video-title">[CLIENT TO CONFIRM] kg Recomposition</span>
 <span class="video-meta">Mumbai · 16-Week Arc</span>
 </div>
 </div>
 <div aria-label="Patient story coming soon — PCOD reset" class="video-card video-card-pending" data-pending="true" role="button" tabindex="0">
-<img alt="Patient story — PCOD reset (release pending)" loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&amp;fit=crop&amp;q=80&amp;w=800"/>
+<div aria-hidden="true" class="fm-photo-pending" style="aspect-ratio:4/5;"><div class="fm-photo-pending-mark"><span class="diamond"></span><span>Photo Pending</span></div></div>
 <div class="video-overlay">
 <span class="video-eyebrow">Coming Soon</span>
 <span class="video-title">PCOD Reset</span>
@@ -317,257 +285,7 @@
         </a>
 </div>
 
-<!-- Cinematic scroll-driven grid (Motion library, Jhey-style) -->
-<script type="module">
-        import { animate, scroll, cubicBezier } from 'https://cdn.jsdelivr.net/npm/motion@11.11.16/+esm';
-
-        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        // Coarse-pointer detection — on phones/tablets, use a calmer scroll-length
-        const isCoarse = window.matchMedia('(pointer: coarse)').matches;
-        if (!reduced) {
-            const stage = document.querySelector('.fm-grid-scroll-stage');
-            const image = document.querySelector('.fm-grid .fm-scaler img');
-            const scaler = document.querySelector('.fm-grid .fm-scaler');
-            const layers = document.querySelectorAll('.fm-grid > .fm-layer');
-
-            const start = () => {
-                if (!stage || !image || !scaler || !layers.length) return;
-
-                // Reset any inline width/height so we measure the natural grid cell
-                image.style.width = '';
-                image.style.height = '';
-                const naturalW = scaler.offsetWidth || image.offsetWidth;
-                const naturalH = scaler.offsetHeight || image.offsetHeight;
-                // Cap "from" size to viewport so the scaler never overflows on iOS
-                // Safari (where 100vw can exceed visible width post-URL-bar shift)
-                const vw = Math.min(window.innerWidth, document.documentElement.clientWidth);
-                const vh = Math.min(window.innerHeight, document.documentElement.clientHeight);
-
-                // Each animation gets its own scroll() with a numeric [start, end]
-                // offset (0..1 along the stage). Motion v11's scroll() driver doesn't
-                // respect keyframe-offset holds with duplicate values — it collapses
-                // them and falls back to document scroll. Numeric range offsets
-                // are the reliable way to stagger.
-
-                // Center scaler: animates over the first 85% of the stage so it's
-                // fully settled before the sticky region releases.
-                scroll(
-                    animate(image, {
-                        width: [vw, naturalW],
-                        height: [vh, naturalH]
-                    }, {
-                        width: { easing: cubicBezier(0.65, 0, 0.35, 1) },
-                        height: { easing: cubicBezier(0.42, 0, 0.58, 1) }
-                    }),
-                    { target: stage, offset: [0, 0.85] }
-                );
-
-                // Layered reveal — different ease per layer for dimensional cinematic feel.
-                // Layer 0 (outer) starts earliest; layer 2 (center) starts latest → stacked depth.
-                const scaleEasings = [
-                    cubicBezier(0.42, 0, 0.58, 1),  // outer — gentle (power1)
-                    cubicBezier(0.76, 0, 0.24, 1),  // inner — assertive (power3)
-                    cubicBezier(0.87, 0, 0.13, 1)   // center top/bottom — punchy (power4)
-                ];
-                const scaleStarts = [0.30, 0.42, 0.54];
-                const opacityStarts = [0.50, 0.58, 0.66];
-
-                layers.forEach((layer, i) => {
-                    scroll(
-                        animate(layer, { opacity: [0, 1] }, {
-                            easing: cubicBezier(0.61, 1, 0.88, 1)  // sine.out
-                        }),
-                        { target: stage, offset: [opacityStarts[i] || 0.55, 1] }
-                    );
-
-                    scroll(
-                        animate(layer, { scale: [0, 1] }, {
-                            easing: scaleEasings[i] || scaleEasings[0]
-                        }),
-                        { target: stage, offset: [scaleStarts[i] || 0.3, 1] }
-                    );
-                });
-            };
-
-            // Start once the scaler image has measurable layout dimensions
-            if (image && image.complete && image.naturalWidth > 0) {
-                requestAnimationFrame(start);
-            } else if (image) {
-                image.addEventListener('load', () => requestAnimationFrame(start), { once: true });
-                image.addEventListener('error', () => requestAnimationFrame(start), { once: true });
-            }
-        }
-    </script>
 <script src="script.js"></script>
-<!-- Three.js + GSAP for displacement slider -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script>
-    (function () {
-        const sliderEl = document.getElementById('fm-slider');
-        const loadingEl = document.getElementById('fm-slider-loading');
-        const imgs = Array.from(sliderEl.querySelectorAll('img[data-slide-img]'));
-
-        function initSlider() {
-            loadingEl.classList.add('hidden');
-            setTimeout(() => loadingEl.remove(), 900);
-
-            const W = sliderEl.offsetWidth;
-            const H = sliderEl.offsetHeight;
-
-            const vertex = `
-                varying vec2 vUv;
-                void main() {
-                    vUv = uv;
-                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-                }
-            `;
-            const fragment = `
-                varying vec2 vUv;
-                uniform sampler2D currentImage;
-                uniform sampler2D nextImage;
-                uniform float dispFactor;
-                void main() {
-                    vec2 uv = vUv;
-                    float intensity = 0.3;
-                    vec4 orig1 = texture2D(currentImage, uv);
-                    vec4 orig2 = texture2D(nextImage, uv);
-                    vec4 _cur = texture2D(currentImage, vec2(uv.x, uv.y + dispFactor * (orig2.r * intensity)));
-                    vec4 _nxt = texture2D(nextImage, vec2(uv.x, uv.y + (1.0 - dispFactor) * (orig1.r * intensity)));
-                    gl_FragColor = mix(_cur, _nxt, dispFactor);
-                }
-            `;
-
-            const renderer = new THREE.WebGLRenderer({ antialias: false });
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            renderer.setClearColor(0x0f0f0c, 1.0);
-            renderer.setSize(W, H);
-            sliderEl.insertBefore(renderer.domElement, sliderEl.firstChild);
-
-            const loader = new THREE.TextureLoader();
-            loader.crossOrigin = 'anonymous';
-            const textures = imgs.map(img => {
-                const t = loader.load(img.src);
-                t.magFilter = t.minFilter = THREE.LinearFilter;
-                t.anisotropy = renderer.capabilities.getMaxAnisotropy();
-                return t;
-            });
-
-            const scene = new THREE.Scene();
-            const camera = new THREE.OrthographicCamera(W / -2, W / 2, H / 2, H / -2, 1, 1000);
-            camera.position.z = 1;
-
-            const mat = new THREE.ShaderMaterial({
-                uniforms: {
-                    dispFactor: { value: 0.0 },
-                    currentImage: { value: textures[0] },
-                    nextImage: { value: textures[1] },
-                },
-                vertexShader: vertex,
-                fragmentShader: fragment,
-                transparent: true,
-                opacity: 1.0
-            });
-
-            const geo = new THREE.PlaneGeometry(W, H, 1);
-            const mesh = new THREE.Mesh(geo, mat);
-            scene.add(mesh);
-
-            const pagBtns = Array.from(document.querySelectorAll('#fm-pagination button'));
-            let isAnimating = false;
-
-            pagBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    if (isAnimating) return;
-                    isAnimating = true;
-
-                    document.querySelector('#fm-pagination .active').className = '';
-                    this.className = 'active';
-
-                    const id = parseInt(this.dataset.slide, 10);
-                    mat.uniforms.nextImage.value = textures[id];
-                    mat.uniforms.nextImage.needsUpdate = true;
-
-                    gsap.to(mat.uniforms.dispFactor, {
-                        duration: 1,
-                        value: 1,
-                        ease: 'expo.inOut',
-                        onComplete() {
-                            mat.uniforms.currentImage.value = textures[id];
-                            mat.uniforms.currentImage.needsUpdate = true;
-                            mat.uniforms.dispFactor.value = 0.0;
-                            isAnimating = false;
-                        }
-                    });
-
-                    const titleEl = document.getElementById('fm-slide-title');
-                    const catEl = document.getElementById('fm-slide-category');
-                    const nextTitle = sliderEl.querySelector(`[data-fm-title="${id}"]`).innerHTML;
-                    const nextCat = sliderEl.querySelector(`[data-fm-category="${id}"]`).innerHTML;
-
-                    gsap.fromTo(titleEl, { autoAlpha: 1, y: 0 }, {
-                        duration: 0.5, autoAlpha: 0, y: 20, ease: 'expo.in',
-                        onComplete() {
-                            titleEl.innerHTML = nextTitle;
-                            gsap.to(titleEl, { duration: 0.5, autoAlpha: 1, y: 0 });
-                        }
-                    });
-
-                    gsap.fromTo(catEl, { autoAlpha: 1, y: 0 }, {
-                        duration: 0.5, autoAlpha: 0, y: 20, ease: 'expo.in',
-                        onComplete() {
-                            catEl.innerHTML = nextCat;
-                            gsap.to(catEl, { duration: 0.5, autoAlpha: 1, y: 0, delay: 0.1 });
-                        }
-                    });
-                });
-            });
-
-            let resizeRaf;
-            window.addEventListener('resize', () => {
-                if (resizeRaf) cancelAnimationFrame(resizeRaf);
-                resizeRaf = requestAnimationFrame(() => {
-                    renderer.setSize(sliderEl.offsetWidth, sliderEl.offsetHeight);
-                });
-            });
-
-            // Touch swipe for mobile — horizontal swipe navigates pagination
-            let touchX = 0, touchY = 0;
-            sliderEl.addEventListener('touchstart', (e) => {
-                touchX = e.touches[0].clientX;
-                touchY = e.touches[0].clientY;
-            }, { passive: true });
-            sliderEl.addEventListener('touchend', (e) => {
-                if (isAnimating) return;
-                const dx = e.changedTouches[0].clientX - touchX;
-                const dy = e.changedTouches[0].clientY - touchY;
-                if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
-                const active = document.querySelector('#fm-pagination .active');
-                const idx = pagBtns.indexOf(active);
-                const nextIdx = dx < 0
-                    ? (idx + 1) % pagBtns.length
-                    : (idx - 1 + pagBtns.length) % pagBtns.length;
-                pagBtns[nextIdx].click();
-            }, { passive: true });
-
-            (function render() {
-                requestAnimationFrame(render);
-                renderer.render(scene, camera);
-            })();
-        }
-
-        let loaded = 0;
-        function onImgLoad() {
-            loaded++;
-            if (loaded === imgs.length) initSlider();
-        }
-        imgs.forEach(img => {
-            if (img.complete && img.naturalWidth > 0) { onImgLoad(); }
-            else { img.addEventListener('load', onImgLoad); img.addEventListener('error', onImgLoad); }
-        });
-        if (imgs.length === 0) initSlider();
-    })();
-    </script>
 <script>document.querySelectorAll("[data-fm-year]").forEach(el=>el.textContent=new Date().getFullYear());</script>
 <script>
     // ── Live HbA1c reversal ticker ──
