@@ -65,6 +65,11 @@ body {
   opacity: 0;
   transition: opacity var(--page-transition-duration) ease-in-out,
               transform var(--page-transition-duration) ease-in-out;
+  /* Failsafe: if motion.js never runs (script blocked/failed to load), this
+     animation reveals the page anyway after 1.5s so it can never get stuck
+     permanently invisible. In the normal path .loaded lands in a few ms and
+     cancels it. */
+  animation: fm-body-failsafe 0.01s linear 1.5s forwards;
   /* overflow-x: clip instead of hidden — clip does NOT create a scroll container,
      so position:sticky elements continue to work against the viewport. */
   overflow-x: clip;
@@ -72,7 +77,9 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-body.loaded  { opacity: 1; transform: translateY(0); }
+@keyframes fm-body-failsafe { to { opacity: 1; } }
+
+body.loaded  { opacity: 1; transform: translateY(0); animation: none; }
 body.page-exit { opacity: 0; transform: translateY(-10px); }
 
 /* =========================================================
@@ -435,7 +442,6 @@ ul { list-style: none; }
   opacity: 0; transform: translateY(32px);
   transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
 }
 .fade-in-section.is-visible { opacity: 1; transform: none; }
 
@@ -1902,7 +1908,6 @@ body { overflow-x: clip; }
   top: 0; left: 0;
   background: transparent;
   border-radius: 50%;
-  will-change: transform;
 }
 .star-layer::after {
   content: '';
