@@ -53,7 +53,13 @@ html {
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: var(--text-primary);
   background-color: var(--dark);
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth removed — Lenis now owns scroll smoothing on
+     desktop (including its own scrollTo() for anchor links), and the
+     touch/reduced-motion fallback in script.js manually steps scrollTo()
+     frame-by-frame to build its own easing. Native smooth-scroll was
+     re-easing every one of those programmatic updates on top of Lenis's
+     own easing — two competing animation loops fighting over the same
+     scrollTop every frame, which is what read as scroll jitter. */
   scroll-padding-top: 90px;
   cursor: none !important;
 }
