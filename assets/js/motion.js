@@ -523,11 +523,29 @@
 
   /* ------------------------------------------------------------
      TEAM CARDS — grayscale→color portrait reveal on scroll-in
-     (pure CSS filter transition; this just toggles the class).
+     (pure CSS filter transition; this just toggles the class), plus
+     tap-to-flip on touch devices where :hover never fires so the bio
+     on the card back would otherwise be unreachable.
      ------------------------------------------------------------ */
   function initTeamCards() {
     var cards = gsap.utils.toArray('.team-card.flip-card');
     if (!cards.length) return;
+
+    // Tap-to-flip: only on devices without hover (phones/tablets). Desktop
+    // keeps the CSS :hover flip. Made keyboard-accessible too.
+    if (window.matchMedia('(hover: none)').matches) {
+      cards.forEach(function (card) {
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', 'Flip card for details');
+        var toggle = function () { card.classList.toggle('is-flipped'); };
+        card.addEventListener('click', toggle);
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+        });
+      });
+    }
+
     if (MOTION.reduced || !ScrollTrigger) {
       cards.forEach(function (c) { c.classList.add('in-view'); });
       return;

@@ -90,9 +90,14 @@
             transform-style: preserve-3d;
             transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .team-grid .team-card.flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
+        /* Hover-flip only on devices that actually hover (desktop). Touch
+           devices use tap-to-flip via the .is-flipped class (added by
+           motion.js), so a phone's sticky-hover can't fight the toggle. */
+        @media (hover: hover) {
+            .team-grid .team-card.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
         }
+        .team-grid .team-card.flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
+        .team-grid .team-card.flip-card { cursor: pointer; }
         .team-grid .flip-card-front {
             position: absolute;
             inset: 0;
@@ -107,7 +112,13 @@
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
         }
-        .team-grid .team-card.flip-card:hover .flip-card-front {
+        @media (hover: hover) {
+            .team-grid .team-card.flip-card:hover .flip-card-front {
+                border-color: rgba(212, 160, 23, 0.4);
+                box-shadow: 0 15px 35px rgba(212, 160, 23, 0.15);
+            }
+        }
+        .team-grid .team-card.flip-card.is-flipped .flip-card-front {
             border-color: rgba(212, 160, 23, 0.4);
             box-shadow: 0 15px 35px rgba(212, 160, 23, 0.15);
         }
@@ -131,8 +142,8 @@
         .team-grid .team-card.flip-card.in-view .team-img-wrapper img {
             filter: grayscale(10%) contrast(1.05);
         }
-        .team-grid .team-card.flip-card:hover .team-img-wrapper img {
-            transform: scale(1.04);
+        @media (hover: hover) {
+            .team-grid .team-card.flip-card:hover .team-img-wrapper img { transform: scale(1.04); }
         }
         .team-grid .team-content {
             position: relative;
@@ -187,7 +198,10 @@
             -webkit-backface-visibility: hidden;
             transition: box-shadow 0.3s ease;
         }
-        .team-grid .team-card.flip-card:hover .flip-card-back {
+        @media (hover: hover) {
+            .team-grid .team-card.flip-card:hover .flip-card-back { box-shadow: 0 15px 35px rgba(212, 160, 23, 0.2); }
+        }
+        .team-grid .team-card.flip-card.is-flipped .flip-card-back {
             box-shadow: 0 15px 35px rgba(212, 160, 23, 0.2);
         }
         .team-grid .flip-card-back h5 {
