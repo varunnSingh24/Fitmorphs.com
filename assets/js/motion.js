@@ -453,21 +453,31 @@
     if (regMark) gsap.set(regMark, { opacity: 0 });
     if (sweep) gsap.set(sweep, { xPercent: -150 });
 
+    // Handoff and cleanup are deliberately separate: handoff starts the
+    // hero reveal underneath while the splash is still fading above it;
+    // cleanup (display:none) must only land after the fade completes —
+    // collapsing them into one call is what used to hard-cut the exit.
     var done = false;
-    function finish() {
+    function handoff() {
       if (done) return;
       done = true;
       document.body.style.overflow = '';
-      intro.style.display = 'none';
       onDone();
+    }
+    var cleaned = false;
+    function cleanup() {
+      if (cleaned) return;
+      cleaned = true;
+      handoff();
+      intro.style.display = 'none';
     }
     // Safety net: GSAP's ticker rides on requestAnimationFrame, which
     // browsers throttle to near-zero on hidden/backgrounded tabs. If the
-    // timeline hasn't finished naturally within 3.5s, force the handoff
-    // so the page can never get stuck behind the splash.
-    setTimeout(finish, 3500);
+    // timeline hasn't finished naturally by then, force the handoff so
+    // the page can never get stuck behind the splash.
+    setTimeout(cleanup, 4200);
 
-    var tl = gsap.timeline({ onComplete: finish });
+    var tl = gsap.timeline({ paused: true, onComplete: cleanup });
 
     tl.to(eyebrow, { opacity: 1, y: 0, duration: 0.4, ease: MOTION.easeGsap })
       .to(hairlines[0], { scaleX: 1, duration: 0.5, ease: MOTION.easeGsap }, '<0.1')
@@ -483,11 +493,26 @@
       .to(sweep, { xPercent: 150, duration: 0.55, ease: 'power2.inOut' }, '<')
       .to(hairlines[1], { scaleX: 1, duration: 0.4, ease: MOTION.easeGsap }, '<0.1')
       .to(tagline, { opacity: 1, y: 0, duration: 0.4, ease: MOTION.easeGsap }, '<0.1')
-      // Hold, then curtain exit — hero reveal fires 0.3s before this
-      // finishes so the handoff overlaps rather than hard-cutting.
+      // Hold, then exit: hero reveal starts at the same moment the fade
+      // begins, so the splash dissolves over the entering hero as one move.
       .to({}, { duration: 0.35 })
-      .call(finish, null, '-=0.3')
-      .to(intro, { autoAlpha: 0, duration: 0.5, ease: MOTION.easeGsap }, '-=0.1');
+      .call(handoff)
+      .to(intro, { autoAlpha: 0, duration: 0.65, ease: 'power2.inOut' }, '<');
+
+    // Start only after the wordmark's webfont is ready (display=swap would
+    // otherwise swap the letterforms mid-reveal) and past the body's own
+    // 0.38s fade-in, so the choreography opens on a settled, opaque stage.
+    // Capped at 800ms — a slow font never holds the page hostage.
+    var started = false;
+    function start() {
+      if (started || done) return;
+      started = true;
+      tl.play();
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () { setTimeout(start, 150); });
+    }
+    setTimeout(start, 800);
 
     // Skippable on click/keypress.
     function skip() {
