@@ -64,12 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
       hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.classList.toggle('menu-open', isOpen);
     });
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
       });
     });
   }

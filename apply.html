@@ -62,7 +62,7 @@
 <div class="badge-text"><h4>Doctor Supervised</h4><p>100% safe clinical protocols</p></div>
 </div>
 <div class="badge" role="listitem">
-<div aria-hidden="true" class="badge-icon">🔒</div>
+<div aria-hidden="true" class="badge-icon"><svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="16"><rect height="10" rx="2" width="14" x="5" y="11"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div>
 <div class="badge-text"><h4>100% Secure</h4><p>Your medical data is protected</p></div>
 </div>
 <div class="badge" role="listitem">
@@ -70,8 +70,8 @@
 <div class="badge-text"><h4>4.9/5 Rating</h4><p>Thousands of happy clients</p></div>
 </div>
 <div class="badge" role="listitem">
-<div aria-hidden="true" class="badge-icon">📈</div>
-<div class="badge-text"><h4>Doctor-Supervised</h4><p>Proven track record</p></div>
+<div aria-hidden="true" class="badge-icon"><svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="16"><polyline points="3 17 9 11 13 15 21 7"></polyline><polyline points="15 7 21 7 21 13"></polyline></svg></div>
+<div class="badge-text"><h4>Proven Results</h4><p>Documented client outcomes</p></div>
 </div>
 </div>
 <div class="direct-contact">
@@ -93,7 +93,7 @@
 <div class="apply-form-container fade-in-section">
 <div style="max-width:520px; width:100%; margin:0 auto; padding:2.5rem; border-radius:16px; border:1px solid rgba(201,162,39,0.18); box-shadow:0 8px 40px rgba(161,124,47,0.08); background:var(--white);">
 <!-- Waitlist banner — shown when arrived via ?interest=… deep link from a waitlist pathway tile on the homepage -->
-<div hidden="" id="waitlistBanner" style="margin: -1.5rem -1.5rem 1.5rem; padding: 0.9rem 1.25rem; border-radius: 12px; background: linear-gradient(135deg, rgba(212,160,23,0.10), rgba(212,160,23,0.04)); border: 1px solid rgba(212,160,23,0.32); display: flex; align-items: center; gap: 0.75rem; font-family: 'Plus Jakarta Sans', sans-serif;">
+<div hidden="" id="waitlistBanner" style="margin: -1.5rem -1.5rem 1.5rem; padding: 0.9rem 1.25rem; border-radius: 12px; background: linear-gradient(135deg, rgba(212,160,23,0.10), rgba(212,160,23,0.04)); border: 1px solid rgba(212,160,23,0.32); align-items: center; gap: 0.75rem; font-family: 'Plus Jakarta Sans', sans-serif;">
 <span aria-hidden="true" style="display:inline-flex; width:32px; height:32px; flex-shrink:0; border-radius:50%; background:rgba(212,160,23,0.15); align-items:center; justify-content:center;">
 <svg fill="none" height="14" stroke="#d4a017" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
 </span>
@@ -285,6 +285,7 @@
         if (banner && label) {
             label.textContent = cfg.label;
             banner.hidden = false;
+            banner.style.display = 'flex';
         }
         // Pre-select the closest existing goal card if there is one.
         if (cfg.goal) {
