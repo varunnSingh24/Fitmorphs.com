@@ -275,7 +275,6 @@
       indicator.setAttribute('aria-hidden', 'true');
       var container = nav.querySelector('.nav-links');
       if (container) {
-        container.style.position = container.style.position || 'relative';
         container.appendChild(indicator);
 
         var moveTo = function (el) {
